@@ -1,5 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Pratap Online Centre Website Loaded Successfully!");
+// Pratap Online Centre
 
-    alert("Welcome to Pratap Online Centre!");
+console.log("Website Loaded Successfully");
+
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function () {
+        console.log("Clicked:", this.innerText);
+    });
 });
