@@ -1071,3 +1071,25 @@ background:#0d6efd;
 color:#ffffff !important;
 
 }
+
+/* ===============================
+   ACTIVE NAVIGATION
+================================= */
+
+.navbar-nav .nav-link.active{
+
+    background:#0d6efd;
+
+    color:#fff !important;
+
+    border-radius:10px;
+
+    padding:10px 18px;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
