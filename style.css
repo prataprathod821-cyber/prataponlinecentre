@@ -958,3 +958,116 @@ transform:translateY(0);
 .nav-link:hover{
     color:#0d6efd;
 }
+/* ===========================
+   MOBILE MENU
+=========================== */
+
+@media (max-width:991px){
+
+.navbar-collapse{
+
+    background:#ffffff;
+
+    margin-top:15px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+
+    animation:menuFade .35s ease;
+
+}
+
+.navbar-nav{
+
+    text-align:center;
+
+}
+
+.navbar-nav .nav-item{
+
+    margin:12px 0;
+
+}
+
+.navbar .btn{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+}
+
+@keyframes menuFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(-20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+.navbar-toggler{
+
+border:none;
+
+padding:10px 12px;
+
+border-radius:12px;
+
+background:#ffffff;
+
+box-shadow:0 5px 20px rgba(0,0,0,.10);
+
+transition:.3s;
+
+}
+
+.navbar-toggler:hover{
+
+transform:scale(1.05);
+
+}
+
+.navbar-toggler:focus{
+
+box-shadow:none;
+
+}
+
+.navbar-toggler-icon{
+
+filter:brightness(.35);
+
+}
+.navbar-nav .nav-link{
+
+padding:10px 18px;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.navbar-nav .nav-link:hover{
+
+background:#0d6efd;
+
+color:#ffffff !important;
+
+}
