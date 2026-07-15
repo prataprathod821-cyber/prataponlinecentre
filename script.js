@@ -1,153 +1,244 @@
-// ================================
-// PRATAP ONLINE CENTRE
-// Premium JavaScript
-// ================================
+/* ==========================================
+   PRATAP ONLINE CENTRE
+   SCRIPT V2
+========================================== */
 
-// Sticky Navbar Shadow
-const navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", () => {
 
-window.addEventListener("scroll", () => {
+    /* ==========================
+       PRELOADER
+    ========================== */
 
-if(window.scrollY > 50){
+    const preloader = document.getElementById("preloader");
 
-navbar.style.background = "#084298";
+    window.addEventListener("load", () => {
 
-navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.20)";
+        if(preloader){
 
-}else{
+            preloader.style.opacity="0";
 
-navbar.style.background = "#0b5ed7";
+            preloader.style.visibility="hidden";
 
-navbar.style.boxShadow = "none";
+            setTimeout(()=>{
 
-}
+                preloader.style.display="none";
+
+            },500);
+
+        }
+
+    });
+
+    /* ==========================
+       NAVBAR SHADOW
+    ========================== */
+
+    const navbar=document.querySelector(".navbar");
+
+    window.addEventListener("scroll",()=>{
+
+        if(window.scrollY>60){
+
+            navbar.classList.add("shadow");
+
+        }else{
+
+            navbar.classList.remove("shadow");
+
+        }
+
+    });
+
+    /* ==========================
+       SMOOTH SCROLL
+    ========================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+        anchor.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            const target=document.querySelector(this.getAttribute("href"));
+
+            if(target){
+
+                target.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        });
+
+    });
+
+    /* ==========================
+       ACTIVE NAV LINK
+    ========================== */
+
+    const sections=document.querySelectorAll("section");
+
+    const navLinks=document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll",()=>{
+
+        let current="";
+
+        sections.forEach(section=>{
+
+            const top=section.offsetTop-120;
+
+            if(pageYOffset>=top){
+
+                current=section.getAttribute("id");
+
+            }
+
+        });
+
+        navLinks.forEach(link=>{
+
+            link.classList.remove("active");
+
+            if(link.getAttribute("href")==="#"+current){
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+    /* ==========================
+       COUNTER ANIMATION
+    ========================== */
+
+    const counters=document.querySelectorAll(".hero-counter h2");
+
+    counters.forEach(counter=>{
+
+        const update=()=>{
+
+            const target=parseInt(counter.innerText);
+
+            let count=parseInt(counter.getAttribute("data-count"))||0;
+
+            const increment=Math.ceil(target/80);
+
+            if(count<target){
+
+                count+=increment;
+
+                counter.setAttribute("data-count",count);
+
+                counter.innerText=count+"+";
+
+                requestAnimationFrame(update);
+
+            }else{
+
+                counter.innerText=target+"+";
+
+            }
+
+        };
+
+        update();
+
+    });
+
+    /* ==========================
+       SCROLL ANIMATION
+    ========================== */
+
+    const observer=new IntersectionObserver(entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },{
+
+        threshold:0.15
+
+    });
+
+    document.querySelectorAll("section").forEach(sec=>{
+
+        sec.classList.add("hidden");
+
+        observer.observe(sec);
+
+    });
+
+    /* ==========================
+       GALLERY CLICK
+    ========================== */
+
+    document.querySelectorAll(".gallery-img").forEach(img=>{
+
+        img.addEventListener("click",()=>{
+
+            window.open(img.src,"_blank");
+
+        });
+
+    });
+
+    /* ==========================
+       SERVICE CARD EFFECT
+    ========================== */
+
+    document.querySelectorAll(".service-card").forEach(card=>{
+
+        card.addEventListener("mouseenter",()=>{
+
+            card.style.transform="translateY(-10px)";
+
+        });
+
+        card.addEventListener("mouseleave",()=>{
+
+            card.style.transform="translateY(0)";
+
+        });
+
+    });
+
+    /* ==========================
+       FLOATING BUTTON EFFECT
+    ========================== */
+
+    document.querySelectorAll(".floating-call,.floating-whatsapp").forEach(btn=>{
+
+        btn.addEventListener("mouseenter",()=>{
+
+            btn.style.transform="scale(1.1)";
+
+        });
+
+        btn.addEventListener("mouseleave",()=>{
+
+            btn.style.transform="scale(1)";
+
+        });
+
+    });
+
+    /* ==========================
+       CONSOLE MESSAGE
+    ========================== */
+
+    console.log("Pratap Online Centre Website Loaded Successfully");
 
 });
-
-// Smooth Scroll
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-
-anchor.addEventListener("click",function(e){
-
-e.preventDefault();
-
-document.querySelector(this.getAttribute("href"))
-
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-});
-
-});
-
-// Fade Animation
-
-const observer = new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-}
-
-});
-
-});
-
-document.querySelectorAll("section").forEach(section=>{
-
-section.style.opacity="0";
-
-section.style.transform="translateY(60px)";
-
-section.style.transition=".8s";
-
-observer.observe(section);
-
-});
-
-// Counter Animation
-
-const counters=document.querySelectorAll(".hero-features h3");
-
-let started=false;
-
-window.addEventListener("scroll",()=>{
-
-if(started) return;
-
-if(window.scrollY>100){
-
-started=true;
-
-counters.forEach(counter=>{
-
-const target=parseInt(counter.innerText);
-
-let count=0;
-
-const speed=target/80;
-
-const update=()=>{
-
-count+=speed;
-
-if(count<target){
-
-counter.innerText=Math.floor(count)+"+";
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText=target+"+";
-
-}
-
-}
-
-update();
-
-});
-
-}
-
-});
-
-// Service Card Hover Glow
-
-document.querySelectorAll(".service-card").forEach(card=>{
-
-card.addEventListener("mouseenter",()=>{
-
-card.style.boxShadow="0 20px 45px rgba(11,94,215,.35)";
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.boxShadow="0 10px 35px rgba(0,0,0,.08)";
-
-});
-
-});
-
-// Current Year
-
-const footer=document.querySelector("footer");
-
-if(footer){
-
-footer.innerHTML=footer.innerHTML.replace("2026",new Date().getFullYear());
-
-}
-
-console.log("Pratap Online Centre Website Loaded Successfully");
