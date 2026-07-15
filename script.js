@@ -258,3 +258,25 @@ navbar.classList.remove("scrolled");
 }
 
 });
+
+/* ===============================
+   AUTO CLOSE MOBILE MENU
+================================= */
+
+const navLinks = document.querySelectorAll('.nav-link');
+
+const navCollapse = document.querySelector('.navbar-collapse');
+
+navLinks.forEach(link => {
+
+    link.addEventListener('click', () => {
+
+        if(navCollapse.classList.contains('show')){
+
+            new bootstrap.Collapse(navCollapse).hide();
+
+        }
+
+    });
+
+});
