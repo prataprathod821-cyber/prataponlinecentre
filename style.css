@@ -894,4 +894,67 @@ transition:all .8s ease;
 opacity:1;
 transform:translateY(0);
 }
+/* ===========================
+   PREMIUM STICKY NAVBAR
+=========================== */
 
+#navbar{
+    background:#ffffff;
+    transition:all .35s ease;
+    padding:15px 0;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+}
+
+#navbar.scrolled{
+    padding:8px 0;
+    background:rgba(255,255,255,.98);
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.navbar-brand img{
+    width:58px;
+    height:58px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:.35s;
+}
+
+#navbar.scrolled .navbar-brand img{
+    width:48px;
+    height:48px;
+}
+
+.navbar-brand h4{
+    font-size:22px;
+    transition:.35s;
+}
+
+#navbar.scrolled .navbar-brand h4{
+    font-size:20px;
+}
+
+.nav-link{
+    font-weight:600;
+    position:relative;
+    transition:.3s;
+}
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#0d6efd;
+    transition:.3s;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+.nav-link:hover{
+    color:#0d6efd;
+}
