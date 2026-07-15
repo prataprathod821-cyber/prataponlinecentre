@@ -1093,3 +1093,35 @@ html{
     scroll-behavior:smooth;
 
 }
+
+#navbar{
+
+z-index:9999;
+
+}
+
+#navbar.scrolled{
+
+animation:navDrop .35s ease;
+
+}
+
+@keyframes navDrop{
+
+0%{
+
+transform:translateY(-25px);
+
+opacity:.3;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
