@@ -280,3 +280,39 @@ navLinks.forEach(link => {
     });
 
 });
+
+/* ===============================
+   ACTIVE MENU ON SCROLL
+================================= */
+
+const sections = document.querySelectorAll("section[id]");
+
+window.addEventListener("scroll",()=>{
+
+let scrollY = window.pageYOffset;
+
+sections.forEach(current=>{
+
+const sectionHeight = current.offsetHeight;
+
+const sectionTop = current.offsetTop-120;
+
+const sectionId = current.getAttribute("id");
+
+const link=document.querySelector('.navbar a[href="#'+sectionId+'"]');
+
+if(scrollY>sectionTop && scrollY<=sectionTop+sectionHeight){
+
+if(link){
+
+document.querySelectorAll(".navbar .nav-link").forEach(nav=>nav.classList.remove("active"));
+
+link.classList.add("active");
+
+}
+
+}
+
+});
+
+});
