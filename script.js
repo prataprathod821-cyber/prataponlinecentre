@@ -241,4 +241,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Pratap Online Centre Website Loaded Successfully");
 
+});// Sticky Navbar
+
+window.addEventListener("scroll",function(){
+
+const navbar=document.getElementById("navbar");
+
+if(window.scrollY>80){
+
+navbar.classList.add("scrolled");
+
+}else{
+
+navbar.classList.remove("scrolled");
+
+}
+
 });
