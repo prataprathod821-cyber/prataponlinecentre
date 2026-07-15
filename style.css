@@ -762,3 +762,41 @@ opacity:.95;
 position:fixed;
 
 width:
+
+/* ===== Mobile Logo Fix ===== */
+
+@media (max-width:768px){
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+width:45px;
+height:45px;
+object-fit:contain;
+flex-shrink:0;
+}
+
+.hero-grid,
+.about-grid{
+display:block;
+}
+
+.hero-image{
+margin-top:30px;
+text-align:center;
+}
+
+.hero-image img{
+max-width:220px;
+margin:auto;
+}
+
+.nav-links{
+display:none;
+}
+
+}
