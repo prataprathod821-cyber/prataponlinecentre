@@ -140,10 +140,32 @@ margin-right:12px;
 }
 
 .logo h4{
+    font-size:18px;
+    font-weight:700;
+    margin:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
 
-font-size:22px;
-font-weight:700;
-color:var(--primary);
+@media (max-width:576px){
+
+.logo img{
+    width:55px;
+    height:55px;
+}
+
+.logo h4{
+    font-size:16px;
+}
+
+.logo small{
+    font-size:11px;
+}
+
+.navbar-brand{
+    max-width:75%;
+}
 
 }
 
