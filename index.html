@@ -13,13 +13,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="प्रताप ऑनलाइन केंद्र - डिजिटल शासकीय सेवा">
-    <meta property="og:description" content="ग्रामीण भागातील नागरिक, शेतकरी आणि विद्यार्थ्यांसाठी सर्व शासकीय व डिजिटल सेवा एकाच छताखाली.">
+    <meta property="og:description" content="ग्रामीण भागातील नागरिक, shetkari आणि विद्यार्थ्यांसाठी सर्व शासकीय व डिजिटल सेवा एकाच छताखाली.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80">
 
-    <!-- Fonts & Icons -->
+    <!-- Premium Multilingual Typography Setup (Noto Sans Devanagari, Hind & Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
@@ -53,8 +54,33 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            /* Base Marathi Body configuration utilizing Hind with anti-aliasing adjustments */
+            font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             scroll-behavior: smooth;
+        }
+
+        /* Fallback mapping targets for explicit language groups or mixed Latin fragments */
+        body, p, li, td, input, textarea, span {
+            font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.65;
+            letter-spacing: 0.01em;
+        }
+
+        /* Target all layout headings to cleanly employ Noto Sans Devanagari */
+        h1, h2, h3, h4, h5, h6, .section-header h2, .logo-text h1, .hero-content h2, .modal-header-title {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            line-height: 1.35;
+        }
+
+        /* Explicit English text optimization selector */
+        .en-txt, [lang="en"], .logo-text p, .nav-link, .btn, .counter-number {
+            font-family: 'Poppins', 'Hind', sans-serif;
+            letter-spacing: 0.02em;
         }
 
         body {
@@ -99,7 +125,6 @@
             margin-bottom: 50px;
         }
         .section-header h2 {
-            font-family: 'Yatra One', cursive;
             font-size: 2.5rem;
             color: var(--primary-blue);
             margin-bottom: 15px;
@@ -116,7 +141,7 @@
             margin: 8px auto 0;
             border-radius: 2px;
         }
-        .section-header p { font-size: 1.1rem; opacity: 0.8; }
+        .section-header p { font-size: 1.1rem; opacity: 0.8; font-weight: 500; }
 
         /* Preloader */
         #preloader {
@@ -177,7 +202,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .logo-text h1 {
-            font-family: 'Yatra One', cursive;
             font-size: 1.6rem;
             color: var(--primary-blue);
             line-height: 1.2;
@@ -276,6 +300,7 @@
             display: inline-block;
             padding: 0 20px;
             font-size: 0.95rem;
+            font-weight: 500;
         }
         .ticker-item i { color: var(--accent-gold); margin-right: 8px; }
 
@@ -292,7 +317,6 @@
             align-items: center;
         }
         .hero-content h2 {
-            font-family: 'Yatra One', cursive;
             font-size: 3.5rem;
             color: var(--primary-blue);
             line-height: 1.2;
@@ -316,7 +340,8 @@
             font-size: 1.2rem;
             margin-bottom: 35px;
             opacity: 0.9;
-            line-height: 1.6;
+            line-height: 1.65;
+            font-weight: 400;
         }
         .hero-buttons {
             display: flex;
@@ -332,7 +357,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 500;
+            font-weight: 600;
         }
         .h-feat i {
             color: var(--accent-green);
@@ -376,6 +401,7 @@
             gap: 12px;
             align-items: flex-start;
             font-size: 0.95rem;
+            font-weight: 500;
         }
         .hc-updates li:last-child { border: none; }
         .hc-updates li i { color: var(--accent-saffron); margin-top: 4px; }
@@ -396,7 +422,7 @@
             text-align: center;
             color: white;
         }
-        .search-container h3 { font-family: 'Yatra One', cursive; margin-bottom: 15px; font-size: 1.6rem; letter-spacing: 1px; }
+        .search-container h3 { margin-bottom: 15px; font-size: 1.6rem; letter-spacing: 1px; }
         .search-box {
             position: relative;
             display: flex;
@@ -442,7 +468,7 @@
         .counter-card i { font-size: 2.5rem; color: var(--accent-saffron); margin-bottom: 15px; }
         .counter-number { font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 5px; }
         .dark-mode .counter-number { color: white; }
-        .counter-card p { font-weight: 500; opacity: 0.8; font-size: 1rem; }
+        .counter-card p { font-weight: 600; opacity: 0.8; font-size: 1rem; }
 
         /* Services Grid Styling */
         .services-section { padding: 80px 0; }
@@ -500,16 +526,17 @@
         }
         .service-card h3 {
             font-size: 1.25rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
             color: var(--primary-blue);
         }
         .dark-mode .service-card h3 { color: white; }
         .service-card p {
             font-size: 0.9rem;
-            opacity: 0.75;
-            line-height: 1.5;
+            opacity: 0.8;
+            line-height: 1.6;
             margin-bottom: 20px;
+            font-weight: 400;
         }
         .s-action-btn {
             font-size: 0.9rem;
@@ -553,7 +580,7 @@
         }
         .wcu-info h4 { font-size: 1.2rem; margin-bottom: 8px; color: var(--primary-blue); }
         .dark-mode .wcu-info h4 { color: white; }
-        .wcu-info p { font-size: 0.95rem; opacity: 0.8; line-height: 1.5; }
+        .wcu-info p { font-size: 0.95rem; opacity: 0.85; line-height: 1.6; font-weight: 400; }
 
         /* Gallery Section */
         .gallery-section { padding: 80px 0; }
@@ -629,7 +656,6 @@
         .close-modal:hover { color: var(--accent-saffron); }
         
         .modal-header-title {
-            font-family: 'Yatra One', cursive;
             color: var(--primary-blue);
             font-size: 1.8rem;
             margin-bottom: 20px;
@@ -646,7 +672,7 @@
             align-items: center;
             gap: 8px;
         }
-        .modal-section p { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
+        .modal-section p { font-size: 0.95rem; line-height: 1.65; opacity: 0.95; }
         
         /* Modern Data Table inside Modal */
         .modal-table {
@@ -703,8 +729,8 @@
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
             font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.85;
+            line-height: 1.65;
+            opacity: 0.9;
         }
         .faq-item.active .faq-content { padding: 0 20px 20px 20px; max-height: 200px; }
         .faq-item.active .faq-trigger i { transform: rotate(180deg); color: var(--accent-saffron); }
@@ -721,8 +747,8 @@
             position: relative;
             overflow: hidden;
         }
-        .promo-banner h3 { font-family: 'Yatra One', cursive; font-size: 2.2rem; margin-bottom: 15px; }
-        .promo-banner p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+        .promo-banner h3 { font-size: 2.2rem; margin-bottom: 15px; }
+        .promo-banner p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; font-weight: 500; }
         
         /* Contact & Map Grid */
         .contact-section { padding: 80px 0; }
@@ -746,7 +772,7 @@
         .c-detail-item i { font-size: 1.4rem; color: var(--accent-saffron); margin-top: 3px; }
         .c-detail-item h5 { font-size: 1.1rem; margin-bottom: 5px; color: var(--primary-blue); }
         .dark-mode .c-detail-item h5 { color: white; }
-        .c-detail-item p { font-size: 0.95rem; opacity: 0.8; }
+        .c-detail-item p { font-size: 0.95rem; opacity: 0.85; line-height: 1.6; }
         
         .map-box {
             border-radius: 24px;
@@ -799,15 +825,15 @@
             gap: 40px;
             margin-bottom: 40px;
         }
-        .footer-brand h4 { font-family: 'Yatra One', cursive; font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-saffron); }
-        .footer-brand p { font-size: 0.95rem; opacity: 0.75; line-height: 1.6; margin-bottom: 20px; }
+        .footer-brand h4 { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-saffron); }
+        .footer-brand p { font-size: 0.95rem; opacity: 0.8; line-height: 1.65; margin-bottom: 20px; }
         .footer-links h5, .footer-share h5 { font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 8px; }
         .footer-links h5::after, .footer-share h5::after {
             content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: var(--accent-green);
         }
         .footer-links ul { list-style: none; }
         .footer-links ul li { margin-bottom: 12px; }
-        .footer-links ul li a { color: rgba(255,255,255,0.75); text-decoration: none; transition: var(--transition-smooth); font-size: 0.95rem; }
+        .footer-links ul li a { color: rgba(255,255,255,0.75); text-decoration: none; transition: var(--transition-smooth); font-size: 0.95rem; font-weight: 500; }
         .footer-links ul li a:hover { color: var(--accent-gold); padding-left: 5px; }
         
         .social-share-btns {
@@ -856,7 +882,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="spinner"></div>
-        <h2 style="font-family: 'Yatra One', cursive; color: var(--accent-saffron);">प्रताप ऑनलाइन केंद्र</h2>
+        <h2 style="color: var(--accent-saffron);">प्रताप ऑनलाइन केंद्र</h2>
         <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 5px;">डिजिटल सेवा, गती आणि अचूकता...</p>
     </div>
 
@@ -864,7 +890,7 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo-area">
-                <div class="logo-icon"><i class="fa-solid from fa-laptop-code"></i></div>
+                <div class="logo-icon"><i class="fa-solid fa-laptop-code"></i></div>
                 <div class="logo-text">
                     <h1>प्रताप ऑनलाइन केंद्र</h1>
                     <p>DIGITAL SERVICE CENTRE</p>
@@ -986,7 +1012,7 @@
                 <div class="service-card" data-tags="aadhaar adhar aadhar card आधार कार्ड सुधारणा बायोमेट्रिक" onclick="openServiceModal('aadhaar')">
                     <div class="s-icon"><i class="fa-solid fa-id-card"></i></div>
                     <h3>आधार कार्ड सेवा (Aadhaar)</h3>
-                    <p>नवीन आधार नोंदणी, पत्ता बदलणे, मोबाईल लिंक, बायोमेट्रिक अपडेट आणि पीव्हीसी कार्ड ऑर्डर.</p>
+                    <p>नवीन आधार नोंदणी, पत्ता बदलणे, मोबाईल लिंक, बायोमेट्रिक अपडेट आणि पीव्हीसी कार्ड मधील बदल.</p>
                     <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
                 </div>
 
@@ -1003,7 +1029,7 @@
                     <div class="s-icon"><i class="fa-solid fa-passport"></i></div>
                     <h3>पासपोर्ट सेवा (Passport)</h3>
                     <p>नवीन फ्रेश पासपोर्ट अर्ज, नूतनीकरण (Renewal) आणि आवश्यक डॉक्युमेंट अपॉइंटमेंट बुकिंग.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
+                    <span class="s-action-btn">माいたी पहा <i class="fa-solid fa-arrow-right"></i></span>
                 </div>
 
                 <!-- Voter ID Card -->
@@ -1397,15 +1423,15 @@
             },
             passport: {
                 title: "पासपोर्ट सेवा (Passport Seva)",
-                info: "विदेश प्रवासासाठी लागणाऱ्या शासकीय पासपोर्ट मिळण्याकरिता नवीन ऑनलाईन नोंदणी आणि पीएसके (PSK) अपॉइंटमेंट घेऊन दिली जाते.",
-                docs: "आधार कार्ड, पॅन कार्ड, १०वी बोर्ड प्रमाणपत्र किंवा शैक्षणिक दाखला, जन्माचा दाखला, बँक पासबुक.",
-                time: "पोलीस पडताळणीनंतर १५ ते २5 दिवस",
+                info: "नवीन फ्रेश पासपोर्ट अर्ज, नूतनीकरण (Renewal) आणि आवश्यक डॉक्युमेंट अपॉइंटमेंट बुकिंग.",
+                docs: "आधार कार्ड, पॅन कार्ड, १०वी बोर्ड प्रमाणपत्र किंवा शैक्षणिक दाखला, दाखला, बँक पासबुक.",
+                time: "पोलीस पडताळणीनंतर १५ ते २५ दिवस",
                 charges: "शासकीय फी ₹१५०० + केंद्र सेवा शुल्क वेगळे",
                 note: "अपॉइंटमेंटच्या दिवशी सर्व मूळ कागदपत्रे सोबत असणे आवश्यक आहे."
             },
             voter: {
-                title: "मतदार ओळखपत्र सेवा (Voter ID Card)",
-                info: "निवडणूक आयोगाच्या अंतर्गत नवीन नाव नोंदणी, नाव किंवा वय दुरुस्ती आणि डिजिटल स्मार्ट मतदार ओळखपत्र मिळवणे.",
+                title: "मतदान कार्ड (Voter ID)",
+                info: "नवीन मतदार नोंदणी, नाव किंवा पत्ता दुरुस्ती आणि डिजिटल स्मार्ट मतदार कार्ड डाउनलोड.",
                 docs: "आधार कार्ड, वयाचा पुरावा (१०वी प्रमाणपत्र किंवा जन्माचा दाखला), १ पासपोर्ट फोटो, कुटुंबातील एकाचे मतदार कार्ड.",
                 time: "१५ ते ३० दिवस (शासकीय मंजुरीनुसार)",
                 charges: "ऑनलाईन अर्ज नाममात्र शुल्क",
