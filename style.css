@@ -1,1753 +1,724 @@
-/* =======================================================
-   PRATAP ONLINE CENTRE
-   PREMIUM STYLE V3
-   PART 1 - FOUNDATION + NAVBAR
-======================================================= */
-
-/* ---------- GOOGLE FONT ---------- */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* ---------- ROOT ---------- */
-
-:root{
-
---primary:#0d6efd;
---primary-dark:#084298;
---secondary:#198754;
---gold:#ffc107;
---light:#f8fbff;
---white:#ffffff;
---dark:#1f2937;
---gray:#6c757d;
-
---radius:18px;
-
---shadow-sm:0 5px 15px rgba(0,0,0,.08);
-
---shadow-md:0 15px 35px rgba(0,0,0,.10);
-
---shadow-lg:0 25px 50px rgba(0,0,0,.15);
-
-}
-
-/* ---------- RESET ---------- */
-
-*{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
-}
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-body{
-
-font-family:'Poppins',sans-serif;
-
-background:var(--light);
-
-color:var(--dark);
-
-overflow-x:hidden;
-
-line-height:1.7;
-
-}
-
-/* ---------- SCROLLBAR ---------- */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:var(--primary);
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#eef4ff;
-
-}
-
-/* ---------- IMAGES ---------- */
-
-img{
-
-max-width:100%;
-
-display:block;
-
-}
-
-/* ---------- LINKS ---------- */
-
-a{
-
-text-decoration:none;
-
-transition:.3s;
-
-}
-
-/* ---------- SECTION ---------- */
-
-section{
-
-padding:100px 0;
-
-position:relative;
-
-}
-
-/* ---------- CONTAINER ---------- */
-
-.container{
-
-max-width:1200px;
-
-}
-
-/* ---------- SECTION TAG ---------- */
-
-.section-tag{
-
-display:inline-block;
-
-padding:8px 18px;
-
-background:#dbeafe;
-
-color:var(--primary);
-
-border-radius:30px;
-
-font-weight:600;
-
-font-size:14px;
-
-letter-spacing:.5px;
-
-margin-bottom:18px;
-
-}
-
-/* ---------- TITLES ---------- */
-
-h1{
-
-font-size:58px;
-
-font-weight:800;
-
-line-height:1.15;
-
-}
-
-h2{
-
-font-size:42px;
-
-font-weight:700;
-
-margin-bottom:18px;
-
-}
-
-h3{
-
-font-size:30px;
-
-font-weight:700;
-
-}
-
-p{
-
-color:var(--gray);
-
-font-size:17px;
-
-}
-
-/* ---------- BUTTON ---------- */
-
-.btn{
-
-padding:14px 28px;
-
-border-radius:50px;
-
-font-weight:600;
-
-transition:.35s;
-
-box-shadow:var(--shadow-sm);
-
-}
-
-.btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:var(--shadow-md);
-
-}
-
-/* =======================================================
-   PRELOADER
-======================================================= */
-
-#preloader{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:#fff;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-z-index:99999;
-
-}
-
-.loader{
-
-width:65px;
-
-height:65px;
-
-border:6px solid #e5e7eb;
-
-border-top:6px solid var(--primary);
-
-border-radius:50%;
-
-animation:spin .9s linear infinite;
-
-}
-
-@keyframes spin{
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-/* =======================================================
-   NAVBAR
-======================================================= */
-
-#navbar{
-
-background:rgba(255,255,255,.95);
-
-backdrop-filter:blur(14px);
-
-padding:14px 0;
-
-transition:.35s;
-
-box-shadow:0 2px 15px rgba(0,0,0,.05);
-
-z-index:9999;
-
-}
-
-#navbar.scrolled{
-
-padding:8px 0;
-
-box-shadow:var(--shadow-md);
-
-background:rgba(255,255,255,.98);
-
-}
-
-.logo{
-
-display:flex;
-
-align-items:center;
-
-gap:12px;
-
-flex:1;
-
-min-width:0;
-
-}
-
-.logo img{
-
-width:58px;
-
-height:58px;
-
-border-radius:14px;
-
-object-fit:cover;
-
-transition:.35s;
-
-flex-shrink:0;
-
-}
-
-#navbar.scrolled .logo img{
-
-width:50px;
-
-height:50px;
-
-}
-
-.logo-text{
-
-min-width:0;
-
-}
-
-.logo h4{
-
-font-size:22px;
-
-font-weight:700;
-
-margin:0;
-
-color:var(--primary-dark);
-
-white-space:nowrap;
-
-overflow:hidden;
-
-text-overflow:ellipsis;
-
-}
-
-.logo small{
-
-display:block;
-
-font-size:12px;
-
-color:#666;
-
-}
-
-.nav-link{
-
-font-weight:600;
-
-margin-left:12px;
-
-padding:10px 16px !important;
-
-border-radius:10px;
-
-color:#333 !important;
-
-position:relative;
-
-}
-
-.nav-link:hover{
-
-background:#eaf2ff;
-
-color:var(--primary)!important;
-
-}
-
-.nav-link.active{
-
-background:var(--primary);
-
-color:#fff!important;
-
-}
-
-.call-btn{
-
-margin-left:20px;
-
-padding:12px 24px;
-
-}
-
-.navbar-toggler{
-
-border:none;
-
-box-shadow:none!important;
-
-background:#fff;
-
-border-radius:12px;
-
-padding:10px;
-
-}
-
-.navbar-toggler:focus{
-
-box-shadow:none;
-
-}/* =======================================================
-   HERO SECTION
-======================================================= */
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-background:
-linear-gradient(135deg,#eef5ff 0%,#ffffff 100%);
-
-overflow:hidden;
-
-padding-top:150px;
-
-position:relative;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-width:650px;
-
-height:650px;
-
-background:rgba(13,110,253,.08);
-
-border-radius:50%;
-
-right:-220px;
-
-top:-220px;
-
-filter:blur(40px);
-
-}
-
-.hero::after{
-
-content:"";
-
-position:absolute;
-
-width:420px;
-
-height:420px;
-
-background:rgba(255,193,7,.12);
-
-border-radius:50%;
-
-left:-120px;
-
-bottom:-120px;
-
-filter:blur(30px);
-
-}
-
-/* =============================
-   HERO TAG
-============================= */
-
-.hero-tag{
-
-display:inline-block;
-
-padding:12px 22px;
-
-background:#fff;
-
-color:#d35400;
-
-font-weight:700;
-
-border-radius:40px;
-
-box-shadow:var(--shadow-sm);
-
-margin-bottom:25px;
-
-font-size:15px;
-
-}
-
-/* =============================
-   HERO TITLE
-============================= */
-
-.hero h1{
-
-font-size:64px;
-
-font-weight:800;
-
-line-height:1.15;
-
-margin-bottom:12px;
-
-color:var(--dark);
-
-}
-
-.hero h1 span{
-
-color:var(--primary);
-
-}
-
-.hero h2{
-
-font-size:28px;
-
-font-weight:600;
-
-color:#555;
-
-margin-bottom:25px;
-
-}
-
-.hero-text{
-
-font-size:18px;
-
-max-width:620px;
-
-margin-bottom:35px;
-
-}
-
-/* =============================
-   BUTTONS
-============================= */
-
-.hero-buttons{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:15px;
-
-margin-bottom:45px;
-
-}
-
-.hero-buttons .btn{
-
-padding:15px 30px;
-
-font-size:16px;
-
-}
-
-/* =============================
-   COUNTERS
-============================= */
-
-.hero-counter{
-
-display:flex;
-
-gap:22px;
-
-flex-wrap:wrap;
-
-}
-
-.counter-box{
-
-background:#fff;
-
-padding:24px;
-
-border-radius:18px;
-
-min-width:170px;
-
-box-shadow:var(--shadow-sm);
-
-transition:.35s;
-
-}
-
-.counter-box:hover{
-
-transform:translateY(-8px);
-
-box-shadow:var(--shadow-lg);
-
-}
-
-.counter-box h3{
-
-font-size:34px;
-
-font-weight:700;
-
-color:var(--primary);
-
-margin-bottom:6px;
-
-}
-
-.counter-box p{
-
-margin:0;
-
-font-size:15px;
-
-}
-
-/* =============================
-   HERO IMAGE
-============================= */
-
-.hero-image{
-
-width:100%;
-
-max-width:430px;
-
-margin:auto;
-
-animation:floating 4s ease-in-out infinite;
-
-filter:drop-shadow(0 20px 45px rgba(0,0,0,.18));
-
-}
-
-@keyframes floating{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
-100%{
-
-transform:translateY(0px);
-
-}
-
-}
-
-/* =============================
-   HERO BADGE
-============================= */
-
-.hero-badge{
-
-margin-top:25px;
-
-display:inline-block;
-
-padding:18px 24px;
-
-background:#fff;
-
-border-radius:18px;
-
-box-shadow:var(--shadow-md);
-
-}
-
-.hero-badge h4{
-
-margin:0;
-
-font-weight:700;
-
-color:var(--primary);
-
-}
-
-.hero-badge p{
-
-margin-top:5px;
-
-font-size:14px;
-
-}
-
-/* =======================================================
-   VILLAGE PRIDE SECTION
-======================================================= */
-
-.village-pride{
-
-background:linear-gradient(135deg,#0d6efd,#084298);
-
-color:#fff;
-
-padding:80px 0;
-
-text-align:center;
-
-}
-
-.village-pride h2{
-
-font-size:42px;
-
-font-weight:700;
-
-margin-bottom:20px;
-
-color:#fff;
-
-}
-
-.village-pride p{
-
-max-width:900px;
-
-margin:auto;
-
-font-size:18px;
-
-color:rgba(255,255,255,.92);
-
-line-height:1.9;
-
-}
-
-.village-pride strong{
-
-color:#ffd54f;
-
-}/* =======================================================
-   TRUST SECTION
-======================================================= */
-
-.trust-section{
-
-background:#ffffff;
-
-}
-
-.trust-card{
-
-background:#fff;
-
-padding:35px 25px;
-
-border-radius:22px;
-
-text-align:center;
-
-box-shadow:var(--shadow-sm);
-
-transition:.35s;
-
-height:100%;
-
-border:1px solid rgba(13,110,253,.08);
-
-}
-
-.trust-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:var(--shadow-lg);
-
-border-color:#0d6efd;
-
-}
-
-.trust-card i{
-
-font-size:48px;
-
-color:var(--primary);
-
-margin-bottom:18px;
-
-}
-
-.trust-card h5{
-
-font-weight:700;
-
-margin-bottom:10px;
-
-}
-
-.trust-card p{
-
-margin:0;
-
-font-size:15px;
-
-}
-
-/* =======================================================
-   ABOUT SECTION
-======================================================= */
-
-.about-section{
-
-background:#f8fbff;
-
-}
-
-.about-image{
-
-width:100%;
-
-border-radius:24px;
-
-box-shadow:var(--shadow-lg);
-
-}
-
-.about-points{
-
-margin-top:30px;
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:18px;
-
-}
-
-.about-points div{
-
-background:#fff;
-
-padding:18px;
-
-border-radius:16px;
-
-box-shadow:var(--shadow-sm);
-
-font-weight:600;
-
-}
-
-.about-points i{
-
-color:var(--secondary);
-
-margin-right:8px;
-
-}
-
-/* =======================================================
-   OWNER SECTION
-======================================================= */
-
-.owner-section{
-
-background:#ffffff;
-
-}
-
-.owner-photo{
-
-width:260px;
-
-height:260px;
-
-margin:auto;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:8px solid #fff;
-
-box-shadow:var(--shadow-lg);
-
-}
-
-.owner-quote{
-
-margin-top:30px;
-
-padding:20px;
-
-border-left:5px solid var(--gold);
-
-background:#fff8e6;
-
-border-radius:12px;
-
-font-style:italic;
-
-font-weight:600;
-
-}
-
-/* =======================================================
-   SERVICES
-======================================================= */
-
-.services-section{
-
-background:linear-gradient(180deg,#eef5ff,#ffffff);
-
-}
-
-.service-card{
-
-background:#fff;
-
-border-radius:24px;
-
-padding:35px 25px;
-
-text-align:center;
-
-height:100%;
-
-position:relative;
-
-overflow:hidden;
-
-transition:.35s;
-
-box-shadow:var(--shadow-sm);
-
-border:1px solid rgba(13,110,253,.08);
-
-}
-
-.service-card::before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-width:100%;
-
-height:5px;
-
-background:linear-gradient(90deg,#0d6efd,#ffc107);
-
-}
-
-.service-card:hover{
-
-transform:translateY(-12px);
-
-box-shadow:var(--shadow-lg);
-
-}
-
-.service-card i{
-
-font-size:52px;
-
-color:var(--primary);
-
-margin-bottom:20px;
-
-display:block;
-
-transition:.35s;
-
-}
-
-.service-card:hover i{
-
-transform:scale(1.12) rotate(5deg);
-
-color:var(--primary-dark);
-
-}
-
-.service-card h5{
-
-font-size:20px;
-
-font-weight:700;
-
-margin-bottom:12px;
-
-color:var(--dark);
-
-}
-
-.service-card p{
-
-font-size:15px;
-
-margin:0;
-
-color:#666;
-
-line-height:1.6;
-
-}
-
-/* Premium hover glow */
-
-.service-card:hover{
-
-background:linear-gradient(180deg,#ffffff,#f7fbff);
-
-}
-
-/* =======================================================
-   SECTION SPACING
-======================================================= */
-
-.about-section,
-.owner-section,
-.services-section{
-
-padding:100px 0;
-
-}/* =======================================================
-   GALLERY
-======================================================= */
-
-.gallery-section{
-
-background:#ffffff;
-
-}
-
-.gallery-img{
-
-width:100%;
-
-height:260px;
-
-object-fit:cover;
-
-border-radius:22px;
-
-cursor:pointer;
-
-transition:.45s;
-
-box-shadow:var(--shadow-sm);
-
-}
-
-.gallery-img:hover{
-
-transform:scale(1.05);
-
-box-shadow:var(--shadow-lg);
-
-}
-
-/* =======================================================
-   REVIEWS
-======================================================= */
-
-.reviews-section{
-
-background:#f8fbff;
-
-}
-
-.review-card{
-
-background:#fff;
-
-padding:35px;
-
-border-radius:24px;
-
-height:100%;
-
-box-shadow:var(--shadow-sm);
-
-transition:.35s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.review-card::before{
-
-content:"★★★★★";
-
-position:absolute;
-
-top:20px;
-
-right:20px;
-
-font-size:18px;
-
-color:#ffc107;
-
-opacity:.25;
-
-}
-
-.review-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:var(--shadow-lg);
-
-}
-
-.review-card .stars{
-
-font-size:24px;
-
-color:#ffc107;
-
-margin-bottom:15px;
-
-}
-
-.review-card h5{
-
-margin-top:20px;
-
-font-weight:700;
-
-color:var(--primary);
-
-}
-
-/* =======================================================
-   FAQ
-======================================================= */
-
-.faq-section{
-
-background:#ffffff;
-
-}
-
-.accordion-item{
-
-border:none;
-
-margin-bottom:18px;
-
-border-radius:18px !important;
-
-overflow:hidden;
-
-box-shadow:var(--shadow-sm);
-
-}
-
-.accordion-button{
-
-font-weight:600;
-
-padding:22px;
-
-background:#fff;
-
-}
-
-.accordion-button:not(.collapsed){
-
-background:var(--primary);
-
-color:#fff;
-
-}
-
-.accordion-body{
-
-padding:22px;
-
-font-size:16px;
-
-line-height:1.8;
-
-}
-
-/* =======================================================
-   CONTACT
-======================================================= */
-
-.contact-section{
-
-background:linear-gradient(135deg,#eef5ff,#ffffff);
-
-}
-
-.contact-section p{
-
-margin-bottom:15px;
-
-}
-
-.contact-buttons{
-
-display:flex;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-margin-top:30px;
-
-}
-
-.contact-section iframe{
-
-border-radius:22px;
-
-box-shadow:var(--shadow-lg);
-
-}
-
-/* =======================================================
-   FOOTER
-======================================================= */
-
-.footer{
-
-background:#0b5ed7;
-
-color:#fff;
-
-padding:70px 20px;
-
-text-align:center;
-
-}
-
-.footer img{
-
-width:90px;
-
-margin:auto;
-
-margin-bottom:25px;
-
-border-radius:20px;
-
-}
-
-.footer h3{
-
-font-weight:700;
-
-margin-bottom:12px;
-
-}
-
-.footer h4{
-
-font-weight:600;
-
-margin-bottom:15px;
-
-}
-
-.footer p{
-
-color:rgba(255,255,255,.92);
-
-}
-
-.footer hr{
-
-margin:35px auto;
-
-width:120px;
-
-opacity:.35;
-
-background:#fff;
-
+/**
+ * PRATAP ONLINE CENTRE - Ultra-Premium Core Stylesheet
+ * Architecture: Component-Based Architecture, CSS Variables, Flexbox/Grid layouts
+ * Design Language: Modern Corporate + Indian Government Aesthetic + Luxury Glassmorphic Touches
+ */
+
+/* ==========================================================================
+   1. CSS VARIABLES & THEME ARCHITECTURE
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --primary-dark: #0B1F4D;
+    --primary-blue: #1E3A8A;
+    --accent-saffron: #FF9933;
+    --accent-green: #138808;
+    --accent-gold: #D4AF37;
+    --bg-white: #FFFFFF;
+    --bg-light: #F5F7FA;
+    --text-main: #222222;
+    --text-muted: #555555;
+    
+    /* Functional Gradients */
+    --gradient-primary: linear-gradient(135deg, #0B1F4D 0%, #1E3A8A 100%);
+    --gradient-saffron: linear-gradient(135deg, #FF9933 0%, #FF7700 100%);
+    --gradient-green: linear-gradient(135deg, #138808 0%, #0F6606 100%);
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    
+    /* Layout System & Elevation */
+    --glass-blur: blur(16px);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    --shadow-sm: 0 4px 6px -1px rgba(11, 31, 77, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(11, 31, 77, 0.08), 0 4px 6px -2px rgba(11, 31, 77, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(11, 31, 77, 0.1), 0 10px 10px -5px rgba(11, 31, 77, 0.04);
+    --shadow-premium: 0 30px 60px -15px rgba(11, 31, 77, 0.2);
+    
+    /* Typography Scaling (Fluid clamp defaults) */
+    --font-heading: 'Yatra One', 'Poppins', system-ui, sans-serif;
+    --font-body: 'Poppins', system-ui, sans-serif;
+    --fs-h1: clamp(2.2rem, 5vw, 3.8rem);
+    --fs-h2: clamp(1.8rem, 4vw, 2.6rem);
+    --fs-h3: clamp(1.4rem, 3vw, 1.8rem);
+    --fs-body: clamp(0.95rem, 1.5vw, 1.1rem);
+    
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Dark Theme Overrides */
+.dark-mode {
+    --bg-white: #081226;
+    --bg-light: #0D1B3E;
+    --text-main: #F5F7FA;
+    --text-muted: #A0AEC0;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --gradient-glass: linear-gradient(135deg, rgba(13, 27, 62, 0.85) 0%, rgba(8, 18, 38, 0.65) 100%);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    --shadow-premium: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS & FOUNDATION
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Global Selection Styling */
+::selection {
+    background-color: var(--accent-saffron);
+    color: #FFFFFF;
+}
+
+/* Advanced Scrollbar Management */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent-saffron), var(--primary-blue));
+    border-radius: var(--radius-full);
+    border: 2px solid var(--bg-light);
+}
+
+/* Prevent layout jumps when hidden states engage */
+.hide-scroll-jumps {
+    overflow: hidden;
+    padding-right: 10px;
+}
+
+/* Container Utility */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   3. STRUCTURAL PRELOADER & TIERS
+   ========================================================================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-dark);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top: 5px solid var(--accent-saffron);
+    border-bottom: 5px solid var(--accent-green);
+    border-radius: 50%;
+    animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   4. NAVBAR & NAVIGATION INFRASTRUCTURE
+   ========================================================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: var(--gradient-glass);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    transition: var(--transition-smooth);
+}
+
+.navbar-scrolled {
+    box-shadow: var(--shadow-md);
+    padding: 5px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+/* Logo Framework */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--gradient-saffron);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+}
+
+.logo-text h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, var(--accent-saffron), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+.dark-mode .logo-text h1 {
+    background: linear-gradient(45deg, var(--accent-saffron), #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+/* Links Engine */
+.nav-menu {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 8px 0;
+    transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-saffron);
+    border-radius: var(--radius-full);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--accent-saffron);
+}
+
+/* ==========================================================================
+   5. TICKER & MICRO-SLIDERS
+   ========================================================================== */
+.news-ticker {
+    position: relative;
+    z-index: 10;
+}
+
+.ticker-title {
+    background: var(--gradient-saffron);
+    color: #FFFFFF;
+    border-right: 4px solid var(--accent-gold);
+}
+
+/* ==========================================================================
+   6. PREMIUM HERO ARCHITECTURE
+   ========================================================================== */
+.hero {
+    position: relative;
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    overflow: hidden;
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h1);
+    color: var(--primary-dark);
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+.dark-mode .hero-content h2 {
+    color: #FFFFFF;
+}
+
+.tagline-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 24px;
+    background: rgba(255, 153, 51, 0.12);
+    border-radius: var(--radius-full);
+    color: var(--accent-saffron);
+    font-weight: 700;
+    border: 1px solid rgba(255, 153, 51, 0.3);
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hero-card {
+    background: var(--gradient-glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition-smooth);
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   7. BUTTON ENGINE (PREMIUM HOVER / GLOW)
+   ========================================================================== */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-md);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-blue {
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+}
+.btn-blue:hover {
+    box-shadow: 0 12px 24px rgba(30, 58, 138, 0.35);
+    transform: translateY(-3px);
+}
+
+.btn-saffron {
+    background: var(--gradient-saffron);
+    color: #FFFFFF;
+}
+.btn-saffron:hover {
+    box-shadow: 0 12px 24px rgba(255, 153, 51, 0.35);
+    transform: translateY(-3px);
+}
+
+.btn-green {
+    background: var(--gradient-green);
+    color: #FFFFFF;
+}
+.btn-green:hover {
+    box-shadow: 0 12px 24px rgba(19, 136, 8, 0.35);
+    transform: translateY(-3px);
+}
+
+/* Glass Interactive Filter Buttons */
+.filter-btn {
+    background: var(--bg-white);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+}
+.filter-btn.btn-saffron {
+    background: var(--gradient-saffron);
+    color: #FFFFFF;
+    border: none;
+}
+
+/* ==========================================================================
+   8. SMART SEARCH & FILTER BLOCK
+   ========================================================================== */
+.search-section {
+    background: var(--gradient-primary) !important;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.search-box input {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0B1F4D;
+    font-family: var(--font-body);
+    transition: var(--transition-smooth);
+    border: 2px solid transparent !important;
+}
+
+.search-box input:focus {
+    background: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(255, 153, 51, 0.4);
+    border-color: var(--accent-saffron) !important;
+}
+
+/* ==========================================================================
+   9. DYNAMIC SERVICE CARDS
+   ========================================================================== */
+.service-card {
+    background: var(--gradient-glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    z-index: 2;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.15), rgba(30, 58, 138, 0.15));
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(255, 153, 51, 0.5);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.s-icon {
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(30, 58, 138, 0.1)) !important;
+    border: 1px solid var(--glass-border);
+}
+
+.service-card:hover .s-icon {
+    background: var(--gradient-primary) !important;
+    transform: rotateY(180deg);
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   10. STATS & ANALYTICAL COUNTERS
+   ========================================================================== */
+.counter-card {
+    background: var(--gradient-glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.counter-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.counter-number {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--primary-blue), var(--accent-saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   11. ACCORDION (FAQ MODULES)
+   ========================================================================== */
+.faq-item {
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 16px;
+    border: 1px solid var(--glass-border) !important;
+    background: var(--gradient-glass) !important;
+    transition: var(--transition-smooth);
+}
+
+.faq-trigger {
+    font-family: var(--font-body);
+    font-weight: 700 !important;
+    transition: var(--transition-smooth);
+}
+
+.faq-item.active {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(30, 58, 138, 0.3) !important;
+}
+
+.faq-item.active .faq-trigger {
+    color: var(--accent-saffron) !important;
+}
+
+/* ==========================================================================
+   12. ULTRA-PREMIUM GLASS CUSTOM MODALS
+   ========================================================================== */
+.modal-overlay {
+    background: rgba(8, 18, 38, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.modal-box {
+    background: var(--gradient-glass) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-premium) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    animation: modalReveal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes modalReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Charges Striped Tables */
+.modal-table {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: none !important;
+}
+
+.modal-table th {
+    background: var(--gradient-primary) !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.modal-table td {
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-table tr:nth-child(even) {
+    background: rgba(30, 58, 138, 0.03);
+}
+
+.modal-table tr:hover {
+    background: rgba(255, 153, 51, 0.08) !important;
+    transition: background 0.2s ease;
+}
+
+/* ==========================================================================
+   13. CUSTOMER REVIEWS & MODERN SLIDERS
+   ========================================================================== */
+.wcu-card {
+    background: var(--gradient-glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+}
+.wcu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   14. GALLERY & LIGHTBOX ARCHITECTURE
+   ========================================================================== */
+.gallery-item {
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-md);
+    border: 4px solid var(--bg-white);
+    transition: var(--transition-smooth);
+}
+
+.gallery-item:hover {
+    border-color: var(--accent-saffron);
+}
+
+/* ==========================================================================
+   15. FORMS & INPUT PLATFORM
+   ========================================================================== */
+.contact-info-card {
+    border-radius: var(--radius-lg) !important;
+}
+
+input, textarea {
+    background: var(--bg-light);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    transition: var(--transition-smooth);
+    width: 100%;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background: var(--bg-white);
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.15);
+}
+
+/* ==========================================================================
+   16. FLOATING HUD SYSTEM
+   ========================================================================== */
+.floating-actions {
+    gap: 16px !important;
+}
+
+.float-btn {
+    width: 60px !important;
+    height: 60px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.float-btn:hover {
+    transform: translateY(-8px) scale(1.1) !important;
+}
+
+/* ==========================================================================
+   17. TOAST NOTIFICATION HUD
+   ========================================================================== */
+.toast-msg {
+    background: var(--gradient-glass) !important;
+    color: var(--text-main) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border) !important;
+    border-left: 6px solid var(--accent-saffron) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+.toast-msg.success { border-left-color: var(--accent-green) !important; }
+.toast-msg.error { border-left-color: #D32F2F !important; }
+
+/* ==========================================================================
+   18. PREMIUM REVENUE GENERATING BANNERS
+   ========================================================================== */
+.promo-banner {
+    background: linear-gradient(135deg, #0F6606 0%, #138808 50%, #1E3A8A 100%) !important;
+    border: 2px solid var(--accent-gold);
+    box-shadow: var(--shadow-premium) !important;
+}
+
+/* ==========================================================================
+   19. FOOTER PLATFORM
+   ========================================================================== */
+.footer {
+    background: #040B1A !important;
+    color: #E2E8F0 !important;
+    border-top: 5px solid var(--accent-saffron) !important;
+}
+
+.footer-brand h4 {
+    font-family: var(--font-heading);
+    color: var(--accent-saffron);
+}
+
+/* ==========================================================================
+   20. MICRO-ANIMATIONS CORE LIFTER
+   ========================================================================== */
+@keyframes shine {
+    100% { transform: translateX(100%); }
+}
+
+[data-aos] {
+    pointer-events: none;
+}
+.aos-animate {
+    pointer-events: auto;
+}
+
+/* ==========================================================================
+   21. RESPONSIVE ORCHESTRATION BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .nav-container { padding: 14px 0; }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        background: var(--bg-white) !important;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .hamburger span {
+        background: var(--text-main) !important;
+    }
+    .hero { padding: 3rem 0; }
+}
+
+/* High Resolution Ultra Wide Monitors Optimization */
+@media (min-width: 1800px) {
+    .container { max-width: 1640px; }
 }
-
-/* =======================================================
-   FLOATING BUTTONS
-======================================================= */
-
-.floating-whatsapp,
-.floating-call{
-
-position:fixed;
-
-width:62px;
-
-height:62px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:26px;
-
-color:#fff;
-
-z-index:999;
-
-transition:.35s;
-
-box-shadow:0 15px 35px rgba(0,0,0,.20);
-
-}
-
-.floating-whatsapp{
-
-background:#25D366;
-
-right:20px;
-
-bottom:20px;
-
-}
-
-.floating-call{
-
-background:#0d6efd;
-
-left:20px;
-
-bottom:20px;
-
-}
-
-.floating-whatsapp:hover,
-.floating-call:hover{
-
-transform:scale(1.12);
-
-color:#fff;
-
-}/* =======================================================
-   RESPONSIVE DESIGN
-======================================================= */
-
-@media (max-width:1200px){
-
-.hero h1{
-font-size:54px;
-}
-
-.section{
-padding:90px 0;
-}
-
-}
-
-@media (max-width:992px){
-
-.hero{
-
-padding-top:140px;
-
-text-align:center;
-
-}
-
-.hero h1{
-
-font-size:46px;
-
-}
-
-.hero h2{
-
-font-size:24px;
-
-}
-
-.hero-text{
-
-margin:auto;
-
-}
-
-.hero-buttons{
-
-justify-content:center;
-
-}
-
-.hero-counter{
-
-justify-content:center;
-
-}
-
-.hero-image{
-
-max-width:340px;
-
-margin-top:40px;
-
-}
-
-.about-points{
-
-grid-template-columns:1fr;
-
-}
-
-.owner-photo{
-
-width:220px;
-
-height:220px;
-
-}
-
-.contact-buttons{
-
-justify-content:center;
-
-}
-
-.navbar-collapse{
-
-background:#fff;
-
-padding:20px;
-
-margin-top:15px;
-
-border-radius:18px;
-
-box-shadow:var(--shadow-md);
-
-}
-
-.call-btn{
-
-width:100%;
-
-margin-top:15px;
-
-margin-left:0;
-
-}
-
-}
-
-@media (max-width:768px){
-
-section{
-
-padding:80px 0;
-
-}
-
-h1{
-
-font-size:38px;
-
-}
-
-h2{
-
-font-size:32px;
-
-}
-
-.hero-buttons{
-
-display:grid;
-
-grid-template-columns:1fr;
-
-gap:15px;
-
-}
-
-.hero-buttons .btn{
-
-width:100%;
-
-}
-
-.hero-counter{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:12px;
-
-}
-
-.counter-box{
-
-min-width:auto;
-
-padding:18px;
-
-}
-
-.counter-box h3{
-
-font-size:24px;
-
-}
-
-.logo img{
-
-width:48px;
-
-height:48px;
-
-}
-
-.logo h4{
-
-font-size:18px;
-
-}
-
-.logo small{
-
-font-size:11px;
-
-}
-
-.gallery-img{
-
-height:200px;
-
-}
-
-.floating-call,
-.floating-whatsapp{
-
-width:55px;
-
-height:55px;
-
-font-size:22px;
-
-}
-
-}
-
-@media (max-width:576px){
-
-.hero{
-
-padding-top:120px;
-
-}
-
-.hero h1{
-
-font-size:32px;
-
-}
-
-.hero h2{
-
-font-size:20px;
-
-}
-
-.hero-text{
-
-font-size:15px;
-
-}
-
-.section-tag{
-
-font-size:13px;
-
-padding:7px 15px;
-
-}
-
-.btn{
-
-padding:13px 22px;
-
-font-size:15px;
-
-}
-
-.review-card,
-.service-card,
-.trust-card{
-
-padding:25px;
-
-}
-
-.footer{
-
-padding:55px 20px;
-
-}
-
-.footer h3{
-
-font-size:24px;
-
-}
-
-.footer h4{
-
-font-size:20px;
-
-}
-
-}
-
-/* =======================================================
-   ANIMATIONS
-======================================================= */
-
-.fade-up{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:all .8s ease;
-
-}
-
-.fade-up.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-.zoom{
-
-transition:.35s;
-
-}
-
-.zoom:hover{
-
-transform:scale(1.05);
-
-}
-
-/* =======================================================
-   SELECTION
-======================================================= */
-
-::selection{
-
-background:#0d6efd;
-
-color:#fff;
-
-}
-
-/* =======================================================
-   FOCUS
-======================================================= */
-
-button:focus,
-input:focus,
-textarea:focus,
-select:focus{
-
-outline:none;
-
-box-shadow:none;
-
-}
-
-/* =======================================================
-   UTILITIES
-======================================================= */
-
-.rounded-xl{
-
-border-radius:24px;
-
-}
-
-.shadow-premium{
-
-box-shadow:var(--shadow-lg);
-
-}
-
-.text-primary{
-
-color:var(--primary)!important;
-
-}
-
-.bg-light-blue{
-
-background:#eef5ff;
-
-}
-
-/* =======================================================
-   END OF CSS
-======================================================= */
