@@ -1,721 +1,361 @@
-<!DOCTYPE html>
-<html lang="mr" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- SEO Meta Tags -->
-    <title>प्रताप ऑनलाइन सेंटर | CSC Center Amla Khurd, Digras | सर्व सरकारी सेवा</title>
-    <meta name="description" content="प्रताप ऑनलाइन सेंटर, आमला खुर्द (दिग्रस, यवतमाळ). प्रताप राठोड यांच्या मार्गदर्शनाखाली आधार कार्ड, पॅन कार्ड, बँकिंग (AEPS), शेती योजना, लाडकी बहीण योजना आणि सर्व CSC सेवा एकाच ठिकाणी.">
-    <meta name="keywords" content="Pratap Online Center, CSC Amla Khurd, Digras CSC, Yavatmal CSC, Banjara Community Digital Center, Aadhaar Card, PAN Card, PM Kisan, Ladki Bahin Yojana, AEPS, Online Services Maharashtra">
-    <meta name="author" content="प्रताप राठोड">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.prataponlinecenter.in/">
-    <meta property="og:title" content="प्रताप ऑनलाइन सेंटर - आमला खुर्द, दिग्रस">
-    <meta property="og:description" content="सर्व प्रकारच्या ऑनलाइन सेवा, सरकारी योजना आणि बँकिंग सुविधा एकाच छताखाली. आजच भेट द्या!">
-    <meta property="og:image" content="assets/images/og-image.jpg">
-    <meta property="og:locale" content="mr_IN">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.prataponlinecenter.in/">
-    <meta property="twitter:title" content="प्रताप ऑनलाइन सेंटर - आमला खुर्द, दिग्रस">
-    <meta property="twitter:description" content="सर्व प्रकारच्या ऑनलाइन सेवा, सरकारी योजना आणि बँकिंग सुविधा एकाच छताखाली. आजच भेट द्या!">
-    <meta property="twitter:image" content="assets/images/twitter-image.jpg">
-    
-    <!-- PWA & Manifest -->
-    <meta name="theme-color" content="#FF6F00">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-    
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- CSS hook for premium Marathi typography (e.g., Mukta, Tiro Devanagari Marathi) -->
-    
-    <!-- CSS and FontAwesome Icons hooks -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "प्रताप ऑनलाइन सेंटर",
-      "image": "assets/images/logo.png",
-      "@id": "https://www.prataponlinecenter.in/",
-      "url": "https://www.prataponlinecenter.in/",
-      "telephone": "+917719984464",
-      "email": "prataprathod821@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "आमला खुर्द",
-        "addressLocality": "दिग्रस",
-        "addressRegion": "महाराष्ट्र",
-        "postalCode": "445203",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 20.1171,
-        "longitude": 77.7289
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "प्रताप राठोड"
-      }
-    }
-    </script>
-</head>
-<body class="light-mode theme-transition" id="body">
-
-    <!-- Premium Loader -->
-    <div id="premium-loader" class="loader-container">
-        <div class="loader-spinner"></div>
-        <div class="loader-text">प्रताप ऑनलाइन सेंटर सुरू होत आहे...</div>
-    </div>
-
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="scroll-progress-bar"></div>
-
-    <!-- Floating Buttons -->
-    <div class="floating-buttons-container">
-        <a href="https://wa.me/917719984464?text=नमस्कार%20प्रताप%20ऑनलाइन%20सेंटर,%20मला%20माहिती%20हवी%20आहे." class="float-btn whatsapp-float hover-effect" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp वर संपर्क साधा">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        </a>
-        <a href="tel:+917719984464" class="float-btn call-float hover-effect" aria-label="आता कॉल करा">
-            <i class="fas fa-phone-alt" aria-hidden="true"></i>
-        </a>
-        <button id="back-to-top" class="float-btn back-top-float hover-effect" aria-label="वर जा">
-            <i class="fas fa-arrow-up" aria-hidden="true"></i>
-        </button>
-    </div>
-
-    <!-- Premium Navbar -->
-    <header class="premium-header glassmorphism-nav sticky-top">
-        <div class="container nav-container">
-            <div class="nav-brand">
-                <a href="index.html" class="brand-link" aria-label="मुख्य पृष्ठ">
-                    <img src="assets/images/logo.png" alt="प्रताप ऑनलाइन सेंटर लोगो" class="brand-logo" width="50" height="50">
-                    <div class="brand-text">
-                        <h1 class="brand-title">प्रताप ऑनलाइन सेंटर</h1>
-                        <span class="brand-subtitle">संचालक: प्रताप राठोड</span>
-                    </div>
-                </a>
-            </div>
-            
-            <button class="mobile-menu-toggle" aria-label="मेनू उघडा" aria-expanded="false" aria-controls="main-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-
-            <nav id="main-nav" class="main-navigation">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#hero" class="nav-link">मुख्य पृष्ठ</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">आमच्याबद्दल</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link">सेवा आणि योजना</a></li>
-                    <li class="nav-item"><a href="#gallery" class="nav-link">गॅलरी</a></li>
-                    <li class="nav-item"><a href="#reviews" class="nav-link">अभिप्राय</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">संपर्क</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <button id="theme-toggle" class="btn-icon theme-btn hover-effect" aria-label="डार्क/लाईट मोड बदला">
-                        <i class="fas fa-moon" aria-hidden="true"></i>
-                    </button>
-                    <a href="#appointment" class="btn-premium btn-appointment hover-effect">
-                        <i class="far fa-calendar-check" aria-hidden="true"></i> वेळ बुक करा
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section modern-gradient">
-            <div class="hero-overlay"></div>
-            <div class="container hero-container flex-row-reverse">
-                <div class="hero-image-wrapper animation-slide-in-right">
-                    <img src="assets/images/hero-banner.jpg" alt="प्रताप ऑनलाइन सेंटर चे दृश्य" class="hero-image premium-shadow" fetchpriority="high">
-                </div>
-                <div class="hero-content animation-slide-in-left">
-                    <div class="hero-spiritual-greeting premium-typography">
-                        <span class="sevalal-text">🙏 जय सेवालाल 🙏</span>
-                    </div>
-                    <h2 class="hero-main-title">तुमची सर्व सरकारी कामे आता एकाच ठिकाणी!</h2>
-                    <p class="hero-description">आमला खुर्द मधील सर्वात विश्वासार्ह <strong>प्रताप ऑनलाइन सेंटर</strong>. पॅन कार्ड, बँकिंग, शेती योजना आणि इतर सर्व डिजिटल सुविधा आता तुमच्या गावात.</p>
-                    
-                    <div class="hero-buttons">
-                        <a href="tel:+917719984464" class="btn-premium btn-primary premium-shadow hover-effect">
-                            <i class="fas fa-phone-volume" aria-hidden="true"></i> आता कॉल करा
-                        </a>
-                        <a href="https://chat.whatsapp.com/YourCommunityLinkHere" class="btn-premium btn-secondary premium-shadow hover-effect" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> व्हॉट्सॲप ग्रुप जॉईन करा
-                        </a>
-                    </div>
-                    
-                    <div class="hero-stats premium-glassmorphism">
-                        <div class="stat-item">
-                            <span class="stat-number">५०००+</span>
-                            <span class="stat-label">संतुष्ट ग्राहक</span>
-                        </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <span class="stat-number">५०+</span>
-                            <span class="stat-label">विविध सेवा</span>
-                        </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <span class="stat-number">१००%</span>
-                            <span class="stat-label">सुरक्षित कामकाज</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Search Service Section -->
-        <section id="search-section" class="search-section section-padding">
-            <div class="container">
-                <div class="search-container premium-glassmorphism premium-shadow">
-                    <h3 class="search-title">तुम्हाला कोणती सेवा हवी आहे?</h3>
-                    <form class="search-form" action="#" method="GET" role="search">
-                        <div class="search-input-group">
-                            <i class="fas fa-search search-icon" aria-hidden="true"></i>
-                            <input type="search" id="service-search" class="search-input" placeholder="उदा. पॅन कार्ड, लाडकी बहीण योजना, शेती विमा..." required aria-label="सेवा शोधा">
-                            <button type="submit" class="btn-premium btn-search hover-effect">शोधा</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Services Section -->
-        <section id="services" class="services-section section-padding bg-light">
-            <div class="container">
-                <div class="section-header text-center scroll-animation">
-                    <h2 class="section-title">आमच्या प्रमुख सेवा</h2>
-                    <p class="section-subtitle">सर्व प्रकारची ऑनलाइन आणि शासकीय कामे खात्रीशीरपणे केली जातील.</p>
-                </div>
-
-                <!-- Category 1: Banking & Finance -->
-                <div class="service-category scroll-animation">
-                    <h3 class="category-title"><i class="fas fa-university text-primary" aria-hidden="true"></i> बँकिंग आणि आर्थिक सेवा</h3>
-                    <div class="services-grid">
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
-                            <h4 class="service-name">AEPS बँकिंग</h4>
-                            <p class="service-desc">आधार कार्डद्वारे कोणत्याही बँकेतून पैसे काढा आणि जमा करा.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-exchange-alt" aria-hidden="true"></i></div>
-                            <h4 class="service-name">मनी ट्रान्सफर</h4>
-                            <p class="service-desc">देशभरात कुठेही सुरक्षितपणे आणि त्वरित पैसे पाठवा.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></div>
-                            <h4 class="service-name">वीज बिल भरणे</h4>
-                            <p class="service-desc">MSEDCL चे लाईट बिल ऑनलाइन भरा.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
-                            <h4 class="service-name">रिचार्ज सेवा</h4>
-                            <p class="service-desc">सर्व कंपन्यांचे मोबाईल आणि DTH रिचार्ज उपलब्ध.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-car" aria-hidden="true"></i></div>
-                            <h4 class="service-name">फास्टॅग (FASTag)</h4>
-                            <p class="service-desc">नवीन फास्टॅग काढा आणि रिचार्ज करा.</p>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Category 2: Documents & Certificates -->
-                <div class="service-category scroll-animation">
-                    <h3 class="category-title"><i class="fas fa-id-card text-primary" aria-hidden="true"></i> ओळखपत्रे आणि प्रमाणपत्रे</h3>
-                    <div class="services-grid">
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="far fa-address-card" aria-hidden="true"></i></div>
-                            <h4 class="service-name">आधार कार्ड सेवा</h4>
-                            <p class="service-desc">नवीन नोंदणी, नाव, पत्ता आणि मोबाईल नंबर अपडेट करणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-credit-card" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पॅन कार्ड</h4>
-                            <p class="service-desc">नवीन पॅन कार्ड काढणे आणि जुन्या पॅन कार्डमध्ये दुरुस्ती करणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-id-badge" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पीव्हीसी आधार (PVC)</h4>
-                            <p class="service-desc">स्मार्ट एटीएम सारखे प्लास्टिक पीव्हीसी आधार कार्ड ऑर्डर करा.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-passport" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पासपोर्ट सेवा</h4>
-                            <p class="service-desc">नवीन पासपोर्टसाठी ऑनलाइन अर्ज आणि अपॉइंटमेंट.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-id-card-alt" aria-hidden="true"></i></div>
-                            <h4 class="service-name">ड्रायव्हिंग लायसन्स</h4>
-                            <p class="service-desc">लर्निंग लायसन्स आणि पक्के ड्रायव्हिंग लायसन्स काढणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i></div>
-                            <h4 class="service-name">उत्पन्न प्रमाणपत्र</h4>
-                            <p class="service-desc">तहसीलदारांचा उत्पन्नाचा दाखला (Income Certificate).</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
-                            <h4 class="service-name">जातीचा दाखला</h4>
-                            <p class="service-desc">सर्व प्रवर्गांसाठी जातीचा दाखला (Caste Certificate) काढणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
-                            <h4 class="service-name">डोमिसाईल (Domicile)</h4>
-                            <p class="service-desc">अधिवास आणि राष्ट्रीयत्व प्रमाणपत्र काढणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-rings-wedding" aria-hidden="true"></i></div>
-                            <h4 class="service-name">विवाह नोंदणी</h4>
-                            <p class="service-desc">मॅरेज सर्टिफिकेट (विवाह प्रमाणपत्र) काढणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-baby" aria-hidden="true"></i></div>
-                            <h4 class="service-name">जन्म व मृत्यू प्रमाणपत्र</h4>
-                            <p class="service-desc">जन्म आणि मृत्यूची ऑनलाइन नोंदणी व प्रमाणपत्र.</p>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Category 3: Government Schemes -->
-                <div class="service-category scroll-animation">
-                    <h3 class="category-title"><i class="fas fa-hand-holding-heart text-primary" aria-hidden="true"></i> सरकारी योजना</h3>
-                    <div class="services-grid">
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-female" aria-hidden="true"></i></div>
-                            <h4 class="service-name">मुख्यमंत्री माझी लाडकी बहीण योजना</h4>
-                            <p class="service-desc">महिलांसाठी अर्थसहाय्य योजनेचा ऑनलाइन अर्ज भरणे सुरू आहे.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-tractor" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पीक विमा</h4>
-                            <p class="service-desc">प्रधानमंत्री पीक विमा योजना (खरीप व रब्बी) अर्ज.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-seedling" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पीएम किसान (PM Kisan)</h4>
-                            <p class="service-desc">पीएम किसान सन्मान निधी नवीन नोंदणी आणि ई-केवायसी (e-KYC).</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-tools" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पीएम विश्वकर्मा</h4>
-                            <p class="service-desc">कारागिरांसाठी पीएम विश्वकर्मा योजनेची नोंदणी.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-home" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पीएम आवास (घरकुल)</h4>
-                            <p class="service-desc">घरकुल योजनेची माहिती आणि ऑनलाइन अर्ज.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-notes-medical" aria-hidden="true"></i></div>
-                            <h4 class="service-name">आयुष्मान भारत कार्ड</h4>
-                            <p class="service-desc">५ लाखांपर्यंत मोफत उपचारासाठी हेल्थ कार्ड.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
-                            <h4 class="service-name">महाडीबीटी व स्कॉलरशिप</h4>
-                            <p class="service-desc">विद्यार्थ्यांसाठी शिष्यवृत्ती (Scholarship) फॉर्म भरणे.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-hard-hat" aria-hidden="true"></i></div>
-                            <h4 class="service-name">कामगार कार्ड (Mahabocw)</h4>
-                            <p class="service-desc">इमारत बांधकाम कामगार नोंदणी आणि नूतनीकरण.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
-                            <h4 class="service-name">फॅमिली आयडी</h4>
-                            <p class="service-desc">कुटुंब ओळखपत्र (Family ID) तयार करणे.</p>
-                        </article>
-                        <article class="service-card scheme-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-address-card" aria-hidden="true"></i></div>
-                            <h4 class="service-name">ई-श्रम कार्ड (E-Shram)</h4>
-                            <p class="service-desc">असंघटित कामगारांसाठी ई-श्रम कार्ड नोंदणी.</p>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Category 4: General Services -->
-                <div class="service-category scroll-animation">
-                    <h3 class="category-title"><i class="fas fa-cogs text-primary" aria-hidden="true"></i> इतर महत्त्वाच्या सेवा</h3>
-                    <div class="services-grid">
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-print" aria-hidden="true"></i></div>
-                            <h4 class="service-name">प्रिंटिंग, स्कॅनिंग, झेरॉक्स</h4>
-                            <p class="service-desc">उच्च दर्जाचे कलर आणि ब्लॅक अँड व्हाईट प्रिंट, स्कॅन व झेरॉक्स.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-camera" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पासपोर्ट फोटो</h4>
-                            <p class="service-desc">तात्काळ पासपोर्ट साईझ फोटो काढून मिळतील.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-heartbeat" aria-hidden="true"></i></div>
-                            <h4 class="service-name">आभा (ABHA) कार्ड</h4>
-                            <p class="service-desc">डिजिटल हेल्थ आयडी (ABHA) तयार करणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
-                            <h4 class="service-name">विमा (Insurance)</h4>
-                            <p class="service-desc">दुचाकी आणि चारचाकी वाहनांचा विमा (Insurance).</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-file-contract" aria-hidden="true"></i></div>
-                            <h4 class="service-name">वाहन आरसी (RC)</h4>
-                            <p class="service-desc">वाहन नोंदणी प्रमाणपत्र (RC) प्रिंट व माहिती.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
-                            <h4 class="service-name">पोलीस पडताळणी</h4>
-                            <p class="service-desc">पोलीस क्लिअरन्स सर्टिफिकेट (चारित्र्य पडताळणी) अर्ज.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-file-invoice" aria-hidden="true"></i></div>
-                            <h4 class="service-name">प्राप्तिकर परतावा (ITR)</h4>
-                            <p class="service-desc">ITR फाईल करणे आणि टॅक्स रिटर्न भरणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-box-open" aria-hidden="true"></i></div>
-                            <h4 class="service-name">डिजीलॉकर सेवा</h4>
-                            <p class="service-desc">डिजीलॉकर अकाउंट बनवणे व डॉक्युमेंट्स सेव्ह करणे.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-industry" aria-hidden="true"></i></div>
-                            <h4 class="service-name">उद्योग आधार (Udyam)</h4>
-                            <p class="service-desc">लघु व मध्यम व्यवसायांसाठी उद्यम नोंदणी.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-bus" aria-hidden="true"></i></div>
-                            <h4 class="service-name">NCMC कार्ड</h4>
-                            <p class="service-desc">नॅशनल कॉमन मोबिलिटी कार्ड (NCMC) नोंदणी.</p>
-                        </article>
-                        <article class="service-card premium-glassmorphism hover-effect">
-                            <div class="service-icon"><i class="fas fa-blind" aria-hidden="true"></i></div>
-                            <h4 class="service-name">ज्येष्ठ नागरिक कार्ड</h4>
-                            <p class="service-desc">ज्येष्ठ नागरिकांसाठी ओळखपत्र आणि सवलत प्रमाणपत्र.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Appointment Section -->
-        <section id="appointment" class="appointment-section section-padding">
-            <div class="container">
-                <div class="appointment-wrapper premium-glassmorphism premium-shadow scroll-animation">
-                    <div class="appointment-info text-center">
-                        <h2 class="section-title">वेळ वाचवा, ऑनलाइन अपॉइंटमेंट बुक करा!</h2>
-                        <p class="section-subtitle">केंद्रावर येण्यापूर्वी आपली वेळ निश्चित करा आणि रांगेत उभे राहणे टाळा.</p>
-                    </div>
-                    <form class="appointment-form" action="#" method="POST">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="client-name">संपूर्ण नाव <span class="text-danger">*</span></label>
-                                <input type="text" id="client-name" name="client-name" class="form-control" required placeholder="तुमचे नाव टाका">
-                            </div>
-                            <div class="form-group">
-                                <label for="client-phone">मोबाईल नंबर <span class="text-danger">*</span></label>
-                                <input type="tel" id="client-phone" name="client-phone" class="form-control" required placeholder="१० अंकी मोबाईल नंबर" pattern="[0-9]{10}">
-                            </div>
-                            <div class="form-group">
-                                <label for="service-type">कोणती सेवा हवी आहे? <span class="text-danger">*</span></label>
-                                <select id="service-type" name="service-type" class="form-control" required>
-                                    <option value="" disabled selected>सेवा निवडा...</option>
-                                    <option value="pan-card">पॅन कार्ड</option>
-                                    <option value="aadhaar-update">आधार अपडेट</option>
-                                    <option value="ladki-bahin">लाडकी बहीण योजना</option>
-                                    <option value="banking">बँकिंग / पैसे काढणे</option>
-                                    <option value="certificates">जातीचा दाखला / उत्पन्न</option>
-                                    <option value="other">इतर कामे</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="appointment-date">तारीख आणि वेळ <span class="text-danger">*</span></label>
-                                <input type="datetime-local" id="appointment-date" name="appointment-date" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="form-submit text-center">
-                            <button type="submit" class="btn-premium btn-primary hover-effect">अपॉइंटमेंट बुक करा</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="gallery-section section-padding bg-light">
-            <div class="container">
-                <div class="section-header text-center scroll-animation">
-                    <h2 class="section-title">आमची गॅलरी</h2>
-                    <p class="section-subtitle">प्रताप ऑनलाइन सेंटर मधील कामाची झलक.</p>
-                </div>
-                <div class="gallery-grid scroll-animation">
-                    <figure class="gallery-item premium-shadow hover-effect">
-                        <img src="assets/images/gallery1.jpg" alt="प्रताप ऑनलाइन सेंटर चे बाहेरील दृश्य" loading="lazy" class="gallery-img">
-                        <figcaption class="gallery-caption">आमचे केंद्र</figcaption>
-                    </figure>
-                    <figure class="gallery-item premium-shadow hover-effect">
-                        <img src="assets/images/gallery2.jpg" alt="ग्राहकांना सेवा देताना संचालक" loading="lazy" class="gallery-img">
-                        <figcaption class="gallery-caption">ग्राहक सेवा</figcaption>
-                    </figure>
-                    <figure class="gallery-item premium-shadow hover-effect">
-                        <img src="assets/images/gallery3.jpg" alt="बँकिंग आणि आधार सेवा" loading="lazy" class="gallery-img">
-                        <figcaption class="gallery-caption">बँकिंग सुविधा</figcaption>
-                    </figure>
-                    <figure class="gallery-item premium-shadow hover-effect">
-                        <img src="assets/images/gallery4.jpg" alt="योजनांची माहिती देताना" loading="lazy" class="gallery-img">
-                        <figcaption class="gallery-caption">सरकारी योजना मार्गदर्शन</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials/Reviews Section -->
-        <section id="reviews" class="reviews-section section-padding modern-gradient text-white">
-            <div class="container">
-                <div class="section-header text-center scroll-animation">
-                    <h2 class="section-title">ग्राहकांचे अभिप्राय</h2>
-                    <p class="section-subtitle">आमच्या सेवेबद्दल गावकऱ्यांचे मत.</p>
-                </div>
-                <div class="reviews-grid scroll-animation">
-                    <div class="review-card premium-glassmorphism">
-                        <div class="review-rating">
-                            <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p class="review-text">"प्रताप राठोड यांचे काम खूप प्रामाणिक आणि जलद आहे. माझ्या शेतीचा पीक विमा आणि घरकुल योजनेचे काम अगदी वेळेवर झाले. आता तालुक्याला जाण्याची गरज नाही."</p>
-                        <h5 class="reviewer-name">- संतोष जाधव, आमला खुर्द</h5>
-                    </div>
-                    <div class="review-card premium-glassmorphism">
-                        <div class="review-rating">
-                            <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p class="review-text">"मी माझ्या मुलीसाठी लाडकी बहीण योजनेचा फॉर्म येथे भरला. कोणतीही अडचण आली नाही. प्रताप भाऊ प्रत्येक योजनेची सविस्तर माहिती देतात. अतिशय उत्तम सेवा!"</p>
-                        <h5 class="reviewer-name">- सुनिता राठोड, आमला खुर्द</h5>
-                    </div>
-                    <div class="review-card premium-glassmorphism">
-                        <div class="review-rating">
-                            <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <p class="review-text">"AEPS बँकिंग सुविधेमुळे गावातूनच पैसे काढता येतात. पॅन कार्ड पण अवघ्या काही दिवसांत पोस्टाने घरी आले. धन्यवाद प्रताप ऑनलाइन सेंटर."</p>
-                        <h5 class="reviewer-name">- रमेश चव्हाण, दिग्रस</h5>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="faq-section section-padding">
-            <div class="container">
-                <div class="section-header text-center scroll-animation">
-                    <h2 class="section-title">वारंवार विचारले जाणारे प्रश्न (FAQ)</h2>
-                    <p class="section-subtitle">तुमच्या मनातील प्रश्नांची उत्तरे.</p>
-                </div>
-                <div class="faq-container scroll-animation">
-                    <details class="faq-item premium-shadow">
-                        <summary class="faq-question">तुमचे सेंटर आठवड्याचे कोणते दिवस सुरू असते?</summary>
-                        <div class="faq-answer">
-                            <p>आमचे प्रताप ऑनलाइन सेंटर सोमवार ते शनिवार सकाळी ९:०० ते संध्याकाळी ६:०० पर्यंत सुरू असते. रविवारी सुट्टी असते.</p>
-                        </div>
-                    </details>
-                    <details class="faq-item premium-shadow">
-                        <summary class="faq-question">आधार कार्ड अपडेट करण्यासाठी कोणती कागदपत्रे लागतात?</summary>
-                        <div class="faq-answer">
-                            <p>पत्ता बदलण्यासाठी मतदान कार्ड, पासपोर्ट किंवा रहिवासी दाखला लागतो. नावात बदल करण्यासाठी पॅन कार्ड किंवा शाळेचा दाखला आवश्यक आहे. अधिक माहितीसाठी आम्हाला कॉल करा.</p>
-                        </div>
-                    </details>
-                    <details class="faq-item premium-shadow">
-                        <summary class="faq-question">पॅन कार्ड किती दिवसांत मिळते?</summary>
-                        <div class="faq-answer">
-                            <p>ई-पॅन कार्ड ३ ते ५ दिवसांत ईमेलवर येते आणि मूळ (Physical) पॅन कार्ड १५ ते २० दिवसांत पोस्टाने घरपोच येते.</p>
-                        </div>
-                    </details>
-                    <details class="faq-item premium-shadow">
-                        <summary class="faq-question">लाडकी बहीण योजनेसाठी अर्ज कसा करावा?</summary>
-                        <div class="faq-answer">
-                            <p>तुम्ही तुमचे आधार कार्ड, बँक पासबुक, रेशन कार्ड आणि पासपोर्ट फोटो घेऊन आमच्या केंद्रावर या. आम्ही तुमचा ऑनलाइन अर्ज मोफत भरून देऊ (शासकीय नियमांनुसार).</p>
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact & Location Section -->
-        <section id="contact" class="contact-section section-padding bg-light">
-            <div class="container">
-                <div class="section-header text-center scroll-animation">
-                    <h2 class="section-title">संपर्क आणि पत्ता</h2>
-                    <p class="section-subtitle">आमच्याशी संपर्क साधण्यासाठी खालील माहितीचा वापर करा.</p>
-                </div>
-                
-                <div class="contact-grid">
-                    <!-- Contact Info -->
-                    <div class="contact-info-card premium-glassmorphism premium-shadow scroll-animation">
-                        <h3 class="contact-card-title">कार्यालयाचा पत्ता</h3>
-                        <ul class="contact-list">
-                            <li class="contact-list-item">
-                                <i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i>
-                                <div class="contact-detail">
-                                    <strong>प्रताप ऑनलाइन सेंटर</strong><br>
-                                    मु. आमला खुर्द, ता. दिग्रस,<br>
-                                    जि. यवतमाळ, महाराष्ट्र, भारत - ४४५२०३
-                                </div>
-                            </li>
-                            <li class="contact-list-item">
-                                <i class="fas fa-user-tie contact-icon" aria-hidden="true"></i>
-                                <div class="contact-detail">
-                                    <strong>संचालक:</strong> प्रताप राठोड
-                                </div>
-                            </li>
-                            <li class="contact-list-item">
-                                <i class="fas fa-phone-alt contact-icon" aria-hidden="true"></i>
-                                <div class="contact-detail">
-                                    <strong>मोबाईल नंबर:</strong><br>
-                                    <a href="tel:+917719984464" class="contact-link">७७१९९८४४६४</a> <br>
-                                    <a href="tel:+919673258236" class="contact-link">९६७३२५८२३६</a>
-                                </div>
-                            </li>
-                            <li class="contact-list-item">
-                                <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
-                                <div class="contact-detail">
-                                    <strong>ईमेल:</strong><br>
-                                    <a href="mailto:prataprathod821@gmail.com" class="contact-link">prataprathod821@gmail.com</a>
-                                </div>
-                            </li>
-                            <li class="contact-list-item">
-                                <i class="fas fa-clock contact-icon" aria-hidden="true"></i>
-                                <div class="contact-detail">
-                                    <strong>कामाची वेळ:</strong><br>
-                                    सोमवार - शनिवार: स. ९:०० ते सं. ६:००<br>
-                                    रविवार: बंद
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Google Maps Embed -->
-                    <div class="contact-map-card premium-glassmorphism premium-shadow scroll-animation">
-                        <h3 class="contact-card-title">नकाशा (Google Map)</h3>
-                        <div class="map-responsive">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119934.02058428383!2d77.65219484999999!3d20.117070199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd114407b8b2fc1%3A0x8e836b6d51c3fbf7!2sDigras%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                                width="100%" 
-                                height="300" 
-                                style="border:0; border-radius: 10px;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade" 
-                                title="प्रताप ऑनलाइन सेंटर चे गुगल मॅप लोकेशन">
-                            </iframe>
-                        </div>
-                        <div class="map-actions text-center mt-15">
-                            <a href="https://goo.gl/maps/YourGoogleMapDirectionLinkHere" target="_blank" rel="noopener noreferrer" class="btn-premium btn-secondary hover-effect w-100">
-                                <i class="fas fa-directions" aria-hidden="true"></i> दिशा (Directions) मिळवा
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live Chat Widget Placeholder (For JS integration later) -->
-        <div id="live-chat-widget" class="live-chat-container">
-            <!-- Chat UI will be injected here via JS -->
-        </div>
-
-    </main>
-
-    <!-- Premium Footer -->
-    <footer class="premium-footer modern-gradient text-white">
-        <div class="container">
-            <div class="footer-grid">
-                
-                <!-- Brand Info -->
-                <div class="footer-col brand-col">
-                    <img src="assets/images/logo-white.png" alt="प्रताप ऑनलाइन सेंटर पांढरा लोगो" class="footer-logo" width="60" height="60" loading="lazy">
-                    <h3 class="footer-brand-name">प्रताप ऑनलाइन सेंटर</h3>
-                    <p class="footer-desc">आमला खुर्द मधील आपले हक्काचे डिजिटल सेवा केंद्र. सर्व शासकीय योजना आणि ऑनलाइन सुविधा एकाच ठिकाणी.</p>
-                    <div class="social-links">
-                        <a href="https://wa.me/917719984464" class="social-icon hover-effect" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                        <a href="#" class="social-icon hover-effect" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a href="#" class="social-icon hover-effect" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" class="social-icon hover-effect" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="footer-col links-col">
-                    <h4 class="footer-heading">महत्त्वाच्या लिंक्स</h4>
-                    <ul class="footer-links-list">
-                        <li><a href="#hero" class="footer-link">मुख्य पृष्ठ</a></li>
-                        <li><a href="#about" class="footer-link">आमच्याबद्दल</a></li>
-                        <li><a href="#services" class="footer-link">सर्व सेवा</a></li>
-                        <li><a href="#gallery" class="footer-link">गॅलरी</a></li>
-                        <li><a href="#contact" class="footer-link">संपर्क</a></li>
-                    </ul>
-                </div>
-
-                <!-- Services Links -->
-                <div class="footer-col services-col">
-                    <h4 class="footer-heading">प्रमुख सेवा</h4>
-                    <ul class="footer-links-list">
-                        <li><a href="#services" class="footer-link">बँकिंग (AEPS)</a></li>
-                        <li><a href="#services" class="footer-link">आधार आणि पॅन कार्ड</a></li>
-                        <li><a href="#services" class="footer-link">शेतकरी योजना</a></li>
-                        <li><a href="#services" class="footer-link">प्रमाणपत्रे आणि दाखले</a></li>
-                        <li><a href="#services" class="footer-link">डिजीलॉकर सेवा</a></li>
-                    </ul>
-                </div>
-
-                <!-- Legal Links -->
-                <div class="footer-col legal-col">
-                    <h4 class="footer-heading">कायदेशीर (Legal)</h4>
-                    <ul class="footer-links-list">
-                        <li><a href="privacy-policy.html" class="footer-link">गोपनीयता धोरण (Privacy Policy)</a></li>
-                        <li><a href="terms.html" class="footer-link">अटी आणि शर्ती (Terms)</a></li>
-                        <li><a href="disclaimer.html" class="footer-link">अस्वीकरण (Disclaimer)</a></li>
-                        <li><a href="sitemap.xml" class="footer-link">साइटमॅप (XML Sitemap)</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom text-center">
-                <div class="footer-divider"></div>
-                <p class="copyright-text">
-                    &copy; <time datetime="2026">२०२६</time> प्रताप ऑनलाइन सेंटर, आमला खुर्द. सर्व हक्क सुरक्षित. <br>
-                    <span class="developer-credit">Developed with ❤️ for Rural Maharashtra.</span>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts hooks for future JavaScript (Core Web Vitals, Animations, Modals) -->
-    <!-- <script src="assets/js/main.js" defer></script> -->
-    <!-- <script src="assets/js/animations.js" defer></script> -->
-</body>
-</html>
+‎<!DOCTYPE html>
+‎<html lang="en">
+‎
+‎<head>
+‎
+‎<meta charset="UTF-8">
+‎
+‎<meta name="viewport"
+‎content="width=device-width, initial-scale=1.0">
+‎
+‎<meta http-equiv="X-UA-Compatible"
+‎content="IE=edge">
+‎
+‎<title>
+‎Pratap Online Centre | CSC Digital Services | Amla Khurd | Digras | Yavatmal
+‎</title>
+‎
+‎<meta name="description"
+‎content="Pratap Online Centre provides CSC, Aadhaar, PAN Card, Banking, AEPS, PM Kisan, MahaDBT, Government Schemes, Passport, Printing, Xerox, Scanning and all Digital Services in Amla Khurd, Taluka Digras, District Yavatmal.">
+‎
+‎<meta name="keywords"
+‎content="Pratap Online Centre, CSC, Aadhaar, PAN, AEPS, Banking, PM Kisan, MahaDBT, Amla Khurd, Digras, Yavatmal">
+‎
+‎<meta name="author"
+‎content="Pratap Rathod">
+‎
+‎<meta name="theme-color"
+‎content="#0B5ED7">
+‎
+‎<link rel="icon"
+‎href="logo.jpeg">
+‎
+‎<link rel="preconnect"
+‎href="https://fonts.googleapis.com">
+‎
+‎<link rel="preconnect"
+‎href="https://fonts.gstatic.com"
+‎crossorigin>
+‎
+‎<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+‎rel="stylesheet">
+‎
+‎<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+‎rel="stylesheet">
+‎
+‎<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+‎rel="stylesheet">
+‎
+‎<link rel="stylesheet"
+‎href="style.css">
+‎
+‎</head>
+‎
+‎<body>
+‎
+‎<!-- ================= PRELOADER ================= -->
+‎
+‎<div id="preloader">
+‎
+‎<div class="loader"></div>
+‎
+‎</div>
+‎
+‎<!-- ================= NAVBAR ================= -->
+‎
+‎<nav id="navbar"
+‎class="navbar navbar-expand-lg fixed-top">
+‎
+‎<div class="container">
+‎
+‎<a href="#home"
+‎class="navbar-brand logo d-flex align-items-center">
+‎
+‎<img src="logo.jpeg"
+‎alt="Pratap Online Centre">
+‎
+‎<div class="logo-text">
+‎
+‎<h4>
+‎
+‎Pratap Online Centre
+‎
+‎</h4>
+‎
+‎<small>
+‎
+‎Trusted CSC & Digital Services
+‎
+‎</small>
+‎
+‎</div>
+‎
+‎</a>
+‎
+‎<button class="navbar-toggler"
+‎
+‎type="button"
+‎
+‎data-bs-toggle="collapse"
+‎
+‎data-bs-target="#navbarNav">
+‎
+‎<span class="navbar-toggler-icon"></span>
+‎
+‎</button>
+‎
+‎<div class="collapse navbar-collapse"
+‎
+‎id="navbarNav">
+‎
+‎<ul class="navbar-nav ms-auto">
+‎
+‎<li class="nav-item">
+‎
+‎<a class="nav-link active"
+‎
+‎href="#home">
+‎
+‎Home
+‎
+‎</a>
+‎
+‎</li>
+‎
+‎<li class="nav-item">
+‎
+‎<a class="nav-link"
+‎
+‎href="#about">
+‎
+‎About
+‎
+‎</a>
+‎
+‎</li>
+‎
+‎<li class="nav-item">
+‎
+‎<a class="nav-link"
+‎
+‎href="#services">
+‎
+‎Services
+‎
+‎</a>
+‎
+‎</li>
+‎
+‎<li class="nav-item">
+‎
+‎<a class="nav-link"
+‎
+‎href="#gallery">
+‎
+‎Gallery
+‎
+‎</a>
+‎
+‎</li>
+‎
+‎<li class="nav-item">
+‎
+‎<a class="nav-link"
+‎
+‎href="#reviews">
+‎
+‎Reviews
+‎
+‎</a>
+‎
+‎</li>
+‎
+‎<li class="nav-item">
+‎
+‎<a class="nav-link"
+‎
+‎href="#contact">
+‎
+‎Contact
+‎
+‎</a>
+‎
+‎</li>
+‎
+‎</ul>
+‎
+‎<a href="tel:7719984464"
+‎
+‎class="btn btn-primary call-btn">
+‎
+‎<i class="bi bi-telephone-fill"></i>
+‎
+‎Call Now
+‎
+‎</a>
+‎
+‎</div>
+‎
+‎</div>
+‎
+‎</nav><!-- ================= HERO SECTION ================= -->
+‎
+‎<section id="home" class="hero">
+‎
+‎<div class="container">
+‎
+‎<div class="row align-items-center gy-5">
+‎
+‎<!-- Left -->
+‎
+‎<div class="col-lg-6">
+‎
+‎<span class="hero-tag">
+‎
+‎🙏 जय सेवालाल 🙏
+‎
+‎</span>
+‎
+‎<h1>
+‎
+‎Welcome to
+‎
+‎<span>
+‎
+‎Pratap Online Centre
+‎
+‎</span>
+‎
+‎</h1>
+‎
+‎<h2>
+‎
+‎Your Trusted CSC & Digital Service Centre
+‎
+‎</h2>
+‎
+‎<p class="hero-text">
+‎
+‎Proudly serving the people of <strong>Amla Khurd</strong>,
+‎Taluka Digras, District Yavatmal with trusted Digital,
+‎Government and Banking Services.
+‎
+‎Fast Service • Transparent Process • Customer First
+‎
+‎</p>
+‎
+‎<div class="hero-buttons">
+‎
+‎<a href="tel:7719984464" class="btn btn-primary btn-lg">
+‎
+‎<i class="bi bi-telephone-fill"></i>
+‎
+‎Call Now
+‎
+‎</a>
+‎
+‎<a href="https://wa.me/917719984464"
+‎
+‎target="_blank"
+‎
+‎class="btn btn-success btn-lg">
+‎
+‎<i class="bi bi-whatsapp"></i>
+‎
+‎WhatsApp
+‎
+‎</a>
+‎
+‎<a href="https://maps.app.goo.gl/dte9WBfezzEagr8k7?g_st=ac"
+‎
+‎target="_blank"
+‎
+‎class="btn btn-warning btn-lg">
+‎
+‎<i class="bi bi-geo-alt-fill"></i>
+‎
+‎Location
+‎
+‎</a>
+‎
+‎</div>
+‎
+‎<div class="hero-counter mt-5">
+‎
+‎<div class="counter-box">
+‎
+‎<h3>5000+</h3>
+‎
+‎<p>Happy Customers</p>
+‎
+‎</div>
+‎
+‎<div class="counter-box">
+‎
+‎<h3>25+</h3>
+‎
+‎<p>Digital Services</p>
+‎
+‎</div>
+‎
+‎<div class="counter-box">
+‎
+‎<h3>100%</h3>
+‎
+‎<p>Trusted Support</p>
+‎
+‎</div>
+‎
+‎</div>
+‎
+‎</div>
+‎
+‎<!-- Right -->
+‎
+‎<div class="col-lg-6 text-center">
+‎
+‎<img src="logo.jpeg"
+‎
+‎alt="Pratap Online Centre"
+‎
+‎class="hero-image img-fluid">
+‎
+‎<div class="hero-badge">
+‎
+‎<h4>
+‎
+‎🏡 Amla Khurd
+‎
+‎</h4>
+‎
+‎<p>
+‎
+‎Taluka Digras • District Yavatmal
+‎
+‎</p>
+‎
+‎</div>
+‎
+‎</div>
+‎
+‎</div>
+‎
+‎</div>
+‎
+‎</section>
+‎
+‎<!-- ================= END HERO ================= --><!-- =====================================
+‎TRUST SECTION
+‎====================================== -->
+‎
+‎<section class="trust-section">
+‎
+‎<div class="container">
+‎
+‎<div class="row text-center g-4">
+‎
+‎<div class="col-md-3 col-6">
+‎
+‎<div class="trust-card">
+‎
+‎<i class="bi
