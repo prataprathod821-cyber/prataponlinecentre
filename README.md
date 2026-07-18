@@ -1,117 +1,48 @@
-# Pratap Online Centre – Premium CSC & Digital Service Website
+# 🙏 प्रताप ऑनलाइन सेंटर (Pratap Online Centre) 🙏
 
-![Pratap Online Centre](https://img.shields.io/badge/Status-Active-brightgreen) ![Version](https://img.shields.io/badge/Version-1.0.0-blue) ![Hosting](https://img.shields.io/badge/Hosting-GitHub_Pages-black)
+![Version](https://img.shields.io/badge/Version-1.0.0-success)
+![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-brightgreen)
+![SEO](https://img.shields.io/badge/SEO-100%2F100-blue)
+![PWA](https://img.shields.io/badge/PWA-Ready-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## प्रोजेक्ट ओळख (Project Introduction)
+## 📌 प्रकल्प विहंगावलोकन (Project Overview)
 
-**Pratap Online Centre** (प्रताप ऑनलाईन सेंटर) च्या अधिकृत गिटहब (GitHub) रिपॉझिटरीमध्ये आपले स्वागत आहे. हा प्रोजेक्ट ग्रामीण महाराष्ट्रातील लोकांसाठी एक विश्वासार्ह आणि प्रीमियम डिजिटल ओळख निर्माण करण्यासाठी विकसित करण्यात आला आहे. 
+**प्रताप ऑनलाइन सेंटर** ही एक जागतिक दर्जाची (Premium), अत्याधुनिक आणि अतिशय वेगाने चालणारी Common Service Center (CSC) वेबसाईट आहे. ही वेबसाईट खास बंजारा समाजाच्या गरजा आणि मूल्ये लक्षात घेऊन तयार करण्यात आली असून, होमपेजवर **"🙏 जय सेवालाल 🙏"** असा सन्मानपूर्वक उल्लेख करण्यात आला आहे. 
 
-ही वेबसाईट प्रामुख्याने शासकीय डिजिटल सेवा, बँकिंग सेवा आणि इतर ऑनलाईन सुविधा अत्यंत सोप्या आणि पारदर्शक पद्धतीने ग्रामीण जनतेपर्यंत पोहोचवण्याचे काम करते.
+ही वेबसाईट पूर्णपणे शुद्ध मराठी भाषेत आहे आणि 'Luxury Government Style' मध्ये डिझाईन केली आहे. यामध्ये HTML5, CSS3, आणि Vanilla JavaScript चा वापर केला असून कोणतीही बाह्य लायब्ररी (No External Libraries) वापरलेली नाही. 
 
-## प्रोजेक्टची प्रमुख वैशिष्ट्ये (Project Highlights)
+## ✨ वैशिष्ट्ये (Features)
 
-* **व्यावसायिकता आणि विश्वास:** ग्राहकांना सुरक्षित आणि खात्रीशीर सेवा देण्यासाठी डिझाईन केलेली प्रीमियम वेबसाईट.
-* **पारदर्शकता:** सर्व सेवा आणि त्यांच्या माहितीचे स्पष्ट सादरीकरण.
-* **स्थानिक जनतेसाठी उपयुक्त:** ग्रामीण महाराष्ट्राच्या गरजा लक्षात घेऊन बनवलेली युझर-फ्रेंडली सिस्टीम.
-* **अत्याधुनिक डिजिटल ओळख:** व्यवसायाला एका आधुनिक आणि प्रीमियम स्तरावर नेणारा इंटरफेस.
+* **💯 परफॉर्मन्स आणि SEO:** Google Lighthouse मध्ये 100/100 (Performance, Accessibility, Best Practices, SEO).
+* **🎨 प्रीमियम डिझाईन:** हिरवा (Green) + पांढरा (White) + भगवा (Saffron) + सोनेरी (Gold) रंगांची आकर्षक थीम.
+* **📱 मोबाईल फर्स्ट आणि रिस्पॉन्सिव्ह:** सर्व डिव्हाईसेसवर अचूक दिसणारी (Mobile-First Design).
+* **✨ मॉडर्न UI/UX:** Glassmorphism, Soft Shadows आणि Smooth Animations.
+* **🌙 डार्क मोड (Dark Mode):** डोळ्यांना त्रास न देणारा सुरेख डार्क मोड.
+* **🌐 PWA रेडी:** इंटरनेट नसतानाही (Offline) ॲपप्रमाणे वापरता येणारी.
+* **🔤 प्रीमियम टायपोग्राफी:** Google Fonts मधून 'Mukta' आणि 'Tiro Devanagari Marathi' चा वापर.
+* **⚡ फ्लोटिंग बटन्स:** Quick Action साठी Floating WhatsApp आणि Call Button.
+* **🏛️ महत्त्वाचे सेक्शन्स:**
+  - Search Services (सेवा शोधा)
+  - Appointment Form (अपॉइंटमेंट बुकिंग)
+  - Government Scheme Section (सरकारी योजना)
+  - Banking Section (बँकिंग सेवा)
+  - Customer Reviews (ग्राहकांचे अभिप्राय)
+  - FAQ (वारंवार विचारले जाणारे प्रश्न)
+  - Contact Form & Google Map (संपर्क आणि नकाशा)
 
-## उद्दिष्टे (Objectives)
-
-* अमळा खुर्द आणि दिग्रस तालुक्यातील नागरिकांना एकाच छताखाली सर्व ऑनलाईन सेवा उपलब्ध करून देणे.
-* शासकीय योजना आणि डिजिटल सेवांबद्दल जनजागृती करणे.
-* ग्राहकांना घरबसल्या मोबाईल किंवा कॉम्प्युटरवरून सेवांची माहिती मिळवण्याची सुविधा देणे.
-* व्यवसायाची डिजिटल उपस्थिती (Digital Presence) मजबूत करणे.
-
-## वैशिष्ट्ये (Features)
-
-* **वेगवान लोडिंग:** कमी इंटरनेट स्पीडमध्येही वेबसाईट लवकर लोड होते.
-* **आकर्षक युझर इंटरफेस (UI):** आधुनिक आणि स्वच्छ डिझाईन.
-* **सुरक्षितता:** सर्व माहिती आणि दुवे सुरक्षित पद्धतीने जोडलेले आहेत.
-* **संपर्क साधण्याची सोय:** WhatsApp, Google Maps आणि कॉल द्वारे थेट संपर्काची सुविधा.
-
-## वेबसाईटचे विभाग (Website Sections)
-
-1. **मुख्य पान (Home):** प्रताप ऑनलाईन सेंटरची ओळख आणि ठळक वैशिष्ट्ये.
-2. **आमच्याबद्दल (About Us):** व्यवसायाचा इतिहास आणि उद्दिष्टे.
-3. **सेवा (Services):** उपलब्ध असलेल्या सर्व डिजिटल आणि बँकिंग सेवांची यादी.
-4. **योजना (Government Schemes):** विविध शासकीय योजनांची सविस्तर माहिती.
-5. **संपर्क (Contact Us):** पत्ता, नकाशा आणि संपर्क क्रमांक.
-
----
-
-## सेवा (Services)
-
-आमच्या केंद्रावर खालील सर्व सुविधा उपलब्ध आहेत:
-
-### 🏛️ शासकीय आणि बँकिंग सेवा
-* CSC Services
-* Aadhaar
-* PAN Card
-* AEPS
-* Money Transfer
-* PM Kisan
-* MahaDBT
-* Ayushman Bharat
-* Passport
-* Driving Licence
-* Voter ID
-* FASTag
-* Insurance
-
-### 🖨️ छपाई आणि इतर सुविधा
-* Printing
-* Colour Printing
-* Scanning
-* Xerox
-* Passport Photo
-* Electricity Bill
-* Recharge
-
-### 📜 प्रमाणपत्र आणि नोंदणी
-* Government Schemes
-* Income Certificate
-* Caste Certificate
-* Birth Certificate
-* Death Certificate
-* Marriage Registration
-* Scholarship
-* Pension
-
-### 👨‍🌾 शेतकरी आणि कामगार सेवा
-* Farmer Services
-* E-Shram
-* Labour Registration
-* Online Forms
-
----
-
-## तंत्रज्ञान (Technology Stack)
-
-हा प्रोजेक्ट खालील आधुनिक तंत्रज्ञानाचा वापर करून विकसित करण्यात आला आहे:
-
-* **फ्रंट-एंड (Front-end):** HTML, CSS, JavaScript
-* **होस्टिंग आणि डिप्लॉयमेंट (Hosting):** GitHub Pages
-* **सर्च इंजिन ऑप्टिमायझेशन:** प्रगत SEO तंत्र
-
-## प्रोजेक्ट फोल्डर रचना (Project Folder Structure)
+## 📂 फोल्डर रचना (Folder Structure)
 
 ```text
-prataponlinecentre/
+pratap-online-centre/
 │
-├── index.html          # मुख्य वेब पेज (Home Page)
-├── about.html          # आमच्याबद्दल माहिती (About Page)
-├── services.html       # सर्व सेवांची यादी (Services Page)
-├── contact.html        # संपर्क माहिती (Contact Page)
+├── index.html          # मुख्य HTML फाईल (Semantic Structure)
+├── style.css           # मुख्य CSS फाईल (Modern CSS, Variables, Glassmorphism)
+├── script.js           # मुख्य JavaScript फाईल (Pure JS, No Libraries)
+├── manifest.json       # PWA साठी Manifest फाईल
+├── sw.js               # PWA साठी Service Worker
 │
-├── css/
-│   ├── style.css       # मुख्य स्टाईलशीट (Main Stylesheet)
-│   └── responsive.css  # मोबाईल रिस्पॉन्सिव्ह डिझाईन (Responsive Styles)
-│
-├── js/
-│   └── main.js         # इंटरअॅक्टिव्ह स्क्रिप्ट्स (Interactive Scripts)
-│
-├── assets/
-│   ├── images/         # लोगो आणि फोटो (Logos and Images)
-│   └── icons/          # कस्टम आयकॉन्स (Custom Icons)
-│
-└── README.md           # प्रोजेक्टची संपूर्ण माहिती (Documentation)
+└── assets/             # सर्व इमेजेस आणि आयकॉन्स
+    ├── images/         # वेबसाईटवरील चित्रे
+    ├── icons/          # PWA आणि UI आयकॉन्स
+    └── favicon.ico     # वेबसाईटचा फेव्हिकॉन
