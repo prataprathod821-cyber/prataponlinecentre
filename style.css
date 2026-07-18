@@ -1,165 +1,176 @@
-<!DOCTYPE html>
-<html lang="mr" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- SEO Meta Tags -->
-    <title>प्रताप ऑनलाइन सेंटर | CSC Center Amla Khurd, Digras | सर्व सरकारी सेवा</title>
-    <meta name="description" content="प्रताप ऑनलाइन सेंटर, आमला खुर्द (दिग्रस, यवतमाळ). प्रताप राठोड यांच्या मार्गदर्शनाखाली आधार, पॅन, बँकिंग (AEPS), शेती योजना आणि सर्व CSC सेवा एकाच ठिकाणी.">
-    <meta name="keywords" content="Pratap Online Center, CSC Amla Khurd, Digras CSC, Yavatmal CSC, Banjara Community Digital Center, Aadhaar Card, PAN Card, PM Kisan, Ladki Bahin Yojana, AEPS, Online Services Maharashtra">
-    <meta name="author" content="प्रताप राठोड">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="प्रताप ऑनलाइन सेंटर - आमला खुर्द">
-    <meta property="og:description" content="सर्व प्रकारच्या ऑनलाइन सेवा, सरकारी योजना आणि बँकिंग सुविधा एकाच छताखाली.">
-    <meta property="og:image" content="assets/images/og-image.jpg">
-    
-    <!-- PWA & Manifest -->
-    <meta name="theme-color" content="#FF6F00">
-    <link rel="manifest" href="manifest.json">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body id="body" class="light-mode">
 
-    <!-- Premium Loader -->
-    <div id="premium-loader" class="loader-container">
-        <div class="loader-spinner"></div>
-    </div>
+.floating-call,
+.floating-whatsapp{
 
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="scroll-progress-bar"></div>
+width:55px;
 
-    <!-- Floating Buttons -->
-    <div class="floating-buttons-container">
-        <a href="https://wa.me/917719984464" class="float-btn whatsapp-float" aria-label="WhatsApp संपर्क">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:+917719984464" class="float-btn call-float" aria-label="कॉल करा">
-            <i class="fas fa-phone-alt"></i>
-        </a>
-        <button id="back-to-top" class="float-btn back-top-float" aria-label="वर जा">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-    </div>
+height:55px;
 
-    <!-- Premium Navbar -->
-    <header id="header" class="premium-header">
-        <nav class="nav-container">
-            <div class="brand">
-                <img src="assets/images/logo.png" alt="प्रताप ऑनलाइन सेंटर लोगो">
-                <span>प्रताप ऑनलाइन सेंटर</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#hero">मुख्य पृष्ठ</a></li>
-                <li><a href="#services">सेवा</a></li>
-                <li><a href="#contact">संपर्क</a></li>
-            </ul>
-            <button id="theme-toggle" class="theme-btn" aria-label="डार्क मोड">
-                <i class="fas fa-moon"></i>
-            </button>
-        </nav>
-    </header>
+font-size:22px;
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <div class="sevalal-blessing">🙏 जय सेवालाल 🙏</div>
-                <h1>प्रताप ऑनलाइन सेंटर, आमला खुर्द</h1>
-                <p>संचालक: प्रताप राठोड | डिजिटल सेवा आणि सरकारी योजनांचे केंद्र</p>
-                <div class="hero-actions">
-                    <a href="#services" class="btn-primary">आमच्या सेवा पहा</a>
-                    <a href="#appointment" class="btn-secondary">अपॉइंटमेंट बुक करा</a>
-                </div>
-            </div>
-        </section>
+}
 
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <h2>आमच्या सेवा</h2>
-            <div class="services-grid">
-                <!-- Cards for all services listed in requirements -->
-                <article class="service-card">
-                    <i class="fas fa-university"></i>
-                    <h3>AEPS बँकिंग</h3>
-                    <p>आधारद्वारे पैसे काढा आणि जमा करा.</p>
-                </article>
-                <article class="service-card">
-                    <i class="fas fa-id-card"></i>
-                    <h3>आधार कार्ड सेवा</h3>
-                    <p>नवीन आधार, दुरुस्ती आणि पीव्हीसी आधार.</p>
-                </article>
-                <article class="service-card">
-                    <i class="fas fa-credit-card"></i>
-                    <h3>पॅन कार्ड</h3>
-                    <p>नवीन पॅन आणि दुरुस्ती सेवा.</p>
-                </article>
-                <article class="service-card">
-                    <i class="fas fa-female"></i>
-                    <h3>लाडकी बहीण योजना</h3>
-                    <p>शासकीय लाडकी बहीण योजनेचे फॉर्म.</p>
-                </article>
-                <article class="service-card">
-                    <i class="fas fa-tractor"></i>
-                    <h3>पीएम किसान</h3>
-                    <p>केवायसी आणि नवीन नोंदणी.</p>
-                </article>
-                <article class="service-card">
-                    <i class="fas fa-print"></i>
-                    <h3>Xerox / प्रिंटिंग</h3>
-                    <p>सर्व प्रकारची प्रिंटिंग आणि झेरॉक्स.</p>
-                </article>
-            </div>
-        </section>
+}
 
-        <!-- Appointment Section -->
-        <section id="appointment" class="appointment-section">
-            <h2>अपॉइंटमेंट बुक करा</h2>
-            <form id="appointment-form">
-                <input type="text" placeholder="तुमचे नाव" required>
-                <input type="tel" placeholder="मोबाईल नंबर" required>
-                <select>
-                    <option>सेवा निवडा</option>
-                    <option>आधार कार्ड</option>
-                    <option>पॅन कार्ड</option>
-                    <option>इतर</option>
-                </select>
-                <button type="submit">बुक करा</button>
-            </form>
-        </section>
+@media (max-width:576px){
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2>संपर्क</h2>
-            <div class="contact-info">
-                <p>प्रताप राठोड: 7719984464 / 9673258236</p>
-                <p>ईमेल: prataprathod821@gmail.com</p>
-                <p>आमला खुर्द, दिग्रस, यवतमाळ.</p>
-            </div>
-            <div id="map">
-                <iframe src="https://www.google.com/maps/embed?pb=..." title="लोकेशन" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </section>
-    </main>
+.hero{
 
-    <!-- Premium Footer -->
-    <footer id="footer" class="premium-footer">
-        <p>&copy; २०२६ प्रताप ऑनलाइन सेंटर. सर्व हक्क सुरक्षित.</p>
-        <div class="footer-links">
-            <a href="privacy-policy.html">गोपनीयता धोरण</a>
-            <a href="terms.html">अटी आणि शर्ती</a>
-        </div>
-    </footer>
-</body>
-</html>
+padding-top:120px;
+
+}
+
+.hero h1{
+
+font-size:32px;
+
+}
+
+.hero h2{
+
+font-size:20px;
+
+}
+
+.hero-text{
+
+font-size:15px;
+
+}
+
+.section-tag{
+
+font-size:13px;
+
+padding:7px 15px;
+
+}
+
+.btn{
+
+padding:13px 22px;
+
+font-size:15px;
+
+}
+
+.review-card,
+.service-card,
+.trust-card{
+
+padding:25px;
+
+}
+
+.footer{
+
+padding:55px 20px;
+
+}
+
+.footer h3{
+
+font-size:24px;
+
+}
+
+.footer h4{
+
+font-size:20px;
+
+}
+
+}
+
+/* =======================================================
+   ANIMATIONS
+======================================================= */
+
+.fade-up{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:all .8s ease;
+
+}
+
+.fade-up.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.zoom{
+
+transition:.35s;
+
+}
+
+.zoom:hover{
+
+transform:scale(1.05);
+
+}
+
+/* =======================================================
+   SELECTION
+======================================================= */
+
+::selection{
+
+background:#0d6efd;
+
+color:#fff;
+
+}
+
+/* =======================================================
+   FOCUS
+======================================================= */
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus{
+
+outline:none;
+
+box-shadow:none;
+
+}
+
+/* =======================================================
+   UTILITIES
+======================================================= */
+
+.rounded-xl{
+
+border-radius:24px;
+
+}
+
+.shadow-premium{
+
+box-shadow:var(--shadow-lg);
+
+}
+
+.text-primary{
+
+color:var(--primary)!important;
+
+}
+
+.bg-light-blue{
+
+background:#eef5ff;
+
+}
+
+/* =======================================================
+   END OF CSS
+======================================================= */
