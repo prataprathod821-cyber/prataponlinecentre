@@ -1,1575 +1,1046 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>प्रताप ऑनलाइन सेंटर - विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</title>
-    <meta name="description" content="प्रताप ऑनलाइन सेंटर (Pratap Online Centre) - आमला खुर्द साठी डिजिटल सेवा केंद्र. आधार, पॅन, पासपोर्ट, मतदान कार्ड, शासकीय योजना व ऑनलाईन फॉर्म्स मिळण्याचे हक्काचे ठिकाण.">
-    <meta name="keywords" content="Pratap Online Centre, प्रताप ऑनलाइन सेंटर, CSC Maharashtra, Digital Seva, Aadhaar Card, PAN Card, Crop Insurance, PM Kisan, MahaBOCW, Government Schemes Maharashtra">
-    <meta name="author" content="Pratap Online Centre">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="प्रताप ऑनलाइन सेंटर - डिजिटल शासकीय सेवा">
-    <meta property="og:description" content="आमला खुर्द येथील नागरिक, शेतकरी आणि विद्यार्थ्यांसाठी सर्व शासकीय व डिजिटल सेवा एकाच छताखाली.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80">
-
-    <!-- Premium Multilingual Typography Setup (Noto Sans Devanagari, Hind & Poppins) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-    <style>
-        :root {
-            --primary-dark: #0a1931;
-            --primary-blue: #15305b;
-            --accent-saffron: #ff9933;
-            --accent-green: #128c7e;
-            --accent-gold: #ffd700;
-            --bg-light: #f4f6f9;
-            --text-dark: #222831;
-            --text-light: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.4);
-            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
-            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .dark-mode {
-            --primary-dark: #050c18;
-            --primary-blue: #0b1a33;
-            --bg-light: #121824;
-            --text-dark: #f4f6f9;
-            --glass-bg: rgba(15, 23, 42, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --text-light: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            /* Base Marathi Body configuration utilizing Hind with anti-aliasing adjustments */
-            font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            scroll-behavior: smooth;
-        }
-
-        /* Fallback mapping targets for explicit language groups or mixed Latin fragments */
-        body, p, li, td, input, textarea, span {
-            font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
-            line-height: 1.65;
-            letter-spacing: 0.01em;
-        }
-
-        /* Target all layout headings to cleanly employ Noto Sans Devanagari */
-        h1, h2, h3, h4, h5, h6, .section-header h2, .logo-text h1, .hero-content h2, .modal-header-title {
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            line-height: 1.35;
-        }
-
-        /* Explicit English text optimization selector */
-        .en-txt, [lang="en"], .logo-text p, .nav-link, .btn, .counter-number {
-            font-family: 'Poppins', 'Hind', sans-serif;
-            letter-spacing: 0.02em;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            transition: var(--transition-smooth);
-            overflow-x: hidden;
-        }
-
-        /* Utilities */
-        .container {
-            width: 90%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .btn-saffron { background: var(--accent-saffron); color: white; }
-        .btn-saffron:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,153,51,0.4); }
-        .btn-green { background: var(--accent-green); color: white; }
-        .btn-green:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(18,140,126,0.4); }
-        .btn-blue { background: var(--primary-blue); color: white; }
-        .btn-blue:hover { transform: translateY(-3px); background: var(--primary-dark); }
-
-        /* Custom Header Styling */
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        .dark-mode .section-header h2 { color: var(--accent-saffron); }
-        .section-header h2::after {
-            content: '';
-            display: block;
-            width: 60%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-saffron), var(--accent-green));
-            margin: 8px auto 0;
-            border-radius: 2px;
-        }
-        .section-header p { font-size: 1.1rem; opacity: 0.8; font-weight: 500; }
-
-        /* Preloader */
-        #preloader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--primary-dark);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            transition: opacity 0.5s ease;
-        }
-        .spinner {
-            width: 60px; height: 60px;
-            border: 6px solid rgba(255,255,255,0.1);
-            border-top-color: var(--accent-saffron);
-            border-radius: 50%;
-            animation: spin 1s infinite linear;
-            margin-bottom: 20px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* Sticky Navbar */
-        .navbar {
-            position: sticky;
-            top: 0;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: var(--transition-smooth);
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        .logo-icon {
-            background: linear-gradient(135deg, var(--accent-saffron), var(--primary-blue));
-            color: white;
-            width: 45px; height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 12px;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        .logo-text h1 {
-            font-size: 1.6rem;
-            color: var(--primary-blue);
-            line-height: 1.2;
-        }
-        .dark-mode .logo-text h1 { color: white; }
-        .logo-text p {
-            font-size: 0.8rem;
-            color: var(--accent-green);
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            list-style: none;
-        }
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition-smooth);
-            position: relative;
-            padding: 5px 0;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--accent-saffron); }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 0; height: 2px;
-            background: var(--accent-saffron);
-            transition: var(--transition-smooth);
-        }
-        .nav-link:hover::after { width: 100%; }
-        
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .mode-toggle {
-            background: transparent;
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 5px;
-            transition: var(--transition-smooth);
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .hamburger span {
-            width: 25px; height: 3px;
-            background: var(--text-dark);
-            border-radius: 3px;
-            transition: var(--transition-smooth);
-        }
-
-        /* News Ticker */
-        .news-ticker {
-            background: linear-gradient(90deg, var(--primary-dark), var(--primary-blue));
-            color: white;
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        .ticker-title {
-            background: var(--accent-saffron);
-            padding: 5px 15px;
-            font-weight: 700;
-            position: absolute;
-            z-index: 2;
-            box-shadow: 5px 0 15px rgba(0,0,0,0.2);
-            font-size: 0.9rem;
-        }
-        .ticker-wrap {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 25s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-        .ticker-item {
-            display: inline-block;
-            padding: 0 20px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .ticker-item i { color: var(--accent-gold); margin-right: 8px; }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 60px 0;
-            background: radial-gradient(circle at top right, rgba(21, 48, 91, 0.05), transparent), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=40') center/cover no-repeat;
-            position: relative;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .hero-content h2 {
-            font-size: 3.5rem;
-            color: var(--primary-blue);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        .dark-mode .hero-content h2 { color: white; }
-        .hero-content h2 span { color: var(--accent-saffron); }
-        .tagline-badge {
-            display: inline-block;
-            background: linear-gradient(90deg, rgba(255,153,51,0.15), rgba(18,140,126,0.15));
-            border-left: 4px solid var(--accent-saffron);
-            padding: 8px 16px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            border-radius: 0 8px 8px 0;
-        }
-        .dark-mode .tagline-badge { color: var(--accent-gold); }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            opacity: 0.9;
-            line-height: 1.65;
-            font-weight: 400;
-        }
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-        .hero-features {
-            display: flex;
-            gap: 30px;
-        }
-        .h-feat {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-        .h-feat i {
-            color: var(--accent-green);
-            font-size: 1.3rem;
-        }
-        
-        /* Hero Visual / Interactive Card */
-        .hero-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: var(--card-shadow);
-            backdrop-filter: blur(12px);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 6px;
-            background: linear-gradient(90deg, var(--accent-saffron), var(--accent-gold), var(--accent-green));
-        }
-        .hc-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-blue);
-        }
-        .dark-mode .hc-title { color: white; }
-        .hc-updates {
-            list-style: none;
-        }
-        .hc-updates li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .hc-updates li:last-child { border: none; }
-        .hc-updates li i { color: var(--accent-saffron); margin-top: 4px; }
-        
-        /* Smart Search Section */
-        .search-section {
-            padding: 40px 0;
-            background: var(--primary-blue);
-            margin-top: -30px;
-            border-radius: 20px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        .search-container {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            color: white;
-        }
-        .search-container h3 { margin-bottom: 15px; font-size: 1.6rem; letter-spacing: 1px; }
-        .search-box {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 18px 25px;
-            padding-right: 60px;
-            border-radius: 50px;
-            border: none;
-            font-size: 1.1rem;
-            outline: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .search-box i {
-            position: absolute;
-            right: 25px;
-            color: var(--primary-blue);
-            font-size: 1.3rem;
-        }
-
-        /* Counters Section */
-        .counters {
-            padding: 60px 0;
-            background: var(--glass-bg);
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .counters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-        .counter-card {
-            padding: 25px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.5);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition-smooth);
-        }
-        .counter-card:hover { transform: translateY(-5px); }
-        .counter-card i { font-size: 2.5rem; color: var(--accent-saffron); margin-bottom: 15px; }
-        .counter-number { font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 5px; }
-        .dark-mode .counter-number { color: white; }
-        .counter-card p { font-weight: 600; opacity: 0.8; font-size: 1rem; }
-
-        /* Services Grid Styling */
-        .services-section { padding: 80px 0; }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .service-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 0;
-            background: linear-gradient(0deg, rgba(21, 48, 91, 0.05), transparent);
-            transition: var(--transition-smooth);
-            z-index: 1;
-        }
-        .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--accent-saffron);
-            box-shadow: 0 15px 40px rgba(21, 48, 91, 0.12);
-        }
-        .service-card:hover::after { height: 100%; }
-        .s-icon {
-            width: 70px; height: 70px;
-            background: linear-gradient(135deg, rgba(255,153,51,0.1), rgba(21,48,91,0.1));
-            color: var(--primary-blue);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            font-size: 1.8rem;
-            margin: 0 auto 20px auto;
-            transition: var(--transition-smooth);
-        }
-        .dark-mode .s-icon { color: var(--accent-gold); }
-        .service-card:hover .s-icon {
-            background: var(--primary-blue);
-            color: white;
-            transform: rotateY(180deg);
-        }
-        .service-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--primary-blue);
-        }
-        .dark-mode .service-card h3 { color: white; }
-        .service-card p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-        .s-action-btn {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--accent-saffron);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: auto;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose-us {
-            padding: 80px 0;
-            background: linear-gradient(180deg, transparent, rgba(21, 48, 91, 0.03));
-        }
-        .wcu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .wcu-card {
-            display: flex;
-            gap: 20px;
-            background: var(--glass-bg);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--card-shadow);
-        }
-        .wcu-img-box {
-            background: var(--accent-saffron);
-            color: white;
-            width: 55px; height: 55px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 14px;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-        .wcu-info h4 { font-size: 1.2rem; margin-bottom: 8px; color: var(--primary-blue); }
-        .dark-mode .wcu-info h4 { color: white; }
-        .wcu-info p { font-size: 0.95rem; opacity: 0.85; line-height: 1.6; font-weight: 400; }
-
-        /* Gallery Section */
-        .gallery-section { padding: 80px 0; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .gallery-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            height: 220px;
-            box-shadow: var(--card-shadow);
-            cursor: pointer;
-        }
-        .gallery-item img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-        .gallery-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(0deg, rgba(10,25,49,0.8), transparent);
-            opacity: 0;
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            transition: var(--transition-smooth);
-        }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-        .gallery-overlay span { color: white; font-weight: 600; font-size: 1rem; }
-
-        /* Modern Custom Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 25, 49, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .modal-box {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            width: 90%;
-            max-width: 650px;
-            max-height: 85vh;
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            overflow-y: auto;
-            position: relative;
-            transform: scale(0.85);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.active { display: flex; opacity: 1; }
-        .modal-overlay.active .modal-box { transform: scale(1); }
-        .close-modal {
-            position: absolute;
-            top: 20px; right: 25px;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-dark);
-            transition: var(--transition-smooth);
-        }
-        .close-modal:hover { color: var(--accent-saffron); }
-        
-        .modal-header-title {
-            color: var(--primary-blue);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-saffron);
-        }
-        .dark-mode .modal-header-title { color: white; }
-        .modal-section { margin-bottom: 20px; }
-        .modal-section h4 {
-            font-size: 1.05rem;
-            color: var(--accent-saffron);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .modal-section p { font-size: 0.95rem; line-height: 1.65; opacity: 0.95; }
-        
-        /* Modern Data Table inside Modal */
-        .modal-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-        .modal-table th, .modal-table td {
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .modal-table th { background: rgba(21, 48, 91, 0.1); color: var(--primary-blue); font-weight: 600; }
-        .dark-mode .modal-table th { color: white; background: rgba(255,255,255,0.05); }
-
-        .modal-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-
-        /* FAQ Section */
-        .faq-section { padding: 80px 0; background: rgba(21, 48, 91, 0.02); }
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        .faq-trigger {
-            padding: 20px;
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            outline: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .dark-mode .faq-trigger { color: white; }
-        .faq-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            font-size: 0.95rem;
-            line-height: 1.65;
-            opacity: 0.9;
-        }
-        .faq-item.active .faq-content { padding: 0 20px 20px 20px; max-height: 200px; }
-        .faq-item.active .faq-trigger i { transform: rotate(180deg); color: var(--accent-saffron); }
-
-        /* Join WhatsApp Group Promotion Box */
-        .promo-banner {
-            background: linear-gradient(135deg, #128c7e, #075e54);
-            color: white;
-            padding: 50px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(18,140,126,0.3);
-            margin: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .promo-banner h3 { font-size: 2.2rem; margin-bottom: 15px; }
-        .promo-banner p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; font-weight: 500; }
-        
-        /* Contact & Map Grid */
-        .contact-section { padding: 80px 0; }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 40px;
-        }
-        .contact-info-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--card-shadow);
-        }
-        .c-detail-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .c-detail-item i { font-size: 1.4rem; color: var(--accent-saffron); margin-top: 3px; }
-        .c-detail-item h5 { font-size: 1.1rem; margin-bottom: 5px; color: var(--primary-blue); }
-        .dark-mode .c-detail-item h5 { color: white; }
-        .c-detail-item p { font-size: 0.95rem; opacity: 0.85; line-height: 1.6; }
-        
-        .map-box {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            height: 100%;
-            min-height: 350px;
-            border: 4px solid var(--glass-bg);
-        }
-
-        /* Floating Utilities */
-        .floating-actions {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 1500;
-        }
-        .float-btn {
-            width: 55px; height: 55px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            border: none;
-        }
-        .float-btn:hover { transform: scale(1.1) rotate(10deg); }
-        .f-wa { background: #25d366; }
-        .f-call { background: #007aff; }
-        .f-top { background: var(--primary-blue); display: none; }
-
-        /* Premium Footer */
-        .footer {
-            background: var(--primary-dark);
-            color: white;
-            padding: 70px 0 30px 0;
-            border-top: 4px solid var(--accent-saffron);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-brand h4 { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-saffron); }
-        .footer-brand p { font-size: 0.95rem; opacity: 0.8; line-height: 1.65; margin-bottom: 20px; }
-        .footer-links h5, .footer-share h5 { font-size: 1.2rem; margin-bottom: 20px; position: relative; padding-bottom: 8px; }
-        .footer-links h5::after, .footer-share h5::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: var(--accent-green);
-        }
-        .footer-links ul { list-style: none; }
-        .footer-links ul li { margin-bottom: 12px; }
-        .footer-links ul li a { color: rgba(255,255,255,0.75); text-decoration: none; transition: var(--transition-smooth); font-size: 0.95rem; font-weight: 500; }
-        .footer-links ul li a:hover { color: var(--accent-gold); padding-left: 5px; }
-        
-        .social-share-btns {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 25px;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .section-header h2 { font-size: 2.1rem; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 75px; left: -100%; width: 100%; height: calc(100vh - 75px);
-                background: var(--glass-bg);
-                flex-direction: column;
-                padding: 40px 0;
-                transition: var(--transition-smooth);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            .nav-menu.active { left: 0; }
-            .hamburger { display: flex; }
-            .hero-content h2 { font-size: 2.4rem; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .promo-banner { padding: 30px 20px; }
-            .promo-banner h3 { font-size: 1.6rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#0a192f">
+<!-- SEO Meta Tags -->
+<title>Pratap Online Centre | Premium Government & Digital Services | Amla Khurd</title>
+<meta name="description" content="Welcome to Pratap Online Centre (प्रताप ऑनलाईन सेंटर). One-stop digital service centre for Government, Banking, Aadhaar, PAN, and Online Services in Amla Khurd, Yavatmal.">
+<meta name="keywords" content="CSC, Digital Services, Aadhaar Services, PAN Card, Government Services, PM Kisan, Mahabocw, AEPS, Banking, Pratap Online Centre, Amla Khurd, Digras, Yavatmal, Maharashtra">
+<meta name="author" content="Pratap Rathod">
+<meta name="geo.region" content="IN-MH">
+<meta name="geo.placename" content="Amla Khurd, Yavatmal">
+<meta name="language" content="English, Marathi">
+<link rel="canonical" href="[https://www.prataponlinecentre.com](https://www.prataponlinecentre.com)">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="local.business">
+<meta property="og:url" content="[https://www.prataponlinecentre.com](https://www.prataponlinecentre.com)">
+<meta property="og:title" content="Pratap Online Centre | Premium Digital Services">
+<meta property="og:description" content="One-stop digital service centre for Government, Banking and Online Services in Amla Khurd, Maharashtra.">
+<meta property="og:image" content="[https://www.prataponlinecentre.com/assets/images/og-image.jpg](https://www.prataponlinecentre.com/assets/images/og-image.jpg)">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pratap Online Centre | Premium Digital Services">
+<meta name="twitter:description" content="One-stop digital service centre for Government, Banking and Online Services in Amla Khurd, Maharashtra.">
+<meta name="twitter:image" content="[https://www.prataponlinecentre.com/assets/images/twitter-image.jpg](https://www.prataponlinecentre.com/assets/images/twitter-image.jpg)">
+<!-- Schema.org Local Business JSON-LD -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "Pratap Online Centre",
+"alternateName": "प्रताप ऑनलाईन सेंटर",
+"image": "https://www.prataponlinecentre.com/assets/images/logo.png",
+"description": "Premium digital and government service provider in Amla Khurd.",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Post Tiwari, Taluka Digras",
+"addressLocality": "Amla Khurd",
+"addressRegion": "Maharashtra",
+"addressCountry": "IN"
+},
+"geo": {
+"@type": "GeoCoordinates",
+"latitude": "20.123456",
+"longitude": "77.123456"
+},
+"url": "https://www.prataponlinecentre.com",
+"telephone": "",
+"email": "prataprathod821@gmail.com",
+"openingHoursSpecification": [
+{
+"@type": "OpeningHoursSpecification",
+"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+"opens": "06:00",
+"closes": "10:00"
+},
+{
+"@type": "OpeningHoursSpecification",
+"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+"opens": "16:00",
+"closes": "22:00"
+},
+{
+"@type": "OpeningHoursSpecification",
+"dayOfWeek": "Sunday",
+"opens": "00:00",
+"closes": "23:59"
+}
+],
+"founder": {
+"@type": "Person",
+"name": "Pratap Rathod"
+}
+}
+</script>
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- External Libraries CDNs -->
+<link href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Mukta:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Mukta:wght@400;500;600;700&display=swap)" rel="stylesheet">
+<link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css)">
+<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css](https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css)">
+<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css](https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css)">
+<!-- Animation Libraries (Deferred) -->
+<script defer src="[https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js)"></script>
+<script defer src="[https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js](https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js)"></script>
 </head>
-<body>
+<body class="light-theme cursor-effect-ready smooth-scroll-ready">
+<!-- Accessibility Skip Link -->
+<a href="#main-content" class="skip-to-main sr-only">Skip to main content</a>
+<!-- SEO Hidden Content -->
+<div id="seo-hidden-content" hidden aria-hidden="true">
+<h1>Pratap Online Centre - Amla Khurd Yavatmal Digras</h1>
+<p>Providing CSC Maharashtra, Digital Services, Aadhaar Services, PAN, Government Services, PM Kisan, Mahabocw.</p>
+</div>
+<!-- System Components Placeholders -->
+<div id="offline-mode-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="404-component-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="maintenance-mode-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="coming-soon-component-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="cookie-consent-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="pwa-install-popup-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="festival-theme-placeholder" class="hidden-component" aria-hidden="true"></div>
+<div id="voice-welcome-placeholder" class="hidden-component" data-muted="true" aria-hidden="true"></div>
+<!-- Premium Luxury Loader -->
+<div id="global-loader" class="luxury-loader" aria-live="polite">
+<div class="loader-content govt-inspired-animation">
+<div class="animated-logo-placeholder"></div>
+<div class="loading-text typography-premium">Loading Digital Experience...</div>
+<div class="progress-bar-container">
+<div class="progress-bar-fill"></div>
+</div>
+</div>
+</div>
+<!-- Welcome Popup -->
+<dialog id="welcome-popup" class="premium-glass-modal popup-animation" aria-labelledby="welcome-heading">
+<div class="modal-body text-center">
+<button id="close-welcome" class="modal-close-btn" aria-label="Close Welcome Popup">
+<i class="bi bi-x-lg"></i>
+</button>
+<h2 id="welcome-heading" class="marathi-elegant font-mukta">🙏 जय सेवालाल 🙏</h2>
+<h3 class="marathi-elegant font-mukta">प्रताप ऑनलाईन सेंटर</h3>
+<p class="marathi-elegant">की ओर से आपका हार्दिक स्वागत है।</p>
+<p class="english-premium font-inter">Welcome to Pratap Online Centre.</p>
+<div class="modal-actions mt-4">
+<button class="btn-premium magnetic-btn">Continue</button>
+<div class="remember-choice mt-2">
+<input type="checkbox" id="remember-welcome">
+<label for="remember-welcome">Remember my choice</label>
+</div>
+</div>
+</div>
+</dialog>
+<!-- Emergency Announcement Bar -->
+<aside id="announcement-bar" class="fixed-top-bar glassmorphism" aria-label="Important Announcements">
+<div class="priority-badge">Alert</div>
+<div class="scrolling-marquee-placeholder">
+<span>Welcome to Pratap Online Centre. Latest updates and notices will scroll here.</span>
+</div>
+<button class="close-bar-btn" aria-label="Close Announcement"><i class="bi bi-x"></i></button>
+</aside>
+<!-- Header & Navigation -->
+<header id="main-header" class="sticky-navbar transparent-nav glassmorphism">
+<div class="nav-container container-fluid d-flex align-items-center justify-content-between">
+<div class="logo-section left">
+<a href="/" class="brand-link" aria-label="Home">
+<div class="logo-placeholder"></div>
+<span class="website-name typography-premium font-inter">Pratap Online Centre</span>
+</a>
+</div>
+<nav id="desktop-menu" class="main-menu center" aria-label="Main Navigation">
+<ul class="nav-links">
+<li><a href="#hero" class="nav-item">Home</a></li>
+<li><a href="#services" class="nav-item">Services</a></li>
+<li><a href="#latest-schemes" class="nav-item">Schemes</a></li>
+<li><a href="#gallery" class="nav-item">Gallery</a></li>
+<li><a href="#certificates" class="nav-item">Certificates</a></li>
+<li><a href="#reviews" class="nav-item">Reviews</a></li>
+<li><a href="#help-center" class="nav-item">FAQ</a></li>
+<li><a href="#contact" class="nav-item">Contact</a></li>
+</ul>
+</nav>
+<div class="nav-actions right">
+<a href="#book-service" class="btn-book-service magnetic-btn">Book Service</a>
+<button id="dark-mode-toggle" class="icon-btn apple-hover" aria-label="Toggle Dark Mode"><i class="bi bi-moon"></i></button>
+<button id="language-toggle" class="icon-btn apple-hover" aria-label="Change Language"><i class="bi bi-translate"></i></button>
+<button id="search-toggle" class="icon-btn apple-hover" aria-label="Search"><i class="bi bi-search"></i></button>
+<button id="notification-toggle" class="icon-btn apple-hover" aria-label="Notifications"><i class="bi bi-bell"></i></button>
+<button id="mobile-menu-btn" class="hamburger-menu" aria-label="Open Mobile Menu" aria-expanded="false">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+</div>
+</div>
+</header>
+<main id="main-content">
+<!-- Hero Section -->
+<section id="hero" class="large-hero premium-bg govt-inspired-theme relative overflow-hidden">
+<div class="gradient-blobs-placeholder floating-elements"></div>
+<div class="hero-content container text-center fade-in-animation">
+<div class="owner-image-placeholder relative mx-auto zoom-in"></div>
+<h1 class="hero-title typography-beautiful text-white mt-4">
+One Stop For All 
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="spinner"></div>
-        <h2 style="color: var(--accent-saffron);">प्रताप ऑनलाइन सेंटर</h2>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 5px;">डिजिटल सेवा, गती आणि अचूकता...</p>
-    </div>
+<span class="typing-animation-placeholder text-saffron-accent" data-typing="Government Services, CSC Services, Digital Services, Online Services, Aadhaar Services, PAN Services, Banking Services, Mahabocw, PM Kisan, Fast Service, Trusted Service"></span>
+</h1>
+<p class="hero-tagline text-light-grey mt-3 font-mukta">विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
+<div class="hero-cta-group mt-5">
+<a href="#services" class="btn-primary ripple-effect hover-lift">Book Service</a>
+<a href="tel:+" class="btn-secondary ripple-effect hover-lift"><i class="bi bi-telephone-fill"></i> Call Now</a>
+<a href="[https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4](https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4)" target="_blank" rel="noopener noreferrer" class="btn-whatsapp ripple-effect hover-lift"><i class="bi bi-whatsapp"></i> Join Group</a>
+<a href="[https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9](https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9)" target="_blank" rel="noopener noreferrer" class="btn-outline-light ripple-effect hover-lift"><i class="bi bi-geo-alt-fill"></i> Location</a>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="trust-badges-container glass-glow mt-5">
+<div class="badge-item"><i class="bi bi-shield-check text-govt-green"></i> Trusted</div>
+<div class="badge-item"><i class="bi bi-lock-fill text-govt-green"></i> Secure</div>
+<div class="badge-item"><i class="bi bi-lightning-charge-fill text-premium-gold"></i> Fast</div>
+<div class="badge-item"><i class="bi bi-eye-fill text-deep-navy"></i> Transparent</div>
+<div class="badge-item"><i class="bi bi-building text-saffron-accent"></i> Government Services</div>
+<div class="badge-item"><i class="bi bi-laptop text-deep-navy"></i> Digital India</div>
+<div class="badge-item"><i class="bi bi-map-fill text-saffron-accent"></i> Maharashtra Services</div>
+</div>
+</section>
+<!-- Smart Digital Village Features: Working Status & Queue -->
+<section id="village-status" class="py-section bg-very-light-grey">
+<div class="container grid-container-2-col">
+<!-- Working Status -->
+<article id="working-status" class="premium-glass-card hover-lift p-4">
+<h3 class="font-inter font-weight-bold"><i class="bi bi-clock-history"></i> Today's Status</h3>
+<div class="status-indicator mt-3">
+<span class="badge-open status-badge">Open</span>
+<!-- Toggle to <span class="badge-closed status-badge">Closed</span> dynamically -->
+</div>
+<ul class="time-list mt-3">
+<li><strong>Current Day:</strong> <span class="current-day-placeholder"></span></li>
+<li><strong>Time:</strong> <span class="current-time-placeholder"></span></li>
+<li><strong>Morning:</strong> 6:00 AM – 10:00 AM</li>
+<li><strong>Evening:</strong> 4:00 PM – 10:00 PM</li>
+</ul>
+</article>
+<!-- Live Token System -->
+<article id="live-token" class="premium-glass-card hover-lift p-4 border-animation">
+<h3 class="font-inter font-weight-bold"><i class="bi bi-ticket-perforated"></i> Live Queue Status</h3>
+<div class="token-display d-flex justify-content-between mt-3">
+<div class="token-box text-center">
+<span class="d-block text-muted">Current</span>
+<strong class="display-4 text-deep-navy">T-42</strong>
+</div>
+<div class="token-box text-center">
+<span class="d-block text-muted">Next</span>
+<strong class="display-4 text-govt-green">T-43</strong>
+</div>
+</div>
+<div class="wait-time text-center mt-2">Est. Waiting Time: <span class="font-weight-bold">15 Mins</span></div>
+<div class="token-actions mt-3 text-center">
+<button class="btn-outline-primary magnetic-btn">Take New Token</button>
+<button class="btn-outline-secondary magnetic-btn">Track Token</button>
+</div>
+<div class="history-api-placeholder" hidden></div>
+</article>
+</div>
+</section>
+<!-- Services Section (Ultra Premium) -->
+<section id="services" class="py-section bg-white" aria-labelledby="services-heading">
+<div class="container text-center section-header">
+<h2 id="services-heading" class="typography-beautiful font-mukta text-deep-navy">आमच्या सेवा | Our Premium Digital Services</h2>
+<p class="sub-heading text-muted mt-2">One Place For All Government, Banking & Digital Services.</p>
+</div>
+<div class="container mt-4">
+<!-- Search Box -->
+<div class="premium-search-box mx-auto glassmorphism relative">
+<i class="bi bi-search search-icon absolute-left"></i>
+<input type="text" id="service-search-input" class="search-input w-100" placeholder="Search any service..." aria-label="Search Services">
+</div>
+<!-- Filter Chips -->
+<div class="filter-chips-container mt-4 text-center pb-3 overflow-auto scroll-animation">
+<button class="filter-chip active" data-filter="all">All</button>
+<button class="filter-chip" data-filter="government">Government</button>
+<button class="filter-chip" data-filter="aadhaar">Aadhaar</button>
+<button class="filter-chip" data-filter="banking">Banking</button>
+<button class="filter-chip" data-filter="certificates">Certificates</button>
+<button class="filter-chip" data-filter="agriculture">Agriculture</button>
+<button class="filter-chip" data-filter="insurance">Insurance</button>
+<button class="filter-chip" data-filter="travel">Travel</button>
+<button class="filter-chip" data-filter="utility">Utility Bills</button>
+<button class="filter-chip" data-filter="education">Education</button>
+<button class="filter-chip" data-filter="tax">Tax</button>
+<button class="filter-chip" data-filter="loans">Loans</button>
+<button class="filter-chip" data-filter="popular">Popular</button>
+<button class="filter-chip" data-filter="new">New</button>
+</div>
+<!-- Responsive Service Grid -->
+<div class="service-grid responsive-grid-4 mt-5" id="service-grid-container">
+<!-- Service Card 1: Aadhaar -->
+<article class="service-card apple-inspired-card hover-lift glass-glow" id="srv-aadhaar" data-category="aadhaar government popular">
+<div class="popular-badge">Popular</div>
+<div class="card-icon icon-rotation"><i class="bi bi-fingerprint text-govt-green"></i></div>
+<h3 class="service-name">Aadhaar Services</h3>
+<p class="service-desc text-muted">Update, Print, PVC Card & Download assistance.</p>
+<p class="service-charges text-deep-navy font-weight-bold">From ₹50*</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn ripple-effect" onclick="document.getElementById('modal-aadhaar').showModal()">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary magnetic-btn">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 2: PAN Card -->
+<article class="service-card apple-inspired-card hover-lift glass-glow" id="srv-pan" data-category="government tax popular">
+<div class="popular-badge">Popular</div>
+<div class="card-icon icon-rotation"><i class="bi bi-card-text text-saffron-accent"></i></div>
+<h3 class="service-name">PAN Card Services</h3>
+<p class="service-desc text-muted">New Apply, Correction, ePAN & Reprint.</p>
+<p class="service-charges text-deep-navy font-weight-bold">From ₹107*</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn ripple-effect" onclick="document.getElementById('modal-pan').showModal()">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary magnetic-btn">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 3: Banking -->
+<article class="service-card apple-inspired-card hover-lift glass-glow" id="srv-banking" data-category="banking popular">
+<div class="popular-badge">Popular</div>
+<div class="card-icon icon-rotation"><i class="bi bi-bank text-deep-navy"></i></div>
+<h3 class="service-name">AEPS Banking</h3>
+<p class="service-desc text-muted">Cash Withdrawal, Balance Enquiry & Money Transfer.</p>
+<p class="service-charges text-deep-navy font-weight-bold">Instant Service</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn ripple-effect">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary magnetic-btn">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 4: PM Kisan -->
+<article class="service-card apple-inspired-card hover-lift glass-glow" id="srv-pmkisan" data-category="agriculture government popular">
+<div class="popular-badge">Popular</div>
+<div class="card-icon icon-rotation"><i class="bi bi-flower1 text-govt-green"></i></div>
+<h3 class="service-name">PM Kisan Yojana</h3>
+<p class="service-desc text-muted">eKYC, Registration & Status check.</p>
+<p class="service-charges text-deep-navy font-weight-bold">Govt Standard</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn ripple-effect">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary magnetic-btn">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 5: Mahabocw -->
+<article class="service-card apple-inspired-card hover-lift" id="srv-mahabocw" data-category="government popular">
+<div class="popular-badge">Popular</div>
+<div class="card-icon"><i class="bi bi-tools text-premium-gold"></i></div>
+<h3 class="service-name">Mahabocw</h3>
+<p class="service-desc text-muted">Construction worker registration & scheme forms.</p>
+<p class="service-charges font-weight-bold">Govt Standard</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 6: Certificates -->
+<article class="service-card apple-inspired-card hover-lift" id="srv-cert" data-category="certificates government">
+<div class="card-icon"><i class="bi bi-file-earmark-medical text-deep-navy"></i></div>
+<h3 class="service-name">Govt Certificates</h3>
+<p class="service-desc text-muted">Income, Caste, Domicile, Birth & Death Certificates.</p>
+<p class="service-charges font-weight-bold">From ₹150*</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 7: All Loan Facility -->
+<article class="service-card apple-inspired-card hover-lift" id="srv-loans" data-category="loans banking new">
+<div class="new-badge">New</div>
+<div class="card-icon"><i class="bi bi-cash-coin text-govt-green"></i></div>
+<h3 class="service-name">All Loan Facility</h3>
+<p class="service-desc text-muted">Agriculture, Personal & Business loans assistance.</p>
+<p class="service-charges font-weight-bold">Varies</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- Service Card 8: Insurance -->
+<article class="service-card apple-inspired-card hover-lift" id="srv-insurance" data-category="insurance new">
+<div class="new-badge">New</div>
+<div class="card-icon"><i class="bi bi-shield-plus text-saffron-accent"></i></div>
+<h3 class="service-name">Insurance Services</h3>
+<p class="service-desc text-muted">Life, Health, Motor and Crop Insurance.</p>
+<p class="service-charges font-weight-bold">Multiple Options</p>
+<div class="card-actions mt-3">
+<button class="btn-text learn-more-btn">Learn More</button>
+<a href="#book-service" class="btn-sm btn-primary">Book</a>
+<a href="[https://wa.me/](https://wa.me/)..." class="btn-sm btn-whatsapp"><i class="bi bi-whatsapp"></i></a>
+</div>
+</article>
+<!-- HTML Placeholders for remaining requested services... -->
+<!-- Passport, Driving Licence, Account Opening, Print/Xerox, Passport Photo, MahaDBT, Shram Card, Ayushman Bharat, Voter ID, Ration Card, GST, IT Return, Mobile/DTH Recharge, Electric/Water Bill, FASTag, Travel Tickets (Rail/Bus/Flight/Hotel). -->
+<div id="additional-services-placeholder" hidden aria-hidden="true">
+<!-- Data ready for JS loop injection to keep index clean and performant -->
+</div>
+</div>
+</div>
+</section>
+<!-- Service Utility Tools (Document Finder & Calculator) -->
+<section id="service-tools" class="py-section bg-very-light-grey">
+<div class="container grid-container-2-col">
+<!-- Document Finder -->
+<article id="document-finder" class="premium-glass-card p-4">
+<h3 class="font-inter"><i class="bi bi-file-earmark-check"></i> Find Required Documents</h3>
+<div class="mt-3">
+<select class="premium-select w-100 p-2 border-radius" aria-label="Select Service for Documents">
+<option value="">Select Service...</option>
+<option value="aadhaar">Aadhaar Update</option>
+<option value="pan">PAN Card Application</option>
+<option value="income">Income Certificate</option>
+<option value="domicile">Domicile Certificate</option>
+</select>
+</div>
+<div class="document-results-placeholder mt-4 glass-glow p-3 rounded" hidden>
+<h4>Required Documents</h4>
+<ul class="list-unstyled"></ul>
+<p><strong>Eligibility:</strong> <span class="el-placeholder"></span></p>
+<p><strong>Est. Time:</strong> <span class="time-placeholder"></span></p>
+<p class="text-xs text-muted mt-2">Important Notes: Rules subject to Govt changes.</p>
+</div>
+</article>
+<!-- Service Charge Calculator -->
+<article id="charge-calculator" class="premium-glass-card p-4">
+<h3 class="font-inter"><i class="bi bi-calculator"></i> Service Charge Calculator</h3>
+<div class="mt-3">
+<select class="premium-select w-100 p-2 border-radius" aria-label="Select Service for Calculation">
+<option value="">Select Service...</option>
+<option value="pan">PAN Card</option>
+<option value="pvc">Aadhaar PVC</option>
+<option value="print">Color Print</option>
+</select>
+</div>
+<div class="calculator-results-placeholder mt-4 glass-glow p-3 rounded" hidden>
+<div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+<span>Government Fee:</span> <strong class="govt-fee-placeholder">₹0</strong>
+</div>
+<div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+<span>Service Charge:</span> <strong class="service-fee-placeholder">₹0</strong>
+</div>
+<div class="d-flex justify-content-between text-premium-gold">
+<span class="font-weight-bold">Total Estimate:</span> <strong class="total-fee-placeholder display-6">₹0</strong>
+</div>
+<p class="text-xs text-muted mt-3 mb-0">*Disclaimer: Charges may change according to Government Rules.</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Forms Download Center -->
+<section id="download-center" class="py-section bg-white">
+<div class="container section-header text-center">
+<h2>Download Forms Center</h2>
+<p>Get official forms instantly.</p>
+</div>
+<div class="container mt-4">
+<div class="responsive-grid-4">
+<!-- Placeholder Cards -->
+<div class="form-card p-3 border rounded text-center hover-lift">
+<i class="bi bi-file-earmark-pdf display-4 text-danger"></i>
+<h4 class="mt-2 text-md">Mahabocw Form</h4>
+<div class="mt-3 d-flex justify-content-center gap-2">
+<button class="btn btn-sm btn-outline-primary" aria-label="Download"><i class="bi bi-download"></i></button>
+<button class="btn btn-sm btn-outline-secondary" aria-label="Instructions"><i class="bi bi-info-circle"></i></button>
+</div>
+</div>
+<!-- Additional placeholders ready for mapping -->
+<div class="form-card-placeholder" hidden data-categories="Aadhaar, PAN, PM Kisan, Income Certificate, Caste Certificate, Birth Certificate, Death Certificate, Ration, Scholarship, GST, Driving Licence, Passport"></div>
+</div>
+</div>
+</section>
+<!-- Latest Government Schemes (Swiper Slider) -->
+<section id="latest-schemes" class="py-section bg-very-light-grey">
+<div class="container section-header text-center">
+<h2>Latest Government Schemes</h2>
+<p class="text-muted">Latest updates will appear here automatically.</p>
+</div>
+<div class="container mt-4 relative">
+<div class="swiper schemes-slider">
+<div class="swiper-wrapper">
+<!-- Slide 1 -->
+<div class="swiper-slide premium-glass-card rounded overflow-hidden">
+<div class="scheme-image-placeholder bg-govt-green text-white p-5 text-center"><i class="bi bi-bank display-1"></i></div>
+<div class="p-4">
+<h3>Mukhyamantri Yojana</h3>
+<p class="text-muted text-sm line-clamp-2">Financial assistance scheme for eligible citizens of Maharashtra.</p>
+<button class="btn-text mt-2 text-deep-navy font-weight-bold">Read More <i class="bi bi-arrow-right"></i></button>
+</div>
+</div>
+<!-- Placeholders for PM Kisan, Mahabocw, Ayushman, MahaDBT, Scholarship, Government Jobs, Agriculture Schemes -->
+<div class="swiper-slide-placeholder hidden-component"></div>
+</div>
+<!-- Swiper Controls -->
+<div class="swiper-pagination"></div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
+</div>
+</section>
+<!-- Smart Info Board: Village Notice, Schemes Updates & GR -->
+<section id="smart-info-board" class="py-section bg-white">
+<div class="container responsive-grid-3">
+<!-- Village Notice Board -->
+<article id="village-notice-board" class="glass-card shadow-sm p-4 rounded h-100">
+<h3 class="border-bottom pb-2 mb-3"><i class="bi bi-megaphone text-saffron-accent"></i> Village Notice Board</h3>
+<ul class="list-unstyled custom-scroll" style="max-height: 400px; overflow-y: auto;">
+<li class="mb-3 p-2 bg-light rounded">
+<span class="badge bg-danger mb-1">Alert</span>
+<h5 class="text-sm font-weight-bold mb-1">Electricity Shutdown</h5>
+<p class="text-xs text-muted mb-0">Scheduled maintenance on upcoming Friday 10 AM to 2 PM.</p>
+</li>
+<!-- Placeholders for Gram Panchayat Notices, Events, Water Supply, Health Camp, School, Agriculture Meetings -->
+</ul>
+</article>
+<!-- Today's Govt Updates -->
+<article id="scheme-updates" class="glass-card shadow-sm p-4 rounded h-100">
+<h3 class="border-bottom pb-2 mb-3"><i class="bi bi-journal-text text-govt-green"></i> Today's Updates</h3>
+<div class="updates-container custom-scroll" style="max-height: 400px; overflow-y: auto;">
+<div class="update-card mb-3 p-2 border rounded">
+<div class="d-flex justify-content-between align-items-center mb-1">
+<span class="text-xs font-weight-bold text-primary">Agriculture Dept</span>
+<span class="text-xs text-muted">Today</span>
+</div>
+<h5 class="text-sm mb-1">PM Kisan Installment Update</h5>
+<p class="text-xs text-muted line-clamp-2">The next installment date has been announced. Check eKYC status.</p>
+<a href="#" class="text-xs text-decoration-none official-link-placeholder">Official Link</a>
+</div>
+</div>
+</article>
+<!-- Maharashtra GR Updates -->
+<article id="government-gr" class="glass-card shadow-sm p-4 rounded h-100">
+<h3 class="border-bottom pb-2 mb-3"><i class="bi bi-file-earmark-ruled text-deep-navy"></i> Maharashtra GR</h3>
+<div class="timeline-container custom-scroll" style="max-height: 400px; overflow-y: auto;">
+<div class="timeline-item position-relative pl-3 border-left border-primary mb-3">
+<span class="text-xs text-muted">DD-MM-YYYY</span>
+<h5 class="text-sm font-weight-bold mb-1">Revenue Department</h5>
+<p class="text-xs text-muted">New guidelines for Domicile certification processing time.</p>
+<button class="btn btn-xs btn-outline-primary mt-1"><i class="bi bi-download"></i> Download GR</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Weather, Agriculture Market & Job Alerts -->
+<section id="village-economy" class="py-section bg-very-light-grey">
+<div class="container responsive-grid-3">
+<!-- Weather Widget -->
+<article id="weather" class="premium-glass-card text-center p-4">
+<h3 class="text-md mb-4"><i class="bi bi-cloud-sun text-warning"></i> Weather for Farmers</h3>
+<div class="weather-api-placeholder">
+<div class="display-3 text-deep-navy font-weight-bold">32°C</div>
+<p class="text-muted">Amla Khurd</p>
+<div class="d-flex justify-content-around mt-4 text-sm border-top pt-3">
+<div><i class="bi bi-droplet text-primary"></i> 
+60% Hum</div>
+<div><i class="bi bi-wind text-info"></i> 
+12 km/h</div>
+<div><i class="bi bi-cloud-rain text-primary"></i> 
+10% Rain</div>
+</div>
+</div>
+</article>
+<!-- Agriculture Market -->
+<article id="agriculture-market" class="premium-glass-card p-4">
+<h3 class="text-md border-bottom pb-2 mb-3"><i class="bi bi-graph-up-arrow text-success"></i> Today's Market Price</h3>
+<div class="market-api-placeholder custom-scroll" style="max-height: 250px; overflow-y: auto;">
+<div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-white rounded shadow-sm">
+<span class="font-weight-bold">Cotton (कापूस)</span>
+<span>₹7200/qtl <i class="bi bi-caret-up-fill text-success"></i></span>
+</div>
+<div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-white rounded shadow-sm">
+<span class="font-weight-bold">Soybean (सोयाबीन)</span>
+<span>₹4500/qtl <i class="bi bi-caret-down-fill text-danger"></i></span>
+</div>
+<!-- Placeholders for Tur, Wheat, Maize, Vegetables, Fruit -->
+</div>
+<div class="text-xs text-muted text-right mt-2 updated-time-placeholder">Last updated: Today 9:00 AM</div>
+</article>
+<!-- Job Alerts -->
+<article id="job-alerts" class="premium-glass-card p-4">
+<h3 class="text-md border-bottom pb-2 mb-3"><i class="bi bi-briefcase text-deep-navy"></i> Job Alerts</h3>
+<div class="job-alerts-placeholder custom-scroll" style="max-height: 250px; overflow-y: auto;">
+<div class="p-2 bg-white rounded shadow-sm mb-2 border-left border-warning">
+<span class="badge bg-success text-xs">Govt Job</span>
+<h5 class="text-sm font-weight-bold mt-1 mb-0">Zilla Parishad Recruitment</h5>
+<button class="btn btn-link btn-sm text-xs p-0 mt-1">Read More</button>
+</div>
+<!-- Placeholders for Private Jobs, Apprenticeship, Skill Development, Scholarships -->
+</div>
+</article>
+</div>
+</section>
+<!-- Work Process -->
+<section id="work-process" class="py-section bg-white text-center">
+<div class="container section-header">
+<h2>How We Work</h2>
+<p>Simple and transparent digital processing.</p>
+</div>
+<div class="container mt-5">
+<div class="process-timeline d-flex justify-content-between align-items-center flex-wrap position-relative">
+<div class="step text-center z-index-1">
+<div class="step-icon bg-deep-navy text-white rounded-circle p-4 mb-3 mx-auto d-inline-block"><i class="bi bi-list-check display-6"></i></div>
+<h4>1. Select Service</h4>
+</div>
+<div class="step text-center z-index-1">
+<div class="step-icon bg-govt-green text-white rounded-circle p-4 mb-3 mx-auto d-inline-block"><i class="bi bi-file-earmark-arrow-up display-6"></i></div>
+<h4>2. Submit Docs</h4>
+</div>
+<div class="step text-center z-index-1">
+<div class="step-icon bg-saffron-accent text-white rounded-circle p-4 mb-3 mx-auto d-inline-block"><i class="bi bi-search display-6"></i></div>
+<h4>3. Verification</h4>
+</div>
+<div class="step text-center z-index-1">
+<div class="step-icon bg-premium-gold text-white rounded-circle p-4 mb-3 mx-auto d-inline-block"><i class="bi bi-check-circle display-6"></i></div>
+<h4>4. Receive Service</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us & Special Features & Values -->
+<section id="why-us" class="py-section bg-deep-navy text-white relative">
+<div class="container section-header text-center fade-in">
+<h2 class="text-white">Why Choose Pratap Online Centre</h2>
+<p class="text-light-grey font-mukta">विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
+</div>
+<div class="container mt-5 responsive-grid-4">
+<!-- Features mapped as premium glass cards -->
+<div class="glass-card-dark p-4 rounded hover-lift text-center">
+<i class="bi bi-rocket-takeoff display-4 text-saffron-accent"></i>
+<h4 class="mt-3">Fast Service</h4>
+<p class="text-sm text-light-grey">Quick processing with modern digital tools.</p>
+</div>
+<div class="glass-card-dark p-4 rounded hover-lift text-center">
+<i class="bi bi-currency-rupee display-4 text-premium-gold"></i>
+<h4 class="mt-3">Transparent Charges</h4>
+<p class="text-sm text-light-grey">No hidden fees. Government rates applied.</p>
+</div>
+<div class="glass-card-dark p-4 rounded hover-lift text-center">
+<i class="bi bi-shield-check display-4 text-govt-green"></i>
+<h4 class="mt-3">Trusted Guidance</h4>
+<p class="text-sm text-light-grey">Accurate information for your secure future.</p>
+</div>
+<div class="glass-card-dark p-4 rounded hover-lift text-center">
+<i class="bi bi-heart display-4 text-danger"></i>
+<h4 class="mt-3">Customer First</h4>
+<p class="text-sm text-light-grey">Friendly behavior and respectful service.</p>
+</div>
+<!-- Placeholders: Latest Govt Updates, Secure Transactions, Professional Documentation, Experienced Support, Quick Response, Govt Compliance, One Stop Solution, Emergency Support -->
+</div>
+<!-- Values Strip -->
+<div class="container mt-5 pt-4 border-top border-secondary text-center">
+<h4 class="mb-3 text-muted text-sm text-uppercase tracking-widest">Our Core Values</h4>
+<div class="d-flex justify-content-center flex-wrap gap-4 text-premium-gold font-weight-bold">
+<span>Honesty</span> • <span>Transparency</span> • <span>Speed</span> • <span>Trust</span> • <span>Respect</span> • <span>Digital Excellence</span>
+</div>
+</div>
+</section>
+<!-- Achievement Counter & Statistics -->
+<section id="achievement-counter" class="py-section bg-white text-center">
+<div class="container">
+<h2 class="sr-only">Our Statistics</h2>
+<div class="responsive-grid-4">
+<div class="counter-box p-3">
+<h3 class="display-4 font-weight-bold text-deep-navy counter-anim" data-target="5000">0</h3>
+<p class="text-muted text-uppercase text-sm font-weight-bold">Happy Customers</p>
+</div>
+<div class="counter-box p-3">
+<h3 class="display-4 font-weight-bold text-govt-green counter-anim" data-target="15000">0</h3>
+<p class="text-muted text-uppercase text-sm font-weight-bold">Documents Processed</p>
+</div>
+<div class="counter-box p-3">
+<h3 class="display-4 font-weight-bold text-saffron-accent counter-anim" data-target="5">0</h3>
+<p class="text-muted text-uppercase text-sm font-weight-bold">Years of Trust</p>
+</div>
+<div class="counter-box p-3">
+<h3 class="display-4 font-weight-bold text-premium-gold counter-anim" data-target="1000">0</h3>
+<p class="text-muted text-uppercase text-sm font-weight-bold">Village Families Connected</p>
+</div>
+</div>
+<!-- Placeholders for Government Services Delivered, WhatsApp Community Members, Daily Visitors, Online Requests -->
+</div>
+</section>
+<!-- Owner Message -->
+<section id="owner-message" class="py-section bg-very-light-grey">
+<div class="container">
+<div class="apple-style-card bg-white shadow-lg rounded-xl overflow-hidden d-flex flex-wrap">
+<div class="owner-image-bg w-50 mobile-w-100 bg-light d-flex align-items-center justify-content-center min-h-300">
+<!-- Owner Image Placeholder -->
+<div class="text-muted"><i class="bi bi-person-bounding-box display-1"></i>
+Owner Photo</div>
+</div>
+<div class="owner-content w-50 mobile-w-100 p-5 d-flex flex-column justify-content-center">
+<h2 class="typography-beautiful text-deep-navy mb-4">Message From Founder</h2>
+<p class="lead font-italic text-muted mb-4">"Welcome everyone to Pratap Online Centre. Our mission is to provide honest, transparent and quality digital services to every citizen with respect, trust and commitment. Thank you for believing in us."</p>
+<h4 class="marathi-elegant font-mukta text-saffron-accent mb-4">जय सेवालाल</h4>
+<div class="signature-block">
+<h5 class="font-weight-bold mb-0">Pratap Rathod</h5>
+<p class="text-muted text-sm mb-1">Founder, Pratap Online Centre</p>
+<p class="text-xs text-muted mb-0"><i class="bi bi-geo-alt"></i> Amla Khurd, Tal: Digras, Dist: Yavatmal</p>
+<div class="signature-placeholder mt-2" style="font-family: 'Brush Script MT', cursive; font-size: 24px; color: #0a192f;">Pratap Rathod</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Certificates & Awards -->
+<section id="certificates" class="py-section bg-white text-center">
+<div class="container section-header">
+<h2>Certificates & Recognition</h2>
+<p>Trusted Digital Service Provider</p>
+</div>
+<div class="container mt-4">
+<div class="responsive-grid-3">
+<!-- Certificate 1 -->
+<div class="certificate-card border rounded p-3 hover-lift">
+<div class="cert-img-placeholder bg-light p-5 mb-3"><i class="bi bi-award display-3 text-muted"></i></div>
+<h4 class="text-md">CSC Certificate</h4>
+<div class="d-flex justify-content-center gap-2 mt-2">
+<button class="btn btn-sm btn-outline-primary">View</button>
+<button class="btn btn-sm btn-outline-secondary">Download</button>
+</div>
+</div>
+<!-- Future Placeholders for Banking, Training, Govt Auth, Digital India, Skill, Appreciation, Award -->
+<div class="certificates-placeholder hidden-component"></div>
+</div>
+</div>
+</section>
+<!-- Photo Gallery (Masonry style placeholder) -->
+<section id="gallery" class="py-section bg-very-light-grey text-center">
+<div class="container section-header">
+<h2>Gallery</h2>
+<p>Our Centre & Customer Moments</p>
+</div>
+<div class="container mt-4">
+<!-- Categories filter -->
+<div class="gallery-filters mb-4">
+<button class="btn btn-sm btn-dark mx-1 mb-2">All</button>
+<button class="btn btn-sm btn-outline-dark mx-1 mb-2">Shop</button>
+<button class="btn btn-sm btn-outline-dark mx-1 mb-2">Customers</button>
+<button class="btn btn-sm btn-outline-dark mx-1 mb-2">Events</button>
+</div>
+<div class="masonry-grid-placeholder d-flex flex-wrap gap-3 justify-content-center">
+<div class="gallery-item bg-light border rounded d-flex align-items-center justify-content-center hover-lift" style="width: 300px; height: 200px; position:relative;">
+<i class="bi bi-image text-muted display-4"></i>
+<div class="lightbox-placeholder overlay-zoom"></div>
+<div class="caption-placeholder position-absolute bottom-0 w-100 bg-dark text-white p-1 text-xs opacity-75">Customer Event</div>
+</div>
+<!-- Additional Masonry Items dynamically injected via JS -->
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section id="reviews" class="py-section bg-white text-center">
+<div class="container section-header">
+<h2>Customer Reviews</h2>
+<p>What Our Customers Say</p>
+</div>
+<div class="container mt-4">
+<div class="swiper reviews-slider pb-5">
+<div class="swiper-wrapper">
+<!-- Review Card Placeholders (x6 requested) -->
+<div class="swiper-slide">
+<div class="review-card p-4 border rounded shadow-sm text-left">
+<div class="d-flex align-items-center mb-3">
+<div class="customer-photo-placeholder rounded-circle bg-light d-flex align-items-center justify-content-center me-3" style="width:50px; height:50px;"><i class="bi bi-person"></i></div>
+<div>
+<h5 class="mb-0 text-sm font-weight-bold">Customer Name 1</h5>
+<p class="text-xs text-muted mb-0">Amla Khurd <i class="bi bi-patch-check-fill text-primary ml-1" title="Verified"></i></p>
+</div>
+</div>
+<div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+<p class="text-sm font-italic text-muted">"Excellent service and fast processing. Pratap is very helpful."</p>
+</div>
+</div>
+<div class="swiper-slide"><div class="review-card p-4 border rounded shadow-sm text-left"><p>Review 2 Placeholder</p></div></div>
+<div class="swiper-slide"><div class="review-card p-4 border rounded shadow-sm text-left"><p>Review 3 Placeholder</p></div></div>
+<div class="swiper-slide"><div class="review-card p-4 border rounded shadow-sm text-left"><p>Review 4 Placeholder</p></div></div>
+<div class="swiper-slide"><div class="review-card p-4 border rounded shadow-sm text-left"><p>Review 5 Placeholder</p></div></div>
+<div class="swiper-slide"><div class="review-card p-4 border rounded shadow-sm text-left"><p>Review 6 Placeholder</p></div></div>
+</div>
+<div class="swiper-pagination mt-4"></div>
+</div>
+<div class="mt-4 d-flex justify-content-center gap-3">
+<button class="btn btn-primary magnetic-btn"><i class="bi bi-pencil-square"></i> Write Review</button>
+<a href="#" class="btn btn-outline-dark magnetic-btn"><i class="bi bi-google"></i> Google Review</a>
+</div>
+</div>
+</section>
+<!-- Digital Help Center & Ask Pratap AI -->
+<section id="help-support" class="py-section bg-very-light-grey">
+<div class="container responsive-grid-2">
+<!-- Help Center -->
+<article id="help-center" class="p-4 bg-white rounded shadow-sm">
+<h3 class="border-bottom pb-2 mb-3"><i class="bi bi-question-circle text-primary"></i> Digital Help Center</h3>
+<div class="accordion-placeholder custom-scroll" style="max-height: 300px; overflow-y: auto;">
+<details class="mb-2 border rounded p-2">
+<summary class="font-weight-bold cursor-pointer outline-none">How many days does PAN card take?</summary>
+<p class="text-sm text-muted mt-2 mb-0">Usually, physical PAN takes 7-15 days, ePAN within 2-3 days.</p>
+</details>
+<details class="mb-2 border rounded p-2">
+<summary class="font-weight-bold cursor-pointer outline-none">What are shop timings?</summary>
+<p class="text-sm text-muted mt-2 mb-0">Mon-Sat: 6AM-10AM & 4PM-10PM. Sunday full day open.</p>
+</details>
+<!-- Placeholders for Video Tutorials, How to Apply Guides, Contact Support -->
+</div>
+<div class="mt-4 d-flex gap-2 flex-wrap">
+<button class="btn btn-sm btn-whatsapp text-white"><i class="bi bi-whatsapp"></i> WhatsApp Help</button>
+<button class="btn btn-sm btn-primary"><i class="bi bi-telephone"></i> Call Support</button>
+<button class="btn btn-sm btn-outline-dark"><i class="bi bi-envelope"></i> Email</button>
+</div>
+</article>
+<!-- Ask Pratap AI -->
+<article id="ask-pratap-ai" class="p-4 bg-deep-navy text-white rounded shadow-sm relative">
+<div class="premium-badge bg-saffron-accent text-white px-2 py-1 rounded text-xs absolute top-right">Beta</div>
+<h3 class="border-bottom border-secondary pb-2 mb-3"><i class="bi bi-robot text-premium-gold"></i> Ask Pratap AI</h3>
+<p class="text-sm text-light-grey mb-4">Get instant guidance for government services 24/7.</p>
+<div class="chat-interface-placeholder bg-light rounded p-3 text-dark mb-3" style="height: 150px; overflow-y: auto;">
+<div class="bot-msg bg-white p-2 rounded shadow-sm d-inline-block text-sm mb-2">Hello! How can I assist you with digital services today?</div>
+</div>
+<div class="suggested-questions d-flex gap-2 mb-3 flex-wrap">
+<span class="badge bg-secondary cursor-pointer hover-lift text-xs">Aadhaar PVC status?</span>
+<span class="badge bg-secondary cursor-pointer hover-lift text-xs">PM Kisan list?</span>
+</div>
+<div class="input-group">
+<input type="text" class="form-control text-sm" placeholder="Type your question..." aria-label="Ask AI">
+<button class="btn btn-primary" type="button"><i class="bi bi-send"></i></button>
+</div>
+</article>
+</div>
+</section>
+<!-- Community Section -->
+<section id="community" class="py-section bg-white text-center">
+<div class="container">
+<h2>Join Our Digital Community</h2>
+<p class="text-muted mx-auto" style="max-width: 600px;">Get immediate alerts for Latest Government Updates, Scheme Alerts, Job Updates, Agriculture Information, and Banking Updates directly on WhatsApp.</p>
+<a href="[https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4](https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4)" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg mt-4 hover-lift magnetic-btn"><i class="bi bi-whatsapp"></i> Join WhatsApp Group</a>
+</div>
+</section>
+<!-- Government Partners (Logo Slider Placeholder) -->
+<section id="partners" class="py-4 border-top border-bottom bg-light">
+<div class="container text-center">
+<h3 class="text-sm text-muted text-uppercase tracking-widest mb-4">Government & Digital Partners</h3>
+<div class="d-flex justify-content-center flex-wrap gap-4 align-items-center opacity-50 grayscale-hover-color">
+<!-- Premium grayscale logos text placeholders -->
+<span class="font-weight-bold h5 mb-0">CSC</span>
+<span class="font-weight-bold h5 mb-0">Digital India</span>
+<span class="font-weight-bold h5 mb-0">UIDAI</span>
+<span class="font-weight-bold h5 mb-0">Income Tax</span>
+<span class="font-weight-bold h5 mb-0">MahaDBT</span>
+<span class="font-weight-bold h5 mb-0">Ayushman Bharat</span>
+<span class="font-weight-bold h5 mb-0">PM Kisan</span>
+<!-- Future API Placeholders for actual slider -->
+</div>
+</div>
+</section>
+<!-- Book Service CTA -->
+<section id="book-service" class="py-section bg-deep-navy text-white text-center relative overflow-hidden">
+<div class="gradient-blobs-placeholder"></div>
+<div class="container relative z-index-1">
+<h2 class="display-4 font-weight-bold">Need Any Online Service?</h2>
+<p class="lead text-light-grey mb-5">Book your service in just one click or visit our centre.</p>
+<div class="d-flex justify-content-center flex-wrap gap-3">
+<button class="btn btn-light btn-lg text-deep-navy magnetic-btn hover-lift">Book Now Online</button>
+<a href="tel:+" class="btn btn-outline-light btn-lg hover-lift"><i class="bi bi-telephone"></i> Call Now</a>
+<a href="[https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9](https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9)" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg hover-lift"><i class="bi bi-geo-alt"></i> Google Maps</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-section bg-white">
+<div class="container section-header text-center mb-5">
+<h2>Contact Us</h2>
+<p>We are always ready to help you.</p>
+</div>
+<div class="container responsive-grid-2">
+<!-- Contact Info -->
+<address class="contact-info-card p-5 bg-very-light-grey rounded shadow-sm border-left border-primary" style="border-left-width: 5px !important;">
+<h3 class="mb-4">📍 Address</h3>
+<p class="font-weight-bold text-lg mb-1">प्रताप ऑनलाईन सेंटर</p>
+<p class="text-muted mb-4">आमला खुर्द, पो. तिवरी, ता. दिग्रस, जि. यवतमाळ, महाराष्ट्र</p>
+<h4 class="text-sm text-muted text-uppercase mt-4 mb-2">Email</h4>
+<p><a href="mailto:prataprathod821@gmail.com" class="text-dark font-weight-bold text-decoration-none hover-primary">prataprathod821@gmail.com</a></p>
+<h4 class="text-sm text-muted text-uppercase mt-4 mb-2">Business Hours</h4>
+<ul class="list-unstyled text-sm">
+<li class="mb-1"><strong>Monday–Saturday:</strong> 6:00 AM – 10:00 AM | 4:00 PM – 10:00 PM</li>
+<li class="mb-1"><strong>Sunday:</strong> Full Day Open</li>
+</ul>
+</address>
+<!-- Google Maps Embed -->
+<div class="map-container rounded overflow-hidden shadow-sm bg-light d-flex align-items-center justify-content-center min-h-300">
+<div class="text-center text-muted">
+<i class="bi bi-map display-1"></i>
+<p class="mt-2">Google Map Embed Placeholder</p>
+<a href="[https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9](https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9)" target="_blank" rel="noopener" class="btn btn-sm btn-primary mt-2">Open in Maps</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Subscription -->
+<section id="newsletter" class="py-4 bg-premium-gold text-dark text-center">
+<div class="container">
+<h3 class="font-weight-bold">Subscribe for Latest Government Scheme Alerts</h3>
+<form class="d-flex justify-content-center mt-3 mx-auto flex-wrap gap-2" style="max-width: 600px;">
+<input type="text" placeholder="Your Name" class="form-control w-auto flex-grow-1" required aria-label="Name">
+<input type="email" placeholder="Your Email" class="form-control w-auto flex-grow-1" required aria-label="Email">
+<button type="submit" class="btn btn-dark hover-lift">Subscribe</button>
+</form>
+<p class="text-xs mt-2 opacity-75">We respect your privacy. No spam.</p>
+</div>
+</section>
+</main>
+<!-- Luxury Footer -->
+<footer id="footer" class="bg-deep-navy text-white pt-5 pb-3">
+<div class="container responsive-grid-4 border-bottom border-secondary pb-4 mb-4">
+<!-- Footer Branding -->
+<div class="footer-col">
+<div class="footer-logo d-flex align-items-center mb-3">
+<div class="logo-placeholder-sm bg-white rounded-circle me-2" style="width:40px; height:40px;"></div>
+<h3 class="h5 mb-0 font-weight-bold font-inter">Pratap Online Centre</h3>
+</div>
+<p class="text-sm text-light-grey font-mukta mb-3">विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
+<p class="text-xs text-light-grey mb-4">One-stop digital service centre for Government, Banking and Online Services in Amla Khurd.</p>
+<div class="social-links d-flex gap-3">
+<a href="#" class="text-white hover-saffron transition" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+<a href="#" class="text-white hover-saffron transition" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+<a href="#" class="text-white hover-saffron transition" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+<a href="#" class="text-white hover-saffron transition" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+<a href="[https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9](https://maps.app.goo.gl/EyCVsY7gnXXt2Qxc9)" target="_blank" class="text-white hover-saffron transition" aria-label="Google Business"><i class="bi bi-google"></i></a>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="footer-col">
+<h4 class="text-sm text-uppercase tracking-widest text-muted mb-3 border-bottom border-secondary pb-2 d-inline-block">Quick Links</h4>
+<ul class="list-unstyled text-sm text-light-grey">
+<li class="mb-2"><a href="#hero" class="text-light-grey text-decoration-none hover-white">Home</a></li>
+<li class="mb-2"><a href="#services" class="text-light-grey text-decoration-none hover-white">Services</a></li>
+<li class="mb-2"><a href="#latest-schemes" class="text-light-grey text-decoration-none hover-white">Government Schemes</a></li>
+<li class="mb-2"><a href="#gallery" class="text-light-grey text-decoration-none hover-white">Gallery</a></li>
+<li class="mb-2"><a href="#certificates" class="text-light-grey text-decoration-none hover-white">Certificates</a></li>
+<li class="mb-2"><a href="#reviews" class="text-light-grey text-decoration-none hover-white">Reviews</a></li>
+<li class="mb-2"><a href="#help-center" class="text-light-grey text-decoration-none hover-white">FAQ</a></li>
+<li class="mb-2"><a href="#contact" class="text-light-grey text-decoration-none hover-white">Contact</a></li>
+</ul>
+</div>
+<!-- Popular Services -->
+<div class="footer-col">
+<h4 class="text-sm text-uppercase tracking-widest text-muted mb-3 border-bottom border-secondary pb-2 d-inline-block">Popular Services</h4>
+<ul class="list-unstyled text-sm text-light-grey" style="column-count: 2; column-gap: 1rem;">
+<li class="mb-2">Aadhaar</li>
+<li class="mb-2">PAN</li>
+<li class="mb-2">Passport</li>
+<li class="mb-2">Driving Licence</li>
+<li class="mb-2">PM Kisan</li>
+<li class="mb-2">Mahabocw</li>
+<li class="mb-2">AEPS Banking</li>
+<li class="mb-2">Money Transfer</li>
+<li class="mb-2">GST</li>
+<li class="mb-2">IT Return</li>
+<li class="mb-2">Ayushman</li>
+<li class="mb-2">Insurance</li>
+</ul>
+</div>
+<!-- Legal & Support -->
+<div class="footer-col">
+<h4 class="text-sm text-uppercase tracking-widest text-muted mb-3 border-bottom border-secondary pb-2 d-inline-block">Legal</h4>
+<ul class="list-unstyled text-sm text-light-grey">
+<li class="mb-2"><a href="#" class="text-light-grey text-decoration-none hover-white">Privacy Policy</a></li>
+<li class="mb-2"><a href="#" class="text-light-grey text-decoration-none hover-white">Terms & Conditions</a></li>
+<li class="mb-2"><a href="#" class="text-light-grey text-decoration-none hover-white">Refund Policy</a></li>
+<li class="mb-2"><a href="#" class="text-light-grey text-decoration-none hover-white">Disclaimer</a></li>
+<li class="mb-2"><a href="#" class="text-light-grey text-decoration-none hover-white">Accessibility</a></li>
+<li class="mb-2"><a href="#" class="text-light-grey text-decoration-none hover-white">Sitemap</a></li>
+</ul>
+</div>
+</div>
+<div class="container text-center mt-3">
+<div class="disclaimer-box border border-warning rounded p-3 text-xs text-light-grey mb-4 d-inline-block text-left" style="max-width: 800px;">
+<strong><i class="bi bi-exclamation-triangle text-warning"></i> Disclaimer:</strong> All Government services are subject to official rules, eligibility and department guidelines. Government fees may change without prior notice. Please contact the centre for latest updates. All Government fees, eligibility, documents and timelines may change according to official rules. Users should verify the latest information before applying.
+</div>
+<p class="text-sm mb-1">© 2026 Pratap Online Centre. All Rights Reserved.</p>
+<p class="text-xs text-muted">Designed with ❤️ for Digital India.</p>
+</div>
+</footer>
+<!-- Floating Buttons Container -->
+<div class="floating-buttons-group position-fixed bottom-0 right-0 p-3 d-flex flex-column gap-2 z-index-toast">
+<a href="#" id="back-to-top" class="btn btn-dark rounded-circle shadow hover-lift" aria-label="Back to Top"><i class="bi bi-arrow-up"></i></a>
+<a href="tel:+" class="btn btn-primary rounded-circle shadow hover-lift" aria-label="Call Emergency Contact"><i class="bi bi-telephone-fill"></i></a>
+<a href="[https://wa.me/](https://wa.me/)..." target="_blank" rel="noopener" class="btn btn-whatsapp text-white rounded-circle shadow hover-lift" aria-label="WhatsApp Support"><i class="bi bi-whatsapp"></i></a>
+</div>
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress-container" class="position-fixed top-0 left-0 w-100 h-1 bg-transparent z-index-highest" aria-hidden="true">
+<div id="scroll-progress-bar" class="bg-saffron-accent h-100" style="width: 0%;"></div>
+</div>
+<!-- Service Modals (Native Dialogs for Performance & Accessibility) -->
+<!-- Aadhaar Modal -->
+<dialog id="modal-aadhaar" class="premium-service-modal border-0 rounded shadow-lg p-0" aria-labelledby="aadhaar-modal-title">
+<div class="modal-header bg-govt-green text-white p-3 d-flex justify-content-between align-items-center">
+<h3 id="aadhaar-modal-title" class="m-0 text-md"><i class="bi bi-fingerprint me-2"></i> Aadhaar Services</h3>
+<button class="btn btn-sm btn-light rounded-circle" onclick="document.getElementById('modal-aadhaar').close()" aria-label="Close Modal"><i class="bi bi-x-lg"></i></button>
+</div>
+<div class="modal-body p-4 bg-white">
+<ul class="list-group list-group-flush mb-3 text-sm">
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Mobile Number Update Guidance</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Aadhaar Download & Color Print</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> PVC Card Order Assistance</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> eKYC & Biometric Update Info</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Address Update & Document Verif Guidance</li>
+</ul>
+<div class="bg-light p-3 rounded text-sm mb-4">
+<strong><i class="bi bi-folder me-1"></i> Req. Documents:</strong> Previous Aadhaar, Registered Mobile, Valid Address Proof.
 
-    <!-- Sticky Navigation Bar -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo-area">
-                <div class="logo-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                <div class="logo-text">
-                    <h1>प्रताप ऑनलाइन सेंटर</h1>
-                    <p>DIGITAL SERVICE CENTRE</p>
-                </div>
-            </a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#" class="nav-link active">मुख्य पृष्ठ</a></li>
-                <li><a href="#services" class="nav-link">आमच्या सेवा</a></li>
-                <li><a href="#why-choose" class="nav-link">वैशिष्ट्ये</a></li>
-                <li><a href="#gallery" class="nav-link">गॅलरी</a></li>
-                <li><a href="#faq" class="nav-link">प्रश्नावली</a></li>
-                <li><a href="#contact" class="nav-link">संपर्क</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="mode-toggle" id="modeToggle" title="Toggle Dark/Light Mode">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button class="hamburger" id="hamburgerMenu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+<strong><i class="bi bi-clock me-1"></i> Est. Time:</strong> Instant to 7 Days (Govt Processing).
 
-    <!-- Moving Government Updates Ticker -->
-    <div class="news-ticker">
-        <div class="ticker-title"><i class="fa-solid fa-bullhorn"></i> नवीन अपडेट्स</div>
-        <div class="ticker-wrap">
-            <div class="ticker-item"><i class="fa-solid fa-circle-dot"></i> नवीन आधार कार्ड नोंदणी आणि मोबाईल नंबर अपडेट सुरू आहे.</div>
-            <div class="ticker-item"><i class="fa-solid fa-circle-dot"></i> पीएम किसान योजना (PM Kisan) १६ हप्ता केवायसी करणे बंधनकारक.</div>
-            <div class="ticker-item"><i class="fa-solid fa-circle-dot"></i> उत्पन्न, जात आणि रहिवासी दाखले ७ ते १० दिवसांत मिळतील.</div>
-            <div class="ticker-item"><i class="fa-solid fa-circle-dot"></i> आयुष्मान भारत योजना ५ लाख रुपयांपर्यंत मोफत उपचार कार्ड बनवा.</div>
-        </div>
-    </div>
+<div class="text-xs text-danger mt-1">* Govt charges may vary as per UIDAI rules. Service charges separate.</div>
+</div>
+<div class="d-flex gap-2 justify-content-center flex-wrap">
+<button class="btn btn-primary btn-sm"><i class="bi bi-calendar-check"></i> Book Now</button>
+<button class="btn btn-outline-dark btn-sm"><i class="bi bi-telephone"></i> Call</button>
+<button class="btn btn-whatsapp btn-sm text-white"><i class="bi bi-whatsapp"></i> WhatsApp</button>
+<button class="btn btn-link btn-sm text-decoration-none">FAQ</button>
+</div>
+</div>
+</dialog>
+<!-- PAN Card Modal -->
+<dialog id="modal-pan" class="premium-service-modal border-0 rounded shadow-lg p-0" aria-labelledby="pan-modal-title">
+<div class="modal-header bg-saffron-accent text-white p-3 d-flex justify-content-between align-items-center">
+<h3 id="pan-modal-title" class="m-0 text-md"><i class="bi bi-card-text me-2"></i> PAN Card Services</h3>
+<button class="btn btn-sm btn-light rounded-circle" onclick="document.getElementById('modal-pan').close()" aria-label="Close Modal"><i class="bi bi-x-lg"></i></button>
+</div>
+<div class="modal-body p-4 bg-white">
+<ul class="list-group list-group-flush mb-3 text-sm">
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Apply New PAN Card</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Correction & Updates</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Reprint Lost PAN</li>
+<li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i> Instant ePAN Assistance</li>
+</ul>
+<div class="bg-light p-3 rounded text-sm mb-4">
+<strong><i class="bi bi-folder me-1"></i> Req. Documents:</strong> Aadhaar Card, Passport Size Photo, Signature.
 
-    <!-- Hero Showcase Section -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content" data-aos="fade-right">
-                <div class="tagline-badge">विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</div>
-                <h2>आमला खुर्द येथील सेवेसाठी सज्ज <span>डिजिटल केंद्र</span></h2>
-                <p>आता शासकीय योजना, दाखले आणि सर्व ऑनलाईन कामे होतील सोपी आणि जलद. आपल्या गावातील विश्वासू सेंटर मध्ये अचूक मार्गदर्शन मिळवा.</p>
-                <div class="hero-buttons">
-                    <a href="tel:7719984464" class="btn btn-blue"><i class="fa-solid fa-phone"></i> थेट कॉल करा</a>
-                    <a href="https://wa.me/917719984464" class="btn btn-green" target="_blank"><i class="fa-brands fa-whatsapp"></i> व्हाट्सॲप संपर्क</a>
-                </div>
-                <div class="hero-features">
-                    <div class="h-feat"><i class="fa-solid fa-circle-check"></i> १००% अचूक काम</div>
-                    <div class="h-feat"><i class="fa-solid fa-circle-check"></i> वाजवी दर</div>
-                    <div class="h-feat"><i class="fa-solid fa-circle-check"></i> शासकीय मान्यताप्राप्त</div>
-                </div>
-            </div>
-            <div class="hero-visual" data-aos="fade-left">
-                <div class="hero-card">
-                    <div class="hc-title"><i class="fa-solid fa-bolt" style="color: var(--accent-gold);"></i> चालू घडामोडी / सेवा</div>
-                    <ul class="hc-updates">
-                        <li><i class="fa-solid fa-star"></i> <span>नवीन मतदार कार्ड नोंदणी आणि सुधारणा ऑनलाइन सुरू.</span></li>
-                        <li><i class="fa-solid fa-star"></i> <span>MAHABOCW कामगार नोंदणी व नूतनीकरण त्वरित करून मिळेल.</span></li>
-                        <li><i class="fa-solid fa-star"></i> <span>पॅन कार्ड फक्त ३ दिवसांत ई-मेलवर आणि १० दिवसांत घरपोच.</span></li>
-                        <li><i class="fa-solid fa-star"></i> <span>विविध शैक्षणिक व शासकीय स्कॉलरशिप फॉर्म भरणे सुरू.</span></li>
-                    </ul>
-                    <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01" target="_blank" class="btn btn-saffron" style="width: 100%; justify-content: center; margin-top: 20px;">
-                        <i class="fa-brands fa-whatsapp"></i> अधिकृत व्हाट्सॲप ग्रुप जॉईन करा
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<strong><i class="bi bi-clock me-1"></i> Est. Time:</strong> ePAN 2-3 Days, Physical 7-15 Days.
 
-    <!-- Smart Interactive Search Area -->
-    <section class="container" style="padding: 0;">
-        <div class="search-section" data-aos="zoom-in">
-            <div class="search-container">
-                <h3>कोणती सेवा हवी आहे? शोध घ्या...</h3>
-                <div class="search-box">
-                    <input type="text" id="serviceSearch" placeholder="उदा. आधार, पॅन, दाखला, पासपोर्ट, Labour Card...">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+<strong>Govt Charges:</strong> Standard NSDL/UTI Rates.
 
-    <!-- Animated Analytical Counters Block -->
-    <section class="counters">
-        <div class="container counters-grid">
-            <div class="counter-card" data-aos="fade-up">
-                <i class="fa-solid fa-users"></i>
-                <div class="counter-number" data-target="5000">0</div>
-                <p>आनंदी ग्राहक</p>
-            </div>
-            <div class="counter-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-                <div class="counter-number" data-target="25">0</div>
-                <p>डिजिटल सेवा प्रकार</p>
-            </div>
-            <div class="counter-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fa-solid fa-award"></i>
-                <div class="counter-number" data-target="2">0</div>
-                <p>वर्षांचा अविरत विश्वास</p>
-            </div>
-            <div class="counter-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fa-solid fa-star-half-stroke"></i>
-                <div class="counter-number" data-target="4.9">0</div>
-                <p>गुगल रेटिंग स्टार्स</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comprehensive Premium Services Grid Section -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>आमच्या डिजिटल व शासकीय सेवा</h2>
-                <p>खालील कोणत्याही सेवेवर क्लिक करून आवश्यक कागदपत्रे व खर्चाची माहिती मिळवा.</p>
-            </div>
-
-            <div class="services-grid" id="servicesGrid">
-                <!-- Aadhaar Services Card -->
-                <div class="service-card" data-tags="aadhaar adhar aadhar card आधार कार्ड सुधारणा बायोमेट्रिक" onclick="openServiceModal('aadhaar')">
-                    <div class="s-icon"><i class="fa-solid fa-id-card"></i></div>
-                    <h3>आधार कार्ड सेवा (Aadhaar)</h3>
-                    <p>नवीन आधार नोंदणी, पत्ता बदलणे, मोबाईल लिंक, बायोमेट्रिक अपडेट आणि पीव्हीसी कार्ड मधील बदल.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- PAN Card Card -->
-                <div class="service-card" data-tags="pan card pan पॅन कार्ड नवीन दुरुस्ती" onclick="openServiceModal('pan')">
-                    <div class="s-icon"><i class="fa-solid fa-credit-card"></i></div>
-                    <h3>पॅन कार्ड (PAN Card)</h3>
-                    <p>नवीन पॅन कार्ड काढणे, हरवलेले पॅन कार्ड शोधणे किंवा विद्यमान पॅन कार्डमधील चुका सुधारणे.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Passport Card -->
-                <div class="service-card" data-tags="passport पासपोर्ट विदेश यात्रा अपॉइंटमेंट" onclick="openServiceModal('passport')">
-                    <div class="s-icon"><i class="fa-solid fa-passport"></i></div>
-                    <h3>पासपोर्ट सेवा (Passport)</h3>
-                    <p>नवीन फ्रेश पासपोर्ट अर्ज, नूतनीकरण (Renewal) आणि आवश्यक डॉक्युमेंट अपॉइंटमेंट बुकिंग.</p>
-                    <span class="s-action-btn">माいたी पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Voter ID Card -->
-                <div class="service-card" data-tags="voter id election card मतदान कार्ड निवडणूक ओळखपत्र" onclick="openServiceModal('voter')">
-                    <div class="s-icon"><i class="fa-solid fa-check-to-slot"></i></div>
-                    <h3>मतदान कार्ड (Voter ID)</h3>
-                    <p>नवीन मतदार नोंदणी, नाव किंवा पत्ता दुरुस्ती आणि डिजिटल स्मार्ट मतदार कार्ड डाउनलोड.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- आयुष्मान भारत कार्ड -->
-                <div class="service-card" data-tags="ayushman card health card ५ लाख विमा आरोग्य" onclick="openServiceModal('ayushman')">
-                    <div class="s-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h3>आयुष्मान भारत कार्ड</h3>
-                    <p>५ लाख रुपयांपर्यंत मोफत उपचार देणारे केंद्र सरकारचे गोल्डन हेल्थ कार्ड त्वरित मिळवा.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- PM Kisan Card -->
-                <div class="service-card" data-tags="pm kisan शेतकरी योजना हप्ता ekyc" onclick="openServiceModal('pmkisan')">
-                    <div class="s-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-                    <h3>पीएम किसान योजना</h3>
-                    <p>पीएम किसान सन्मान निधी नोंदणी, बँक खाते आधार लिंकिंग आणि अनिवार्य ई-केवायसी सेवा.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- MAHABOCW Card -->
-                <div class="service-card" data-tags="mahabocw labour card कामगार नोंदणी पेटी योजना" onclick="openServiceModal('mahabocw')">
-                    <div class="s-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h3>कामगार नोंदणी (MAHABOCW)</h3>
-                    <p>बांधकाम कामगार कल्याणकारी मंडळ अंतर्गत नोंदणी, नूतनीकरण आणि विविध शासकीय लाभ अर्ज.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Driving Licence Card -->
-                <div class="service-card" data-tags="driving licence rto learning license ड्रायव्हिंग लायसन्स" onclick="openServiceModal('driving')">
-                    <div class="s-icon"><i class="fa-solid fa-id-badge"></i></div>
-                    <h3>ड्रायव्हिंग लायसन्स (RTO)</h3>
-                    <p>लर्निंग लायसन्स, पक्के ड्रायव्हिंग लायसन्स अर्ज, नूतनीकरण आणि वाहन पडताळणी कामे.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Certificates Setup -->
-                <div class="service-card" data-tags="income caste residence certificate दाखला उत्पन्न जात रहिवासी" onclick="openServiceModal('certificates')">
-                    <div class="s-icon"><i class="fa-solid fa-file-invoice"></i></div>
-                    <h3>सर्व शासकीय दाखले</h3>
-                    <p>उत्पन्नाचा दाखला, जातीचा दाखला, रहिवासी प्रमाणपत्र आणि नॉन-क्रिमिलेअर त्वरित अर्ज सुविधा.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Financial Services Card -->
-                <div class="service-card" data-tags="money transfer aeps cash withdrawal पैसे काढणे पाठवणे बँक" onclick="openServiceModal('financial')">
-                    <div class="s-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
-                    <h3>बँकिंग व पैशांचे व्यवहार</h3>
-                    <p>आधारद्वारे पैसे काढणे (AEPS), कोणत्याही बँकेत पैसे ट्रान्सफर करणे आणि वीज बिल भरणे.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Computer / Printing Job Works -->
-                <div class="service-card" data-tags="print xerox scan photo lamination झेरॉक्स प्रिंट लॅमिनेशन" onclick="openServiceModal('printing')">
-                    <div class="s-icon"><i class="fa-solid fa-print"></i></div>
-                    <h3>प्रिंट, झेरॉक्स व लॅमिनेशन</h3>
-                    <p>कलर व ब्लॅक-व्हाईट प्रिंटिंग, हाय-क्वालिटी झेरॉक्स, स्कॅनिंग, पासपोर्ट फोटो आणि लॅमिनेशन.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-
-                <!-- Online Application Forms Card -->
-                <div class="service-card" data-tags="online forms scholarship नोकरी फॉर्म भरती स्कॉलरशिप" onclick="openServiceModal('onlineforms')">
-                    <div class="s-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h3>ऑनलाईन फॉर्म्स व स्कॉलरशिप</h3>
-                    <p>सर्व प्रकारच्या सरकारी नोकऱ्यांचे फॉर्म्स भरणे आणि विद्यार्थ्यांसाठी महाडीबीटी स्कॉलरशिप अर्ज.</p>
-                    <span class="s-action-btn">माहिती पहा <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contextual Master Modal Structure Layer -->
-    <div class="modal-overlay" id="serviceModalOverlay">
-        <div class="modal-box">
-            <span class="close-modal" onclick="closeServiceModal()">&times;</span>
-            <div id="modalDynamicContent">
-                <!-- Data dynamically injected by JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Why Choose Us Value Proposition Section -->
-    <section class="why-choose-us" id="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2>आम्हालाच का निवडावे?</h2>
-                <p>प्रताप ऑनलाइन सेंटर गेल्या वर्षांपासून ग्राहकांच्या सेवेत अविरत कार्यरत आहे.</p>
-            </div>
-            <div class="wcu-grid">
-                <div class="wcu-card" data-aos="fade-up">
-                    <div class="wcu-img-box"><i class="fa-solid fa-shield-halved"></i></div>
-                    <div class="wcu-info">
-                        <h4>पूर्णतः सुरक्षित व गोपनीय</h4>
-                        <p>तुमची कागदपत्रे आणि वैयक्तिक माहिती आमच्याकडे अत्यंत सुरक्षित ठेवली जाते.</p>
-                    </div>
-                </div>
-                <div class="wcu-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="wcu-img-box"><i class="fa-solid fa-user-tie"></i></div>
-                    <div class="wcu-info">
-                        <h4>तज्ज्ञ व अनुभवी मार्गदर्शन</h4>
-                        <p>शासकीय नियमांनुसार अचूक माहिती देऊन फॉर्म्स नाकारले जाण्याची शक्यता रद्द करतो.</p>
-                    </div>
-                </div>
-                <div class="wcu-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="wcu-img-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                    <div class="wcu-info">
-                        <h4>वाजवी व पारदर्शक दर</h4>
-                        <p>सर्व कामांचे दर अगदी स्वस्त असून कोणत्याही प्रकारचा लपलेला अतिरिक्त खर्च नाही.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photo Gallery Grid Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>आमची कार्यशाळा आणि गॅलरी</h2>
-                <p>आमच्या अत्याधुनिक तंत्रज्ञान युनिट आणि आनंदी ग्राहकांची काही क्षणचित्रे.</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="zoom-in">
-                    <img src="https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=500&q=80" alt="Workplace">
-                    <div class="gallery-overlay"><span>डिजिटल वर्कस्टेशन</span></div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=500&q=80" alt="Services">
-                    <div class="gallery-overlay"><span>कागदपत्र पडताळणी</span></div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80" alt="Customer Support">
-                    <div class="gallery-overlay"><span>ग्राहक मार्गदर्शन</span></div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=500&q=80" alt="Success">
-                    <div class="gallery-overlay"><span>जलद ऑनलाइन सेवा</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Structural High-Impact WhatsApp Promotion Banner -->
-    <section class="container">
-        <div class="promo-banner" data-aos="flip-up">
-            <h3>मोफत शासकीय योजना अपडेट्स मिळवा!</h3>
-            <p>आमच्या अधिकृत व्हाट्सॲप ग्रुपमध्ये सामील व्हा आणि दररोज नवीन भरती, जीआर (GR) आणि योजनांची माहिती थेट मोबाईलवर मिळवा.</p>
-            <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01" target="_blank" class="btn btn-saffron" style="background: white; color: #075e54; font-size: 1.1rem; padding: 15px 35px;">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem; color: #25d366;"></i> ग्रुप जॉईन करण्यासाठी येथे क्लिक करा
-            </a>
-        </div>
-    </section>
-
-    <!-- FAQ Accordion Block -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>सतत विचारले जाणारे प्रश्न (FAQ)</h2>
-                <p>तुमच्या मनात असणाऱ्या काही सामान्य शंका आणि त्यांची उत्तरे.</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-trigger">दाखले मिळण्यासाठी किती दिवस लागतात? <i class="fa-solid fa-chevron-down"></i></button>
-                    <div class="faq-content">
-                        <p>सामान्यतः उत्पन्नाचा दाखला, रहिवासी दाखला ७ ते १० कामकाजाच्या दिवसांत शासनाकडून मंजूर होऊन मिळतो. अर्ज केल्यानंतर तुम्हाला पोचपावती दिली जाते.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">पॅन कार्ड हरवले असल्यास काय करावे? <i class="fa-solid fa-chevron-down"></i></button>
-                    <div class="faq-content">
-                        <p>पॅन कार्ड हरवले असल्यास काळजी करू नका. तुमच्या आधार कार्डवरून किंवा पॅन नंबरवरून आम्ही नवीन पॅन कार्ड डिजिटल पद्धतीने शोधून त्याची नवीन प्रिंट काढून देतो.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">ग्रुपमध्ये जॉईन होणे मोफत आहे का? <i class="fa-solid fa-chevron-down"></i></button>
-                    <div class="faq-content">
-                        <p>होय, आमचा व्हाट्सॲप ग्रुप पूर्णपणे मोफत आहे. यावर कोणतीही जाहिरात न करता केवळ महत्त्वपूर्ण शासकीय जीआर आणि माहिती प्रसारित केली जाते.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Details & Map Integration Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>आमच्या सेंटर ला भेट द्या</h2>
-                <p>थेट संपर्क साधण्यासाठी किंवा आवश्यक कागदपत्रे घेऊन केंद्रावर येण्यासाठी खालील माहितीचा वापर करा.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info-card" data-aos="fade-right">
-                    <div class="c-detail-item">
-                        <i class="fa-solid fa-user-gear"></i>
-                        <div>
-                            <h5>केंद्राचे संचालक</h5>
-                            <p>प्रताप ऑनलाइन सेंटर (Pratap Online Centre)</p>
-                        </div>
-                    </div>
-                    <div class="c-detail-item">
-                        <i class="fa-solid fa-phone-volume"></i>
-                        <div>
-                            <h5>मोबाईल संपर्क क्रमांक</h5>
-                            <p>7719984464 / 9673258236</p>
-                        </div>
-                    </div>
-                    <div class="c-detail-item">
-                        <i class="fa-solid fa-clock"></i>
-                        <div>
-                            <h5>सेंटर ची वेळ</h5>
-                            <p>सोमवार ते शनिवार: सकाळी ०९:०० ते रात्री ०८:००<br>रविवार: बंद किंवा पूर्वपरवानगीने चालू</p>
-                        </div>
-                    </div>
-                    <div class="c-detail-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <h5>सेंटर चा पत्ता</h5>
-                            <p>मुख्य ठिकाण, आमला खुर्द ता दिग्रस जि यवतमाळ.</p>
-                        </div>
-                    </div>
-                    <div style="margin-top: 30px; display: flex; gap: 10px;">
-                        <button onclick="downloadRateCard()" class="btn btn-blue" style="font-size: 0.9rem;"><i class="fa-solid fa-file-pdf"></i> रेट लिस्ट डाउनलोड</button>
-                    </div>
-                </div>
-                <div class="map-box" data-aos="fade-left">
-                    <!-- Configured Embedded Google Maps Dynamic Layer -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1sm18!1s0x3bcfba59012a4d4b%3A0x673dbb1aa7bf92e1!2sMaharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating Strategic Call/Message Utilities -->
-    <div class="floating-actions">
-        <button class="float-btn f-top" id="backToTop" title="Back To Top"><i class="fa-solid fa-arrow-up"></i></button>
-        <a href="tel:7719984464" class="float-btn f-call" title="Call Now"><i class="fa-solid fa-phone"></i></a>
-        <a href="https://wa.me/917719984464" class="float-btn f-wa" target="_blank" title="WhatsApp Message"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-
-    <!-- Premium Informational Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <h4>प्रताप ऑनलाइन सेंटर</h4>
-                <p>आमच्या येथे सर्व प्रकारचे शासकीय दाखले, ई-गव्हर्नन्स सेवा, बँकिंग व्यवहार आणि डिजिटल कामे अत्यंत काळजीपूर्वक आणि वेळेत पूर्ण केली जातात.</p>
-                <p style="color: var(--accent-gold); font-weight: 500;"><i class="fa-solid fa-star"></i> आम्ही गुणवत्तेला प्राधान्य देतो.</p>
-            </div>
-            <div class="footer-links">
-                <h5>महत्त्वाच्या लिंक्स</h5>
-                <ul>
-                    <li><a href="#"><i class="fa-solid fa-angle-right"></i> मुख्य पृष्ठ</a></li>
-                    <li><a href="#services"><i class="fa-solid fa-angle-right"></i> आमच्या सेवा</a></li>
-                    <li><a href="#why-choose"><i class="fa-solid fa-angle-right"></i> वैशिष्ट्ये</a></li>
-                    <li><a href="#faq"><i class="fa-solid fa-angle-right"></i> सामान्य प्रश्न</a></li>
-                </ul>
-            </div>
-            <div class="footer-share">
-                <h5>वेबसाईट शेअर करा</h5>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 15px;">हा डिजिटल प्लॅटफॉर्म गरजू मित्र व नातेवाईकांसोबत नक्की शेअर करा.</p>
-                <div class="social-share-btns">
-                    <button onclick="shareWebsite('wa')" class="btn btn-green" style="padding: 8px 16px; font-size: 0.85rem;"><i class="fa-brands fa-whatsapp"></i> व्हाट्सॲप</button>
-                    <button onclick="copyLink()" class="btn btn-blue" style="padding: 8px 16px; font-size: 0.85rem; background: #333;"><i class="fa-solid fa-copy"></i> लिंक कॉपी</button>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 प्रताप ऑनलाइन सेंटर. सर्व हक्क सुरक्षित. | डिझाइन व डेव्हलपमेंट टीम.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts Injection Area (AOS & Custom Mechanics) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Init Animation Library
-        AOS.init({ duration: 800, once: true });
-
-        // Hide Preloader safely
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            setTimeout(() => preloader.style.display = 'none', 500);
-            animateCounters();
-        });
-
-        // Dark Mode Functionality
-        const modeToggle = document.getElementById('modeToggle');
-        modeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = modeToggle.querySelector('i');
-            if(document.body.classList.contains('dark-mode')) {
-                icon.className = 'fa-solid fa-sun';
-            } else {
-                icon.className = 'fa-solid fa-moon';
-            }
-        });
-
-        // Hamburger Menu Responsive Controller
-        const hamburger = document.getElementById('hamburgerMenu');
-        const navMenu = document.getElementById('navMenu');
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Close Menu on Link Clicking
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
-        // Live Intelligent Search Engine Block
-        const searchInput = document.getElementById('serviceSearch');
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.service-card');
-            
-            cards.forEach(card => {
-                const tags = card.getAttribute('data-tags').toLowerCase();
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                if(tags.includes(query) || title.includes(query)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        // Numerical Incremental Counter Animator
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter-number');
-            counters.forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-target'));
-                const speed = 200;
-                const increment = target / speed;
-                
-                let current = 0;
-                const updateValue = () => {
-                    current += increment;
-                    if(current < target) {
-                        counter.textContent = target % 1 === 0 ? Math.ceil(current) + '+' : current.toFixed(1);
-                        setTimeout(updateValue, 10);
-                    } else {
-                        counter.textContent = target + (target > 5 ? '+' : '');
-                    }
-                };
-                updateValue();
-            });
-        }
-
-        // Accordion Controller System
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // Floating Back-To-Top Trigger visibility
-        const btt = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if(window.scrollY > 300) btt.style.display = 'flex';
-            else btt.style.display = 'none';
-        });
-        btt.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-        // Robust Structured In-Memory Services Content Database
-        const servicesData = {
-            aadhaar: {
-                title: "आधार कार्ड सेवा (Aadhaar Services)",
-                info: "नवीन आधार नोंदणी, बायोमेट्रिक अपडेट, पत्ता आणि मोबाईल क्रमांक दुरुस्ती प्रक्रिया शासनाच्या युआयडीएआय (UIDAI) नियमांनुसार पूर्ण केली जाते.",
-                docs: "ओळखपत्राचा पुरावा (पॅन, वोटर आयडी), पत्त्याचा पुरावा (वीज बिल, रेशन कार्ड), जुने आधार कार्ड, मोबाईल नंबर.",
-                time: "७ ते १५ कामकाजाचे दिवस",
-                charges: "शासकीय नियमांनुसार (उदा. बायोमेट्रिक ₹१००, डेमोग्राफिक ₹५०)",
-                note: "नवीन आधार नोंदणी लहान मुलांसाठी पूर्णपणे मोफत केली जाते."
-            },
-            pan: {
-                title: "पॅन कार्ड सेवा (PAN Card Application)",
-                info: "इनकम टॅक्स विभागाच्या नियमांनुसार नवीन पॅन कार्ड किंवा दुरुस्ती अर्ज अत्यंत कमी वेळेत अचूक सबमिट केला जातो.",
-                docs: "आधार कार्ड (मोबाईल लिंक असणे आवश्यक असल्यास जलद प्रक्रिया), २ पासपोर्ट साईज फोटो, सही.",
-                time: "डिजिटल कॉपी ३ दिवस, प्लास्टिक कार्ड १० ते १५ दिवस",
-                charges: "₹१५० ते ₹२०० साधारणतः सेवा शुल्कासह",
-                note: "पॅन-आधार लिंक असणे अत्यंत अनिवार्य आहे, अन्यथा पॅन निष्क्रिय होऊ शकते."
-            },
-            passport: {
-                title: "पासपोर्ट सेवा (Passport Seva)",
-                info: "नवीन फ्रेश पासपोर्ट अर्ज, नूतनीकरण (Renewal) आणि आवश्यक डॉक्युमेंट अपॉइंटमेंट बुकिंग.",
-                docs: "आधार कार्ड, पॅन कार्ड, १०वी बोर्ड प्रमाणपत्र किंवा शैक्षणिक दाखला, दाखला, बँक पासबुक.",
-                time: "पोलीस पडताळणीनंतर १५ ते २५ दिवस",
-                charges: "शासकीय फी ₹१५०० + केंद्र सेवा शुल्क वेगळे",
-                note: "अपॉइंटमेंटच्या दिवशी सर्व मूळ कागदपत्रे सोबत असणे आवश्यक आहे."
-            },
-            voter: {
-                title: "मतदान कार्ड (Voter ID)",
-                info: "नवीन मतदार नोंदणी, नाव किंवा पत्ता दुरुस्ती आणि डिजिटल स्मार्ट मतदार कार्ड डाउनलोड.",
-                docs: "आधार कार्ड, वयाचा पुरावा (१०वी प्रमाणपत्र किंवा जन्माचा दाखला), १ पासपोर्ट फोटो, कुटुंबातील एकाचे मतदार कार्ड.",
-                time: "१५ ते ३० दिवस (शासकीय मंजुरीनुसार)",
-                charges: "ऑनलाईन अर्ज नाममात्र शुल्क",
-                note: "नवीन मतदार यादीमध्ये नाव आल्यावरच अधिकृत ओळखपत्र घरपोच मिळते."
-            },
-            ayushman: {
-                title: "आयुष्मान भारत गोल्डन हेल्थ कार्ड",
-                info: "केंद्र सरकारच्या वतीने देशातील नागरिकांना ५ लाख रुपयांपर्यंतचे मोफत वैद्यकीय उपचार मिळवून देणारे ई-कार्ड.",
-                docs: "रेशन कार्ड (पिवळे किंवा केशर), आधार कार्ड, मोबाईल क्रमांक.",
-                time: "त्वरित (१ ते २ दिवस)",
-                charges: "नाममात्र सेवा शुल्क",
-                note: "रेशन कार्डवर नाव असणे आणि त्याला आधार लिंक असणे अत्यंत गरजेचे आहे."
-            },
-            pmkisan: {
-                title: "पीएम किसान सन्मान निधी (PM Kisan)",
-                info: "शेतकऱ्यांसाठी प्रतिवर्षी ₹६००० देणाऱ्या योजनेचे नवीन फॉर्म्स भरणे, ई-केवायसी आणि बँक खाते जोडणी कामे.",
-                docs: "७/१२ आणि ८-अ उतारा, आधार कार्ड, बँक पासबुक, मोबाईल क्रमांक.",
-                time: "अर्ज प्रक्रिया त्वरित, शासकीय मंजुरी प्रलंबित राहू शकते",
-                charges: "नाममात्र सेवा शुल्क",
-                note: "मोबाईल नंबर आधार कार्डशी लिंक असणे ई-केवायसी करण्यासाठी बंधनकारक आहे."
-            },
-            mahabocw: {
-                title: "कामगार मंडळ नोंदणी (MAHABOCW)",
-                info: "बांधकाम कामगारांना विविध आर्थिक व शैक्षणिक सवलती मिळवून देण्यासाठी अधिकृत मंडळाकडे नाव नोंदणी करणे.",
-                docs: "आधार कार्ड, बँक पासबुक, राशन कार्ड, ९० दिवस काम केल्याचे प्रमाणपत्र (ठेकेदाराचे), कौटुंबिक फोटो.",
-                time: "१५ ते २० दिवस पडताळणी अवधी",
-                charges: "मंडळ नोंदणी फी + केंद्र प्रक्रिया शुल्क",
-                note: "नोंदणी दरवर्षी नूतनीकरण (Renew) करणे अनिवार्य असते."
-            },
-            driving: {
-                title: "ड्रायव्हिंग लायसन्स (RTO Services)",
-                info: "सर्व प्रकारच्या दुचाकी व चारचाकी वाहनांसाठी आरटीओ लर्निंग व पक्के लायसन्स ऑनलाईन अर्ज प्रक्रिया.",
-                docs: "आधार कार्ड (मोबाईल लिंक), जन्माचा दाखला / शाळा सोडल्याचा दाखला, वैद्यकीय प्रमाणपत्र (फॉर्म १-ए आवश्यक असल्यास), फोटो.",
-                time: "लर्निंग लायसन्स त्वरित, पक्के लायसन्स चाचणीनंतर १ महिना",
-                charges: "RTO शासकीय फी + केंद्र प्रोसेसिंग फी",
-                note: "लर्निंग लायसन्सची वैधता ६ महिने असते, त्या आत पक्क्या लायसन्ससाठी टेस्ट देणे गरजेचे आहे."
-            },
-            certificates: {
-                title: "शासकीय दाखले (Income, Caste & Residence)",
-                info: "तहसीलदार कार्यालयाकडून मिळणारे अधिकृत डिजिटल दाखले जसे की उत्पन्न, जात आणि रहिवासी प्रमाणपत्र.",
-                docs: "रेशन कार्ड, आधार कार्ड, शाळा सोडल्याचा दाखला, तलाठी उत्पन्न अहवाल (उत्पन्नाच्या दाखल्यासाठी), वडिलांचा जातीचा पुरावा (जातीसाठी).",
-                time: "७ ते १२ कामकाजाचे दिवस",
-                charges: "शासकीय फी + सेवा शुल्क (रास्त दर)",
-                note: "सर्व दाखले डिजिटल स्वाक्षरीयुक्त (Digital Signed) आणि पूर्ण वैध असतात."
-            },
-            financial: {
-                title: "बँकिंग व्यवहार व वीज बिल (AEPS & Money Transfer)",
-                info: "कोणत्याही बँकेतून बोटाचे ठसे (Thumb) लावून पैसे काढणे, देशभरात कुठेही त्वरित पैसे पाठवणे आणि वीज बिल भरणा.",
-                docs: "आधार कार्ड, बँक खाते नाव (पैसे काढण्यासाठी केवळ आधार लिंक बँक आवश्यक).",
-                time: "त्वरित रिअल-टाइम (Instant)",
-                charges: "नियमाप्रमाणे नाममात्र कमिशन किंवा शुल्क",
-                note: "पैसे काढल्यानंतर त्वरित कॉम्प्युटर प्रिंटेड पावती दिली जाईल."
-            },
-            printing: {
-                title: "प्रिंट, झेरॉक्स व लॅमिनेशन कामे",
-                info: "हाय-स्पीड मशीनद्वारे डॉक्युमेंट्स झेरॉक्स, कलर प्रिंटिंग, फोटो स्कॅनिंग आणि कागदपत्रे दीर्घकाळ टिकण्यासाठी उत्तम लॅमिनेशन.",
-                docs: "तुमचे मूळ दस्तऐवज किंवा मोबाईल / पेनड्राइव्ह मधील फाईल्स.",
-                time: "त्वरित (अवघ्या काही मिनिटांत)",
-                charges: "₹२ प्रती पेज पासून पुढे सुरू",
-                note: "बल्क (जास्त प्रमाणात) प्रिंटिंगसाठी विशेष सवलत दिली जाते."
-            },
-            onlineforms: {
-                title: "ऑनलाईन अर्ज व महाडीबीटी स्कॉलरशिप",
-                info: "विविध पोलीस भरती, सैन्य भरती, स्पर्धा परीक्षा फॉर्म आणि शालेय व कॉलेज विद्यार्थ्यांचे स्कॉलरशिप फॉर्म अचूक भरणे.",
-                docs: "शैक्षणिक पात्रता गुणपत्रिका (१०वी, १२वी, पदवी), दाखले, फोटो, सही, आधार कार्ड.",
-                time: "त्वरित फॉर्म सबमिशन",
-                charges: "फॉर्मच्या जटिलतेनुसार नाममात्र शुल्क",
-                note: "फॉर्म भरून झाल्यावर अंतिम सबमिट झालेली प्रिंट आऊट तपासणीसाठी नक्की घ्यावी."
-            }
-        };
-
-        // Modal Action Handlers
-        function openServiceModal(key) {
-            const data = servicesData[key];
-            if(!data) return;
-
-            const contentHtml = `
-                <h3 class="modal-header-title">${data.title}</h3>
-                <div class="modal-section">
-                    <h4><i class="fa-solid fa-circle-info"></i> सेवेबद्दल माहिती:</h4>
-                    <p>${data.info}</p>
-                </div>
-                <div class="modal-section">
-                    <h4><i class="fa-solid fa-file-lines"></i> आवश्यक कागदपत्रे:</h4>
-                    <p style="background: rgba(0,0,0,0.03); padding: 12px; border-radius: 8px; font-weight: 500;">${data.docs}</p>
-                </div>
-                <div class="modal-section">
-                    <h4><i class="fa-solid fa-table"></i> कामाचा गोषवारा:</h4>
-                    <table class="modal-table">
-                        <tr>
-                            <th>अंदाजित वेळ</th>
-                            <td>${data.time}</td>
-                        </tr>
-                        <tr>
-                            <th>अंदाजित शुल्क</th>
-                            <td>${data.charges}</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-section" style="border-left: 3px solid var(--accent-saffron); padding-left: 10px;">
-                    <p style="font-size: 0.85rem; font-style: italic; opacity: 0.8;"><strong>टीप: </strong>${data.note}</p>
-                </div>
-                <div class="modal-actions">
-                    <a href="tel:7719984464" class="btn btn-blue"><i class="fa-solid fa-phone"></i> कॉल करा</a>
-                    <a href="https://wa.me/917719984464?text=मला ${encodeURIComponent(data.title)} बद्दल माहिती हवी आहे." target="_blank" class="btn btn-green"><i class="fa-brands fa-whatsapp"></i> व्हाट्सॲप</a>
-                </div>
-            `;
-
-            document.getElementById('modalDynamicContent').innerHTML = contentHtml;
-            document.getElementById('serviceModalOverlay').classList.add('active');
-        }
-
-        function closeServiceModal() {
-            document.getElementById('serviceModalOverlay').classList.remove('active');
-        }
-
-        // Close modal clicking anywhere outside box
-        window.addEventListener('click', (e) => {
-            const overlay = document.getElementById('serviceModalOverlay');
-            if(e.target === overlay) closeServiceModal();
-        });
-
-        // Auxiliary Branding Actions
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href);
-            alert("वेबसाईट लिंक कॉपी झाली आहे! तुम्ही आता शेअर करू शकता.");
-        }
-
-        function shareWebsite(platform) {
-            const text = "प्रताप ऑनलाइन सेंटर - सर्व डिजिटल व शासकीय सेवा एकाच ठिकाणी मिळवा: " + window.location.href;
-            if(platform === 'wa') {
-                window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
-            }
-        }
-
-        function downloadRateCard() {
-            alert("रेट लिस्ट पीडीएफ फाइल जनरेट होत आहे. लवकरच उपलब्ध होईल. तात्पुरती माहितीसाठी व्हाट्सॲपवर संपर्क करा.");
-        }
-    </script>
+<div class="text-xs text-muted mt-1">Service charge applicable based on request type.</div>
+</div>
+<div class="d-flex gap-2 justify-content-center flex-wrap">
+<button class="btn btn-primary btn-sm"><i class="bi bi-calendar-check"></i> Book Now</button>
+<button class="btn btn-whatsapp btn-sm text-white"><i class="bi bi-whatsapp"></i> WhatsApp</button>
+</div>
+</div>
+</dialog>
+<!-- Modals Placeholders for remaining services... -->
+<div id="additional-modals-container" hidden aria-hidden="true"></div>
 </body>
 </html>
