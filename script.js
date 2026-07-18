@@ -1,788 +1,470 @@
 /**
- * ============================================================================
- * PRATAP ONLINE CENTRE - PREMIUM DIGITAL SERVICES
- * CORE JAVASCRIPT ARCHITECTURE
- * ============================================================================
- * Author: Pratap Rathod (Owner) / Architecture: Senior Frontend Engineer
- * Version: 1.0.0
- * Language: ES2022+ (Strict Mode)
- * Description: Modular, performant, accessible, and future-ready JS handling.
- * UI Language: Marathi
- * ============================================================================
+ * @fileoverview Production-ready Vanilla JavaScript for Pratap Online Centre
+ * @version 1.0.0
+ * @author Senior JavaScript Engineer
+ * @description Handles UI interactions, accessibility, performance, and state management.
  */
 
-'use strict';
+"use strict";
 
-// ============================================================================
-// GLOBAL CONFIGURATION
-// ============================================================================
-const APP_CONFIG = {
-    websiteName: 'प्रताप ऑनलाईन सेंटर',
-    language: 'mr',
-    debugMode: false,
-    typingWords: [
-        'आधार सेवा', 'पॅन कार्ड', 'सरकारी योजना', 'महाबॉकव', 
-        'पीएम किसान', 'ऑनलाईन सेवा', 'बँकिंग सेवा', 'डिजिटल सेवा', 'पासपोर्ट सेवा'
-    ],
-    workingHours: {
-        weekdays: [1, 2, 3, 4, 5, 6], // Monday to Saturday
-        sunday: [0], // Sunday
-        morning: { start: 6, end: 10 },
-        evening: { start: 16, end: 22 },
-        sundayFull: { start: 6, end: 22 }
-    },
-    storageKeys: {
-        theme: 'pratap_theme',
-        popupSeen: 'pratap_welcome_popup_seen',
-        festivalSeen: 'pratap_festival_seen'
-    }
-};
-
-// ============================================================================
-// UTILITIES
-// ============================================================================
-const Utils = {
-    log: (...args) => {
-        if (APP_CONFIG.debugMode) console.log('[Pratap Online Center]', ...args);
-    },
-    warn: (...args) => {
-        if (APP_CONFIG.debugMode) console.warn('[Pratap Online Center WARNING]', ...args);
-    },
-    error: (...args) => {
-        console.error('[Pratap Online Center ERROR]', ...args);
-    },
-    getElement: (selector) => document.querySelector(selector),
-    getAllElements: (selector) => document.querySelectorAll(selector),
-    
-    // Performance wrappers
-    debounce: (func, wait = 100) => {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), wait);
-        };
-    },
-    throttle: (func, limit = 100) => {
-        let inThrottle;
-        return function (...args) {
-            if (!inThrottle) {
-                func.apply(this, args);
-                inThrottle = true;
-                setTimeout(() => (inThrottle = false), limit);
-            }
-        };
-    },
-    
-    // Safe Event Listener Assignment
-    addEvent: (element, event, handler, options = false) => {
-        if (element) {
-            element.addEventListener(event, handler, options);
-        } else {
-            Utils.warn(`Element not found for event: ${event}`);
-        }
-    }
-};
-
-// ============================================================================
-// MODULES
-// ============================================================================
+// ==========================================================================
+// 1. GLOBAL FUNCTIONS (For inline HTML event handlers)
+// ==========================================================================
 
 /**
- * LOADER MODULE
+ * Opens a modal by its ID and traps focus/disables body scroll.
+ * @param {string} id - The ID of the modal to open.
  */
-const LoaderModule = {
-    init() {
-        try {
-            const loader = Utils.getElement('#premium-loader');
-            if (!loader) return;
-            
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    loader.style.opacity = '0';
-                    loader.style.transition = 'opacity 0.6s ease-out';
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        loader.setAttribute('aria-hidden', 'true');
-                        document.body.classList.remove('no-scroll');
-                    }, 600);
-                }, 800); // Minimum delay for premium feel
-            });
-        } catch (e) {
-            Utils.error('Loader Initialization Failed:', e);
-        }
+window.openModal = function (id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        modal.setAttribute('aria-hidden', 'false');
+        
+        // Focus management: shift focus to close button
+        const closeBtn = modal.querySelector('.close-modal');
+        if (closeBtn) closeBtn.focus();
+    } else {
+        alert('या सेवेची सविस्तर माहिती लवकरच अपडेट केली जाईल. कृपया संपर्क करा.');
     }
 };
 
 /**
- * POPUP & NOTIFICATION MODULE
+ * Closes a modal if the background overlay is clicked.
+ * @param {Event} e - The click event.
+ * @param {string} id - The ID of the modal.
  */
-const PopupModule = {
-    init() {
-        this.initWelcomePopup();
-        this.initAnnouncementBar();
-    },
+window.closeModal = function (e, id) {
+    if (e.target.id === id) {
+        window.closeModalForce(id);
+    }
+};
 
-    initWelcomePopup() {
+/**
+ * Force closes a modal via the close button or escape key.
+ * @param {string} id - The ID of the modal.
+ */
+window.closeModalForce = function (id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        modal.setAttribute('aria-hidden', 'true');
+    }
+};
+
+/**
+ * Triggers the native Web Share API or falls back to clipboard.
+ */
+window.shareWebsite = async function () {
+    const shareData = {
+        title: 'प्रताप ऑनलाइन सेंटर',
+        text: 'आमला खुर्द मधील सर्वोत्तम डिजिटल सेवा आणि शासकीय योजनांचे केंद्र! संचालक: प्रताप रामदास राठोड.',
+        url: window.location.href,
+    };
+
+    if (navigator.share && navigator.canShare(shareData)) {
         try {
-            const popup = Utils.getElement('#welcome-popup');
-            if (!popup) return;
+            await navigator.share(shareData);
+        } catch (err) {
+            console.warn('Share cancelled or failed:', err);
+        }
+    } else {
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            alert('लिंक कॉपी केली आहे! (Link Copied!)');
+        } catch (err) {
+            alert('तुमच्या ब्राउझर मध्ये शेअर सपोर्ट नाही. कृपया मॅन्युअली लिंक कॉपी करा.');
+        }
+    }
+};
 
-            const isSeen = localStorage.getItem(APP_CONFIG.storageKeys.popupSeen);
-            if (isSeen) {
-                popup.style.display = 'none';
-                return;
-            }
+// ==========================================================================
+// 2. MAIN APPLICATION LOGIC
+// ==========================================================================
 
-            // Show popup with slight delay after load
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Configuration & Selectors ---
+    const DOM = {
+        preloader: document.getElementById('preloader'),
+        welcomePopup: document.getElementById('welcomePopup'),
+        closePopupBtn: document.getElementById('closePopup'),
+        darkModeToggles: document.querySelectorAll('#darkModeToggle'),
+        langSelects: document.querySelectorAll('.lang-select'),
+        hamburger: document.getElementById('hamburger'),
+        navMenu: document.getElementById('nav-menu'),
+        navbar: document.getElementById('navbar'),
+        backToTop: document.getElementById('backToTop'),
+        searchInput: document.getElementById('searchInput'),
+        faqItems: document.querySelectorAll('.faq-item'),
+        navLinks: document.querySelectorAll('.nav-link'),
+        sections: document.querySelectorAll('section[id]'),
+        galleryItems: document.querySelectorAll('.gallery-item img')
+    };
+
+    // ==========================================================================
+    // PRELOADER & WELCOME POPUP
+    // ==========================================================================
+    const initPreloaderAndPopup = () => {
+        if (!DOM.preloader) return;
+
+        // Ensure smooth transition out
+        setTimeout(() => {
+            DOM.preloader.style.opacity = '0';
             setTimeout(() => {
-                if(typeof popup.showModal === 'function') {
-                    popup.showModal();
-                } else {
-                    popup.classList.add('active'); // Fallback
-                }
-            }, 2500);
+                DOM.preloader.style.display = 'none';
+                checkWelcomePopup();
+            }, 500);
+        }, 800); // Minimum view time for branding
+    };
 
-            const closeBtn = popup.querySelector('.close-btn');
-            const continueBtn = popup.querySelector('.continue-btn');
-            const rememberCheckbox = popup.querySelector('#remember-popup');
+    const checkWelcomePopup = () => {
+        if (!DOM.welcomePopup) return;
+        
+        const popupShown = localStorage.getItem('pratap_popup_shown');
+        // Show popup if not shown in current session/local storage
+        if (!popupShown) {
+            setTimeout(() => {
+                DOM.welcomePopup.classList.add('show');
+            }, 600);
+        }
 
-            const closePopup = () => {
-                if (rememberCheckbox && rememberCheckbox.checked) {
-                    localStorage.setItem(APP_CONFIG.storageKeys.popupSeen, 'true');
-                }
-                if(typeof popup.close === 'function') {
-                    popup.close();
-                } else {
-                    popup.classList.remove('active');
-                }
+        // Close logic
+        const closePopup = () => {
+            DOM.welcomePopup.classList.remove('show');
+            localStorage.setItem('pratap_popup_shown', 'true');
+        };
+
+        if (DOM.closePopupBtn) DOM.closePopupBtn.addEventListener('click', closePopup);
+        DOM.welcomePopup.addEventListener('click', (e) => {
+            if (e.target.id === 'welcomePopup') closePopup();
+        });
+
+        // Escape key support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && DOM.welcomePopup.classList.contains('show')) {
+                closePopup();
+            }
+        });
+    };
+
+    // ==========================================================================
+    // DARK MODE MANAGEMENT
+    // ==========================================================================
+    const initDarkMode = () => {
+        const body = document.body;
+        const savedTheme = localStorage.getItem('pratap_theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        let isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+
+        const applyTheme = (dark) => {
+            if (dark) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+            
+            DOM.darkModeToggles.forEach(btn => {
+                btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                btn.setAttribute('aria-label', dark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+            });
+        };
+
+        // Initial application
+        applyTheme(isDark);
+
+        // Toggle Event Listener
+        DOM.darkModeToggles.forEach(btn => {
+            btn.addEventListener('click', () => {
+                isDark = !body.classList.contains('dark-mode');
+                applyTheme(isDark);
+                localStorage.setItem('pratap_theme', isDark ? 'dark' : 'light');
+            });
+        });
+    };
+
+    // ==========================================================================
+    // LANGUAGE SELECTION
+    // ==========================================================================
+    const initLanguageToggle = () => {
+        const savedLang = localStorage.getItem('pratap_language') || 'mr';
+        
+        DOM.langSelects.forEach(select => {
+            select.value = savedLang;
+            select.addEventListener('change', (e) => {
+                const lang = e.target.value;
+                localStorage.setItem('pratap_language', lang);
+                // Sync all language dropdowns
+                DOM.langSelects.forEach(s => s.value = lang);
+                // Future integration: reload page or fetch translated JSON here
+            });
+        });
+    };
+
+    // ==========================================================================
+    // NAVIGATION & SCROLL BEHAVIORS
+    // ==========================================================================
+    const initNavigation = () => {
+        // Mobile Menu Toggle
+        if (DOM.hamburger && DOM.navMenu) {
+            DOM.hamburger.addEventListener('click', () => {
+                const isActive = DOM.navMenu.classList.toggle('active');
+                DOM.hamburger.setAttribute('aria-expanded', isActive);
+            });
+
+            // Close mobile menu when clicking a link
+            DOM.navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    DOM.navMenu.classList.remove('active');
+                    DOM.hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Throttle scroll for performance
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        }, { passive: true });
+    };
+
+    const handleScroll = () => {
+        const currentScroll = window.scrollY;
+
+        // Sticky Navbar
+        if (DOM.navbar) {
+            if (currentScroll > 50) {
+                DOM.navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                DOM.navbar.style.padding = '5px 0';
+            } else {
+                DOM.navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+                DOM.navbar.style.padding = '0';
+            }
+        }
+
+        // Back to Top Button
+        if (DOM.backToTop) {
+            if (currentScroll > 400) {
+                DOM.backToTop.classList.add('show');
+            } else {
+                DOM.backToTop.classList.remove('show');
+            }
+        }
+
+        // ScrollSpy (Active Section Highlight)
+        let currentSectionId = '';
+        DOM.sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+            if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        DOM.navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    // ==========================================================================
+    // SMART INSTANT SEARCH (DEBOUNCED)
+    // ==========================================================================
+    const initSearch = () => {
+        if (!DOM.searchInput) return;
+
+        // Debounce utility
+        const debounce = (func, delay) => {
+            let timeoutId;
+            return (...args) => {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(null, args), delay);
             };
-
-            Utils.addEvent(closeBtn, 'click', closePopup);
-            Utils.addEvent(continueBtn, 'click', closePopup);
-            
-            // ESC key to close
-            Utils.addEvent(popup, 'keydown', (e) => {
-                if (e.key === 'Escape') closePopup();
-            });
-
-        } catch (e) {
-            Utils.error('Popup Logic Error:', e);
-        }
-    },
-
-    initAnnouncementBar() {
-        const bar = Utils.getElement('#announcement-bar');
-        const closeBtn = Utils.getElement('.close-announcement');
-        if (bar && closeBtn) {
-            Utils.addEvent(closeBtn, 'click', () => {
-                bar.style.display = 'none';
-            });
-        }
-    }
-};
-
-/**
- * TYPING EFFECT MODULE
- */
-const TypingModule = {
-    init() {
-        const typingElement = Utils.getElement('.typing-animation-placeholder');
-        if (!typingElement) return;
-
-        const words = APP_CONFIG.typingWords;
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        
-        const typeDelay = 100;
-        const deleteDelay = 50;
-        const nextWordDelay = 2000;
-
-        const type = () => {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                typingElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let speed = isDeleting ? deleteDelay : typeDelay;
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                speed = nextWordDelay;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                speed = 500;
-            }
-
-            setTimeout(type, speed);
         };
 
-        type();
-    }
-};
-
-/**
- * THEME (DARK/LIGHT) MODULE
- */
-const ThemeModule = {
-    init() {
-        const toggleBtn = Utils.getElement('.dark-mode-toggle');
-        const root = document.documentElement;
-        
-        const getPreferredTheme = () => {
-            const savedTheme = localStorage.getItem(APP_CONFIG.storageKeys.theme);
-            if (savedTheme) return savedTheme;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-
-        const setTheme = (theme) => {
-            root.setAttribute('data-theme', theme);
-            document.body.className = `${theme}-theme`;
-            localStorage.setItem(APP_CONFIG.storageKeys.theme, theme);
-            if(toggleBtn) {
-                toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'लाईट मोड चालू करा' : 'डार्क मोड चालू करा');
-            }
-        };
-
-        setTheme(getPreferredTheme());
-
-        Utils.addEvent(toggleBtn, 'click', () => {
-            const currentTheme = root.getAttribute('data-theme');
-            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-        });
-
-        // Listen for OS theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem(APP_CONFIG.storageKeys.theme)) {
-                setTheme(e.matches ? 'dark' : 'light');
-            }
-        });
-    }
-};
-
-/**
- * DATE, TIME & WORKING STATUS MODULE
- */
-const TimeStatusModule = {
-    init() {
-        this.updateTime();
-        setInterval(() => this.updateTime(), 1000);
-    },
-
-    updateTime() {
-        try {
-            const now = new Date();
-            const timeElement = Utils.getElement('#current-time-placeholder');
-            const statusElement = Utils.getElement('.status-indicator');
-            const statusContainer = Utils.getElement('.today-status-placeholder');
+        const performSearch = debounce((e) => {
+            const term = e.target.value.trim().toLowerCase();
+            const searchableCards = document.querySelectorAll('.service-card, .faq-item, .update-card, .wcu-card');
             
-            // Format Time (Marathi Locale)
-            if (timeElement) {
-                timeElement.textContent = now.toLocaleTimeString('mr-IN', {
-                    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
-                });
-            }
-
-            const day = now.getDay();
-            const hours = now.getHours();
-            
-            let isOpen = false;
-            let statusText = '';
-            let statusClass = '';
-
-            if (APP_CONFIG.workingHours.weekdays.includes(day)) {
-                // Monday - Saturday
-                const isMorning = hours >= APP_CONFIG.workingHours.morning.start && hours < APP_CONFIG.workingHours.morning.end;
-                const isEvening = hours >= APP_CONFIG.workingHours.evening.start && hours < APP_CONFIG.workingHours.evening.end;
-                
-                if (isMorning || isEvening) {
-                    isOpen = true;
-                    statusText = 'आमचे केंद्र सध्या सुरू आहे (Open)';
-                    statusClass = 'status-open';
-                } else if (hours < APP_CONFIG.workingHours.morning.start) {
-                    statusText = 'सकाळी ६ वाजता सुरू होईल (Closed)';
-                    statusClass = 'status-closed';
-                } else if (hours >= APP_CONFIG.workingHours.morning.end && hours < APP_CONFIG.workingHours.evening.start) {
-                    statusText = 'सायंकाळी ४ वाजता पुन्हा सुरू होईल (Closed)';
-                    statusClass = 'status-closed';
-                } else {
-                    statusText = 'आमचे केंद्र सध्या बंद आहे (Closed)';
-                    statusClass = 'status-closed';
-                }
-            } else if (APP_CONFIG.workingHours.sunday.includes(day)) {
-                // Sunday
-                if (hours >= APP_CONFIG.workingHours.sundayFull.start && hours < APP_CONFIG.workingHours.sundayFull.end) {
-                    isOpen = true;
-                    statusText = 'आमचे केंद्र सध्या सुरू आहे (Open)';
-                    statusClass = 'status-open';
-                } else {
-                    statusText = 'आमचे केंद्र सध्या बंद आहे (Closed)';
-                    statusClass = 'status-closed';
-                }
-            }
-
-            if (statusElement) {
-                statusElement.textContent = isOpen ? 'Open' : 'Closed';
-                statusElement.className = `status-indicator ${statusClass}`;
-            }
-
-            if (statusContainer) {
-                statusContainer.innerHTML = `<span class="${statusClass}">${statusText}</span>`;
-            }
-
-        } catch (e) {
-            Utils.error('Time Update Error:', e);
-        }
-    }
-};
-
-/**
- * NAVIGATION & SCROLL MODULE
- */
-const NavigationModule = {
-    init() {
-        this.initStickyNavbar();
-        this.initSmoothScroll();
-        this.initScrollProgress();
-        this.initBackToTop();
-        this.initMobileMenu();
-    },
-
-    initStickyNavbar() {
-        const header = Utils.getElement('#main-header');
-        if (!header) return;
-
-        const onScroll = Utils.throttle(() => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }, 100);
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-    },
-
-    initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = Utils.getElement(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Close mobile menu if open
-                    const hamburger = Utils.getElement('.mobile-hamburger');
-                    if (hamburger && hamburger.getAttribute('aria-expanded') === 'true') {
-                        hamburger.click();
-                    }
-                }
-            });
-        });
-    },
-
-    initScrollProgress() {
-        const progressBar = Utils.getElement('#scroll-progress-placeholder .progress-bar');
-        if (!progressBar) return;
-
-        const updateProgress = () => {
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const progress = (window.scrollY / windowHeight) * 100;
-            requestAnimationFrame(() => {
-                progressBar.style.width = `${progress}%`;
-            });
-        };
-
-        window.addEventListener('scroll', updateProgress, { passive: true });
-    },
-
-    initBackToTop() {
-        const backToTopBtn = Utils.getElement('#back-to-top');
-        const floaters = Utils.getAllElements('.floating-buttons button');
-        
-        if (!backToTopBtn) return;
-
-        const toggleVisibility = Utils.throttle(() => {
-            if (window.scrollY > 300) {
-                floaters.forEach(btn => btn.classList.add('show'));
-            } else {
-                floaters.forEach(btn => btn.classList.remove('show'));
-            }
-        }, 150);
-
-        window.addEventListener('scroll', toggleVisibility, { passive: true });
-
-        Utils.addEvent(backToTopBtn, 'click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    },
-
-    initMobileMenu() {
-        const hamburger = Utils.getElement('.mobile-hamburger');
-        const navMenu = Utils.getElement('.desktop-menu');
-        
-        if (!hamburger || !navMenu) return;
-
-        Utils.addEvent(hamburger, 'click', () => {
-            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-            hamburger.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
-        });
-    }
-};
-
-/**
- * SERVICES INTERACTION MODULE
- */
-const ServicesModule = {
-    init() {
-        this.initFilters();
-        this.initSearch();
-        this.initModals();
-    },
-
-    initFilters() {
-        const filterBtns = Utils.getAllElements('.filter-chip');
-        const serviceCards = Utils.getAllElements('.service-card');
-
-        filterBtns.forEach(btn => {
-            Utils.addEvent(btn, 'click', () => {
-                // Update active state
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                serviceCards.forEach(card => {
-                    if (filterValue === 'all') {
-                        card.style.display = 'block';
-                        this.animateReveal(card);
-                    } else {
-                        const categories = card.getAttribute('data-category')?.split(' ') || [];
-                        if (categories.includes(filterValue)) {
-                            card.style.display = 'block';
-                            this.animateReveal(card);
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
-                });
-            });
-        });
-    },
-
-    initSearch() {
-        const searchInput = Utils.getElement('#service-search-input');
-        const serviceCards = Utils.getAllElements('.service-card');
-
-        if (!searchInput) return;
-
-        Utils.addEvent(searchInput, 'input', Utils.debounce((e) => {
-            const searchTerm = e.target.value.toLowerCase().trim();
-
-            serviceCards.forEach(card => {
+            searchableCards.forEach(card => {
                 const textContent = card.textContent.toLowerCase();
-                if (textContent.includes(searchTerm)) {
-                    card.style.display = 'block';
+                if (textContent.includes(term)) {
+                    card.style.display = ''; // Fallback to CSS rules
+                    card.style.opacity = '1';
                 } else {
                     card.style.display = 'none';
+                    card.style.opacity = '0';
                 }
             });
-        }, 300));
-    },
+        }, 300); // 300ms delay for performance
 
-    initModals() {
-        const modalTriggers = Utils.getAllElements('[aria-haspopup="dialog"]');
-        const closeBtns = Utils.getAllElements('.close-modal');
+        DOM.searchInput.addEventListener('input', performSearch);
+    };
 
-        modalTriggers.forEach(trigger => {
-            Utils.addEvent(trigger, 'click', () => {
-                const modalId = trigger.getAttribute('aria-controls');
-                const modal = Utils.getElement(`#${modalId}`);
-                if (modal) {
-                    if(typeof modal.showModal === 'function') {
-                        modal.showModal();
-                    } else {
-                        modal.classList.add('active');
-                    }
-                    document.body.style.overflow = 'hidden'; // Prevent bg scroll
+    // ==========================================================================
+    // FAQ ACCORDION LOGIC
+    // ==========================================================================
+    const initFAQ = () => {
+        if (!DOM.faqItems.length) return;
+
+        DOM.faqItems.forEach(item => {
+            const questionBtn = item.querySelector('.faq-question');
+            if (!questionBtn) return;
+
+            questionBtn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQs (Accordion style)
+                DOM.faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                
+                // Open clicked if it wasn't already open
+                if (!isActive) {
+                    item.classList.add('active');
+                    questionBtn.setAttribute('aria-expanded', 'true');
                 }
             });
         });
+    };
 
-        const closeFunc = (modal) => {
-            if(typeof modal.close === 'function') {
-                modal.close();
-            } else {
-                modal.classList.remove('active');
-            }
-            document.body.style.overflow = ''; 
+    // ==========================================================================
+    // DYNAMIC GALLERY LIGHTBOX
+    // ==========================================================================
+    const initLightbox = () => {
+        if (!DOM.galleryItems.length) return;
+
+        // Create overlay elements dynamically
+        const overlay = document.createElement('div');
+        overlay.id = 'dynamicLightbox';
+        overlay.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 100000;
+            display: none; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(5px);
+        `;
+
+        const imgElement = document.createElement('img');
+        imgElement.style.cssText = `
+            max-width: 90%; max-height: 90vh; border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: scale(0.9);
+            transition: transform 0.3s ease;
+        `;
+
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.style.cssText = `
+            position: absolute; top: 20px; right: 30px; background: transparent;
+            border: none; color: white; font-size: 3rem; cursor: pointer;
+            transition: color 0.3s ease;
+        `;
+        closeBtn.onmouseover = () => closeBtn.style.color = '#ff9933';
+        closeBtn.onmouseleave = () => closeBtn.style.color = 'white';
+
+        overlay.appendChild(imgElement);
+        overlay.appendChild(closeBtn);
+        document.body.appendChild(overlay);
+
+        const openLightbox = (src) => {
+            imgElement.src = src;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            // Trigger reflow for animation
+            void overlay.offsetWidth;
+            overlay.style.opacity = '1';
+            imgElement.style.transform = 'scale(1)';
         };
 
-        closeBtns.forEach(btn => {
-            Utils.addEvent(btn, 'click', (e) => {
-                const modal = e.target.closest('dialog, .premium-modal');
-                if (modal) closeFunc(modal);
-            });
-        });
-
-        // Close on clicking outside
-        document.querySelectorAll('dialog').forEach(dialog => {
-            Utils.addEvent(dialog, 'click', (e) => {
-                if (e.target === dialog) closeFunc(dialog);
-            });
-        });
-    },
-
-    animateReveal(element) {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(15px)';
-        requestAnimationFrame(() => {
-            element.style.transition = 'all 0.4s ease-out';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        });
-    }
-};
-
-/**
- * ANIMATIONS & UI OBSERVERS MODULE
- */
-const AnimationsModule = {
-    init() {
-        this.initIntersectionObservers();
-    },
-
-    initIntersectionObservers() {
-        // Respect prefers-reduced-motion
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) return;
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
+        const closeLightbox = () => {
+            overlay.style.opacity = '0';
+            imgElement.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
         };
 
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible', 'aos-animate');
-                    observer.unobserve(entry.target); // Animate only once
-                }
-            });
-        }, observerOptions);
-
-        // Elements to animate
-        const animatedElements = Utils.getAllElements('.hover-lift, .glass-glow, .premium-card, .service-card, .section-header');
-        animatedElements.forEach(el => {
-            el.classList.add('prepare-reveal');
-            revealObserver.observe(el);
+        // Attach events
+        DOM.galleryItems.forEach(item => {
+            item.parentNode.addEventListener('click', () => openLightbox(item.src));
         });
 
-        this.initCounters();
-    },
-
-    initCounters() {
-        const counters = Utils.getAllElements('.count-number');
-        if (!counters.length) return;
-
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.startCounter(entry.target);
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => observer.observe(counter));
-    },
-
-    startCounter(counterElement) {
-        const target = +counterElement.getAttribute('data-target') || 1000;
-        const duration = 2000; // 2 seconds
-        const increment = target / (duration / 16); // 60fps
-        let current = 0;
-
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counterElement.textContent = Math.ceil(current).toLocaleString('mr-IN');
-                requestAnimationFrame(updateCounter);
-            } else {
-                counterElement.textContent = target.toLocaleString('mr-IN') + '+';
-            }
-        };
-        updateCounter();
-    }
-};
-
-/**
- * SYSTEM & UTILITY FEATURES MODULE
- */
-const SystemFeaturesModule = {
-    init() {
-        this.initNetworkStatus();
-        this.initPageVisibility();
-        this.initDocumentFinderLogic();
-        this.initChargeCalculatorLogic();
-    },
-
-    initNetworkStatus() {
-        const updateStatus = () => {
-            if (!navigator.onLine) {
-                Utils.warn('इंटरनेट कनेक्शन उपलब्ध नाही (Offline Mode).');
-                const offlineBanner = Utils.getElement('#offline-mode');
-                if(offlineBanner) {
-                    offlineBanner.innerHTML = '<div class="offline-toast">तुम्ही सध्या ऑफलाईन आहात. काही सेवा चालणार नाहीत.</div>';
-                    offlineBanner.removeAttribute('hidden');
-                }
-            } else {
-                const offlineBanner = Utils.getElement('#offline-mode');
-                if(offlineBanner) offlineBanner.setAttribute('hidden', 'true');
-            }
-        };
-
-        window.addEventListener('online', updateStatus);
-        window.addEventListener('offline', updateStatus);
-    },
-
-    initPageVisibility() {
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                Utils.log('Page hidden, pausing heavy animations');
-                // Hook to pause heavy GSAP/Lottie if present
-            } else {
-                Utils.log('Page visible, resuming animations');
-            }
-        });
-    },
-
-    // Dummy Logic for Future APIs / Functional Placeholders
-    initDocumentFinderLogic() {
-        const selectBox = Utils.getElement('#document-finder select');
-        const results = Utils.getElement('.finder-results');
-        
-        if (selectBox && results) {
-            Utils.addEvent(selectBox, 'change', (e) => {
-                const val = e.target.value;
-                if(val) {
-                    results.innerHTML = `<p><strong>आवश्यक कागदपत्रे:</strong> माहिती लोड होत आहे...</p>`;
-                    // Simulate API Fetch
-                    setTimeout(() => {
-                        results.innerHTML = `<p><strong>आवश्यक कागदपत्रे:</strong> आधार कार्ड, रेशन कार्ड, फोटो (डेटा उपलब्ध)</p>`;
-                    }, 500);
-                }
-            });
-        }
-    },
-
-    initChargeCalculatorLogic() {
-        const selectBox = Utils.getElement('#charge-calculator select');
-        const results = Utils.getElement('.calculator-results');
-        
-        if (selectBox && results) {
-            Utils.addEvent(selectBox, 'change', (e) => {
-                if(e.target.value) {
-                    Utils.getElement('.calc-gov-fee').textContent = '₹...';
-                    Utils.getElement('.calc-service-fee').textContent = '₹...';
-                    Utils.getElement('.calc-total').textContent = '₹ लोड करत आहे...';
-                }
-            });
-        }
-    }
-};
-
-/**
- * PWA (PROGRESSIVE WEB APP) HOOKS
- */
-const PWAModule = {
-    init() {
-        let deferredPrompt;
-        const installPopup = Utils.getElement('#install-app-popup');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            // Future logic to show custom install popup
-            if (installPopup && APP_CONFIG.debugMode) {
-                Utils.log('PWA Install ready. Show UI to user.');
-            }
+        closeBtn.addEventListener('click', closeLightbox);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeLightbox();
         });
         
-        // Register Service Worker if implemented in future
-        if ('serviceWorker' in navigator && APP_CONFIG.debugMode) {
-            Utils.log('Service Worker is supported. Waiting for sw.js implementation.');
-        }
-    }
-};
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.style.display === 'flex') {
+                closeLightbox();
+            }
+        });
+    };
 
-/**
- * FUTURE API PLACEHOLDERS MODULE
- * To be connected with Node.js/PHP backends
- */
-const ApiIntegrations = {
-    async fetchGovernmentSchemes() { /* Future Implementation */ },
-    async fetchWeatherUpdates() { /* Future Implementation */ },
-    async fetchAgricultureMarket() { /* Future Implementation */ },
-    async fetchLiveTokens() { /* Future Implementation */ },
-    async submitContactForm(data) { /* Future Implementation */ },
-    
-    initPlaceholders() {
-        Utils.log('API endpoints prepared for future integration.');
-    }
-};
+    // ==========================================================================
+    // GLOBAL ACCESSIBILITY & UTILITIES
+    // ==========================================================================
+    const initAccessibility = () => {
+        // Global Escape key handler for Modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close active modals
+                const activeModals = document.querySelectorAll('.modal-overlay.active');
+                activeModals.forEach(modal => window.closeModalForce(modal.id));
+                
+                // Close mobile menu
+                if (DOM.navMenu && DOM.navMenu.classList.contains('active')) {
+                    DOM.navMenu.classList.remove('active');
+                    DOM.hamburger.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
 
-// ============================================================================
-// MAIN APPLICATION INITIALIZER
-// ============================================================================
-const PratapCentreApp = {
-    init() {
-        Utils.log('Initializing Pratap Online Centre System...');
+        // Add proper target blanks defensively to external links
+        document.querySelectorAll('a[href^="http"]').forEach(anchor => {
+            if (!anchor.hasAttribute('target')) {
+                anchor.setAttribute('target', '_blank');
+                anchor.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    };
+
+    // ==========================================================================
+    // INITIALIZATION RUNNER
+    // ==========================================================================
+    const runInitialization = () => {
+        initPreloaderAndPopup();
+        initDarkMode();
+        initLanguageToggle();
+        initNavigation();
+        initSearch();
+        initFAQ();
+        initLightbox();
+        initAccessibility();
         
-        try {
-            // Core Modules
-            LoaderModule.init();
-            PopupModule.init();
-            ThemeModule.init();
-            TimeStatusModule.init();
-            NavigationModule.init();
-            
-            // UI & Interactivity
-            TypingModule.init();
-            ServicesModule.init();
-            AnimationsModule.init();
-            SystemFeaturesModule.init();
-            PWAModule.init();
-            
-            // API Structure
-            ApiIntegrations.initPlaceholders();
-
-            Utils.log('Initialization Complete.');
-        } catch (error) {
-            Utils.error('Critical Failure during app initialization:', error);
+        // Initialize AOS (Animate on Scroll) if available
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+                disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            });
         }
-    }
-};
+    };
 
-// ============================================================================
-// BOOTSTRAP
-// ============================================================================
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => PratapCentreApp.init());
-} else {
-    PratapCentreApp.init();
-}
+    // Start App
+    runInitialization();
+});
