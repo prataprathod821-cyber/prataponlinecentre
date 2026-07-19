@@ -1,204 +1,186 @@
-/* 
-  ========================================
-  आपले सरकार सेवा केंद्र - Custom Stylesheet
-  ========================================
-*/
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us | Pratap Online Center</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External CSS Linked -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* --- 0. General & Root Variables --- */
-:root {
-    --primary-color: #0d6efd;
-    --secondary-color: #ff9900;
-    --dark-bg: #1a1a1a;
-    --light-bg: #f8f9fa;
-    --whatsapp-color: #25D366;
-}
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-laptop-house"></i>
+                Pratap Online Center
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="charges.html">Charges</a>
+                <a href="about.html" style="color: var(--gold);">About Us</a>
+            </div>
+        </div>
+    </nav>
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffffff;
-    color: #333333;
-    overflow-x: hidden;
-}
+    <!-- Hero Section -->
+    <section class="hero text-center">
+        <div class="container fade-in visible">
+            <h1>आमच्याबद्दल (About Us)</h1>
+            <p>प्रताप ऑनलाईन सेंटरमध्ये आपले सहर्ष स्वागत आहे. जाणून घ्या आमचा उद्देश, कार्य आणि आमची विचारसरणी.</p>
+        </div>
+    </section>
 
-/* --- 1. Top Utility Bar --- */
-.top-bar {
-    background-color: var(--dark-bg);
-    color: #ffffff;
-    font-size: 14px;
-    padding: 8px 0;
-}
+    <!-- Main About Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper fade-in">
+                    <div class="about-bg-shape"></div>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office Setup" class="about-image">
+                </div>
+                <div class="about-content fade-in">
+                    <h2><i class="fas fa-info-circle text-gold"></i> प्रताप ऑनलाईन सेंटरची सुरुवात</h2>
+                    <p>आजच्या डिजिटल युगात, प्रत्येक सरकारी आणि खाजगी काम ऑनलाईन झाले आहे. मात्र, ग्रामीण आणि निमशहरी भागातील अनेक नागरिकांना योग्य माहितीअभावी या सेवांचा लाभ घेताना अडचणी येतात. याच समस्येवर तोडगा काढण्यासाठी <strong>प्रताप ऑनलाईन सेंटरची</strong> स्थापना करण्यात आली.</p>
+                    
+                    <div class="highlight-text">
+                        "आमचा उद्देश फक्त फॉर्म भरणे नाही, तर प्रत्येक ग्राहकाला त्यांच्या हक्काच्या योजना आणि सेवा योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे."
+                    </div>
 
-.marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-}
+                    <p>आम्ही सर्व प्रकारची शासकीय कामे, बँकिंग सेवा, पॅन कार्ड, आधार सेवा, आणि विविध सरकारी योजनांचे अर्ज अत्यंत सुरक्षित आणि पारदर्शक पद्धतीने भरून देतो. आमच्याकडे कोणतेही लपलेले चार्जेस नाहीत, जे आहे ते स्पष्ट आणि प्रामाणिक आहे.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* --- 2. Premium Header & Navigation --- */
-.navbar {
-    transition: all 0.3s ease-in-out;
-}
+    <!-- Mission & Vision -->
+    <section class="section-padding pt-0">
+        <div class="container">
+            <div class="text-center fade-in mb-5">
+                <h2>आमचा दृष्टिकोन आणि ध्येय</h2>
+            </div>
+            <div class="mv-grid">
+                <div class="glass-card mv-card fade-in">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>आमचे ध्येय (Our Mission)</h3>
+                    <p class="text-muted">नागरिकांना एकाच छताखाली सर्व डिजिटल सेवा जलद गतीने उपलब्ध करून देणे. कामात पारदर्शकता ठेवून ग्राहकांचा वेळ आणि पैसा वाचवणे. प्रत्येक काम वेळेत आणि अचूकपणे पूर्ण करणे.</p>
+                </div>
+                <div class="glass-card mv-card fade-in">
+                    <i class="fas fa-eye"></i>
+                    <h3>आमचा दृष्टिकोन (Our Vision)</h3>
+                    <p class="text-muted">परिसरातील सर्वात विश्वसनीय आणि प्रगत डिजिटल सेवा केंद्र बनणे. 'डिजिटल इंडिया' चे स्वप्न तळागाळातील लोकांपर्यंत पोहोचवून त्यांना आधुनिक तंत्रज्ञानाशी जोडणे.</p>
+                </div>
+                <div class="glass-card mv-card fade-in">
+                    <i class="fas fa-handshake"></i>
+                    <h3>आमची मूल्ये (Our Values)</h3>
+                    <p class="text-muted">विश्वास, प्रामाणिकपणा आणि ग्राहक समाधान हीच आमची मुख्य मूल्ये आहेत. आम्ही ग्राहकांच्या डेटाची पूर्ण सुरक्षा आणि गोपनीयता काटेकोरपणे बाळगतो.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.navbar-brand h5 {
-    letter-spacing: 0.5px;
-}
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container fade-in">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-text">Digital Services</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-text">Happy Customers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Transparent Pricing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">Customer Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.nav-link {
-    font-weight: 500;
-    margin-right: 10px;
-    transition: color 0.3s ease;
-}
+    <!-- Founder Message -->
+    <section class="section-padding">
+        <div class="container fade-in">
+            <div class="founder-section text-center">
+                <i class="fas fa-quote-left founder-icon"></i>
+                <h3 style="color: var(--royal-blue);">संस्थापक / संचालक यांचे मनोगत</h3>
+                <div class="founder-text">
+                    "जेव्हा मी या क्षेत्रात काम करायला सुरुवात केली, तेव्हा मला जाणवले की लोकांना फक्त सेवा नको असते, तर त्यांना एका 'विश्वासाची' आणि 'मार्गदर्शनाची' गरज असते. एखादे काम करताना लागणारी कागदपत्रे, त्याची खरी फी आणि मिळणारा लाभ याबद्दल योग्य माहिती देणे हे मी माझे कर्तव्य समजतो. प्रताप ऑनलाईन सेंटर हे केवळ एक दुकान नसून, लोकांच्या अडचणी सोडवणारे एक हक्काचे व्यासपीठ आहे. तुमचा विश्वास हीच आमची खरी कमाई आहे."
+                </div>
+                <h4 class="mt-4 mb-0" style="color: var(--royal-blue); font-weight: bold;">- प्रताप ऑनलाईन सेंटर</h4>
+                <p style="color: var(--gold); font-weight: bold; margin-top: 5px;">आपला नम्र सेवक</p>
+            </div>
+        </div>
+    </section>
 
-.nav-link:hover, .nav-link.active {
-    color: var(--primary-color) !important;
-}
+    <!-- Call to Action -->
+    <section class="cta-section fade-in">
+        <div class="container">
+            <h2>आमच्याशी संपर्क साधा!</h2>
+            <p>कोणत्याही सेवेबद्दल माहिती हवी असल्यास त्वरित संपर्क करा. आम्ही आपल्याला मदत करण्यासाठी नेहमी तत्पर आहोत.</p>
+            <div class="cta-buttons">
+                <a href="tel:+910000000000" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/910000000000" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
+            </div>
+        </div>
+    </section>
 
-/* --- 3. Hero Section --- */
-.hero-section {
-    /* Using a dark overlay to make text readable */
-    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                url('https://source.unsplash.com/1600x900/?india,technology') center/cover no-repeat;
-    color: white;
-    padding: 120px 0;
-    text-align: center;
-    position: relative;
-}
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Pratap Online Center</h3>
+            <p>विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
+            <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.6;">&copy; 2026 Pratap Online Center. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-/* --- 6, 9, 10. Cards & Hover Effects (Services, Schemes, Why Choose Us) --- */
-.service-card, .scheme-card, .review-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.08);
-}
+    <!-- Floating Buttons -->
+    <div class="floating-btns">
+        <a href="https://wa.me/910000000000" class="float-btn wa" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="float-btn top" id="btnTop" title="Scroll to Top"><i class="fas fa-chevron-up"></i></a>
+    </div>
 
-.service-card:hover, .scheme-card:hover, .review-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-}
+    <!-- JavaScript for Animations and Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll to Top Button Logic
+            const btnTop = document.getElementById('btnTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    btnTop.classList.add('show');
+                } else {
+                    btnTop.classList.remove('show');
+                }
+            });
+            btnTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
 
-.service-card i {
-    transition: transform 0.3s ease;
-}
+            // Intersection Observer for Scroll Fade-In Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
 
-.service-card:hover i {
-    transform: scale(1.15);
-}
-
-/* --- 13. Process Section --- */
-.process-step i {
-    transition: color 0.3s ease;
-}
-
-.process-step:hover i {
-    color: var(--secondary-color) !important;
-}
-
-/* --- 15. FAQ Section --- */
-.accordion-button:not(.collapsed) {
-    background-color: rgba(13, 110, 253, 0.1);
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-.accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(0,0,0,0.125);
-}
-
-/* --- 16. Contact & Map --- */
-iframe {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* --- 17. Footer --- */
-footer a {
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-}
-
-/* --- Floating Buttons --- */
-.floating-btns {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1050;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.float-btn {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
-
-.float-btn.whatsapp {
-    background-color: var(--whatsapp-color);
-}
-
-.float-btn.call {
-    background-color: var(--primary-color);
-}
-
-.float-btn.top {
-    background-color: #6c757d;
-    font-size: 20px;
-    opacity: 0.8;
-}
-
-.float-btn:hover {
-    color: white;
-    transform: scale(1.15);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-}
-
-.float-btn.top:hover {
-    opacity: 1;
-}
-
-/* --- Mobile Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .top-bar .d-flex {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 8px;
-        font-size: 13px;
-        gap: 5px !important;
-    }
-    
-    .top-bar .marquee-container {
-        width: 100% !important;
-    }
-
-    .hero-section {
-        padding: 80px 0;
-    }
-
-    .hero-section h1 {
-        font-size: 2.2rem;
-    }
-
-    .floating-btns {
-        bottom: 15px;
-        right: 15px;
-    }
-
-    .float-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-    }
-}
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
