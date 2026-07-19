@@ -1,2656 +1,346 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-
-    <!-- ==========================================
-         BASIC META
-    =========================================== -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-    <!-- ==========================================
-         PRIMARY SEO
-    =========================================== -->
-    <title>Pratap Online Centre | CSC & Digital Services | आमला खुर्द, दिग्रस</title>
-
-    <meta name="description"
-          content="प्रताप ऑनलाईन सेंटर - आधार, पॅन कार्ड, AEPS, बँकिंग, MahaDBT, PM Kisan, सरकारी योजना, प्रिंट, झेरॉक्स, पासपोर्ट फोटो आणि इतर डिजिटल सेवा. आमला खुर्द, ता. दिग्रस, जि. यवतमाळ.">
-
-    <meta name="keywords"
-          content="Pratap Online Centre, CSC, Digital Seva, Aadhaar, PAN Card, MahaDBT, PM Kisan, AEPS, Banking, Passport, Driving Licence, Amla Khurd, Digras, Yavatmal">
-
-    <meta name="author" content="Pratap Online Centre">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Marathi">
-    <meta name="theme-color" content="#0B4DA2">
-
-    <!-- ==========================================
-         CANONICAL
-    =========================================== -->
-    <link rel="canonical" href="https://prataprathod821-cyber.github.io/prataponlinecentre/">
-
-    <!-- ==========================================
-         FAVICON
-    =========================================== -->
-    <link rel="icon" type="image/png" href="images/logo/logo.png">
-    <link rel="apple-touch-icon" href="images/logo/logo.png">
-
-    <!-- ==========================================
-         OPEN GRAPH
-    =========================================== -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Pratap Online Centre">
-    <meta property="og:description"
-          content="विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन">
-    <meta property="og:image" content="images/logo/logo.png">
-    <meta property="og:url"
-          content="https://prataprathod821-cyber.github.io/prataponlinecentre/">
-    <meta property="og:locale" content="mr_IN">
-    <meta property="og:site_name" content="Pratap Online Centre">
-
-    <!-- ==========================================
-         TWITTER
-    =========================================== -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pratap Online Centre">
-    <meta name="twitter:description"
-          content="विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन">
-    <meta name="twitter:image" content="images/logo/logo.png">
-
-    <!-- ==========================================
-         GOOGLE FONTS
-    =========================================== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Hind:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <!-- ==========================================
-         FONT AWESOME
-    =========================================== -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <!-- ==========================================
-         AOS ANIMATION
-    =========================================== -->
-    <link rel="stylesheet"
-          href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-
-    <!-- ==========================================
-         MAIN CSS
-    =========================================== -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- ==========================================
-         PRELOAD IMPORTANT IMAGE
-    =========================================== -->
-    <link rel="preload"
-          as="image"
-          href="images/hero/hero-bg.jpg">
-
-    <!-- ==========================================
-         PRELOAD LOGO
-    =========================================== -->
-    <link rel="preload"
-          as="image"
-          href="images/logo/logo.png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आपले सरकार सेवा केंद्र - आमला खुर्द</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom Styles */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ff9900;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* 1. Top Utility Bar */
+        .top-bar { background-color: #1a1a1a; color: #fff; font-size: 14px; padding: 5px 0; }
+        .marquee-container { overflow: hidden; white-space: nowrap; }
+        
+        /* 3. Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?india,technology') center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        /* Hover Effects */
+        .service-card, .scheme-card, .review-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card:hover, .scheme-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        /* Floating Buttons */
+        .floating-btns { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+        .float-btn {
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px; text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        .float-btn.whatsapp { background-color: #25D366; }
+        .float-btn.call { background-color: #007bff; }
+        .float-btn.top { background-color: #6c757d; font-size: 20px; }
+        .float-btn:hover { color: white; transform: scale(1.1); }
+    </style>
 </head>
-
 <body>
-    <!-- =======================================================
-         LOADING SCREEN
-    ======================================================== -->
-    <div id="preloader" aria-hidden="true">
-        <div class="loader-wrapper">
 
-            <div class="loader-logo">
-                <img src="images/logo/logo.png"
-                     alt="Pratap Online Centre Logo"
-                     width="120"
-                     height="120">
-            </div>
-
-            <div class="loader-text">
-                <h2>Pratap Online Centre</h2>
-                <p>विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
-            </div>
-
-            <div class="loader-progress">
-                <span class="loader-bar"></span>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- =======================================================
-         SKIP TO CONTENT
-    ======================================================== -->
-    <a class="skip-link" href="#main-content">
-        मुख्य मजकुराकडे जा
-    </a>
-
-    <!-- =======================================================
-         TOP UTILITY BAR
-    ======================================================== -->
+    <!-- 1. Top Utility Bar -->
     <div class="top-bar">
-
-        <div class="top-bar-container">
-
-            <!-- Emergency -->
-            <div class="top-item emergency-slider">
-
-                <i class="fa-solid fa-triangle-exclamation"></i>
-
-                <div class="ticker emergency-ticker">
-
-                    <span>Emergency : 112</span>
-                    <span>Police : 100</span>
-                    <span>Ambulance : 108</span>
-                    <span>Fire : 101</span>
-                    <span>Women Helpline : 181</span>
-
-                </div>
-
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <span><i class="fas fa-clock text-warning"></i> वेळ: स. ०९ ते सा. ०६</span>
+                <span><i class="fas fa-map-marker-alt text-danger"></i> आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</span>
             </div>
-
-            <!-- Government Updates -->
-            <div class="top-item government-news">
-
-                <i class="fa-solid fa-bullhorn"></i>
-
-                <div class="ticker news-ticker">
-
-                    <span>महाराष्ट्र शासनाचे नवीन GR</span>
-                    <span>CSC Updates</span>
-                    <span>UIDAI Updates</span>
-                    <span>PM Kisan</span>
-                    <span>MahaDBT</span>
-                    <span>Labour Schemes</span>
-
-                </div>
-
+            <div class="marquee-container w-50">
+                <marquee scrollamount="5" behavior="scroll">
+                    🚨 आपत्कालीन क्रमांक: 112 | 📢 नवीन अपडेट: लाडकी बहीण योजनेचे अर्ज सुरू झाले आहेत! | 📢 PM Kisan 14th Installment Released!
+                </marquee>
             </div>
-
-            <!-- Office Timing -->
-            <div class="top-item office-time">
-
-                <i class="fa-regular fa-clock"></i>
-
-                <span>
-                    सोमवार - शनिवार |
-                    सकाळी 9:00 ते संध्याकाळी 7:00
-                </span>
-
-            </div>
-
-            <!-- Address -->
-            <div class="top-item office-location">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                <span>
-                    आमला खुर्द, ता. दिग्रस, जि. यवतमाळ, महाराष्ट्र
-                </span>
-
-            </div>
-
         </div>
-
     </div>
-    <!-- =======================================================
-         PREMIUM HEADER
-    ======================================================== -->
-    <header id="site-header" class="site-header">
 
-        <div class="header-container">
-
-            <!-- =========================
-                 Logo
-            ========================== -->
-            <a href="index.html"
-               class="logo"
-               aria-label="Pratap Online Centre Home">
-
-                <img src="images/logo/logo.png"
-                     alt="Pratap Online Centre Logo"
-                     width="70"
-                     height="70">
-
-                <div class="logo-content">
-
-                    <h1>Pratap Online Centre</h1>
-
-                    <p>
-                        विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन
-                    </p>
-
+    <!-- 2. Premium Header & Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-laptop-house text-primary fs-2 me-2"></i>
+                <div>
+                    <h5 class="mb-0 fw-bold text-primary">आपले सरकार सेवा केंद्र</h5>
+                    <small class="text-muted" style="font-size:12px;">डिजिटल सेवा, जलद सेवा</small>
                 </div>
-
             </a>
-
-            <!-- =========================
-                 Desktop Navigation
-            ========================== -->
-            <nav class="desktop-nav"
-                 aria-label="Primary Navigation">
-
-                <ul>
-
-                    <li>
-                        <a href="index.html"
-                           class="active">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="services.html">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="schemes.html">
-                            Schemes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="charges.html">
-                            Charges
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="updates.html">
-                            Updates
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="gallery.html">
-                            Gallery
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="faq.html">
-                            FAQ
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="updates.html">Updates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-
-            </nav>
-
-            <!-- =========================
-                 Header Actions
-            ========================== -->
-            <div class="header-actions">
-
-                <!-- Search -->
-
-                <button id="search-toggle"
-                        class="header-icon-btn"
-                        type="button"
-                        aria-label="Search">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                </button>
-
-                <!-- Call -->
-
-                <a href="tel:7719984464"
-                   class="header-icon-btn"
-                   aria-label="Call Now">
-
-                    <i class="fa-solid fa-phone"></i>
-
-                </a>
-
-                <!-- WhatsApp -->
-
-                <a href="https://wa.me/919673258236"
-                   target="_blank"
-                   rel="noopener"
-                   class="header-icon-btn"
-                   aria-label="WhatsApp">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                </a>
-
-                <!-- WhatsApp Group -->
-
-                <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4"
-                   target="_blank"
-                   rel="noopener"
-                   class="join-group-btn">
-
-                    Join Group
-
-                </a>
-
-                <!-- Mobile Menu -->
-
-                <button id="menu-toggle"
-                        class="mobile-menu-btn"
-                        type="button"
-                        aria-label="Open Menu"
-                        aria-expanded="false"
-                        aria-controls="mobile-menu">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </button>
-
+                <div class="d-flex gap-2 ms-lg-3 mt-2 mt-lg-0">
+                    <a href="tel:+910000000000" class="btn btn-outline-primary btn-sm"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/910000000000" class="btn btn-success btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
             </div>
-
         </div>
+    </nav>
 
-    </header>
-
-    <!-- =======================================================
-         SEARCH PANEL
-    ======================================================== -->
-
-    <div id="search-panel"
-         class="search-panel"
-         hidden>
-
-        <div class="search-box">
-
-            <form action="#"
-                  method="get"
-                  role="search">
-
-                <label class="sr-only"
-                       for="site-search">
-
-                    Search
-
-                </label>
-
-                <input
-                    type="search"
-                    id="site-search"
-                    name="search"
-                    placeholder="Search Services, Schemes, FAQ, Updates..."
-                    autocomplete="off">
-
-                <button type="submit"
-                        aria-label="Search">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                </button>
-
-            </form>
-
+    <!-- 3. Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">सर्व शासकीय सेवा आता एकाच छताखाली</h1>
+            <p class="lead mb-4">आमला खुर्द मधील सर्वात विश्वसनीय डिजिटल सेवा केंद्र.</p>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="services.html" class="btn btn-primary btn-lg">आमच्या सेवा</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg">संपर्क साधा</a>
+            </div>
+            <div class="badge bg-warning text-dark fs-6 p-2 rounded-pill">
+                <i class="fas fa-star text-danger"></i> ०८ जुलै २०२६ पासून आपल्या सेवेत
+            </div>
         </div>
+    </section>
 
+    <!-- 4. Welcome Section -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3">स्वागत आहे!</h2>
+            <p class="text-muted w-75 mx-auto">आमचे ध्येय ग्रामीण भागातील नागरिकांना सर्व शासकीय आणि निमशासकीय सेवा जलद, पारदर्शक आणि सुरक्षित पद्धतीने उपलब्ध करून देणे आहे. (Digital India Theme)</p>
+        </div>
+    </section>
+
+    <!-- 5. About Preview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="https://via.placeholder.com/300" alt="Owner" class="img-fluid rounded-circle shadow mb-3" style="width: 250px;">
+                    <h4>तुमचे नाव</h4>
+                    <p class="text-primary fw-bold">संस्थापक / संचालक</p>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="fw-bold">आमच्याबद्दल थोडक्यात</h3>
+                    <p>आम्ही आमला खुर्द आणि परिसरातील नागरिकांना उच्च दर्जाच्या ऑनलाईन सुविधा देण्यासाठी कटिबद्ध आहोत. आमच्याकडे सर्व प्रकारची कामे योग्य शुल्कात केली जातात.</p>
+                    <a href="about.html" class="btn btn-outline-primary">अधिक वाचा <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Why Choose Us -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">आम्हाला का निवडावे?</h2>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-search-dollar fs-1 text-primary mb-3"></i><h5>पारदर्शक सेवा</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-rupee-sign fs-1 text-success mb-3"></i><h5>योग्य शुल्क</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-user-tie fs-1 text-warning mb-3"></i><h5>अनुभवी मार्गदर्शन</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-shield-alt fs-1 text-danger mb-3"></i><h5>सुरक्षित डेटा</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-bolt fs-1 text-info mb-3"></i><h5>जलद प्रक्रिया</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-hands-helping fs-1 text-secondary mb-3"></i><h5>ग्राहक प्रथम</h5></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Live Statistics -->
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-file-alt fs-1 mb-2"></i>
+                    <h3>50+</h3>
+                    <p>Services Offered</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-stopwatch fs-1 mb-2"></i>
+                    <h3>15 Min</h3>
+                    <p>Avg Processing Time</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-calendar-check fs-1 mb-2"></i>
+                    <h3>Since</h3>
+                    <p>08 July 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Top Services -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">प्रमुख सेवा</h2>
+                <a href="services.html" class="btn btn-outline-primary">सर्व सेवा पहा <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="row g-4">
+                <!-- Service Cards -->
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-id-card fs-2 text-primary mb-2"></i><h6>Aadhaar Services</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-id-badge fs-2 text-warning mb-2"></i><h6>PAN Card</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-university fs-2 text-success mb-2"></i><h6>Banking / AEPS</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-passport fs-2 text-info mb-2"></i><h6>Passport</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-car fs-2 text-danger mb-2"></i><h6>Driving Licence</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-print fs-2 text-secondary mb-2"></i><h6>Print & Xerox</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-camera fs-2 text-dark mb-2"></i><h6>Passport Photo</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-file-signature fs-2 text-primary mb-2"></i><h6>Government Forms</h6></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Government Schemes -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">शासकीय योजना</h2>
+                <a href="schemes.html" class="btn btn-outline-success">सर्व योजना पहा <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">मुख्यमंत्री माझी लाडकी बहीण</h5><p class="card-text text-muted">महिलांसाठी आर्थिक सहाय्य योजना.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">PM Kisan Samman Nidhi</h5><p class="card-text text-muted">शेतकऱ्यांसाठी वार्षिक ६००० रुपये.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">MahaDBT / Scholarships</h5><p class="card-text text-muted">विद्यार्थ्यांसाठी शिष्यवृत्ती योजना.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">Ayushman Bharat</h5><p class="card-text text-muted">५ लाखांपर्यंत मोफत उपचार.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">MAHABOCW</h5><p class="card-text text-muted">बांधकाम कामगार योजना.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">Crop Insurance</h5><p class="card-text text-muted">पीक विमा योजना नोंदणी.</p></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Transparent Charges Preview -->
+    <section class="py-4 text-center">
+        <div class="container">
+            <h4 class="mb-3">आमचे दरपत्रक पूर्णपणे पारदर्शक आहे</h4>
+            <a href="charges.html" class="btn btn-warning btn-lg fw-bold"><i class="fas fa-file-invoice-dollar"></i> सर्व्हिस चार्जेस पहा</a>
+        </div>
+    </section>
+
+    <!-- 12. Latest Updates Ribbon -->
+    <div class="bg-danger text-white py-2">
+        <div class="container d-flex align-items-center">
+            <strong class="me-3 flex-shrink-0">नवीन अपडेट्स:</strong>
+            <marquee class="mb-0" onmouseover="this.stop();" onmouseout="this.start();">
+                <a href="updates.html" class="text-white text-decoration-none me-4">👉 Maharashtra GR: नवीन शासन निर्णय लागू...</a>
+                <a href="updates.html" class="text-white text-decoration-none me-4">👉 PM Kisan: १४ वा हप्ता जमा झाला आहे...</a>
+                <a href="updates.html" class="text-white text-decoration-none">👉 UIDAI: मोफत आधार अपडेटसाठी शेवटची तारीख...</a>
+            </marquee>
+        </div>
     </div>
 
-    <!-- =======================================================
-         MOBILE NAVIGATION
-    ======================================================== -->
-
-    <aside id="mobile-menu"
-           class="mobile-menu"
-           aria-label="Mobile Navigation">
-
-        <nav>
-
-            <ul>
-
-                <li><a href="index.html">Home</a></li>
-
-                <li><a href="about.html">About</a></li>
-
-                <li><a href="services.html">Services</a></li>
-
-                <li><a href="schemes.html">Schemes</a></li>
-
-                <li><a href="charges.html">Charges</a></li>
-
-                <li><a href="updates.html">Updates</a></li>
-
-                <li><a href="gallery.html">Gallery</a></li>
-
-                <li><a href="faq.html">FAQ</a></li>
-
-                <li><a href="contact.html">Contact</a></li>
-
-            </ul>
-
-        </nav>
-
-    </aside>
-
-    <!-- =======================================================
-         MAIN CONTENT START
-    ======================================================== -->
-
-    <main id="main-content">
-        <!-- =======================================================
-             HERO SECTION
-        ======================================================== -->
-        <section class="hero" id="home" aria-labelledby="hero-title">
-
-            <div class="hero-bg">
-                <img src="images/hero/hero-bg.jpg"
-                     alt="Pratap Online Centre Office"
-                     width="1920"
-                     height="1080"
-                     fetchpriority="high">
-                <div class="hero-overlay"></div>
+    <!-- 13. Process Section -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">सेवा कशी मिळेल?</h2>
+            <div class="row g-4">
+                <div class="col-md-3"><i class="fas fa-phone-alt fs-1 text-primary mb-3"></i><h5>1. Contact</h5><p>संपर्क करा किंवा केंद्राला भेट द्या</p></div>
+                <div class="col-md-3"><i class="fas fa-folder-open fs-1 text-warning mb-3"></i><h5>2. Documents</h5><p>आवश्यक कागदपत्रे जमा करा</p></div>
+                <div class="col-md-3"><i class="fas fa-laptop fs-1 text-success mb-3"></i><h5>3. Application</h5><p>ऑनलाईन अर्ज प्रक्रिया</p></div>
+                <div class="col-md-3"><i class="fas fa-check-circle fs-1 text-info mb-3"></i><h5>4. Completion</h5><p>काम पूर्ण आणि पावती</p></div>
             </div>
+        </div>
+    </section>
 
-            <div class="container">
-
-                <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-
-                    <span class="hero-badge">
-                        ⭐ ८ जुलै २०२६ पासून आपल्या सेवेत
-                    </span>
-
-                    <h2 id="hero-title">
-                        आपल्या विश्वासाचे
-                        <span>Premium Digital Service Centre</span>
-                    </h2>
-
-                    <p>
-                        आधार, पॅन कार्ड, AEPS बँकिंग, सरकारी योजना,
-                        MahaDBT, PM Kisan, पासपोर्ट, ड्रायव्हिंग लायसन्स,
-                        प्रिंट, झेरॉक्स, पासपोर्ट फोटो आणि इतर डिजिटल सेवा
-                        आता एकाच विश्वासार्ह ठिकाणी.
-                    </p>
-
-                    <!-- Hero CTA -->
-                    <div class="hero-buttons">
-
-                        <a href="services.html" class="btn btn-primary">
-                            <i class="fa-solid fa-layer-group"></i>
-                            सर्व सेवा
-                        </a>
-
-                        <a href="contact.html" class="btn btn-secondary">
-                            <i class="fa-solid fa-phone"></i>
-                            संपर्क करा
-                        </a>
-
-                    </div>
-
-                    <!-- Trust Badges -->
-                    <div class="trust-badges">
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <span>सुरक्षित सेवा</span>
-                        </div>
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-user-check"></i>
-                            <span>योग्य मार्गदर्शन</span>
-                        </div>
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-bolt"></i>
-                            <span>जलद प्रक्रिया</span>
-                        </div>
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>विश्वासार्ह केंद्र</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Hero Quick Cards -->
-                <div class="hero-cards" data-aos="fade-left" data-aos-delay="250">
-
-                    <article class="hero-card">
-
-                        <i class="fa-solid fa-id-card"></i>
-
-                        <h3>Aadhaar Services</h3>
-
-                        <p>
-                            Update, eKYC, Print व इतर सेवा.
-                        </p>
-
-                    </article>
-
-                    <article class="hero-card">
-
-                        <i class="fa-solid fa-building-columns"></i>
-
-                        <h3>AEPS Banking</h3>
-
-                        <p>
-                            Cash Withdrawal, Balance Check,
-                            Mini Statement.
-                        </p>
-
-                    </article>
-
-                    <article class="hero-card">
-
-                        <i class="fa-solid fa-file-signature"></i>
-
-                        <h3>Government Schemes</h3>
-
-                        <p>
-                            MahaDBT, PM Kisan,
-                            Labour व इतर योजना.
-                        </p>
-
-                    </article>
-
-                </div>
-
+    <!-- 15. FAQ (Skipped Gallery grid to save space, but added link as requested) -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">वारंवार विचारले जाणारे प्रश्न (FAQ)</h2>
+                <a href="faq.html" class="text-decoration-none">सर्व प्रश्न पहा</a>
             </div>
-
-            <!-- Scroll Indicator -->
-            <a href="#welcome"
-               class="scroll-down"
-               aria-label="Scroll Down">
-
-                <i class="fa-solid fa-angles-down"></i>
-
-            </a>
-
-        </section>
-        <!-- =======================================================
-             WELCOME SECTION
-        ======================================================== -->
-        <section id="welcome" class="welcome section-padding">
-
-            <div class="container">
-
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        स्वागत
-                    </span>
-
-                    <h2>
-                        प्रताप ऑनलाईन सेंटरमध्ये आपले हार्दिक स्वागत
-                    </h2>
-
-                    <p>
-                        आम्ही प्रत्येक ग्राहकाला विश्वास, पारदर्शकता आणि योग्य
-                        मार्गदर्शनासह दर्जेदार डिजिटल सेवा देण्यास कटिबद्ध आहोत.
-                    </p>
-
+            <div class="accordion w-75 mx-auto" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">केंद्र किती वाजता उघडते?</button></h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">आमचे केंद्र सकाळी ०९:०० ते संध्याकाळी ०६:०० वाजेपर्यंत चालू असते.</div>
+                    </div>
                 </div>
-
-                <div class="welcome-grid">
-
-                    <!-- Welcome Message -->
-
-                    <div class="welcome-card"
-                         data-aos="fade-right">
-
-                        <div class="card-icon">
-                            <i class="fa-solid fa-handshake"></i>
-                        </div>
-
-                        <h3>
-                            आमचे ध्येय
-                        </h3>
-
-                        <p>
-                            प्रत्येक नागरिकाला शासनाच्या डिजिटल सेवा
-                            सुलभ, पारदर्शक आणि योग्य शुल्कामध्ये उपलब्ध
-                            करून देणे हेच आमचे मुख्य उद्दिष्ट आहे.
-                        </p>
-
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">लाडकी बहीण योजनेसाठी काय कागदपत्रे लागतात?</button></h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">आधार कार्ड, बँक पासबुक, रेशन कार्ड, आणि पासपोर्ट फोटो.</div>
                     </div>
-
-                    <!-- Mission -->
-
-                    <div class="welcome-card"
-                         data-aos="fade-up"
-                         data-aos-delay="100">
-
-                        <div class="card-icon">
-                            <i class="fa-solid fa-bullseye"></i>
-                        </div>
-
-                        <h3>
-                            आमचे मिशन
-                        </h3>
-
-                        <p>
-                            ग्रामीण भागातील प्रत्येक व्यक्तीपर्यंत
-                            सुरक्षित, विश्वासार्ह आणि आधुनिक डिजिटल
-                            सेवा पोहोचवणे.
-                        </p>
-
-                    </div>
-
-                    <!-- Vision -->
-
-                    <div class="welcome-card"
-                         data-aos="fade-left"
-                         data-aos-delay="200">
-
-                        <div class="card-icon">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-
-                        <h3>
-                            आमची व्हिजन
-                        </h3>
-
-                        <p>
-                            आमला खुर्द आणि परिसरातील सर्वात
-                            विश्वासार्ह व पहिली पसंती असलेले
-                            डिजिटल सेवा केंद्र बनणे.
-                        </p>
-
-                    </div>
-
                 </div>
-
-                <!-- Digital India Banner -->
-
-                <div class="digital-india-box"
-                     data-aos="zoom-in"
-                     data-aos-delay="250">
-
-                    <div class="digital-icon">
-
-                        <i class="fa-solid fa-globe"></i>
-
-                    </div>
-
-                    <div class="digital-content">
-
-                        <h3>
-                            Digital India च्या दिशेने एक विश्वासार्ह पाऊल
-                        </h3>
-
-                        <p>
-                            शासनाच्या डिजिटल सेवांचा लाभ प्रत्येक
-                            नागरिकापर्यंत सोप्या, सुरक्षित आणि
-                            पारदर्शक पद्धतीने पोहोचवण्यासाठी
-                            आम्ही सदैव तत्पर आहोत.
-                        </p>
-
-                    </div>
-
-                </div>
-
             </div>
+        </div>
+    </section>
 
-        </section>
-        <!-- =======================================================
-             ABOUT PREVIEW
-        ======================================================== -->
-        <section id="about-preview" class="about-preview section-padding">
-
-            <div class="container">
-
-                <div class="about-grid">
-
-                    <!-- Owner Image -->
-                    <div class="about-image"
-                         data-aos="fade-right">
-
-                        <img src="images/owner/owner.jpg"
-                             alt="Founder - Pratap Online Centre"
-                             width="500"
-                             height="600"
-                             loading="lazy">
-
+    <!-- 16. Contact -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h3 class="fw-bold mb-4">संपर्क साधा</h3>
+                    <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>पत्ता:</strong> मुख्य रस्ता, आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</p>
+                    <p><i class="fas fa-phone text-primary me-2"></i> <strong>मोबाईल:</strong> +91 0000000000</p>
+                    <p><i class="fas fa-envelope text-warning me-2"></i> <strong>ईमेल:</strong> contact@yourdomain.com</p>
+                    <p><i class="fas fa-clock text-success me-2"></i> <strong>वेळ:</strong> स. ०९ ते सा. ०६</p>
+                    <div class="mt-4 d-flex gap-2">
+                        <a href="https://wa.me/910000000000" class="btn btn-success"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
+                        <a href="contact.html" class="btn btn-primary"><i class="fas fa-directions"></i> Get Directions</a>
                     </div>
-
-                    <!-- About Content -->
-                    <div class="about-content"
-                         data-aos="fade-left">
-
-                        <span class="section-tag">
-                            आमच्याविषयी
-                        </span>
-
-                        <h2>
-                            विश्वास, पारदर्शकता आणि योग्य मार्गदर्शन
-                        </h2>
-
-                        <p>
-                            प्रताप ऑनलाईन सेंटर हे ग्रामीण नागरिकांना
-                            सुरक्षित, विश्वासार्ह आणि गुणवत्तापूर्ण डिजिटल
-                            सेवा उपलब्ध करून देण्यासाठी स्थापन करण्यात आले आहे.
-                            प्रत्येक सेवेमध्ये योग्य माहिती, पारदर्शक शुल्क
-                            आणि ग्राहकांचा विश्वास जपणे ही आमची प्राथमिकता आहे.
-                        </p>
-
-                        <!-- Founder Card -->
-                        <div class="founder-card">
-
-                            <div class="founder-icon">
-                                <i class="fa-solid fa-user-tie"></i>
-                            </div>
-
-                            <div class="founder-info">
-
-                                <h3>
-                                    प्रताप राठोड
-                                </h3>
-
-                                <span>
-                                    Founder • Pratap Online Centre
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Highlights -->
-                        <div class="about-highlights">
-
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>ग्राहक प्रथम</span>
-                            </div>
-
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>योग्य मार्गदर्शन</span>
-                            </div>
-
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>पारदर्शक सेवा</span>
-                            </div>
-
-                            <div class="highlight-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>विश्वासार्ह डिजिटल सुविधा</span>
-                            </div>
-
-                        </div>
-
-                        <!-- CTA -->
-                        <div class="about-actions">
-
-                            <a href="about.html"
-                               class="btn btn-primary">
-
-                                <i class="fa-solid fa-arrow-right"></i>
-                                अधिक जाणून घ्या
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
                 </div>
-
+                <div class="col-md-6">
+                    <!-- Placeholder Map -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.187311140034!2d77.3000!3d20.1000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA2JzAwLjAiTiA3N8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
+        </div>
+    </section>
 
-        </section>
-        <!-- =======================================================
-             WHY CHOOSE US
-        ======================================================== -->
-        <section id="why-choose-us" class="why-choose-us section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        आमची वैशिष्ट्ये
-                    </span>
-
-                    <h2>
-                        ग्राहक आमच्यावर विश्वास का ठेवतात?
-                    </h2>
-
-                    <p>
-                        विश्वास, पारदर्शकता आणि उत्कृष्ट सेवेमुळे आम्ही
-                        प्रत्येक ग्राहकासाठी दीर्घकालीन नाते निर्माण करण्यावर
-                        विश्वास ठेवतो.
-                    </p>
-
+    <!-- 17. Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>आपले सरकार सेवा केंद्र</h5>
+                    <p class="text-secondary">आमला खुर्द, ता. दिग्रस, जि. यवतमाळ<br>डिजिटल सेवा, जलद सेवा.</p>
                 </div>
-
-                <!-- Features Grid -->
-                <div class="features-grid">
-
-                    <!-- Feature 1 -->
-                    <article class="feature-card"
-                             data-aos="fade-up">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-handshake"></i>
-                        </div>
-
-                        <h3>पारदर्शक सेवा</h3>
-
-                        <p>
-                            प्रत्येक सेवेमध्ये स्पष्ट प्रक्रिया,
-                            योग्य माहिती आणि पूर्ण पारदर्शकता.
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 2 -->
-                    <article class="feature-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-wallet"></i>
-                        </div>
-
-                        <h3>योग्य शुल्क</h3>
-
-                        <p>
-                            सर्व सेवांसाठी स्पष्ट,
-                            प्रामाणिक आणि योग्य शुल्क.
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 3 -->
-                    <article class="feature-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-
-                        <h3>अनुभवी मार्गदर्शन</h3>
-
-                        <p>
-                            प्रत्येक अर्जासाठी योग्य
-                            सल्ला आणि आवश्यक माहिती.
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 4 -->
-                    <article class="feature-card"
-                             data-aos="fade-up">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-
-                        <h3>सुरक्षित डेटा</h3>
-
-                        <p>
-                            ग्राहकांच्या माहितीची
-                            पूर्ण गोपनीयता आणि सुरक्षितता.
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 5 -->
-                    <article class="feature-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-
-                        <h3>जलद प्रक्रिया</h3>
-
-                        <p>
-                            कमी वेळेत अचूक आणि
-                            कार्यक्षम सेवा उपलब्ध.
-                        </p>
-
-                    </article>
-
-                    <!-- Feature 6 -->
-                    <article class="feature-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-
-                        <h3>ग्राहक प्रथम</h3>
-
-                        <p>
-                            प्रत्येक ग्राहकाचा विश्वास,
-                            समाधान आणि दीर्घकालीन नाते
-                            हीच आमची प्राथमिकता.
-                        </p>
-
-                    </article>
-
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-secondary text-decoration-none">About Us</a></li>
+                        <li><a href="gallery.html" class="text-secondary text-decoration-none">Gallery</a></li>
+                        <li><a href="privacy-policy.html" class="text-secondary text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html" class="text-secondary text-decoration-none">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html" class="text-secondary text-decoration-none">Disclaimer</a></li>
+                    </ul>
                 </div>
-
+                <div class="col-md-4 mb-4">
+                    <h5>Official Government Portals</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://uidai.gov.in" target="_blank" class="text-secondary text-decoration-none">UIDAI</a></li>
+                        <li><a href="https://www.pan.utiitsl.com/" target="_blank" class="text-secondary text-decoration-none">PAN / NSDL</a></li>
+                        <li><a href="https://pmkisan.gov.in/" target="_blank" class="text-secondary text-decoration-none">PM Kisan</a></li>
+                        <li><a href="https://mahadbt.maharashtra.gov.in/" target="_blank" class="text-secondary text-decoration-none">MahaDBT</a></li>
+                        <li><a href="https://www.digilocker.gov.in/" target="_blank" class="text-secondary text-decoration-none">DigiLocker</a></li>
+                        <li><a href="https://www.passportindia.gov.in/" target="_blank" class="text-secondary text-decoration-none">Passport Seva</a></li>
+                        <li><a href="https://eci.gov.in/" target="_blank" class="text-secondary text-decoration-none">Election Commission</a></li>
+                        <li><a href="https://www.epfindia.gov.in/" target="_blank" class="text-secondary text-decoration-none">EPFO</a></li>
+                    </ul>
+                </div>
             </div>
-
-        </section>
-        <!-- =======================================================
-             CUSTOMER REVIEWS
-        ======================================================== -->
-        <section id="reviews" class="reviews section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        ग्राहकांचे अभिप्राय
-                    </span>
-
-                    <h2>
-                        आमच्या ग्राहकांचा विश्वास
-                    </h2>
-
-                    <p>
-                        खालील अभिप्राय सध्या नमुना (Placeholder) म्हणून दाखवले आहेत.
-                        वास्तविक ग्राहकांचे अभिप्राय उपलब्ध झाल्यानंतर ते येथे अद्ययावत केले जातील.
-                    </p>
-
-                </div>
-
-                <!-- Overall Rating -->
-                <div class="rating-summary" data-aos="zoom-in">
-
-                    <div class="rating-number">
-                        5.0
-                    </div>
-
-                    <div class="rating-details">
-
-                        <div class="rating-stars" aria-label="5 Star Rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                        <p>
-                            उत्कृष्ट ग्राहक समाधान
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- Review Cards -->
-                <div class="reviews-grid">
-
-                    <!-- Review 1 -->
-                    <article class="review-card"
-                             data-aos="fade-up">
-
-                        <div class="review-header">
-
-                            <div class="review-avatar">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-
-                            <div>
-
-                                <h3>ग्राहक नाव</h3>
-
-                                <div class="review-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <p>
-                            "सेवा अतिशय जलद आणि विश्वासार्ह होती.
-                            सर्व माहिती योग्य प्रकारे समजावून सांगितली."
-                        </p>
-
-                    </article>
-
-                    <!-- Review 2 -->
-                    <article class="review-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="review-header">
-
-                            <div class="review-avatar">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-
-                            <div>
-
-                                <h3>ग्राहक नाव</h3>
-
-                                <div class="review-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <p>
-                            "योग्य शुल्क, उत्कृष्ट मार्गदर्शन आणि
-                            अतिशय चांगला अनुभव."
-                        </p>
-
-                    </article>
-
-                    <!-- Review 3 -->
-                    <article class="review-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="review-header">
-
-                            <div class="review-avatar">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-
-                            <div>
-
-                                <h3>ग्राहक नाव</h3>
-
-                                <div class="review-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <p>
-                            "सरकारी योजनांसाठी सर्वोत्तम मार्गदर्शन.
-                            पुन्हा नक्की भेट देईन."
-                        </p>
-
-                    </article>
-
-                </div>
-
+            <hr class="border-secondary">
+            <div class="text-center text-secondary">
+                <small>&copy; 2026 आपले सरकार सेवा केंद्र, आमला खुर्द. All Rights Reserved.</small>
             </div>
-
-        </section>
-        <!-- =======================================================
-             LIVE STATISTICS
-        ======================================================== -->
-        <section id="statistics" class="statistics section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        आमची कामगिरी
-                    </span>
-
-                    <h2>
-                        विश्वासाची आकडेवारी
-                    </h2>
-
-                    <p>
-                        दर्जेदार सेवा, जलद प्रक्रिया आणि ग्राहकांचा विश्वास
-                        हीच आमची खरी ओळख आहे.
-                    </p>
-
-                </div>
-
-                <!-- Statistics Grid -->
-                <div class="statistics-grid">
-
-                    <!-- Services -->
-                    <article class="stat-card"
-                             data-aos="zoom-in">
-
-                        <div class="stat-icon">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-
-                        <h3 class="counter"
-                            data-target="50">
-
-                            0
-
-                        </h3>
-
-                        <p>
-                            उपलब्ध सेवा
-                        </p>
-
-                    </article>
-
-                    <!-- Processing Time -->
-                    <article class="stat-card"
-                             data-aos="zoom-in"
-                             data-aos-delay="100">
-
-                        <div class="stat-icon">
-                            <i class="fa-solid fa-stopwatch"></i>
-                        </div>
-
-                        <h3>
-
-                            Fast
-
-                        </h3>
-
-                        <p>
-                            सरासरी प्रक्रिया वेळ
-                        </p>
-
-                    </article>
-
-                    <!-- Serving Since -->
-                    <article class="stat-card"
-                             data-aos="zoom-in"
-                             data-aos-delay="200">
-
-                        <div class="stat-icon">
-                            <i class="fa-solid fa-calendar-check"></i>
-                        </div>
-
-                        <h3>
-
-                            2026
-
-                        </h3>
-
-                        <p>
-                            ८ जुलै २०२६ पासून सेवेत
-                        </p>
-
-                    </article>
-
-                    <!-- Trust -->
-                    <article class="stat-card"
-                             data-aos="zoom-in"
-                             data-aos-delay="300">
-
-                        <div class="stat-icon">
-                            <i class="fa-solid fa-handshake"></i>
-                        </div>
-
-                        <h3>
-
-                            100%
-
-                        </h3>
-
-                        <p>
-                            विश्वास आणि पारदर्शकता
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             TOP SERVICES
-        ======================================================== -->
-        <section id="services-preview" class="services-preview section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        आमच्या सेवा
-                    </span>
-
-                    <h2>
-                        लोकप्रिय डिजिटल सेवा
-                    </h2>
-
-                    <p>
-                        सर्व महत्त्वाच्या सरकारी, बँकिंग आणि डिजिटल सेवा
-                        एकाच विश्वासार्ह ठिकाणी उपलब्ध.
-                    </p>
-
-                </div>
-
-                <!-- Services Grid -->
-                <div class="services-grid">
-
-                    <article class="service-card" data-aos="fade-up">
-                        <i class="fa-solid fa-id-card"></i>
-                        <h3>Aadhaar</h3>
-                        <p>Update, Print, eKYC व इतर सेवा.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="50">
-                        <i class="fa-solid fa-address-card"></i>
-                        <h3>PAN Card</h3>
-                        <p>नवीन PAN व दुरुस्ती सेवा.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fa-solid fa-building-columns"></i>
-                        <h3>Banking</h3>
-                        <p>बँकिंग संबंधित डिजिटल सुविधा.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="150">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                        <h3>AEPS</h3>
-                        <p>Cash Withdrawal, Balance Check.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fa-solid fa-file-circle-check"></i>
-                        <h3>MahaDBT</h3>
-                        <p>ऑनलाइन अर्ज व मार्गदर्शन.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="250">
-                        <i class="fa-solid fa-seedling"></i>
-                        <h3>PM Kisan</h3>
-                        <p>नोंदणी व लाभ संबंधित सेवा.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up">
-                        <i class="fa-solid fa-passport"></i>
-                        <h3>Passport</h3>
-                        <p>ऑनलाइन अर्ज व अपॉइंटमेंट.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="50">
-                        <i class="fa-solid fa-car"></i>
-                        <h3>Driving Licence</h3>
-                        <p>Learning व Driving Licence सेवा.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fa-solid fa-print"></i>
-                        <h3>Print & Xerox</h3>
-                        <p>B/W व Color Printing सुविधा.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="150">
-                        <i class="fa-solid fa-camera"></i>
-                        <h3>Passport Photo</h3>
-                        <p>त्वरित पासपोर्ट फोटो प्रिंट.</p>
-                    </article>
-
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fa-solid fa-file-lines"></i>
-                        <h3>Government Forms</h3>
-                        <p>विविध सरकारी अर्ज व फॉर्म.</p>
-                    </article>
-
-                    <article class="service-card featured-service"
-                             data-aos="zoom-in"
-                             data-aos-delay="250">
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                        <h3>
-                            सर्व सेवा पहा
-                        </h3>
-
-                        <p>
-                            उपलब्ध सर्व डिजिटल सेवांची संपूर्ण यादी.
-                        </p>
-
-                        <a href="services.html"
-                           class="service-link">
-
-                            Services →
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             GOVERNMENT SCHEMES
-        ======================================================== -->
-        <section id="schemes-preview" class="schemes-preview section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        सरकारी योजना
-                    </span>
-
-                    <h2>
-                        लोकप्रिय सरकारी योजनांचे मार्गदर्शन
-                    </h2>
-
-                    <p>
-                        पात्र लाभार्थ्यांना योग्य माहिती, आवश्यक कागदपत्रे
-                        आणि अर्ज प्रक्रियेसाठी संपूर्ण मार्गदर्शन.
-                    </p>
-
-                </div>
-
-                <!-- Schemes Grid -->
-                <div class="schemes-grid">
-
-                    <!-- Ladki Bahin -->
-                    <article class="scheme-card"
-                             data-aos="fade-up">
-
-                        <div class="scheme-icon">
-                            <i class="fa-solid fa-person-dress"></i>
-                        </div>
-
-                        <h3>
-                            मुख्यमंत्री माझी लाडकी बहीण योजना
-                        </h3>
-
-                        <p>
-                            अर्ज, पात्रता व आवश्यक कागदपत्रांची माहिती.
-                        </p>
-
-                    </article>
-
-                    <!-- PM Kisan -->
-                    <article class="scheme-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="scheme-icon">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-
-                        <h3>
-                            PM Kisan
-                        </h3>
-
-                        <p>
-                            नोंदणी, eKYC आणि हप्त्यांबाबत सहाय्य.
-                        </p>
-
-                    </article>
-
-                    <!-- MahaDBT -->
-                    <article class="scheme-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="scheme-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-
-                        <h3>
-                            MahaDBT
-                        </h3>
-
-                        <p>
-                            शिष्यवृत्ती व विविध अनुदान योजनांसाठी अर्ज.
-                        </p>
-
-                    </article>
-
-                    <!-- MAHABOCW -->
-                    <article class="scheme-card"
-                             data-aos="fade-up">
-
-                        <div class="scheme-icon">
-                            <i class="fa-solid fa-helmet-safety"></i>
-                        </div>
-
-                        <h3>
-                            MAHABOCW
-                        </h3>
-
-                        <p>
-                            बांधकाम कामगार नोंदणी व शासकीय लाभ.
-                        </p>
-
-                    </article>
-
-                    <!-- Crop Insurance -->
-                    <article class="scheme-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="scheme-icon">
-                            <i class="fa-solid fa-wheat-awn"></i>
-                        </div>
-
-                        <h3>
-                            पीक विमा योजना
-                        </h3>
-
-                        <p>
-                            नोंदणी, दावा प्रक्रिया आणि मार्गदर्शन.
-                        </p>
-
-                    </article>
-
-                    <!-- Ayushman Bharat -->
-                    <article class="scheme-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="scheme-icon">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-
-                        <h3>
-                            आयुष्मान भारत
-                        </h3>
-
-                        <p>
-                            पात्रता तपासणी व कार्ड संबंधित सेवा.
-                        </p>
-
-                    </article>
-
-                </div>
-
-                <!-- CTA -->
-                <div class="section-action"
-                     data-aos="zoom-in">
-
-                    <a href="schemes.html"
-                       class="btn btn-primary">
-
-                        <i class="fa-solid fa-arrow-right"></i>
-                        सर्व योजना पहा
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             TRANSPARENT CHARGES PREVIEW
-        ======================================================== -->
-        <section id="charges-preview" class="charges-preview section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        पारदर्शक शुल्क
-                    </span>
-
-                    <h2>
-                        स्पष्ट आणि योग्य सेवा शुल्क
-                    </h2>
-
-                    <p>
-                        प्रत्येक सेवेसाठी पारदर्शक शुल्क धोरण.
-                        कोणतेही लपविलेले शुल्क नाही.
-                    </p>
-
-                </div>
-
-                <div class="charges-wrapper">
-
-                    <!-- Left -->
-                    <div class="charges-content"
-                         data-aos="fade-right">
-
-                        <h3>
-                            विश्वासाची सुरुवात पारदर्शक शुल्कापासून
-                        </h3>
-
-                        <p>
-                            प्रत्येक ग्राहकाला सेवा सुरू करण्यापूर्वी
-                            शुल्काची स्पष्ट माहिती दिली जाते.
-                            आमचे उद्दिष्ट फक्त सेवा देणे नसून,
-                            दीर्घकालीन विश्वास निर्माण करणे आहे.
-                        </p>
-
-                        <ul class="charges-features">
-
-                            <li>
-                                <i class="fa-solid fa-circle-check"></i>
-                                निश्चित सेवा शुल्क
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-circle-check"></i>
-                                कोणतेही Hidden Charges नाहीत
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-circle-check"></i>
-                                काम सुरू करण्यापूर्वी शुल्काची माहिती
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-circle-check"></i>
-                                प्रत्येकासाठी समान शुल्क धोरण
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <!-- Right -->
-                    <div class="charges-card"
-                         data-aos="fade-left">
-
-                        <div class="charges-card-header">
-
-                            <i class="fa-solid fa-receipt"></i>
-
-                            <h3>
-                                Charges Preview
-                            </h3>
-
-                        </div>
-
-                        <div class="charge-item">
-
-                            <span>AEPS Banking</span>
-
-                            <strong>View Charges</strong>
-
-                        </div>
-
-                        <div class="charge-item">
-
-                            <span>Print & Xerox</span>
-
-                            <strong>View Charges</strong>
-
-                        </div>
-
-                        <div class="charge-item">
-
-                            <span>Passport Photo</span>
-
-                            <strong>View Charges</strong>
-
-                        </div>
-
-                        <div class="charge-item">
-
-                            <span>Government Services</span>
-
-                            <strong>View Charges</strong>
-
-                        </div>
-
-                        <a href="charges.html"
-                           class="btn btn-primary btn-full">
-
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                            संपूर्ण शुल्क सूची पहा
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             LATEST UPDATES
-        ======================================================== -->
-        <section id="latest-updates" class="latest-updates section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        नवीन अपडेट्स
-                    </span>
-
-                    <h2>
-                        ताज्या सरकारी व CSC अपडेट्स
-                    </h2>
-
-                    <p>
-                        शासनाच्या महत्त्वाच्या सूचना, नवीन GR, CSC अपडेट्स
-                        आणि विविध योजनांबाबतची माहिती नियमितपणे येथे अपडेट केली जाईल.
-                    </p>
-
-                </div>
-
-                <!-- Updates Grid -->
-                <div class="updates-grid">
-
-                    <!-- Update 1 -->
-                    <article class="update-card"
-                             data-aos="fade-up">
-
-                        <div class="update-badge">
-                            महाराष्ट्र शासन
-                        </div>
-
-                        <h3>
-                            नवीन GR
-                        </h3>
-
-                        <p>
-                            महाराष्ट्र शासनाचे नवीन GR आणि अधिकृत निर्णय.
-                        </p>
-
-                    </article>
-
-                    <!-- Update 2 -->
-                    <article class="update-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="update-badge">
-                            CSC
-                        </div>
-
-                        <h3>
-                            CSC News
-                        </h3>
-
-                        <p>
-                            CSC सेवा, नवीन सुविधा आणि महत्त्वाच्या सूचना.
-                        </p>
-
-                    </article>
-
-                    <!-- Update 3 -->
-                    <article class="update-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="update-badge">
-                            UIDAI
-                        </div>
-
-                        <h3>
-                            Aadhaar Updates
-                        </h3>
-
-                        <p>
-                            आधार सेवांबाबतचे नवीन नियम व अपडेट्स.
-                        </p>
-
-                    </article>
-
-                    <!-- Update 4 -->
-                    <article class="update-card"
-                             data-aos="fade-up">
-
-                        <div class="update-badge">
-                            PM Kisan
-                        </div>
-
-                        <h3>
-                            Farmer Updates
-                        </h3>
-
-                        <p>
-                            PM Kisan व शेतकरी योजनांबाबत ताजी माहिती.
-                        </p>
-
-                    </article>
-
-                    <!-- Update 5 -->
-                    <article class="update-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="update-badge">
-                            MahaDBT
-                        </div>
-
-                        <h3>
-                            Scholarship Updates
-                        </h3>
-
-                        <p>
-                            MahaDBT व शिष्यवृत्ती अर्जांबाबत नवीन माहिती.
-                        </p>
-
-                    </article>
-
-                    <!-- Update 6 -->
-                    <article class="update-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="update-badge">
-                            Labour
-                        </div>
-
-                        <h3>
-                            Labour Schemes
-                        </h3>
-
-                        <p>
-                            कामगार योजनांबाबत नवीन सूचना आणि लाभ.
-                        </p>
-
-                    </article>
-
-                </div>
-
-                <!-- CTA -->
-                <div class="section-action"
-                     data-aos="zoom-in">
-
-                    <a href="updates.html"
-                       class="btn btn-primary">
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                        सर्व अपडेट्स पहा
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             PROCESS SECTION
-        ======================================================== -->
-        <section id="process" class="process section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        सेवा प्रक्रिया
-                    </span>
-
-                    <h2>
-                        सेवा कशी मिळेल?
-                    </h2>
-
-                    <p>
-                        फक्त काही सोप्या टप्प्यांमध्ये तुमची सेवा पूर्ण केली जाते.
-                    </p>
-
-                </div>
-
-                <!-- Process Timeline -->
-                <div class="process-grid">
-
-                    <!-- Step 1 -->
-                    <article class="process-card"
-                             data-aos="fade-up">
-
-                        <div class="process-number">
-                            01
-                        </div>
-
-                        <div class="process-icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-
-                        <h3>
-                            संपर्क करा
-                        </h3>
-
-                        <p>
-                            प्रत्यक्ष भेट द्या किंवा फोन / WhatsApp द्वारे संपर्क साधा.
-                        </p>
-
-                    </article>
-
-                    <!-- Step 2 -->
-                    <article class="process-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="process-number">
-                            02
-                        </div>
-
-                        <div class="process-icon">
-                            <i class="fa-solid fa-folder-open"></i>
-                        </div>
-
-                        <h3>
-                            कागदपत्रे
-                        </h3>
-
-                        <p>
-                            आवश्यक कागदपत्रांची पडताळणी करून अर्ज तयार केला जातो.
-                        </p>
-
-                    </article>
-
-                    <!-- Step 3 -->
-                    <article class="process-card"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <div class="process-number">
-                            03
-                        </div>
-
-                        <div class="process-icon">
-                            <i class="fa-solid fa-user-check"></i>
-                        </div>
-
-                        <h3>
-                            पडताळणी
-                        </h3>
-
-                        <p>
-                            सर्व माहिती योग्य असल्याची खात्री करून पुढील प्रक्रिया सुरू होते.
-                        </p>
-
-                    </article>
-
-                    <!-- Step 4 -->
-                    <article class="process-card"
-                             data-aos="fade-up">
-
-                        <div class="process-number">
-                            04
-                        </div>
-
-                        <div class="process-icon">
-                            <i class="fa-solid fa-file-circle-check"></i>
-                        </div>
-
-                        <h3>
-                            अर्ज प्रक्रिया
-                        </h3>
-
-                        <p>
-                            संबंधित विभागामध्ये ऑनलाइन अर्ज सादर केला जातो.
-                        </p>
-
-                    </article>
-
-                    <!-- Step 5 -->
-                    <article class="process-card"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <div class="process-number">
-                            05
-                        </div>
-
-                        <div class="process-icon">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-
-                        <h3>
-                            सेवा पूर्ण
-                        </h3>
-
-                        <p>
-                            प्रक्रिया पूर्ण झाल्यानंतर आवश्यक कागदपत्रे किंवा सेवा ग्राहकाला दिली जाते.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             GALLERY
-        ======================================================== -->
-        <section id="gallery" class="gallery section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        गॅलरी
-                    </span>
-
-                    <h2>
-                        आमचे कार्यालय व सेवा
-                    </h2>
-
-                    <p>
-                        आमच्या कार्यालयाची, सुविधा, उपकरणे आणि ग्राहक सेवांची
-                        काही झलक.
-                    </p>
-
-                </div>
-
-                <!-- Gallery Grid -->
-                <div class="gallery-grid">
-
-                    <figure class="gallery-item" data-aos="zoom-in">
-                        <img src="images/gallery/gallery-1.jpg"
-                             alt="Office View"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-                        <img src="images/gallery/gallery-2.jpg"
-                             alt="Office Interior"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/gallery/gallery-3.jpg"
-                             alt="Customer Service"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
-                        <img src="images/gallery/gallery-4.jpg"
-                             alt="Certificates"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item" data-aos="zoom-in">
-                        <img src="images/gallery/gallery-5.jpg"
-                             alt="Equipment"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-                        <img src="images/gallery/gallery-6.jpg"
-                             alt="Digital Services"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/gallery/gallery-7.jpg"
-                             alt="Owner"
-                             loading="lazy"
-                             width="600"
-                             height="600">
-                    </figure>
-
-                    <figure class="gallery-item featured-gallery"
-                            data-aos="zoom-in"
-                            data-aos-delay="150">
-
-                        <div class="gallery-more">
-
-                            <i class="fa-solid fa-images"></i>
-
-                            <h3>
-                                आणखी फोटो पहा
-                            </h3>
-
-                            <p>
-                                संपूर्ण गॅलरी पाहण्यासाठी येथे क्लिक करा.
-                            </p>
-
-                            <a href="gallery.html"
-                               class="btn btn-primary">
-
-                                Gallery →
-
-                            </a>
-
-                        </div>
-
-                    </figure>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             FAQ SECTION
-        ======================================================== -->
-        <section id="faq" class="faq section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        वारंवार विचारले जाणारे प्रश्न
-                    </span>
-
-                    <h2>
-                        Frequently Asked Questions (FAQ)
-                    </h2>
-
-                    <p>
-                        ग्राहकांकडून वारंवार विचारल्या जाणाऱ्या महत्त्वाच्या
-                        प्रश्नांची उत्तरे येथे दिली आहेत.
-                    </p>
-
-                </div>
-
-                <!-- FAQ Accordion -->
-                <div class="faq-accordion">
-
-                    <details class="faq-item" data-aos="fade-up" open>
-                        <summary>
-                            कोणकोणत्या सेवा उपलब्ध आहेत?
-                        </summary>
-                        <p>
-                            आधार, पॅन कार्ड, AEPS, MahaDBT, PM Kisan,
-                            सरकारी योजना, प्रिंट, झेरॉक्स, पासपोर्ट फोटो,
-                            ड्रायव्हिंग लायसन्स आणि इतर अनेक सेवा उपलब्ध आहेत.
-                        </p>
-                    </details>
-
-                    <details class="faq-item"
-                             data-aos="fade-up"
-                             data-aos-delay="50">
-
-                        <summary>
-                            कार्यालयाची वेळ काय आहे?
-                        </summary>
-
-                        <p>
-                            सोमवार ते शनिवार,
-                            सकाळी 9:00 ते संध्याकाळी 7:00.
-                        </p>
-
-                    </details>
-
-                    <details class="faq-item"
-                             data-aos="fade-up"
-                             data-aos-delay="100">
-
-                        <summary>
-                            शुल्क आधी सांगितले जाते का?
-                        </summary>
-
-                        <p>
-                            होय. प्रत्येक सेवेसाठी स्पष्ट आणि पारदर्शक
-                            शुल्काची माहिती आधी दिली जाते.
-                        </p>
-
-                    </details>
-
-                    <details class="faq-item"
-                             data-aos="fade-up"
-                             data-aos-delay="150">
-
-                        <summary>
-                            WhatsApp वर संपर्क करू शकतो का?
-                        </summary>
-
-                        <p>
-                            होय. तुम्ही थेट WhatsApp वर संपर्क साधू शकता
-                            आणि आवश्यक माहिती मिळवू शकता.
-                        </p>
-
-                    </details>
-
-                    <details class="faq-item"
-                             data-aos="fade-up"
-                             data-aos-delay="200">
-
-                        <summary>
-                            सरकारी योजनांसाठी मार्गदर्शन मिळेल का?
-                        </summary>
-
-                        <p>
-                            होय. पात्रता, आवश्यक कागदपत्रे,
-                            अर्ज प्रक्रिया आणि पुढील मार्गदर्शन दिले जाते.
-                        </p>
-
-                    </details>
-
-                    <details class="faq-item"
-                             data-aos="fade-up"
-                             data-aos-delay="250">
-
-                        <summary>
-                            सर्व FAQ पाहण्यासाठी?
-                        </summary>
-
-                        <p>
-                            अधिक प्रश्न आणि उत्तरांसाठी खालील बटण वापरा.
-                        </p>
-
-                    </details>
-
-                </div>
-
-                <!-- CTA -->
-                <div class="section-action"
-                     data-aos="zoom-in">
-
-                    <a href="faq.html"
-                       class="btn btn-primary">
-
-                        <i class="fa-solid fa-circle-question"></i>
-
-                        सर्व FAQ पहा
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             CONTACT SECTION
-        ======================================================== -->
-        <section id="contact" class="contact section-padding">
-
-            <div class="container">
-
-                <!-- Section Heading -->
-                <div class="section-heading" data-aos="fade-up">
-
-                    <span class="section-tag">
-                        संपर्क
-                    </span>
-
-                    <h2>
-                        आमच्याशी संपर्क साधा
-                    </h2>
-
-                    <p>
-                        कोणत्याही डिजिटल सेवा, सरकारी योजना किंवा मार्गदर्शनासाठी
-                        आमच्याशी संपर्क साधा किंवा प्रत्यक्ष भेट द्या.
-                    </p>
-
-                </div>
-
-                <div class="contact-grid">
-
-                    <!-- Contact Details -->
-                    <div class="contact-info"
-                         data-aos="fade-right">
-
-                        <div class="contact-card">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                            <div>
-
-                                <h3>
-                                    पत्ता
-                                </h3>
-
-                                <p>
-                                    आमला खुर्द,<br>
-                                    ता. दिग्रस,<br>
-                                    जि. यवतमाळ, महाराष्ट्र
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="contact-card">
-
-                            <i class="fa-solid fa-phone"></i>
-
-                            <div>
-
-                                <h3>
-                                    Call
-                                </h3>
-
-                                <a href="tel:7719984464">
-                                    +91 7719984464
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="contact-card">
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                            <div>
-
-                                <h3>
-                                    WhatsApp
-                                </h3>
-
-                                <a href="https://wa.me/919673258236"
-                                   target="_blank"
-                                   rel="noopener">
-                                    Chat on WhatsApp
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="contact-card">
-
-                            <i class="fa-solid fa-users"></i>
-
-                            <div>
-
-                                <h3>
-                                    WhatsApp Group
-                                </h3>
-
-                                <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4"
-                                   target="_blank"
-                                   rel="noopener">
-                                    Join Community
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="contact-card">
-
-                            <i class="fa-regular fa-clock"></i>
-
-                            <div>
-
-                                <h3>
-                                    कार्यालयाची वेळ
-                                </h3>
-
-                                <p>
-                                    सोमवार - शनिवार<br>
-                                    सकाळी 9:00 ते संध्याकाळी 7:00
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Contact Buttons -->
-                        <div class="contact-buttons">
-
-                            <a href="tel:7719984464"
-                               class="btn btn-primary">
-
-                                <i class="fa-solid fa-phone"></i>
-
-                                Call Now
-
-                            </a>
-
-                            <a href="https://maps.app.goo.gl/XMMEJAmgs5A5fDHQ8?g_st=ac"
-                               target="_blank"
-                               rel="noopener"
-                               class="btn btn-secondary">
-
-                                <i class="fa-solid fa-location-arrow"></i>
-
-                                Directions
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Google Map -->
-                    <div class="contact-map"
-                         data-aos="fade-left">
-
-                        <iframe
-                            title="Pratap Online Centre Location"
-                            loading="lazy"
-                            allowfullscreen
-                            referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps?q=20.8179,77.6268&z=16&output=embed">
-                        </iframe>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- =======================================================
-             FOOTER
-        ======================================================== -->
-        <footer class="site-footer">
-
-            <div class="container">
-
-                <div class="footer-grid">
-
-                    <!-- Company -->
-                    <div class="footer-column">
-
-                        <img src="images/logo/logo.png"
-                             alt="Pratap Online Centre Logo"
-                             class="footer-logo"
-                             width="80"
-                             height="80"
-                             loading="lazy">
-
-                        <h3>Pratap Online Centre</h3>
-
-                        <p>
-                            विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन
-                        </p>
-
-                        <p>
-                            आमला खुर्द, ता. दिग्रस,<br>
-                            जि. यवतमाळ, महाराष्ट्र
-                        </p>
-
-                        <a href="https://wa.me/919673258236"
-                           target="_blank"
-                           rel="noopener"
-                           class="footer-whatsapp">
-
-                            <i class="fa-brands fa-whatsapp"></i>
-                            WhatsApp
-
-                        </a>
-
-                    </div>
-
-                    <!-- Quick Links -->
-                    <div class="footer-column">
-
-                        <h3>Quick Links</h3>
-
-                        <ul>
-
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="schemes.html">Schemes</a></li>
-                            <li><a href="charges.html">Charges</a></li>
-                            <li><a href="updates.html">Updates</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-
-                        </ul>
-
-                    </div>
-
-                    <!-- Government Portals -->
-                    <div class="footer-column">
-
-                        <h3>Government Portals</h3>
-
-                        <ul>
-
-                            <li>
-                                <a href="https://uidai.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    UIDAI
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://www.onlineservices.nsdl.com"
-                                   target="_blank"
-                                   rel="noopener">
-                                    PAN
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://pmkisan.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    PM Kisan
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://mahadbt.maharashtra.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    MahaDBT
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://www.digilocker.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    DigiLocker
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://www.passportindia.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    Passport Seva
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://voters.eci.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    Election Commission
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://www.epfindia.gov.in"
-                                   target="_blank"
-                                   rel="noopener">
-                                    EPFO
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <!-- Legal -->
-                    <div class="footer-column">
-
-                        <h3>Legal</h3>
-
-                        <ul>
-
-                            <li>
-                                <a href="privacy-policy.html">
-                                    Privacy Policy
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="terms-and-conditions.html">
-                                    Terms &amp; Conditions
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="disclaimer.html">
-                                    Disclaimer
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-                <!-- Footer Bottom -->
-                <div class="footer-bottom">
-
-                    <p>
-                        &copy; 2026 Pratap Online Centre.
-                        All Rights Reserved.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </footer>
-        <!-- =======================================================
-             FLOATING ACTION BUTTONS
-        ======================================================== -->
-
-        <!-- Call -->
-        <a href="tel:7719984464"
-           class="floating-btn floating-call"
-           aria-label="Call Now">
-
-            <i class="fa-solid fa-phone"></i>
-
-        </a>
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/919673258236"
-           class="floating-btn floating-whatsapp"
-           target="_blank"
-           rel="noopener"
-           aria-label="Chat on WhatsApp">
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-        </a>
-
-        <!-- Back To Top -->
-        <button id="backToTop"
-                class="floating-btn floating-top"
-                type="button"
-                aria-label="Back to Top">
-
-            <i class="fa-solid fa-arrow-up"></i>
-
-        </button>
-
-        <!-- =======================================================
-             SCROLL PROGRESS
-        ======================================================== -->
-        <div id="scroll-progress"
-             aria-hidden="true"></div>
-
-        <!-- =======================================================
-             SEARCH RESULTS CONTAINER
-             (Filled by script.js)
-        ======================================================== -->
-        <section id="search-results"
-                 class="search-results"
-                 hidden>
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-tag">
-                        Search
-                    </span>
-
-                    <h2>
-                        Search Results
-                    </h2>
-
-                </div>
-
-                <div id="search-results-list">
-
-                    <!-- Dynamic Results -->
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- =======================================================
-             BACKDROP
-        ======================================================== -->
-        <div id="overlay"
-             class="overlay"
-             hidden></div>
-        <!-- =======================================================
-             NOSCRIPT
-        ======================================================== -->
-        <noscript>
-            <div class="no-script-message">
-                JavaScript is disabled in your browser.
-                Please enable JavaScript for the best experience.
-            </div>
-        </noscript>
-
-    </main>
-
-    <!-- =======================================================
-         AOS SCRIPT
-    ======================================================== -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <!-- =======================================================
-         MAIN JAVASCRIPT
-    ======================================================== -->
-    <script src="script.js"></script>
-
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-btns">
+        <a href="https://wa.me/910000000000" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+910000000000" class="float-btn call" title="Call Us"><i class="fas fa-phone"></i></a>
+        <a href="#" class="float-btn top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
