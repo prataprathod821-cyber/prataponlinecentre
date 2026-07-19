@@ -1,1 +1,453 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Service Charges | Pratap Online Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --royal-blue: #0a2351;
+            --royal-blue-light: #1e3a8a;
+            --gold: #d4af37;
+            --gold-light: #fbe083;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
 
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--gradient-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--royal-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top: 5px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 { color: var(--royal-blue); margin-bottom: 15px; }
+        p { margin-bottom: 15px; }
+        .text-center { text-align: center; }
+        .text-gold { color: var(--gold); }
+        .text-white { color: var(--white); }
+        .fw-bold { font-weight: bold; }
+
+        /* Layout & Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-padding { padding: 80px 0; }
+        
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+        }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .btn-primary { background: var(--royal-blue); color: var(--white); }
+        .btn-primary:hover { background: var(--gold); color: var(--royal-blue); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #1ebd5a; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+        
+        /* Floating Buttons */
+        .floating-btn {
+            position: fixed;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 20px;
+            text-decoration: none; z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .floating-btn:hover { transform: scale(1.1); }
+        .btn-back { bottom: 25px; left: 25px; background: var(--royal-blue); }
+        .btn-top { bottom: 25px; right: 25px; background: var(--gold); color: var(--royal-blue); opacity: 0; pointer-events: none; }
+        .btn-top.show { opacity: 1; pointer-events: auto; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-light) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .hero h1, .hero h3 { color: var(--white); }
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            font-style: italic;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+        }
+        .trust-badges {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px;
+        }
+        .badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 20px; border-radius: 20px;
+            display: flex; align-items: center; gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+        .badge i { color: var(--gold); }
+
+        /* Calculator Section */
+        .calc-container {
+            max-width: 600px;
+            margin: -50px auto 50px;
+            position: relative;
+            z-index: 10;
+        }
+        .calc-input-group {
+            display: flex; flex-direction: column; gap: 15px; margin: 20px 0;
+        }
+        .calc-input {
+            width: 100%; padding: 15px; border-radius: 10px;
+            border: 2px solid rgba(10, 35, 81, 0.2);
+            font-size: 1.1rem; outline: none;
+            background: rgba(255,255,255,0.9);
+            transition: border-color 0.3s;
+        }
+        .calc-input:focus { border-color: var(--royal-blue); }
+        .calc-result {
+            margin-top: 20px; padding: 15px; border-radius: 10px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--royal-blue); font-weight: bold; font-size: 1.2rem;
+            text-align: center; opacity: 0; transition: opacity 0.4s ease;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-item {
+            display: flex; flex-direction: column; justify-content: space-between;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .service-icon {
+            font-size: 2.5rem; color: var(--royal-blue);
+            margin-bottom: 15px; transition: transform 0.3s;
+        }
+        .service-item:hover .service-icon { transform: scale(1.1); color: var(--gold); }
+        .service-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+        .service-price {
+            font-size: 1.4rem; color: #28a745; font-weight: bold;
+            background: rgba(40, 167, 69, 0.1);
+            padding: 5px 15px; border-radius: 20px; display: inline-block;
+        }
+        .service-remark { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+
+        /* Notice Box */
+        .notice-box {
+            background: linear-gradient(45deg, #fff3cd, #ffe8a1);
+            border-left: 8px solid #ffc107;
+            padding: 30px; border-radius: 0 16px 16px 0;
+            box-shadow: var(--glass-shadow);
+        }
+        .notice-list { list-style: none; padding-left: 0; }
+        .notice-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; font-weight: 500; }
+        .notice-list i { color: #d39e00; margin-top: 4px; }
+
+        /* Features */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;
+        }
+        .feature-card { text-align: center; padding: 20px; }
+        .feature-card i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
+        .feature-card h4 { font-size: 1.1rem; color: var(--royal-blue); margin-bottom: 0; }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 15px; border-radius: 12px;
+            background: var(--white); border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        .faq-question {
+            width: 100%; text-align: left; padding: 20px; border: none; background: none;
+            font-size: 1.1rem; font-weight: bold; color: var(--royal-blue); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq-answer {
+            padding: 0 20px; max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--text-muted);
+        }
+        .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 200px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* CTA & Footer */
+        .cta-section {
+            background: var(--royal-blue); color: white;
+            text-align: center; padding: 60px 0; margin-top: 50px;
+        }
+        .cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .btn-outline-light { border: 2px solid white; color: white; background: transparent; }
+        .btn-outline-light:hover { background: white; color: var(--royal-blue); }
+        
+        footer {
+            background: #051430; color: rgba(255,255,255,0.7);
+            text-align: center; padding: 30px 0;
+        }
+        footer h3 { color: var(--gold); margin-bottom: 5px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0 60px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+            .hero h1 { font-size: 2rem; }
+            .calc-container { margin-top: -30px; }
+            .services-grid { grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
+            .section-padding { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Floating Buttons -->
+    <a href="javascript:history.back()" class="floating-btn btn-back" title="Go Back"><i class="fas fa-arrow-left"></i></a>
+    <a href="#" class="floating-btn btn-top" id="btnTop" title="Scroll to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Hero Section -->
+    <section class="hero text-center">
+        <div class="container fade-in">
+            <h1>🙏 स्वागत आहे!</h1>
+            <h3 class="mt-3">आमचे सर्व Service Charges आपल्या सोयीसाठी आणि पूर्ण पारदर्शकतेसाठी उपलब्ध आहेत.</h3>
+            
+            <div class="tagline glass-card" style="background: rgba(0,0,0,0.3); border: none;">
+                "आम्ही फक्त पैसे कमवण्यासाठी काम करत नाही...<br><br>
+                आमचा उद्देश प्रत्येक ग्राहकाला योग्य मार्गदर्शन, प्रामाणिक सेवा आणि वाजवी दरामध्ये सर्वोत्तम सुविधा उपलब्ध करून देणे आहे. 
+                आमच्याकडे कोणतेही लपलेले Charges नाहीत. जेवढे Charges दाखवले आहेत तेवढेच आकारले जातील.<br><br>
+                <strong class="text-gold">विश्वास हीच आमची सर्वात मोठी कमाई आहे.</strong>"
+            </div>
+
+            <div class="trust-badges">
+                <div class="badge"><i class="fas fa-check-circle"></i> Transparent Charges</div>
+                <div class="badge"><i class="fas fa-ban"></i> No Hidden Fees</div>
+                <div class="badge"><i class="fas fa-balance-scale"></i> Fair Pricing</div>
+                <div class="badge"><i class="fas fa-handshake"></i> Trusted Service</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AEPS Calculator -->
+    <div class="container calc-container fade-in">
+        <div class="glass-card text-center">
+            <h3><i class="fas fa-fingerprint text-gold"></i> AEPS Withdrawal Charges Calculator</h3>
+            <p class="text-muted">Enter the amount you wish to withdraw to check the charge.</p>
+            <div class="calc-input-group">
+                <input type="number" id="aeps-amount" class="calc-input" placeholder="Enter Withdrawal Amount (₹)">
+                <button class="btn btn-primary" onclick="calculateAeps()">Calculate Charges</button>
+            </div>
+            <div id="aeps-result" class="calc-result"></div>
+        </div>
+    </div>
+
+    <!-- Full Service Charge List -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center fade-in mb-5">
+                <h2><i class="fas fa-list-alt text-gold"></i> सर्व सेवांचे दरपत्रक (Service Charges)</h2>
+                <p class="text-muted">खालील दरपत्रक अंदाजित आहे, शासनाच्या नियमांनुसार यात बदल होऊ शकतो.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Data populated dynamically via JS to keep HTML clean and manageable -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notice -->
+    <section class="section-padding pt-0">
+        <div class="container fade-in">
+            <div class="notice-box">
+                <h2><i class="fas fa-exclamation-triangle"></i> महत्वाची सूचना</h2>
+                <ul class="notice-list">
+                    <li><i class="fas fa-chevron-circle-right"></i> सरकारी शुल्क वेळोवेळी बदलू शकते.</li>
+                    <li><i class="fas fa-chevron-circle-right"></i> काही सेवांसाठी शासनाचे वेगळे शुल्क लागू असू शकते.</li>
+                    <li><i class="fas fa-chevron-circle-right"></i> अंतिम शुल्क कामाच्या स्वरूपानुसार सांगितले जाईल.</li>
+                    <li><i class="fas fa-chevron-circle-right"></i> कृपया पावती घेण्यास विसरू नका.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Our Charges? -->
+    <section class="section-padding pb-0">
+        <div class="container fade-in">
+            <h2 class="text-center mb-5">आम्हालाच का निवडावे? (Why Our Charges?)</h2>
+            <div class="features-grid">
+                <div class="glass-card feature-card"><i class="fas fa-rupee-sign"></i><h4>Honest Pricing</h4></div>
+                <div class="glass-card feature-card"><i class="fas fa-eye"></i><h4>No Hidden Charges</h4></div>
+                <div class="glass-card feature-card"><i class="fas fa-compass"></i><h4>Proper Guidance</h4></div>
+                <div class="glass-card feature-card"><i class="fas fa-star"></i><h4>Quality Service</h4></div>
+                <div class="glass-card feature-card"><i class="fas fa-tachometer-alt"></i><h4>Fast Service</h4></div>
+                <div class="glass-card feature-card"><i class="fas fa-smile-beam"></i><h4>Customer Satisfaction</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+        <div class="container fade-in" style="max-width: 800px;">
+            <h2 class="text-center mb-5">सतत विचारले जाणारे प्रश्न (FAQ)</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">Why are your charges transparent? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>We believe in building trust with our customers. Showing clear charges ensures there is no confusion or hidden fees, providing you with a fair and honest service experience.</p></div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Do you charge extra? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>No, we do not charge anything extra beyond what is stated in our transparent pricing list or communicated upfront based on government fees.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Will I get receipt? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Yes, absolutely. We provide a receipt for every transaction and service completed at our center. Please ensure you collect it.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Can government fees change? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Yes, government portal fees and taxes are subject to change as per official policies. If a fee changes, we will inform you before processing your application.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section fade-in">
+        <div class="container">
+            <h2>Need Help? / काही अडचण आहे का?</h2>
+            <p>कोणत्याही सेवेबद्दल माहिती हवी असल्यास त्वरित संपर्क करा.</p>
+            <div class="cta-buttons">
+                <a href="tel:9999999999" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/919999999999" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+                <a href="#" class="btn btn-primary" style="background: var(--gold); color: var(--royal-blue);"><i class="fas fa-map-marker-alt"></i> Visit Center</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Pratap Online Center</h3>
+            <p>विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
+            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">&copy; 2026 Pratap Online Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Remove Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+        });
+
+        // Intersection Observer for Scroll Fade-In
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Scroll to Top Button Logic
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        });
+        btnTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-ite
