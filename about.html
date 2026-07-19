@@ -1,1 +1,438 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us | Pratap Online Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --royal-blue: #0a2351;
+            --royal-blue-light: #1e3a8a;
+            --gold: #d4af37;
+            --gold-light: #fbe083;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--gradient-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--royal-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top: 5px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 { color: var(--royal-blue); margin-bottom: 15px; }
+        p { margin-bottom: 15px; font-size: 1.05rem; }
+        .text-center { text-align: center; }
+        .text-gold { color: var(--gold); }
+        .text-white { color: var(--white); }
+        .fw-bold { font-weight: bold; }
+
+        /* Layout & Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-padding { padding: 80px 0; }
+        
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+        }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .btn-primary { background: var(--royal-blue); color: var(--white); }
+        .btn-primary:hover { background: var(--gold); color: var(--royal-blue); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #1ebd5a; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+        
+        /* Floating Buttons */
+        .floating-btn {
+            position: fixed;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 20px;
+            text-decoration: none; z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .floating-btn:hover { transform: scale(1.1); color: white; }
+        .btn-back { bottom: 25px; left: 25px; background: var(--royal-blue); }
+        .btn-top { bottom: 25px; right: 25px; background: var(--gold); color: var(--royal-blue); opacity: 0; pointer-events: none; }
+        .btn-top.show { opacity: 1; pointer-events: auto; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-light) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .hero h1 { color: var(--gold); font-size: 2.8rem; }
+        .hero p { color: var(--white); font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(10, 35, 81, 0.2);
+            border: 4px solid var(--white);
+        }
+        .about-content h2 { font-size: 2.2rem; }
+        .highlight-text {
+            color: var(--royal-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+            margin: 20px 0;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Mission & Vision */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: -30px; /* Overlap with hero slightly if needed, or adjust padding */
+        }
+        .mv-card {
+            text-align: center;
+            border-top: 5px solid var(--gold);
+        }
+        .mv-card i {
+            font-size: 3rem;
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+            background: var(--gold-light);
+            width: 80px; height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            background: var(--royal-blue);
+            color: var(--white);
+            border-radius: 30px;
+            padding: 50px;
+            margin: 50px 0;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .founder-section::before {
+            content: "\f10d";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 30px; left: 40px;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.1);
+        }
+        .founder-section h2, .founder-section h4 { color: var(--gold); }
+        .founder-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .stat-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: var(--glass-shadow);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--royal-blue);
+            margin-bottom: 10px;
+        }
+        .stat-text {
+            color: var(--text-muted);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* CTA & Footer */
+        .cta-section {
+            background: var(--royal-blue); color: white;
+            text-align: center; padding: 60px 0; margin-top: 50px;
+        }
+        .cta-section h2 { color: var(--gold-light); }
+        .cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .btn-outline-light { border: 2px solid white; color: white; background: transparent; }
+        .btn-outline-light:hover { background: white; color: var(--royal-blue); }
+        
+        footer {
+            background: #051430; color: rgba(255,255,255,0.7);
+            text-align: center; padding: 30px 0;
+        }
+        footer h3 { color: var(--gold); margin-bottom: 5px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { margin-bottom: 30px; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0 60px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-padding { padding: 50px 0; }
+            .founder-section { padding: 30px 20px; border-radius: 20px; }
+            .founder-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Floating Buttons -->
+    <a href="javascript:history.back()" class="floating-btn btn-back" title="Go Back"><i class="fas fa-arrow-left"></i></a>
+    <a href="#" class="floating-btn btn-top" id="btnTop" title="Scroll to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Hero Section -->
+    <section class="hero text-center">
+        <div class="container fade-in">
+            <h1>आमच्याबद्दल (About Us)</h1>
+            <p class="mt-3">प्रताप ऑनलाईन सेंटरमध्ये आपले सहर्ष स्वागत आहे. जाणून घ्या आमचा उद्देश, कार्य आणि आमची विचारसरणी.</p>
+        </div>
+    </section>
+
+    <!-- Main About Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="fade-in">
+                    <!-- Generic placeholder representing a modern CSC center/office -->
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pratap Online Center Office" class="about-image">
+                </div>
+                <div class="about-content fade-in">
+                    <h2><i class="fas fa-info-circle text-gold"></i> प्रताप ऑनलाईन सेंटरची सुरुवात</h2>
+                    <p>आजच्या डिजिटल युगात, प्रत्येक सरकारी आणि खाजगी काम ऑनलाईन झाले आहे. मात्र, ग्रामीण आणि निमशहरी भागातील अनेक नागरिकांना योग्य माहितीअभावी या सेवांचा लाभ घेताना अडचणी येतात. याच समस्येवर तोडगा काढण्यासाठी <strong>प्रताप ऑनलाईन सेंटरची</strong> स्थापना करण्यात आली.</p>
+                    
+                    <div class="highlight-text">
+                        "आमचा उद्देश फक्त फॉर्म भरणे नाही, तर प्रत्येक ग्राहकाला त्यांच्या हक्काच्या योजना आणि सेवा योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे."
+                    </div>
+
+                    <p>आम्ही सर्व प्रकारची शासकीय कामे, बँकिंग सेवा, पॅन कार्ड, आधार सेवा, आणि विविध सरकारी योजनांचे अर्ज अत्यंत सुरक्षित आणि पारदर्शक पद्धतीने भरून देतो. आमच्याकडे कोणतेही लपलेले चार्जेस नाहीत, जे आहे ते स्पष्ट आणि प्रामाणिक आहे.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section-padding pt-0">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="glass-card mv-card fade-in">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>आमचे ध्येय (Our Mission)</h3>
+                    <p class="text-muted">नागरिकांना एकाच छताखाली सर्व डिजिटल सेवा उपलब्ध करून देणे. कामात पारदर्शकता ठेवून ग्राहकांचा वेळ आणि पैसा वाचवणे. प्रत्येक काम वेळेत आणि अचूकपणे पूर्ण करणे.</p>
+                </div>
+                <div class="glass-card mv-card fade-in" style="transition-delay: 0.2s;">
+                    <i class="fas fa-eye"></i>
+                    <h3>आमचा दृष्टिकोन (Our Vision)</h3>
+                    <p class="text-muted">आमला खुर्द येथील सर्वात विश्वसनीय आणि प्रगत डिजिटल सेवा केंद्र बनणे. 'डिजिटल इंडिया' चे स्वप्न तळागाळातील लोकांपर्यंत पोहोचवून त्यांना तंत्रज्ञानाशी जोडणे.</p>
+                </div>
+                <div class="glass-card mv-card fade-in" style="transition-delay: 0.4s;">
+                    <i class="fas fa-handshake"></i>
+                    <h3>आमची मूल्ये (Our Values)</h3>
+                    <p class="text-muted">विश्वास, प्रामाणिकपणा आणि ग्राहक समाधान हीच आमची मुख्य मूल्ये आहेत. आम्ही ग्राहकांच्या डेटाची पूर्ण सुरक्षा आणि गोपनीयता बाळगतो.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-padding bg-light" style="background: rgba(255,255,255,0.4);">
+        <div class="container fade-in">
+            <h2 class="text-center mb-5">आमचा अनुभव आणि विस्तार</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-text">Digital Services</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-text">Happy Customers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Transparent Pricing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">Online Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Message -->
+    <section class="section-padding">
+        <div class="container fade-in">
+            <div class="founder-section text-center">
+                <h4>संस्थापक / संचालक यांचे मनोगत</h4>
+                <div class="founder-text">
+                    "जेव्हा मी या क्षेत्रात काम करायला सुरुवात केली, तेव्हा मला जाणवले की लोकांना फक्त सेवा नको असते, तर त्यांना एका 'विश्वासाची' गरज असते. एखादे काम करताना लागणारी कागदपत्रे, त्याची खरी फी आणि मिळणारा लाभ याबद्दल योग्य माहिती देणे हे मी माझे कर्तव्य समजतो. प्रताप ऑनलाईन सेंटर हे केवळ एक दुकान नसून, लोकांच्या अडचणी सोडवणारे एक हक्काचे व्यासपीठ आहे. तुमचा विश्वास हीच आमची खरी कमाई आहे."
+                </div>
+                <h3 class="mt-4 mb-0">- प्रताप ऑनलाईन सेंटर</h3>
+                <p class="text-gold-light mt-1">आपला नम्र सेवक</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section fade-in">
+        <div class="container">
+            <h2>आमच्याशी संपर्क साधा!</h2>
+            <p>कोणत्याही सेवेबद्दल माहिती हवी असल्यास त्वरित संपर्क करा. आम्ही आपल्याला मदत करण्यासाठी नेहमी तत्पर आहोत.</p>
+            <div class="cta-buttons">
+                <a href="tel:7719984464" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/7719984464" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+                <a href="#" class="btn btn-primary" style="background: var(--gold); color: var(--royal-blue);"><i class="fas fa-map-marker-alt"></i> Visit Center</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Pratap Online Center</h3>
+            <p>विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
+            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.7;">&copy; 2026 Pratap Online Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Highly Reliable Loader Removal
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 300);
+            }
+        }
+        window.addEventListener('load', hideLoader);
+        document.addEventListener('DOMContentLoaded', () => { setTimeout(hideLoader, 1500); }); // Failsafe timeout
+
+        // Scroll to Top Button
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) btnTop.classList.add('show');
+            else btnTop.classList.remove('show');
+        });
+        btnTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for Scroll Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
 
