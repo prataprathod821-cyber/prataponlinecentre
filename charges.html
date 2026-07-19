@@ -15,7 +15,7 @@
             --white: #ffffff;
             --text-dark: #333333;
             --text-muted: #555555;
-            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-bg: rgba(255, 255, 255, 0.85);
             --glass-border: rgba(255, 255, 255, 0.5);
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
             --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -45,7 +45,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 99999;
             transition: opacity 0.5s ease;
         }
         .spinner {
@@ -121,7 +121,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
-        .floating-btn:hover { transform: scale(1.1); }
+        .floating-btn:hover { transform: scale(1.1); color: white; }
         .btn-back { bottom: 25px; left: 25px; background: var(--royal-blue); }
         .btn-top { bottom: 25px; right: 25px; background: var(--gold); color: var(--royal-blue); opacity: 0; pointer-events: none; }
         .btn-top.show { opacity: 1; pointer-events: auto; }
@@ -134,29 +134,33 @@
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
         }
         .hero h1, .hero h3 { color: var(--white); }
         .hero .tagline {
-            font-size: 1.2rem;
-            color: var(--gold-light);
+            font-size: 1.1rem;
+            color: var(--white);
             font-style: italic;
             max-width: 800px;
-            margin: 20px auto;
+            margin: 30px auto;
             line-height: 1.8;
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
             border-radius: 15px;
             border-left: 5px solid var(--gold);
+            text-align: left;
         }
         .trust-badges {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px;
         }
         .badge {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
             padding: 10px 20px; border-radius: 20px;
             display: flex; align-items: center; gap: 8px;
             backdrop-filter: blur(5px);
+            font-weight: bold;
         }
         .badge i { color: var(--gold); }
 
@@ -174,7 +178,7 @@
             width: 100%; padding: 15px; border-radius: 10px;
             border: 2px solid rgba(10, 35, 81, 0.2);
             font-size: 1.1rem; outline: none;
-            background: rgba(255,255,255,0.9);
+            background: var(--white);
             transition: border-color 0.3s;
         }
         .calc-input:focus { border-color: var(--royal-blue); }
@@ -184,6 +188,7 @@
             border: 1px solid var(--gold);
             color: var(--royal-blue); font-weight: bold; font-size: 1.2rem;
             text-align: center; opacity: 0; transition: opacity 0.4s ease;
+            display: none;
         }
 
         /* Services Grid */
@@ -195,13 +200,14 @@
         .service-item {
             display: flex; flex-direction: column; justify-content: space-between;
             text-align: center; position: relative; overflow: hidden;
+            background: var(--white);
         }
         .service-icon {
             font-size: 2.5rem; color: var(--royal-blue);
             margin-bottom: 15px; transition: transform 0.3s;
         }
-        .service-item:hover .service-icon { transform: scale(1.1); color: var(--gold); }
-        .service-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+        .service-item:hover .service-icon { transform: scale(1.15); color: var(--gold); }
+        .service-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; color: var(--royal-blue); }
         .service-price {
             font-size: 1.4rem; color: #28a745; font-weight: bold;
             background: rgba(40, 167, 69, 0.1);
@@ -217,16 +223,16 @@
             box-shadow: var(--glass-shadow);
         }
         .notice-list { list-style: none; padding-left: 0; }
-        .notice-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; font-weight: 500; }
+        .notice-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; font-weight: bold; color: #5a4300; }
         .notice-list i { color: #d39e00; margin-top: 4px; }
 
         /* Features */
         .features-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px;
         }
-        .feature-card { text-align: center; padding: 20px; }
-        .feature-card i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
-        .feature-card h4 { font-size: 1.1rem; color: var(--royal-blue); margin-bottom: 0; }
+        .feature-card { text-align: center; padding: 25px 15px; background: var(--white); }
+        .feature-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+        .feature-card h4 { font-size: 1.1rem; color: var(--royal-blue); margin-bottom: 0; font-weight: bold; }
 
         /* FAQ */
         .faq-item {
@@ -244,7 +250,7 @@
             transition: max-height 0.4s ease, padding 0.4s ease;
             color: var(--text-muted);
         }
-        .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 200px; }
+        .faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 300px; }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
         /* CTA & Footer */
@@ -252,6 +258,7 @@
             background: var(--royal-blue); color: white;
             text-align: center; padding: 60px 0; margin-top: 50px;
         }
+        .cta-section h2 { color: var(--gold-light); }
         .cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
         .btn-outline-light { border: 2px solid white; color: white; background: transparent; }
         .btn-outline-light:hover { background: white; color: var(--royal-blue); }
@@ -266,6 +273,7 @@
         @media (max-width: 768px) {
             .hero { padding: 80px 0 60px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
             .hero h1 { font-size: 2rem; }
+            .hero .tagline { font-size: 1rem; text-align: center; }
             .calc-container { margin-top: -30px; }
             .services-grid { grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
             .section-padding { padding: 50px 0; }
@@ -285,15 +293,15 @@
 
     <!-- Hero Section -->
     <section class="hero text-center">
-        <div class="container fade-in">
+        <div class="container fade-in visible">
             <h1>🙏 स्वागत आहे!</h1>
             <h3 class="mt-3">आमचे सर्व Service Charges आपल्या सोयीसाठी आणि पूर्ण पारदर्शकतेसाठी उपलब्ध आहेत.</h3>
             
-            <div class="tagline glass-card" style="background: rgba(0,0,0,0.3); border: none;">
+            <div class="tagline">
                 "आम्ही फक्त पैसे कमवण्यासाठी काम करत नाही...<br><br>
                 आमचा उद्देश प्रत्येक ग्राहकाला योग्य मार्गदर्शन, प्रामाणिक सेवा आणि वाजवी दरामध्ये सर्वोत्तम सुविधा उपलब्ध करून देणे आहे. 
                 आमच्याकडे कोणतेही लपलेले Charges नाहीत. जेवढे Charges दाखवले आहेत तेवढेच आकारले जातील.<br><br>
-                <strong class="text-gold">विश्वास हीच आमची सर्वात मोठी कमाई आहे.</strong>"
+                <span class="text-gold fw-bold">विश्वास हीच आमची सर्वात मोठी कमाई आहे.</span>"
             </div>
 
             <div class="trust-badges">
@@ -323,11 +331,11 @@
         <div class="container">
             <div class="text-center fade-in mb-5">
                 <h2><i class="fas fa-list-alt text-gold"></i> सर्व सेवांचे दरपत्रक (Service Charges)</h2>
-                <p class="text-muted">खालील दरपत्रक अंदाजित आहे, शासनाच्या नियमांनुसार यात बदल होऊ शकतो.</p>
+                <p class="text-muted fw-bold">खालील दरपत्रक अंदाजित आहे, शासनाच्या नियमांनुसार यात बदल होऊ शकतो.</p>
             </div>
 
-            <div class="services-grid">
-                <!-- Data populated dynamically via JS to keep HTML clean and manageable -->
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be loaded here safely -->
             </div>
         </div>
     </section>
@@ -395,8 +403,8 @@
             <h2>Need Help? / काही अडचण आहे का?</h2>
             <p>कोणत्याही सेवेबद्दल माहिती हवी असल्यास त्वरित संपर्क करा.</p>
             <div class="cta-buttons">
-                <a href="tel:9999999999" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Now</a>
-                <a href="https://wa.me/919999999999" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+                <a href="tel:+910000000000" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/910000000000" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
                 <a href="#" class="btn btn-primary" style="background: var(--gold); color: var(--royal-blue);"><i class="fas fa-map-marker-alt"></i> Visit Center</a>
             </div>
         </div>
@@ -407,47 +415,184 @@
         <div class="container">
             <h3>Pratap Online Center</h3>
             <p>विश्वास • पारदर्शक सेवा • योग्य मार्गदर्शन</p>
-            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">&copy; 2026 Pratap Online Center. All Rights Reserved.</p>
+            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.7;">&copy; 2026 Pratap Online Center. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Remove Loader
-        window.addEventListener('load', () => {
+        // Highly Reliable Loader Removal
+        function hideLoader() {
             const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
-        });
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 300);
+            }
+        }
+        window.addEventListener('load', hideLoader);
+        document.addEventListener('DOMContentLoaded', () => { setTimeout(hideLoader, 1500); }); // Failsafe timeout
 
-        // Intersection Observer for Scroll Fade-In
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Scroll to Top Button Logic
+        // Scroll to Top Button
         const btnTop = document.getElementById('btnTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                btnTop.classList.add('show');
-            } else {
-                btnTop.classList.remove('show');
-            }
+            if (window.scrollY > 300) btnTop.classList.add('show');
+            else btnTop.classList.remove('show');
         });
         btnTop.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // FAQ Accordion Logic
+        // FAQ Logic
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+                if (!isActive) faqItem.classList.add('active');
+            });
+        });
+
+        // AEPS Calculator Logic
+        function calculateAeps() {
+            const amount = parseFloat(document.getElementById('aeps-amount').value);
+            const resultDiv = document.getElementById('aeps-result');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.style.opacity = '0';
+            
+            setTimeout(() => {
+                let text = "";
+                let color = "var(--royal-blue)";
+
+                if (isNaN(amount) || amount < 0) {
+                    text = "Please enter a valid amount.";
+                    color = "red";
+                } else if (amount < 100) {
+                    text = "No Charge (₹0)";
+                    color = "green";
+                } else if (amount >= 100 && amount <= 1000) {
+                    text = "Charge: ₹10";
+                } else if (amount >= 1001 && amount <= 2000) {
+                    text = "Charge: ₹15";
+                } else if (amount >= 2001 && amount <= 3000) {
+                    text = "Charge: ₹20";
+                } else if (amount >= 3001 && amount <= 4000) {
+                    text = "Charge: ₹25";
+                } else if (amount >= 4001 && amount <= 5000) {
+                    text = "Charge: ₹30";
+                } else if (amount >= 5001 && amount <= 7000) {
+                    text = "Charge: ₹40";
+                } else if (amount >= 7001 && amount <= 10000) {
+                    text = "Charge: ₹60";
+                } else {
+                    text = "Charges will be informed at the counter.";
+                }
                 
-                document.querySelectorAll('.faq-ite
+                resultDiv.innerHTML = text;
+                resultDiv.style.color = color;
+                resultDiv.style.opacity = '1';
+            }, 100);
+        }
+
+        // Services Array Definition & Rendering
+        document.addEventListener('DOMContentLoaded', () => {
+            const services = [
+                { name: "AEPS Withdrawal", price: "See Calc", icon: "fa-fingerprint", remark: "Based on amount" },
+                { name: "Balance Check", price: "Free", icon: "fa-rupee-sign", remark: "No hidden charge" },
+                { name: "Mini Statement", price: "₹10", icon: "fa-receipt", remark: "Printed statement" },
+                { name: "Money Transfer", price: "1%", icon: "fa-exchange-alt", remark: "Of total amount transferred" },
+                { name: "Aadhaar Print", price: "₹50", icon: "fa-id-card", remark: "PVC / Color printout" },
+                { name: "Aadhaar Update Assistance", price: "₹100", icon: "fa-user-edit", remark: "Govt fees ₹50 extra" },
+                { name: "PAN Card New", price: "₹150", icon: "fa-id-badge", remark: "Including govt fees" },
+                { name: "PAN Correction", price: "₹150", icon: "fa-edit", remark: "Including govt fees" },
+                { name: "Voter ID", price: "₹50", icon: "fa-person-booth", remark: "New / Correction application" },
+                { name: "Driving Licence", price: "₹300", icon: "fa-id-card-clip", remark: "Application & processing" },
+                { name: "Learning Licence", price: "₹200", icon: "fa-car", remark: "Form filling assistance" },
+                { name: "Passport Apply", price: "₹300", icon: "fa-passport", remark: "Govt fees separate" },
+                { name: "Passport Appointment", price: "₹100", icon: "fa-calendar-check", remark: "Slot booking only" },
+                { name: "Ayushman Card", price: "₹50", icon: "fa-heartbeat", remark: "Print & processing" },
+                { name: "ABHA Card", price: "₹30", icon: "fa-notes-medical", remark: "Instant generation" },
+                { name: "PM Kisan", price: "₹100", icon: "fa-tractor", remark: "New registration" },
+                { name: "PM Kisan eKYC", price: "₹50", icon: "fa-fingerprint", remark: "Biometric authentication" },
+                { name: "Farmer Registration", price: "₹100", icon: "fa-seedling", remark: "State govt portal" },
+                { name: "Crop Insurance", price: "₹50", icon: "fa-leaf", remark: "Per crop / receipt" },
+                { name: "MahaDBT", price: "₹100", icon: "fa-graduation-cap", remark: "Profile & form filling" },
+                { name: "Scholarship", price: "₹100", icon: "fa-book-reader", remark: "School / College form" },
+                { name: "Labour Registration", price: "₹150", icon: "fa-hard-hat", remark: "New worker profile" },
+                { name: "Building Worker Registration", price: "₹150", icon: "fa-hammer", remark: "BOCW Board" },
+                { name: "Shram Card", price: "₹50", icon: "fa-users", remark: "E-Shram portal" },
+                { name: "Income Certificate", price: "₹100", icon: "fa-file-invoice-dollar", remark: "Tahsil application" },
+                { name: "Domicile Certificate", price: "₹100", icon: "fa-home", remark: "Tahsil application" },
+                { name: "Caste Certificate", price: "₹100", icon: "fa-users", remark: "Tahsil application" },
+                { name: "Non Creamy Layer", price: "₹150", icon: "fa-file-signature", remark: "Tahsil application" },
+                { name: "Birth Certificate", price: "₹100", icon: "fa-baby", remark: "Online municipal portal" },
+                { name: "Death Certificate", price: "₹100", icon: "fa-ribbon", remark: "Online municipal portal" },
+                { name: "Marriage Certificate", price: "₹200", icon: "fa-ring", remark: "Assistance & upload" },
+                { name: "Family ID", price: "₹50", icon: "fa-users-cog", remark: "Creation & print" },
+                { name: "Electricity Bill Payment", price: "₹10", icon: "fa-lightbulb", remark: "Convenience fee" },
+                { name: "Water Bill", price: "₹10", icon: "fa-faucet", remark: "Convenience fee" },
+                { name: "Gas Booking", price: "₹10", icon: "fa-fire-alt", remark: "Convenience fee" },
+                { name: "Mobile Recharge", price: "Free", icon: "fa-mobile-alt", remark: "No extra charge" },
+                { name: "DTH Recharge", price: "Free", icon: "fa-satellite-dish", remark: "No extra charge" },
+                { name: "FASTag Recharge", price: "₹10", icon: "fa-car-side", remark: "Convenience fee" },
+                { name: "Train Ticket", price: "₹50", icon: "fa-train", remark: "IRCTC Agent fee" },
+                { name: "Bus Ticket", price: "₹30", icon: "fa-bus", remark: "Booking fee" },
+                { name: "Flight Ticket", price: "₹100", icon: "fa-plane", remark: "Per passenger fee" },
+                { name: "Hotel Booking", price: "₹50", icon: "fa-hotel", remark: "Service assistance" },
+                { name: "Insurance Premium Payment", price: "₹20", icon: "fa-shield-alt", remark: "Convenience fee" },
+                { name: "Bank Account Opening Assistance", price: "₹100", icon: "fa-piggy-bank", remark: "Form fill & KYC upload" },
+                { name: "Bank KYC", price: "₹50", icon: "fa-user-check", remark: "Update assistance" },
+                { name: "UPI QR Assistance", price: "₹50", icon: "fa-qrcode", remark: "Setup & print" },
+                { name: "Digital Signature", price: "₹1000", icon: "fa-file-contract", remark: "Class 3 DSC 2 Yrs" },
+                { name: "GST Registration", price: "₹500", icon: "fa-file-invoice", remark: "Govt fee extra if any" },
+                { name: "GST Return Assistance", price: "₹300", icon: "fa-chart-line", remark: "Per month" },
+                { name: "Udyam Registration", price: "₹150", icon: "fa-industry", remark: "MSME Certificate" },
+                { name: "Shop Act Registration", price: "₹200", icon: "fa-store", remark: "Gumasta licence" },
+                { name: "Food Licence Assistance", price: "₹300", icon: "fa-utensils", remark: "FSSAI (Govt fee extra)" },
+                { name: "Printout Black & White", price: "₹5", icon: "fa-print", remark: "Per page" },
+                { name: "Printout Colour", price: "₹10", icon: "fa-print", remark: "Per page" },
+                { name: "Xerox Black & White", price: "₹3", icon: "fa-copy", remark: "Per page" },
+                { name: "Xerox Colour", price: "₹10", icon: "fa-copy", remark: "Per page" },
+                { name: "Scanning", price: "₹10", icon: "fa-scanner", remark: "Per document" },
+                { name: "Lamination", price: "₹20", icon: "fa-layer-group", remark: "A4 Size (ID card ₹10)" },
+                { name: "Passport Photo", price: "₹50", icon: "fa-camera", remark: "8 Copies (Instant)" },
+                { name: "Photo Editing", price: "₹30", icon: "fa-image", remark: "Basic crop & resize" },
+                { name: "Email Service", price: "₹10", icon: "fa-envelope", remark: "Send / Receive print" },
+                { name: "Online Form Filling", price: "₹50", icon: "fa-keyboard", remark: "Starting from ₹50" },
+                { name: "Exam Form", price: "₹100", icon: "fa-pen-alt", remark: "School/College" },
+                { name: "University Form", price: "₹100", icon: "fa-university", remark: "Admission/Exam" },
+                { name: "Police Verification Assistance", price: "₹150", icon: "fa-user-shield", remark: "Online application" },
+                { name: "Government Scheme Form Filling", price: "₹100", icon: "fa-landmark", remark: "Any generic scheme" },
+                { name: "Other Online Services", price: "₹50+", icon: "fa-laptop-code", remark: "Depending on work" }
+            ];
+
+            const gridContainer = document.getElementById('servicesGrid');
+            let htmlContent = '';
+
+            services.forEach((service) => {
+                htmlContent += `
+                    <div class="glass-card service-item fade-in">
+                        <i class="fas ${service.icon} service-icon"></i>
+                        <div class="service-title">${service.name}</div>
+                        <div class="service-price">${service.price}</div>
+                        <div class="service-remark">${service.remark}</div>
+                    </div>
+                `;
+            });
+
+            gridContainer.innerHTML = htmlContent;
+
+            // Intersection Observer for Scroll Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
