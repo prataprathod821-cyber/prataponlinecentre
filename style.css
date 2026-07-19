@@ -1,0 +1,204 @@
+/* 
+  ========================================
+  आपले सरकार सेवा केंद्र - Custom Stylesheet
+  ========================================
+*/
+
+/* --- 0. General & Root Variables --- */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #ff9900;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f8f9fa;
+    --whatsapp-color: #25D366;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    overflow-x: hidden;
+}
+
+/* --- 1. Top Utility Bar --- */
+.top-bar {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* --- 2. Premium Header & Navigation --- */
+.navbar {
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand h5 {
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* --- 3. Hero Section --- */
+.hero-section {
+    /* Using a dark overlay to make text readable */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                url('https://source.unsplash.com/1600x900/?india,technology') center/cover no-repeat;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+}
+
+/* --- 6, 9, 10. Cards & Hover Effects (Services, Schemes, Why Choose Us) --- */
+.service-card, .scheme-card, .review-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.service-card:hover, .scheme-card:hover, .review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.service-card i {
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover i {
+    transform: scale(1.15);
+}
+
+/* --- 13. Process Section --- */
+.process-step i {
+    transition: color 0.3s ease;
+}
+
+.process-step:hover i {
+    color: var(--secondary-color) !important;
+}
+
+/* --- 15. FAQ Section --- */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,0.125);
+}
+
+/* --- 16. Contact & Map --- */
+iframe {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- 17. Footer --- */
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+/* --- Floating Buttons --- */
+.floating-btns {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.float-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.float-btn.whatsapp {
+    background-color: var(--whatsapp-color);
+}
+
+.float-btn.call {
+    background-color: var(--primary-color);
+}
+
+.float-btn.top {
+    background-color: #6c757d;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.float-btn:hover {
+    color: white;
+    transform: scale(1.15);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+.float-btn.top:hover {
+    opacity: 1;
+}
+
+/* --- Mobile Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .top-bar .d-flex {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 8px;
+        font-size: 13px;
+        gap: 5px !important;
+    }
+    
+    .top-bar .marquee-container {
+        width: 100% !important;
+    }
+
+    .hero-section {
+        padding: 80px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .floating-btns {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .float-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
