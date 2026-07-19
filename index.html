@@ -1,346 +1,186 @@
-<!DOCTYPE html>
-<html lang="mr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>प्रताप ऑनलाईन सेंटर - आमला खुर्द</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Custom Styles */
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #ff9900;
-        }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        /* 1. Top Utility Bar */
-        .top-bar { background-color: #1a1a1a; color: #fff; font-size: 14px; padding: 5px 0; }
-        .marquee-container { overflow: hidden; white-space: nowrap; }
-        
-        /* 3. Hero Section */
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?india,technology') center/cover;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        /* Hover Effects */
-        .service-card, .scheme-card, .review-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .service-card:hover, .scheme-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        
-        /* Floating Buttons */
-        .floating-btns { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
-        .float-btn {
-            width: 50px; height: 50px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 24px; text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: 0.3s;
-        }
-        .float-btn.whatsapp { background-color: #25D366; }
-        .float-btn.call { background-color: #007bff; }
-        .float-btn.top { background-color: #6c757d; font-size: 20px; }
-        .float-btn:hover { color: white; transform: scale(1.1); }
-    </style>
-</head>
-<body>
+/* =========================================================
+   Theme Name: Pratap Online Center
+   Language Font: Mukta (Premium Marathi Google Font)
+========================================================= */
 
-    <!-- 1. Top Utility Bar -->
-    <div class="top-bar">
-        <div class="container d-flex flex-wrap justify-content-between align-items-center">
-            <div class="d-flex gap-3">
-                <span><i class="fas fa-clock text-warning"></i> वेळ: स. ०९ ते सा. ०६</span>
-                <span><i class="fas fa-map-marker-alt text-danger"></i> आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</span>
-            </div>
-            <div class="marquee-container w-50">
-                <marquee scrollamount="5" behavior="scroll">
-                    | 📢 नवीन अपडेट: ऊसतोड कामगार योजनेचे अर्ज सुरू आहेत! | 📢 लाडकी बहीण चे जुलै महिन्याचा हफ्ता जमा झालेला आहे!
-                </marquee>
-            </div>
-        </div>
-    </div>
+/* Import Premium Marathi Font */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&display=swap');
 
-    <!-- 2. Premium Header & Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fas fa-laptop-house text-primary fs-2 me-2"></i>
-                <div>
-                    <h5 class="mb-0 fw-bold text-primary">प्रताप ऑनलाईन सेंटर </h5>
-                    <small class="text-muted" style="font-size:12px;">डिजिटल सेवा, जलद सेवा</small>
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-semibold">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="updates.html">Updates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <div class="d-flex gap-2 ms-lg-3 mt-2 mt-lg-0">
-                    <a href="tel:+910000000000" class="btn btn-outline-primary btn-sm"><i class="fas fa-phone"></i> Call</a>
-                    <a href="https://wa.me/910000000000" class="btn btn-success btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+/* --- 1. Variables --- */
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --secondary-color: #ff9900;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f8f9fa;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    --transition-speed: 0.3s;
+}
 
-    <!-- 3. Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-3">आमच्या वेबसाइट वर आपले सहर्ष स्वागत आहे</h1>
-            <p class="lead mb-4">आमला खुर्द मधील सर्वात विश्वसनीय डिजिटल सेवा केंद्र.</p>
-            <div class="d-flex justify-content-center gap-3 mb-4">
-                <a href="services.html" class="btn btn-primary btn-lg">आमच्या सेवा</a>
-                <a href="contact.html" class="btn btn-outline-light btn-lg">संपर्क साधा</a>
-            </div>
-            <div class="badge bg-warning text-dark fs-6 p-2 rounded-pill">
-                <i class="fas fa-star text-danger"></i> 08 जुलै 2026 पासून आपल्या सेवेत
-            </div>
-        </div>
-    </section>
+/* --- 2. General Styles & Typography --- */
+body { 
+    font-family: 'Mukta', sans-serif; 
+    color: var(--text-dark);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    <!-- 4. Welcome Section -->
-    <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-3">स्वागत आहे!</h2>
-            <p class="text-muted w-75 mx-auto">आमचे ध्येय आमला खुर्द या गावातील नागरिकांना सर्व शासकीय आणि निमशासकीय सेवा जलद, पारदर्शक आणि सुरक्षित पद्धतीने उपलब्ध करून देणे आहे. (Digital India Theme)</p>
-        </div>
-    </section>
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
 
-    <!-- 5. About Preview -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4 text-center">
-                    <img src="https://via.placeholder.com/300" alt="Owner" class="img-fluid rounded-circle shadow mb-3" style="width: 250px;">
-                    <h4>प्रताप राठोड</h4>
-                    <p class="text-primary fw-bold">संस्थापक / संचालक</p>
-                </div>
-                <div class="col-md-8">
-                    <h3 class="fw-bold">आमच्याबद्दल थोडक्यात</h3>
-                    <p>आम्ही आमला खुर्द आणि परिसरातील नागरिकांना उच्च दर्जाच्या ऑनलाईन सुविधा देण्यासाठी कटिबद्ध आहोत. आमच्याकडे सर्व प्रकारची कामे योग्य शुल्कात केली जातात.</p>
-                    <a href="about.html" class="btn btn-outline-primary">अधिक वाचा <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+p {
+    font-weight: 400;
+    font-size: 1.05rem;
+}
 
-    <!-- 6. Why Choose Us -->
-    <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5">आम्हाला का निवडावे?</h2>
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-search-dollar fs-1 text-primary mb-3"></i><h5>पारदर्शक सेवा</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-rupee-sign fs-1 text-success mb-3"></i><h5>योग्य शुल्क</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-user-tie fs-1 text-warning mb-3"></i><h5>अनुभवी मार्गदर्शन</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-shield-alt fs-1 text-danger mb-3"></i><h5>सुरक्षित डेटा</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-bolt fs-1 text-info mb-3"></i><h5>जलद प्रक्रिया</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-hands-helping fs-1 text-secondary mb-3"></i><h5>सविस्तर माहिती</h5></div></div>
-            </div>
-        </div>
-    </section>
+/* --- 3. Top Utility Bar --- */
+.top-bar { 
+    background-color: var(--dark-bg); 
+    color: #fff; 
+    font-size: 14px; 
+    padding: 8px 0; 
+    font-weight: 500;
+}
+.marquee-container { 
+    overflow: hidden; 
+    white-space: nowrap; 
+}
+.marquee-container marquee {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
 
-    <!-- 8. Live Statistics -->
-    <section class="py-5 bg-primary text-white text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-file-alt fs-1 mb-2"></i>
-                    <h3>50+</h3>
-                    <p>Services Offered</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-stopwatch fs-1 mb-2"></i>
-                    <h3>15 Min</h3>
-                    <p>Avg Processing Time</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-calendar-check fs-1 mb-2"></i>
-                    <h3>Since</h3>
-                    <p>08 July 2026</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --- 4. Navigation Bar --- */
+.navbar {
+    transition: all var(--transition-speed) ease;
+}
+.navbar-brand h5 {
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+}
+.nav-link {
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color var(--transition-speed) ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
 
-    <!-- 9. Top Services -->
-    <section class="py-5">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold">प्रमुख सेवा</h2>
-                <a href="services.html" class="btn btn-outline-primary">सर्व सेवा पहा <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="row g-4">
-                <!-- Service Cards -->
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-id-card fs-2 text-primary mb-2"></i><h6>Aadhaar Services</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-id-badge fs-2 text-warning mb-2"></i><h6>PAN Card</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-university fs-2 text-success mb-2"></i><h6>Banking / AEPS</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-passport fs-2 text-info mb-2"></i><h6>Passport</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-car fs-2 text-danger mb-2"></i><h6>Driving Licence</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-print fs-2 text-secondary mb-2"></i><h6>Print & Xerox</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-camera fs-2 text-dark mb-2"></i><h6>Passport Photo</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-file-signature fs-2 text-primary mb-2"></i><h6>Government Forms</h6></div></div>
-            </div>
-        </div>
-    </section>
+/* --- 5. Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+}
+.hero-section h1 {
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+.hero-section .lead {
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
 
-    <!-- 10. Government Schemes -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold">शासकीय योजना</h2>
-                <a href="schemes.html" class="btn btn-outline-success">सर्व योजना पहा <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">मुख्यमंत्री माझी लाडकी बहीण</h5><p class="card-text text-muted">महिलांसाठी आर्थिक सहाय्य योजना.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">PM Kisan Samman Nidhi</h5><p class="card-text text-muted">शेतकऱ्यांसाठी वार्षिक 6000 रुपये.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">MahaDBT / Scholarships</h5><p class="card-text text-muted">विद्यार्थ्यांसाठी शिष्यवृत्ती योजना.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">Ayushman Bharat</h5><p class="card-text text-muted">5 लाखांपर्यंत मोफत उपचार.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">MAHABOCW</h5><p class="card-text text-muted">बांधकाम कामगार योजना.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">Crop Insurance</h5><p class="card-text text-muted">पीक विमा योजना नोंदणी.</p></div></div></div>
-            </div>
-        </div>
-    </section>
+/* --- 6. Card & Hover Effects --- */
+.service-card, .scheme-card, .review-card { 
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; 
+    border: none;
+    box-shadow: var(--box-shadow);
+    border-radius: 12px;
+}
+.service-card:hover, .scheme-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: var(--hover-shadow); 
+}
+.service-card i {
+    transition: transform var(--transition-speed) ease;
+}
+.service-card:hover i {
+    transform: scale(1.15);
+}
 
-    <!-- 11. Transparent Charges Preview -->
-    <section class="py-4 text-center">
-        <div class="container">
-            <h4 class="mb-3">आमचे दरपत्रक पूर्णपणे वाजवी आहे</h4>
-            <a href="charges.html" class="btn btn-warning btn-lg fw-bold"><i class="fas fa-file-invoice-dollar"></i> सर्व्हिस चार्जेस पहा</a>
-        </div>
-    </section>
+.scheme-card.border-success {
+    border: 1px solid rgba(25, 135, 84, 0.2) !important;
+    border-top: 4px solid #198754 !important;
+}
 
-    <!-- 12. Latest Updates Ribbon -->
-    <div class="bg-danger text-white py-2">
-        <div class="container d-flex align-items-center">
-            <strong class="me-3 flex-shrink-0">आजचे अपडेट्स:</strong>
-            <marquee class="mb-0" onmouseover="this.stop();" onmouseout="this.start();">
-                <a href="updates.html" class="text-white text-decoration-none me-4">👉 Maharashtra GR: ऊसतोड कामगार योजना फॉर्म भरणे चालू आहे...</a>
-                <a href="updates.html" class="text-white text-decoration-none me-4">👉 बांधकाम कामगार योजनेची नोंदणी चालू आहे...</a>
-                <a href="updates.html" class="text-white text-decoration-none">👉 UIDAI: मोफत आधार मध्ये इमेल अपडेट...</a>
-            </marquee>
-        </div>
-    </div>
+/* --- 7. Floating Buttons --- */
+.floating-btns { 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 1000; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+.float-btn {
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: white; 
+    font-size: 26px; 
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); 
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+.float-btn.whatsapp { background-color: #25D366; }
+.float-btn.call { background-color: var(--primary-color); }
+.float-btn.top { background-color: var(--text-muted); font-size: 20px; }
 
-    <!-- 13. Process Section -->
-    <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5">सेवा कशी मिळेल?</h2>
-            <div class="row g-4">
-                <div class="col-md-3"><i class="fas fa-phone-alt fs-1 text-primary mb-3"></i><h5>1. Contact</h5><p>संपर्क करा किंवा सेंटर ला भेट द्या</p></div>
-                <div class="col-md-3"><i class="fas fa-folder-open fs-1 text-warning mb-3"></i><h5>2. Documents</h5><p>आवश्यक कागदपत्रे जमा करा</p></div>
-                <div class="col-md-3"><i class="fas fa-laptop fs-1 text-success mb-3"></i><h5>3. Application</h5><p>ऑनलाईन अर्ज प्रक्रिया</p></div>
-                <div class="col-md-3"><i class="fas fa-check-circle fs-1 text-info mb-3"></i><h5>4. Completion</h5><p>काम पूर्ण होईपर्यंत आम्ही मदत करू</p></div>
-            </div>
-        </div>
-    </section>
+.float-btn:hover { 
+    color: white; 
+    transform: scale(1.1) translateY(-3px); 
+}
+.float-btn.whatsapp:hover { background-color: #1ebe57; }
+.float-btn.call:hover { background-color: var(--primary-hover); }
 
-    <!-- 15. FAQ (Skipped Gallery grid to save space, but added link as requested) -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="fw-bold">वारंवार विचारले जाणारे प्रश्न (FAQ)</h2>
-                <a href="faq.html" class="text-decoration-none">सर्व प्रश्न पहा</a>
-            </div>
-            <div class="accordion w-75 mx-auto" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">केंद्र किती वाजता उघडते?</button></h2>
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">आमचे सेंटर सकाळी 07:00 ते 10:00 पर्यंत आणि संध्याकाळी 04:00 ते 10:00 पर्यंत चालू असते.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">लाडकी बहीण योजनेसाठी काय कागदपत्रे लागतात?</button></h2>
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">आधार कार्ड, बँक पासबुक, रेशन कार्ड, आणि पासपोर्ट फोटो.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --- 8. Specific Adjustments --- */
+.bg-light { background-color: var(--light-bg) !important; }
 
-    <!-- 16. Contact -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <h3 class="fw-bold mb-4">संपर्क साधा</h3>
-                    <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>पत्ता:</strong> आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</p>
-                    <p><i class="fas fa-phone text-primary me-2"></i> <strong>मोबाईल:</strong> 7719984464</p>
-                    <p><i class="fas fa-envelope text-warning me-2"></i> <strong>ईमेल:</strong> prataprathod821@gmail.com</p>
-                    <p><i class="fas fa-clock text-success me-2"></i> <strong>वेळ:</strong> 24/7 </p>
-                    <div class="mt-4 d-flex gap-2">
-                        <a href="9673258236" class="btn btn-success"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
-                        <a href="contact.html" class="btn btn-primary"><i class="fas fa-directions"></i> Get Directions</a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <!-- Placeholder Map -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.187311140034!2d77.3000!3d20.1000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA2JzAwLjAiTiA3N8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Updates Ribbon */
+.bg-danger.text-white a {
+    font-weight: 500;
+    transition: opacity var(--transition-speed);
+}
+.bg-danger.text-white a:hover {
+    opacity: 0.8;
+}
 
-    <!-- 17. Footer -->
-    <footer class="bg-dark text-white pt-5 pb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>प्रताप ऑनलाईन सेंटर</h5>
-                    <p class="text-secondary">आमला खुर्द, ता. दिग्रस, जि. यवतमाळ<br>डिजिटल सेवा, जलद सेवा.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-secondary text-decoration-none">About Us</a></li>
-                        <li><a href="gallery.html" class="text-secondary text-decoration-none">Gallery</a></li>
-                        <li><a href="privacy-policy.html" class="text-secondary text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="terms-and-conditions.html" class="text-secondary text-decoration-none">Terms & Conditions</a></li>
-                        <li><a href="disclaimer.html" class="text-secondary text-decoration-none">Disclaimer</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Official Government Portals</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="https://uidai.gov.in" target="_blank" class="text-secondary text-decoration-none">UIDAI</a></li>
-                        <li><a href="https://www.pan.utiitsl.com/" target="_blank" class="text-secondary text-decoration-none">PAN / NSDL</a></li>
-                        <li><a href="https://pmkisan.gov.in/" target="_blank" class="text-secondary text-decoration-none">PM Kisan</a></li>
-                        <li><a href="https://mahadbt.maharashtra.gov.in/" target="_blank" class="text-secondary text-decoration-none">MahaDBT</a></li>
-                        <li><a href="https://www.digilocker.gov.in/" target="_blank" class="text-secondary text-decoration-none">DigiLocker</a></li>
-                        <li><a href="https://www.passportindia.gov.in/" target="_blank" class="text-secondary text-decoration-none">Passport Seva</a></li>
-                        <li><a href="https://eci.gov.in/" target="_blank" class="text-secondary text-decoration-none">Election Commission</a></li>
-                        <li><a href="https://www.epfindia.gov.in/" target="_blank" class="text-secondary text-decoration-none">EPFO</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="border-secondary">
-            <div class="text-center text-secondary">
-                <small>&copy; 2026 प्रताप ऑनलाईन सेंटर, आमला खुर्द. All Rights Reserved.</small>
-            </div>
-        </div>
-    </footer>
+/* Footer Styling */
+footer h5 {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+footer ul li {
+    margin-bottom: 10px;
+}
+footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
 
-    <!-- Floating Buttons -->
-    <div class="floating-btns">
-        <a href="https://wa.me/7719984464" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+917719984464" class="float-btn call" title="Call Us"><i class="fas fa-phone"></i></a>
-        <a href="#" class="float-btn top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
-    </div>
-
-    <!-- Bootstrap 5 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+/* Accordion Customization for FAQ */
+.accordion-button {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.accordion-button:not(.collapsed) {
+    color: var(--primary-color);
+    background-color: rgba(13, 110, 253, 0.05);
+}
