@@ -465,28 +465,38 @@
                 let color = "var(--royal-blue)";
 
                 if (isNaN(amount) || amount < 0) {
-                    text = "Please enter a valid amount.";
-                    color = "red";
-                } else if (amount < 100) {
-                    text = "No Charge (₹0)";
-                    color = "green";
-                } else if (amount >= 100 && amount <= 1000) {
-                    text = "Charge: ₹10";
-                } else if (amount >= 1001 && amount <= 2000) {
-                    text = "Charge: ₹15";
-                } else if (amount >= 2001 && amount <= 3000) {
-                    text = "Charge: ₹20";
-                } else if (amount >= 3001 && amount <= 4000) {
-                    text = "Charge: ₹25";
-                } else if (amount >= 4001 && amount <= 5000) {
-                    text = "Charge: ₹30";
-                } else if (amount >= 5001 && amount <= 7000) {
-                    text = "Charge: ₹40";
-                } else if (amount >= 7001 && amount <= 10000) {
-                    text = "Charge: ₹60";
-                } else {
-                    text = "Charges will be informed at the counter.";
-                }
+    text = "Please enter a valid amount.";
+    color = "red";
+
+} else if (amount >= 1 && amount <= 500) {
+    text = "No Charge (₹0)";
+    color = "green";
+
+} else if (amount >= 501 && amount <= 1000) {
+    text = "Charge: ₹10";
+
+} else if (amount >= 1001 && amount <= 2000) {
+    text = "Charge: ₹15";
+
+} else if (amount >= 2001 && amount <= 3000) {
+    text = "Charge: ₹20";
+
+} else if (amount >= 3001 && amount <= 5000) {
+    text = "Charge: ₹30";
+
+} else if (amount >= 5001 && amount <= 7000) {
+    text = "Charge: ₹50";
+
+} else if (amount >= 7001 && amount <= 9000) {
+    text = "Charge: ₹70";
+
+} else if (amount >= 9001 && amount <= 10000) {
+    text = "Charge: ₹80";
+
+} else {
+    text = "Charges will be informed at the counter.";
+    color = "red";
+}
                 
                 resultDiv.innerHTML = text;
                 resultDiv.style.color = color;
