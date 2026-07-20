@@ -1,7 +1,107 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रताप ऑनलाईन सेंटर | Pratap Online Centre</title>
+    
+    <!-- Google Fonts for Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Premium Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', 'Mukta', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navbar Styling */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .navbar-brand h5 {
+            font-family: 'Mukta', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+            color: white;
+            padding: 80px 0 0 0;
+            text-align: center;
+        }
+        
+        /* Card Hover Effects */
+        .service-card, .scheme-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: white;
+        }
+        .service-card:hover, .scheme-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        /* Icon styling in why choose us */
+        .bg-white.rounded.shadow-sm {
+            transition: all 0.3s ease;
+            border-radius: 15px !important;
+        }
+        .bg-white.rounded.shadow-sm:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        /* Floating Action Buttons */
+        .floating-btns {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .float-btn:hover {
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .whatsapp { background-color: #25d366; }
+        .call { background-color: #007bff; }
+        .top { background-color: #6c757d; font-size: 20px; }
+        
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
 <body>
 
-<!-- 2. Premium Header & Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <!-- 2. Premium Header & Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <i class="fas fa-laptop-house text-primary fs-2 me-2"></i>
@@ -25,33 +125,37 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
                 <div class="d-flex gap-2 ms-lg-3 mt-2 mt-lg-0">
-    <a href="tel:+917719984464" class="btn btn-outline-primary btn-sm"><i class="fas fa-phone"></i> Call</a>
-    <a href="https://wa.me/919673258236" class="btn btn-success btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-</div>
+                    <a href="tel:+917719984464" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://wa.me/919673258236" class="btn btn-success btn-sm rounded-pill px-3"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- 3. Hero Section -->
     <section class="hero-section">
-        <div class="container">
+        <div class="container pb-5">
             <h1 class="display-4 fw-bold mb-3">आमच्या वेबसाइटवर आपले मनःपूर्वक स्वागत!</h1>
-            <p class="lead mb-4">आमला खुर्द व परिसरातील सर्वात विश्वासार्ह डिजिटल सेवा केंद्र</p>
-            <div class="d-flex justify-content-center gap-3 mb-4">
-                <a href="services.html" class="btn btn-primary btn-lg">आमच्या सेवा</a>
-                <a href="contact.html" class="btn btn-outline-light btn-lg">संपर्क साधा</a>
-                <a href="contact.html" class="btn btn-outline-light btn-lg"> Whatsapp group जॉइन करा</a>
+            <p class="lead mb-4 fw-light">आमला खुर्द व परिसरातील सर्वात विश्वासार्ह डिजिटल सेवा केंद्र</p>
+            <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+                <a href="services.html" class="btn btn-primary btn-lg rounded-pill shadow-sm">आमच्या सेवा</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg rounded-pill">संपर्क साधा</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg rounded-pill"><i class="fab fa-whatsapp"></i> Whatsapp group जॉइन करा</a>
             </div>
-            <div class="badge bg-warning text-dark fs-6 p-2 rounded-pill">
+            <div class="badge bg-warning text-dark fs-6 p-2 px-4 rounded-pill shadow-sm mb-4">
                 <i class="fas fa-star text-danger"></i> ⭐ 08 जुलै 2026 पासून आपल्या विश्वासू सेवेत
-<!-- 12. Latest Updates Ribbon -->
-    <div class="bg-danger text-white py-2">
-        <div class="container d-flex align-items-center">
-            <strong class="me-3 flex-shrink-0">आजचे अपडेट्स:</strong>
-            <marquee class="mb-0" onmouseover="this.stop();" onmouseout="this.start();">
-                <a href="updates.html" class="text-white text-decoration-none me-4">👉 Maharashtra GR: ऊसतोड कामगार योजना फॉर्म भरणे चालू आहे...</a>
-                <a href="updates.html" class="text-white text-decoration-none me-4">👉 बांधकाम कामगार योजनेची नोंदणी चालू आहे...</a>
-                <a href="updates.html" class="text-white text-decoration-none">👉 UIDAI: मोफत आधार मध्ये इमेल अपडेट...</a>
+            </div>
+        </div>
+
+        <!-- 12. Latest Updates Ribbon -->
+        <div class="bg-danger text-white py-2 shadow">
+            <div class="container d-flex align-items-center">
+                <strong class="me-3 flex-shrink-0"><i class="fas fa-bell"></i> आजचे अपडेट्स:</strong>
+                <marquee class="mb-0 fw-medium" onmouseover="this.stop();" onmouseout="this.start();">
+                    <a href="updates.html" class="text-white text-decoration-none me-4">👉 Maharashtra GR: ऊसतोड कामगार योजना फॉर्म भरणे चालू आहे...</a>
+                    <a href="updates.html" class="text-white text-decoration-none me-4">👉 बांधकाम कामगार योजनेची नोंदणी चालू आहे...</a>
+                    <a href="updates.html" class="text-white text-decoration-none">👉 UIDAI: मोफत आधार मध्ये इमेल अपडेट...</a>
+                </marquee>
             </div>
         </div>
     </section>
@@ -60,7 +164,7 @@
     <section class="py-5 bg-light">
         <div class="container text-center">
             <h2 class="fw-bold mb-3">जय सेवालाल!</h2>
-            <p class="text-muted w-75 mx-auto">आमचे ध्येय आमला खुर्द व परिसरातील प्रत्येक नागरिकाला शासकीय, बँकिंग आणि डिजिटल सेवा सुरक्षित, पारदर्शक, जलद आणि योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे.</p>
+            <p class="text-muted w-75 mx-auto fs-5">आमचे ध्येय आमला खुर्द व परिसरातील प्रत्येक नागरिकाला शासकीय, बँकिंग आणि डिजिटल सेवा सुरक्षित, पारदर्शक, जलद आणि योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे.</p>
         </div>
     </section>
 
@@ -68,19 +172,15 @@
     <section class="py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4 text-center">
-                    <img src="owner.png"
-     alt="Owner"
-     class="img-fluid rounded-circle shadow mb-3"
-     style="width:250px;">
-                    <h4>प्रताप राठोड</h4>
-                    <p class="text-primary fw-bold">Oprator</p>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <img src="owner.png" alt="Owner" class="img-fluid rounded-circle shadow-lg mb-3 border border-4 border-white" style="width:250px; height:250px; object-fit: cover;">
+                    <h4 class="fw-bold">प्रताप राठोड</h4>
+                    <p class="text-primary fw-bold mb-0">Oprator</p>
                 </div>
                 <div class="col-md-8">
-                    <h3 class="fw-bold">आमच्याबद्दल थोडक्यात</h3>
-                    <p>प्रत्येक काम योग्य मार्गदर्शन, वाजवी शुल्क, सुरक्षित प्रक्रिया आणि वेळेवर पूर्ण करण्यासाठी आम्ही कटिबद्ध आहोत.
-ग्राहकांचा विश्वास आणि समाधान हीच आमची खरी ओळख आहे.</p>
-                    <a href="about.html" class="btn btn-outline-primary">अधिक वाचा <i class="fas fa-arrow-right"></i></a>
+                    <h3 class="fw-bold mb-3">आमच्याबद्दल थोडक्यात</h3>
+                    <p class="fs-5 text-muted">प्रत्येक काम योग्य मार्गदर्शन, वाजवी शुल्क, सुरक्षित प्रक्रिया आणि वेळेवर पूर्ण करण्यासाठी आम्ही कटिबद्ध आहोत. ग्राहकांचा विश्वास आणि समाधान हीच आमची खरी ओळख आहे.</p>
+                    <a href="about.html" class="btn btn-outline-primary rounded-pill px-4 mt-2">अधिक वाचा <i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -91,12 +191,12 @@
         <div class="container text-center">
             <h2 class="fw-bold mb-5">आम्हालाच का निवडावे?</h2>
             <div class="row g-4">
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-search-dollar fs-1 text-primary mb-3"></i><h5>पारदर्शक सेवा</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-rupee-sign fs-1 text-success mb-3"></i><h5>योग्य व वाजवी शुल्क</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-user-tie fs-1 text-warning mb-3"></i><h5>अनुभवी मार्गदर्शन</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-shield-alt fs-1 text-danger mb-3"></i><h5>सुरक्षित माहिती व डेटा</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-bolt fs-1 text-info mb-3"></i><h5>जलद सेवा</h5></div></div>
-                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm"><i class="fas fa-hands-helping fs-1 text-secondary mb-3"></i><h5>Special Offers</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm h-100"><i class="fas fa-search-dollar fs-1 text-primary mb-3"></i><h5 class="fw-bold">पारदर्शक सेवा</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm h-100"><i class="fas fa-rupee-sign fs-1 text-success mb-3"></i><h5 class="fw-bold">योग्य व वाजवी शुल्क</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm h-100"><i class="fas fa-user-tie fs-1 text-warning mb-3"></i><h5 class="fw-bold">अनुभवी मार्गदर्शन</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm h-100"><i class="fas fa-shield-alt fs-1 text-danger mb-3"></i><h5 class="fw-bold">सुरक्षित माहिती व डेटा</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm h-100"><i class="fas fa-bolt fs-1 text-info mb-3"></i><h5 class="fw-bold">जलद सेवा</h5></div></div>
+                <div class="col-md-4 col-sm-6"><div class="p-4 bg-white rounded shadow-sm h-100"><i class="fas fa-hands-helping fs-1 text-secondary mb-3"></i><h5 class="fw-bold">Special Offers</h5></div></div>
             </div>
         </div>
     </section>
@@ -104,20 +204,20 @@
     <!-- 8. Live Statistics -->
     <section class="py-5 bg-primary text-white text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-file-alt fs-1 mb-2"></i>
-                    <p>आधारद्वारे पैसे काढण्यावर (AEPS) कमी सेवा शुल्क</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <i class="fas fa-file-alt fs-1 mb-3"></i>
+                    <h5 class="fw-bold">आधारद्वारे पैसे काढण्यावर (AEPS) कमी सेवा शुल्क</h5>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-stopwatch fs-1 mb-2"></i>
-                    <h3>मुख्यमंत्री माझी लाडकी बहीण योजनेच्या लाभार्थी महिलांसाठी</h3>
-                    <p>दिव्यांग नागरिकांसाठी</p>
+                <div class="col-md-4">
+                    <i class="fas fa-stopwatch fs-1 mb-3"></i>
+                    <h5 class="fw-bold">मुख्यमंत्री माझी लाडकी बहीण योजनेच्या लाभार्थी महिलांसाठी</h5>
+                    <p class="mb-0">दिव्यांग नागरिकांसाठी</p>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <i class="fas fa-calendar-check fs-1 mb-2"></i>
-                    <h3>Since</h3>
-                    <p>08 July 2026</p>
+                <div class="col-md-4">
+                    <i class="fas fa-calendar-check fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Since</h5>
+                    <p class="fs-5 mb-0">08 July 2026</p>
                 </div>
             </div>
         </div>
@@ -126,20 +226,19 @@
     <!-- 9. Top Services -->
     <section class="py-5">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold">आमच्या प्रमुख सेवा</h2>
-                <a href="services.html" class="btn btn-outline-primary">सर्व सेवा पहा <i class="fas fa-arrow-right"></i></a>
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                <h2 class="fw-bold mb-0">आमच्या प्रमुख सेवा</h2>
+                <a href="services.html" class="btn btn-outline-primary rounded-pill px-4 mt-2 mt-sm-0">सर्व सेवा पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="row g-4">
-                <!-- Service Cards -->
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-id-card fs-2 text-primary mb-2"></i><h6>Aadhaar Services</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-id-badge fs-2 text-warning mb-2"></i><h6>PAN Card</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-university fs-2 text-success mb-2"></i><h6>Banking / AEPS</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-passport fs-2 text-info mb-2"></i><h6>Passport</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-car fs-2 text-danger mb-2"></i><h6>Driving Licence</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-print fs-2 text-secondary mb-2"></i><h6>Print & Xerox</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-camera fs-2 text-dark mb-2"></i><h6>Passport Photo</h6></div></div>
-                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-3"><i class="fas fa-file-signature fs-2 text-primary mb-2"></i><h6>Government Forms</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-id-card fs-1 text-primary mb-3"></i><h6 class="fw-bold">Aadhaar Services</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-id-badge fs-1 text-warning mb-3"></i><h6 class="fw-bold">PAN Card</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-university fs-1 text-success mb-3"></i><h6 class="fw-bold">Banking / AEPS</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-passport fs-1 text-info mb-3"></i><h6 class="fw-bold">Passport</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-car fs-1 text-danger mb-3"></i><h6 class="fw-bold">Driving Licence</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-print fs-1 text-secondary mb-3"></i><h6 class="fw-bold">Print & Xerox</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-camera fs-1 text-dark mb-3"></i><h6 class="fw-bold">Passport Photo</h6></div></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><div class="card service-card h-100 text-center p-4"><i class="fas fa-file-signature fs-1 text-primary mb-3"></i><h6 class="fw-bold">Government Forms</h6></div></div>
             </div>
         </div>
     </section>
@@ -147,63 +246,64 @@
     <!-- 10. Government Schemes -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold">शासकीय योजना</h2>
-                <a href="schemes.html" class="btn btn-outline-success">सर्व योजना पहा <i class="fas fa-arrow-right"></i></a>
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                <h2 class="fw-bold mb-0">शासकीय योजना</h2>
+                <a href="schemes.html" class="btn btn-outline-success rounded-pill px-4 mt-2 mt-sm-0">सर्व योजना पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="row g-4">
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">मुख्यमंत्री माझी लाडकी बहीण योजना</h5><p class="card-text text-muted">महिलांसाठी आर्थिक सहाय्य योजना.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">PM Kisan Samman Nidhi</h5><p class="card-text text-muted">शेतकऱ्यांसाठी वार्षिक ₹6000 सहाय्य.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">MahaDBT / Scholarships</h5><p class="card-text text-muted">विद्यार्थ्यांसाठी विविध शिष्यवृत्ती योजना.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">Ayushman Bharat</h5><p class="card-text text-muted">₹5 लाखांपर्यंत मोफत आरोग्य उपचार.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">MAHABOCW</h5><p class="card-text text-muted">बांधकाम कामगारांसाठी विविध शासकीय लाभ.</p></div></div></div>
-                <div class="col-md-4"><div class="card scheme-card border-success"><div class="card-body"><h5 class="card-title text-success">Crop Insurance</h5><p class="card-text text-muted">पीक विमा नोंदणी व सहाय्य.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">मुख्यमंत्री माझी लाडकी बहीण योजना</h5><p class="card-text text-muted">महिलांसाठी आर्थिक सहाय्य योजना.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">PM Kisan Samman Nidhi</h5><p class="card-text text-muted">शेतकऱ्यांसाठी वार्षिक ₹6000 सहाय्य.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">MahaDBT / Scholarships</h5><p class="card-text text-muted">विद्यार्थ्यांसाठी विविध शिष्यवृत्ती योजना.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">Ayushman Bharat</h5><p class="card-text text-muted">₹5 लाखांपर्यंत मोफत आरोग्य उपचार.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">MAHABOCW</h5><p class="card-text text-muted">बांधकाम कामगारांसाठी विविध शासकीय लाभ.</p></div></div></div>
+                <div class="col-md-4"><div class="card scheme-card border-success h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">Crop Insurance</h5><p class="card-text text-muted">पीक विमा नोंदणी व सहाय्य.</p></div></div></div>
             </div>
         </div>
     </section>
 
     <!-- 11. Transparent Charges Preview -->
-    <section class="py-4 text-center">
+    <section class="py-5 text-center bg-white border-bottom border-top">
         <div class="container">
-            <h4 class="mb-3">आमचे सेवा शुल्क पूर्णपणे पारदर्शक व वाजवी आहेत</h4>
-            <a href="charges.html" class="btn btn-warning btn-lg fw-bold"><i class="fas fa-file-invoice-dollar"></i> सर्व्हिस चार्जेस पहा</a>
+            <h4 class="mb-4 fw-bold">आमचे सेवा शुल्क पूर्णपणे पारदर्शक व वाजवी आहेत</h4>
+            <a href="charges.html" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow"><i class="fas fa-file-invoice-dollar me-2"></i> सर्व्हिस चार्जेस पहा</a>
         </div>
     </section>
-            </marquee>
-        </div>
-    </div>
 
     <!-- 13. Process Section -->
     <section class="py-5 bg-light">
         <div class="container text-center">
             <h2 class="fw-bold mb-5">सेवा कशी मिळेल?</h2>
             <div class="row g-4">
-                <div class="col-md-3"><i class="fas fa-phone-alt fs-1 text-primary mb-3"></i><h5>1. Contact</h5><p>संपर्क करा
-फोन, WhatsApp किंवा प्रत्यक्ष सेंटरला भेट द्या.</p></div>
-                <div class="col-md-3"><i class="fas fa-folder-open fs-1 text-warning mb-3"></i><h5>2. Documents</h5><p>आवश्यक कागदपत्रे जमा करा</p></div>
-                <div class="col-md-3"><i class="fas fa-laptop fs-1 text-success mb-3"></i><h5>3. Application</h5><p>ऑनलाईन अर्ज प्रक्रिया</p></div>
-                <div class="col-md-3"><i class="fas fa-check-circle fs-1 text-info mb-3"></i><h5>4. Completion</h5><p>काम पूर्ण होईपर्यंत आम्ही संपूर्ण मार्गदर्शन करू.</p></div>
+                <div class="col-md-3"><i class="fas fa-phone-alt fs-1 text-primary mb-3"></i><h5 class="fw-bold">1. Contact</h5><p class="text-muted">संपर्क करा फोन, WhatsApp किंवा प्रत्यक्ष सेंटरला भेट द्या.</p></div>
+                <div class="col-md-3"><i class="fas fa-folder-open fs-1 text-warning mb-3"></i><h5 class="fw-bold">2. Documents</h5><p class="text-muted">आवश्यक कागदपत्रे जमा करा</p></div>
+                <div class="col-md-3"><i class="fas fa-laptop fs-1 text-success mb-3"></i><h5 class="fw-bold">3. Application</h5><p class="text-muted">ऑनलाईन अर्ज प्रक्रिया</p></div>
+                <div class="col-md-3"><i class="fas fa-check-circle fs-1 text-info mb-3"></i><h5 class="fw-bold">4. Completion</h5><p class="text-muted">काम पूर्ण होईपर्यंत आम्ही संपूर्ण मार्गदर्शन करू.</p></div>
             </div>
         </div>
     </section>
-    <!-- 15. FAQ (Skipped Gallery grid to save space, but added link as requested) -->
-    <section class="py-5">
+
+    <!-- 15. FAQ -->
+    <section class="py-5 bg-white">
         <div class="container">
-            <div class="text-center mb-4">
+            <div class="text-center mb-5">
                 <h2 class="fw-bold">वारंवार विचारले जाणारे प्रश्न (FAQ)</h2>
-                <a href="faq.html" class="text-decoration-none">सर्व प्रश्न पहा</a>
+                <a href="faq.html" class="text-primary text-decoration-none fw-semibold">सर्व प्रश्न पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
-            <div class="accordion w-75 mx-auto" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">केंद्र किती वाजता उघडते?</button></h2>
+            <div class="accordion w-75 mx-auto shadow-sm" id="faqAccordion">
+                <div class="accordion-item border-0 border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">केंद्र किती वाजता उघडते?</button>
+                    </h2>
                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">सकाळी 07:00 ते 10:00 आणि संध्याकाळी 04:00 ते 10:00</div>
+                        <div class="accordion-body text-muted">सकाळी 07:00 ते 10:00 आणि संध्याकाळी 04:00 ते 10:00</div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">लाडकी बहीण योजनेसाठी काय कागदपत्रे लागतात?</button></h2>
+                <div class="accordion-item border-0">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">लाडकी बहीण योजनेसाठी काय कागदपत्रे लागतात?</button>
+                    </h2>
                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">आधार कार्ड, बँक पासबुक, रेशन कार्ड, आणि पासपोर्ट फोटो.</div>
+                        <div class="accordion-body text-muted">आधार कार्ड, बँक पासबुक, रेशन कार्ड, आणि पासपोर्ट फोटो.</div>
                     </div>
                 </div>
             </div>
@@ -213,21 +313,22 @@
     <!-- 16. Contact -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="row g-4">
+            <div class="row g-4 align-items-center">
                 <div class="col-md-6">
                     <h3 class="fw-bold mb-4">संपर्क साधा</h3>
-                    <p><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>पत्ता:</strong> आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</p>
-                    <p><i class="fas fa-phone text-primary me-2"></i> <strong>मोबाईल:</strong> 7719984464</p>
-                    <p><i class="fas fa-envelope text-warning me-2"></i> <strong>ईमेल:</strong> prataprathod821@gmail.com</p>
-                    <p><i class="fas fa-clock text-success me-2"></i> <strong>वेळ:</strong> 24/7 </p>
-                    <div class="mt-4 d-flex gap-2">
-                        <a href="9673258236" class="btn btn-success"><i class="fab fa-whatsapp"></i>WhatsApp</a>
-                        <a href="contact.html" class="btn btn-primary"><i class="fas fa-directions"></i> Get Directions</a>
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <p class="mb-3"><i class="fas fa-map-marker-alt text-danger me-3 fs-5 w-20"></i> <strong class="text-dark">पत्ता:</strong> आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</p>
+                        <p class="mb-3"><i class="fas fa-phone text-primary me-3 fs-5 w-20"></i> <strong class="text-dark">मोबाईल:</strong> 7719984464</p>
+                        <p class="mb-3"><i class="fas fa-envelope text-warning me-3 fs-5 w-20"></i> <strong class="text-dark">ईमेल:</strong> prataprathod821@gmail.com</p>
+                        <p class="mb-0"><i class="fas fa-clock text-success me-3 fs-5 w-20"></i> <strong class="text-dark">वेळ:</strong> 24/7</p>
+                    </div>
+                    <div class="mt-4 d-flex gap-3">
+                        <a href="https://wa.me/919673258236" class="btn btn-success rounded-pill px-4"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
+                        <a href="contact.html" class="btn btn-primary rounded-pill px-4"><i class="fas fa-directions me-2"></i> Get Directions</a>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <!-- Placeholder Map -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.187311140034!2d77.3000!3d20.1000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA2JzAwLjAiTiA3N8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15024.187311140034!2d77.3000!3d20.1000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA2JzAwLjAiTiA3N8KwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="350" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy" class="shadow-sm"></iframe>
                 </div>
             </div>
         </div>
@@ -236,36 +337,37 @@
     <!-- 17. Footer -->
     <footer class="bg-dark text-white pt-5 pb-3">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>प्रताप ऑनलाईन सेंटर</h5>
-                    <p class="text-secondary">आमला खुर्द, ता. दिग्रस, जि. यवतमाळ<br>डिजिटल सेवा, जलद सेवा.</p>
+            <div class="row g-4">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3 text-white">प्रताप ऑनलाईन सेंटर</h5>
+                    <p class="text-secondary mb-2"><i class="fas fa-map-pin me-2"></i> आमला खुर्द, ता. दिग्रस, जि. यवतमाळ</p>
+                    <p class="text-secondary"><i class="fas fa-cogs me-2"></i> डिजिटल सेवा, जलद सेवा.</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-secondary text-decoration-none">About Us</a></li>
-                        <li><a href="gallery.html" class="text-secondary text-decoration-none">Gallery</a></li>
-                        <li><a href="privacy-policy.html" class="text-secondary text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="terms-and-conditions.html" class="text-secondary text-decoration-none">Terms & Conditions</a></li>
-                        <li><a href="disclaimer.html" class="text-secondary text-decoration-none">Disclaimer</a></li>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3 text-white">Quick Links</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="about.html" class="text-secondary text-decoration-none hover-white"><i class="fas fa-angle-right me-2"></i> About Us</a></li>
+                        <li><a href="gallery.html" class="text-secondary text-decoration-none hover-white"><i class="fas fa-angle-right me-2"></i> Gallery</a></li>
+                        <li><a href="privacy-policy.html" class="text-secondary text-decoration-none hover-white"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html" class="text-secondary text-decoration-none hover-white"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html" class="text-secondary text-decoration-none hover-white"><i class="fas fa-angle-right me-2"></i> Disclaimer</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Official Government Portals</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="https://uidai.gov.in" target="_blank" class="text-secondary text-decoration-none">UIDAI</a></li>
-                        <li><a href="https://www.pan.utiitsl.com/" target="_blank" class="text-secondary text-decoration-none">PAN / NSDL</a></li>
-                        <li><a href="https://pmkisan.gov.in/" target="_blank" class="text-secondary text-decoration-none">PM Kisan</a></li>
-                        <li><a href="https://mahadbt.maharashtra.gov.in/" target="_blank" class="text-secondary text-decoration-none">MahaDBT</a></li>
-                        <li><a href="https://www.digilocker.gov.in/" target="_blank" class="text-secondary text-decoration-none">DigiLocker</a></li>
-                        <li><a href="https://www.passportindia.gov.in/" target="_blank" class="text-secondary text-decoration-none">Passport Seva</a></li>
-                        <li><a href="https://eci.gov.in/" target="_blank" class="text-secondary text-decoration-none">Election Commission</a></li>
-                        <li><a href="https://www.epfindia.gov.in/" target="_blank" class="text-secondary text-decoration-none">EPFO</a></li>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3 text-white">Official Government Portals</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="https://uidai.gov.in" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> UIDAI</a></li>
+                        <li><a href="https://www.pan.utiitsl.com/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> PAN / NSDL</a></li>
+                        <li><a href="https://pmkisan.gov.in/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> PM Kisan</a></li>
+                        <li><a href="https://mahadbt.maharashtra.gov.in/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> MahaDBT</a></li>
+                        <li><a href="https://www.digilocker.gov.in/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> DigiLocker</a></li>
+                        <li><a href="https://www.passportindia.gov.in/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> Passport Seva</a></li>
+                        <li><a href="https://eci.gov.in/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> Election Commission</a></li>
+                        <li><a href="https://www.epfindia.gov.in/" target="_blank" class="text-secondary text-decoration-none"><i class="fas fa-external-link-alt me-2 fs-6"></i> EPFO</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="border-secondary">
+            <hr class="border-secondary mt-4 mb-4">
             <div class="text-center text-secondary">
                 <small>&copy; 2026 प्रताप ऑनलाईन सेंटर, आमला खुर्द. All Rights Reserved.</small>
             </div>
@@ -274,11 +376,12 @@
 
     <!-- Floating Buttons -->
     <div class="floating-btns">
-        <a href="https://wa.me/7719984464" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/917719984464" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+917719984464" class="float-btn call" title="Call Us"><i class="fas fa-phone"></i></a>
         <a href="#" class="float-btn top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
     </div>
-<!-- Bootstrap 5 JS Bundle with Popper -->
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
