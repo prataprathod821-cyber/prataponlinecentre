@@ -62,7 +62,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
         }
 
-        /* Floating Action Buttons */
+        /* Floating Action Buttons (Hidden by default) */
         .floating-btns {
             position: fixed;
             bottom: 30px;
@@ -71,7 +71,21 @@
             flex-direction: column;
             gap: 15px;
             z-index: 1000;
+            
+            /* शुरुवात में छुपाने के लिए */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease-in-out;
         }
+
+        /* जब फुटर दिखेगा तब यह क्लास काम करेगा */
+        .floating-btns.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         .float-btn {
             width: 55px;
             height: 55px;
@@ -139,12 +153,10 @@
             <p class="lead mb-4 fw-light">आमला खुर्द व परिसरातील सर्वात विश्वासार्ह डिजिटल सेवा केंद्र</p>
             <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
                 <a href="services.html" class="btn btn-primary btn-lg rounded-pill shadow-sm">आमच्या सेवा</a>
-                <a href="tel:+917719984464"
-class="btn btn-outline-light btn-lg rounded-pill">संपर्क साधा</a>
-                <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4"
-class="btn btn-outline-light btn-lg rounded-pill">
-    <i class="fab fa-whatsapp"></i> WhatsApp Group जॉईन करा
-</a>
+                <a href="tel:+917719984464" class="btn btn-outline-light btn-lg rounded-pill">संपर्क साधा</a>
+                <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4" class="btn btn-outline-light btn-lg rounded-pill">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Group जॉईन करा
+                </a>
             </div>
         </div>
 
@@ -334,8 +346,8 @@ class="btn btn-outline-light btn-lg rounded-pill">
         </div>
     </section>
 
-    <!-- 17. Footer -->
-    <footer class="bg-dark text-white pt-5 pb-3">
+    <!-- 17. Footer (यहाँ आने पर ही Floating Buttons दिखेंगे) -->
+    <footer id="footer-section" class="bg-dark text-white pt-5 pb-3">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4 mb-4 mb-md-0">
@@ -375,7 +387,7 @@ class="btn btn-outline-light btn-lg rounded-pill">
     </footer>
 
     <!-- Floating Buttons -->
-    <div class="floating-btns">
+    <div class="floating-btns" id="floatingBtns">
         <a href="https://wa.me/917719984464" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+917719984464" class="float-btn call" title="Call Us"><i class="fas fa-phone"></i></a>
         <a href="#" class="float-btn top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
@@ -383,5 +395,27 @@ class="btn btn-outline-light btn-lg rounded-pill">
 
     <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript For Floating Buttons Visibility -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const footer = document.getElementById('footer-section');
+            const floatingBtns = document.getElementById('floatingBtns');
+
+            const observer = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                    floatingBtns.classList.add('show');
+                } else {
+                    floatingBtns.classList.remove('show');
+                }
+            }, {
+                threshold: 0.1 // जब फुटर का 10% हिस्सा स्क्रीन पर आएगा तब बटन दिखेंगे
+            });
+
+            if (footer) {
+                observer.observe(footer);
+            }
+        });
+    </script>
 </body>
 </html>
