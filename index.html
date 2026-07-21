@@ -2,7 +2,7 @@
 <html lang="mr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>प्रताप ऑनलाईन सेंटर | Pratap Online Centre</title>
     
     <!-- Google Fonts for Premium Typography -->
@@ -19,17 +19,24 @@
 
     <!-- Premium Custom CSS -->
     <style>
+        /* Mobile Scroll Issue Fix */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Poppins', 'Mukta', sans-serif;
-            background-color: #f8f9fa;
-            overflow-x: hidden;
+            background-color: #f4f7f9; /* Softer premium background */
         }
         
         /* Navbar Styling */
         .navbar {
             backdrop-filter: blur(15px);
-            background-color: rgba(255, 255, 255, 0.9) !important;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
             transition: all 0.3s ease;
         }
         .navbar-brand h5 {
@@ -39,6 +46,7 @@
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
         .nav-link::after {
             content: '';
@@ -54,11 +62,11 @@
 
         /* Hero Section Styling - Animated Gradient */
         .hero-section {
-            background: linear-gradient(-45deg, #0d6efd, #0dcaf0, #20c997, #0d6efd);
+            background: linear-gradient(-45deg, #0d6efd, #0b5ed7, #0dcaf0, #0d6efd);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: white;
-            padding: 100px 0 20px 0;
+            padding: 120px 0 40px 0;
             text-align: center;
             position: relative;
         }
@@ -78,55 +86,59 @@
             70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
+
+        /* Highlight Badge Animation */
+        .pulse-badge {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+        }
         
-        /* Card Hover Effects */
-        .service-card, .scheme-card {
+        /* Premium Card Hover Effects */
+        .service-card, .scheme-card, .why-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.05);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            background: white;
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+            background: #ffffff;
             overflow: hidden;
             position: relative;
+            z-index: 1;
         }
         .service-card::before, .scheme-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 4px;
-            background: #0d6efd;
+            background: linear-gradient(90deg, #0d6efd, #0dcaf0);
             transform: scaleX(0);
             transition: transform 0.4s ease;
             transform-origin: left;
+            z-index: -1;
         }
         .service-card:hover::before, .scheme-card:hover::before {
             transform: scaleX(1);
         }
-        .service-card:hover, .scheme-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
+        .service-card:hover, .scheme-card:hover, .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(13, 110, 253, 0.1);
         }
-
-        /* Icon styling in why choose us */
-        .why-card {
-            transition: all 0.4s ease;
-            border-radius: 20px !important;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.04) !important;
-        }
-        .why-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        
+        /* Premium Scheme Card specific */
+        .scheme-card {
+            background: linear-gradient(145deg, #ffffff, #fdfdfd);
         }
 
         /* Map styling */
         .map-container iframe {
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
         }
         .map-container iframe:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
 
         /* Floating Action Buttons */
@@ -149,41 +161,42 @@
             transform: translateY(0) scale(1);
         }
         .float-btn {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 26px;
+            font-size: 24px;
             text-decoration: none;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
         }
         .float-btn:hover {
             color: white;
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
         }
         .whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
-        .call { background: linear-gradient(135deg, #007bff, #0056b3); }
-        .top { background: linear-gradient(135deg, #6c757d, #343a40); font-size: 20px; }
+        .call { background: linear-gradient(135deg, #0d6efd, #0a58ca); }
+        .top { background: linear-gradient(135deg, #6c757d, #495057); font-size: 18px; }
         
         /* Smooth Scroll */
         html { scroll-behavior: smooth; }
         
         /* Accordion Premium Style */
         .accordion-button:not(.collapsed) {
-            background-color: #e7f1ff;
+            background-color: #f0f7ff;
             color: #0d6efd;
             box-shadow: none;
         }
         .accordion-item {
-            border: 1px solid rgba(0,0,0,0.05);
-            border-radius: 12px !important;
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 16px !important;
             margin-bottom: 15px;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
     </style>
 </head>
@@ -227,7 +240,7 @@
             <h1 class="display-4 fw-bold mb-3">आमच्या वेबसाइटवर आपले मनःपूर्वक स्वागत!</h1>
             <p class="lead mb-4 fw-light">आमला खुर्द व परिसरातील सर्वात विश्वासार्ह डिजिटल सेवा केंद्र</p>
             <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
-                <a href="services.html" class="btn btn-light text-primary btn-lg rounded-pill shadow-lg px-4 fw-bold">आमच्या सेवा</a>
+                <a href="services.html" class="btn btn-light text-primary btn-lg rounded-pill shadow-sm px-4 fw-bold">आमच्या सेवा</a>
                 <a href="tel:+917719984464" class="btn btn-outline-light btn-lg rounded-pill px-4">संपर्क साधा</a>
                 <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4" class="btn btn-success btn-lg rounded-pill px-4 btn-pulse border-0">
                     <i class="fab fa-whatsapp"></i> WhatsApp Group जॉईन करा
@@ -236,7 +249,7 @@
         </div>
 
         <!-- 12. Latest Updates Ribbon -->
-        <div class="bg-danger text-white py-2 shadow-lg mt-4">
+        <div class="bg-danger text-white py-2 shadow-sm mt-4 w-100 overflow-hidden">
             <div class="container d-flex align-items-center">
                 <strong class="me-3 flex-shrink-0"><i class="fas fa-bell"></i> आजचे अपडेट्स:</strong>
                 <marquee class="mb-0 fw-medium" onmouseover="this.stop();" onmouseout="this.start();">
@@ -252,7 +265,7 @@
     <section class="py-5 bg-white">
         <div class="container text-center" data-aos="zoom-in" data-aos-duration="800">
             <h2 class="fw-bold mb-3 text-primary">जय सेवालाल!</h2>
-            <p class="text-muted w-75 mx-auto fs-5">आमचे ध्येय आमला खुर्द व परिसरातील प्रत्येक नागरिकाला शासकीय, बँकिंग आणि डिजिटल सेवा सुरक्षित, पारदर्शक, जलद आणि योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे.</p>
+            <p class="text-muted col-lg-8 mx-auto fs-5">आमचे ध्येय आमला खुर्द व परिसरातील प्रत्येक नागरिकाला शासकीय, बँकिंग आणि डिजिटल सेवा सुरक्षित, पारदर्शक, जलद आणि योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे.</p>
         </div>
     </section>
 
@@ -261,7 +274,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0" data-aos="fade-right">
-                    <img src="onwer.png" alt="Owner" class="img-fluid rounded-circle shadow-lg mb-3 border border-4 border-white" style="width:250px; height:250px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="onwer.png" alt="Owner" class="img-fluid rounded-circle shadow-sm mb-3 border border-4 border-white" style="width:250px; height:250px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                     <h4 class="fw-bold text-dark">प्रताप राठोड</h4>
                     <span class="badge bg-primary px-3 py-2 rounded-pill shadow-sm">Operator</span>
                 </div>
@@ -329,7 +342,7 @@
         </div>
     </section>
 
-    <!-- 10. Government Schemes -->
+    <!-- 10. Government Schemes (UPDATED with PMAY-G Card) -->
     <section class="py-5 bg-white">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" data-aos="fade-down">
@@ -337,12 +350,26 @@
                 <a href="schemes.html" class="btn btn-outline-success rounded-pill px-4 mt-2 mt-sm-0 fw-semibold">सर्व योजना पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100"><div class="card scheme-card border-0 h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">मुख्यमंत्री माझी लाडकी बहीण योजना</h5><p class="card-text text-muted">महिलांसाठी आर्थिक सहाय्य योजना.</p></div></div></div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200"><div class="card scheme-card border-0 h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">PM Kisan Samman Nidhi</h5><p class="card-text text-muted">शेतकऱ्यांसाठी वार्षिक ₹6000 सहाय्य.</p></div></div></div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300"><div class="card scheme-card border-0 h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">MahaDBT / Scholarships</h5><p class="card-text text-muted">विद्यार्थ्यांसाठी विविध शिष्यवृत्ती योजना.</p></div></div></div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400"><div class="card scheme-card border-0 h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">Ayushman Bharat</h5><p class="card-text text-muted">₹5 लाखांपर्यंत मोफत आरोग्य उपचार.</p></div></div></div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500"><div class="card scheme-card border-0 h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">MAHABOCW</h5><p class="card-text text-muted">बांधकाम कामगारांसाठी विविध शासकीय लाभ.</p></div></div></div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600"><div class="card scheme-card border-0 h-100"><div class="card-body p-4"><h5 class="card-title text-success fw-bold">Crop Insurance</h5><p class="card-text text-muted">पीक विमा नोंदणी व सहाय्य.</p></div></div></div>
+                
+                <!-- NEW PMAY-G Status Check Feature Card -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
+                    <div class="card scheme-card h-100" style="background: linear-gradient(145deg, #f0f8ff, #ffffff); border-left: 5px solid #0d6efd !important;">
+                        <div class="card-body p-4 text-center position-relative">
+                            <span class="badge bg-danger rounded-pill pulse-badge mb-3 position-absolute" style="top: -10px; right: 20px;">नवीन सुविधा</span>
+                            <i class="fas fa-home fs-1 text-primary mb-3"></i>
+                            <h5 class="card-title text-primary fw-bold">PMAY-G (घरकुल योजना)</h5>
+                            <p class="card-text text-muted small">तुमचा घरकुल योजनेचा रजिस्ट्रेशन नंबर आणि स्टेटस त्वरित चेक करा. 100% सुरक्षित.</p>
+                            <a href="pmay-g.html" class="btn btn-primary rounded-pill px-4 mt-2 shadow-sm w-100 fw-semibold">स्टेटस चेक करा <i class="fas fa-check-circle ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Existing Scheme Cards -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100"><div class="card scheme-card border-0 h-100"><div class="card-body p-4 text-center"><i class="fas fa-female fs-2 text-success mb-3"></i><h5 class="card-title text-success fw-bold">मुख्यमंत्री माझी लाडकी बहीण योजना</h5><p class="card-text text-muted small">महिलांसाठी आर्थिक सहाय्य योजना.</p></div></div></div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200"><div class="card scheme-card border-0 h-100"><div class="card-body p-4 text-center"><i class="fas fa-tractor fs-2 text-success mb-3"></i><h5 class="card-title text-success fw-bold">PM Kisan Samman Nidhi</h5><p class="card-text text-muted small">शेतकऱ्यांसाठी वार्षिक ₹6000 सहाय्य.</p></div></div></div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300"><div class="card scheme-card border-0 h-100"><div class="card-body p-4 text-center"><i class="fas fa-graduation-cap fs-2 text-success mb-3"></i><h5 class="card-title text-success fw-bold">MahaDBT / Scholarships</h5><p class="card-text text-muted small">विद्यार्थ्यांसाठी विविध शिष्यवृत्ती योजना.</p></div></div></div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400"><div class="card scheme-card border-0 h-100"><div class="card-body p-4 text-center"><i class="fas fa-heartbeat fs-2 text-success mb-3"></i><h5 class="card-title text-success fw-bold">Ayushman Bharat</h5><p class="card-text text-muted small">₹5 लाखांपर्यंत मोफत आरोग्य उपचार.</p></div></div></div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500"><div class="card scheme-card border-0 h-100"><div class="card-body p-4 text-center"><i class="fas fa-hard-hat fs-2 text-success mb-3"></i><h5 class="card-title text-success fw-bold">MAHABOCW</h5><p class="card-text text-muted small">बांधकाम कामगारांसाठी विविध शासकीय लाभ.</p></div></div></div>
             </div>
         </div>
     </section>
@@ -351,7 +378,7 @@
     <section class="py-5 text-center" style="background: url('https://www.transparenttextures.com/patterns/cubes.png'), #f8f9fa; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
         <div class="container" data-aos="fade-up">
             <h3 class="mb-4 fw-bold text-dark">आमचे सेवा शुल्क पूर्णपणे पारदर्शक व वाजवी आहेत</h3>
-            <a href="charges.html" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow-lg btn-pulse text-dark"><i class="fas fa-file-invoice-dollar me-2"></i> सर्व्हिस चार्जेस पहा</a>
+            <a href="charges.html" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow-sm btn-pulse text-dark"><i class="fas fa-file-invoice-dollar me-2"></i> सर्व्हिस चार्जेस पहा</a>
         </div>
     </section>
 
@@ -360,10 +387,10 @@
         <div class="container text-center">
             <h2 class="fw-bold mb-5 text-dark" data-aos="fade-down">सेवा कशी मिळेल?</h2>
             <div class="row g-4 position-relative">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100"><div class="p-3"><i class="fas fa-phone-alt fs-1 text-primary mb-3"></i><h5 class="fw-bold">1. Contact</h5><p class="text-muted">संपर्क करा फोन, WhatsApp किंवा प्रत्यक्ष सेंटरला भेट द्या.</p></div></div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200"><div class="p-3"><i class="fas fa-folder-open fs-1 text-warning mb-3"></i><h5 class="fw-bold">2. Documents</h5><p class="text-muted">आवश्यक कागदपत्रे जमा करा</p></div></div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300"><div class="p-3"><i class="fas fa-laptop fs-1 text-success mb-3"></i><h5 class="fw-bold">3. Application</h5><p class="text-muted">ऑनलाईन अर्ज प्रक्रिया</p></div></div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400"><div class="p-3"><i class="fas fa-check-circle fs-1 text-info mb-3"></i><h5 class="fw-bold">4. Completion</h5><p class="text-muted">काम पूर्ण होईपर्यंत आम्ही संपूर्ण मार्गदर्शन करू.</p></div></div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100"><div class="p-3"><i class="fas fa-phone-alt fs-1 text-primary mb-3"></i><h5 class="fw-bold">1. Contact</h5><p class="text-muted small">संपर्क करा फोन, WhatsApp किंवा प्रत्यक्ष सेंटरला भेट द्या.</p></div></div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200"><div class="p-3"><i class="fas fa-folder-open fs-1 text-warning mb-3"></i><h5 class="fw-bold">2. Documents</h5><p class="text-muted small">आवश्यक कागदपत्रे जमा करा</p></div></div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300"><div class="p-3"><i class="fas fa-laptop fs-1 text-success mb-3"></i><h5 class="fw-bold">3. Application</h5><p class="text-muted small">ऑनलाईन अर्ज प्रक्रिया</p></div></div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400"><div class="p-3"><i class="fas fa-check-circle fs-1 text-info mb-3"></i><h5 class="fw-bold">4. Completion</h5><p class="text-muted small">काम पूर्ण होईपर्यंत आम्ही संपूर्ण मार्गदर्शन करू.</p></div></div>
             </div>
         </div>
     </section>
@@ -375,7 +402,8 @@
                 <h2 class="fw-bold text-dark">वारंवार विचारले जाणारे प्रश्न (FAQ)</h2>
                 <a href="faq.html" class="text-primary text-decoration-none fw-semibold">सर्व प्रश्न पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
-            <div class="accordion w-lg-75 mx-auto shadow-sm bg-white rounded-4 p-2" id="faqAccordion">
+            <!-- Fixed w-lg-75 issue here by using col-lg-8 mx-auto for responsive safety -->
+            <div class="accordion col-lg-8 mx-auto shadow-sm bg-white rounded-4 p-2" id="faqAccordion">
                 <div class="accordion-item border-0 border-bottom">
                     <h2 class="accordion-header">
                         <button class="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">केंद्र किती वाजता उघडते?</button>
@@ -414,8 +442,7 @@
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
-                    <div class="map-container rounded-4 overflow-hidden shadow-lg border border-4 border-white">
-                        <!-- Corrected and fully working Google Map -->
+                    <div class="map-container rounded-4 overflow-hidden shadow-sm border border-4 border-white">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12793.311795917589!2d77.80051829160237!3d20.15878779666808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd1650045f41ecf%3A0x3e60ad44cd3228e7!2sPratap%20Online%20centre!5e0!3m2!1sen!2sin!4v1784566165814!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -459,7 +486,7 @@
         </div>
     </footer>
 
-    <!-- Floating Buttons (Will appear after scrolling past Hero section) -->
+    <!-- Floating Buttons -->
     <div class="floating-btns" id="floatingBtns">
         <a href="https://wa.me/917719984464" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+917719984464" class="float-btn call" title="Call Us"><i class="fas fa-phone-alt"></i></a>
@@ -476,11 +503,11 @@
     <script>
         // Initialize AOS animations
         AOS.init({
-            once: true, // Animation happens only once while scrolling down
-            offset: 50,  // Offset (in px) from the original trigger point
+            once: true,
+            offset: 50,
         });
 
-        // Floating buttons visibility logic (Appears when scrolled past 300px for better Premium UX)
+        // Floating buttons visibility logic
         window.addEventListener('scroll', function() {
             const floatingBtns = document.getElementById('floatingBtns');
             if (window.scrollY > 300) {
