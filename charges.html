@@ -295,12 +295,12 @@
     <section class="hero text-center">
         <div class="container fade-in visible">
             <h1>🙏 जय सेवालाल!</h1>
-            <h3 class="mt-3">आमचे सर्व Charges आपल्या सोयीसाठी आणि पूर्ण पारदर्शकतेसाठी उपलब्ध आहेत.</h3>
+            <h3 class="mt-3">आपल्या सोयीसाठी आमच्या सर्व सेवांचे शुल्क स्पष्टपणे येथे दिले आहे.</h3>
             
             <div class="tagline">
                 "आम्ही फक्त पैसे कमवण्यासाठी काम करत नाही...<br><br>
-                आमचा उद्देश प्रत्येक ग्राहकाला योग्य मार्गदर्शन, प्रामाणिक सेवा आणि वाजवी दरामध्ये सर्वोत्तम सुविधा उपलब्ध करून देणे आहे. 
-                आमच्याकडे कोणतेही extra Charges नाहीत. जेवढे Charges दाखवले आहेत तेवढेच घेतले जातील.<br><br>
+                आमचा खरा उद्देश म्हणजे प्रत्येक ग्राहकाला योग्य मार्गदर्शन, प्रामाणिक सेवा आणि वाजवी दरात उत्कृष्ट सुविधा उपलब्ध करून देणे. 
+                कोणतेही लपविलेले (Hidden) Charges नाहीत. जेवढे Charges दाखवले आहेत तेवढेच घेतले जातील.<br><br>
                 <span class="text-gold fw-bold">विश्वास हीच आमची सर्वात मोठी कमाई आहे.</span>"
             </div>
 
@@ -317,7 +317,7 @@
     <div class="container calc-container fade-in">
         <div class="glass-card text-center">
             <h3><i class="fas fa-fingerprint text-gold"></i> AEPS Withdrawal Charges Calculator</h3>
-            <p class="text-muted">Enter the amount you wish to withdraw to check the charge.</p>
+            <p class="text-muted">तुम्हाला किती रक्कम काढायची आहे ते खाली लिहा आणि सेवा शुल्क त्वरित जाणून घ्या.</p>
             <div class="calc-input-group">
                 <input type="number" id="aeps-amount" class="calc-input" placeholder="Enter Withdrawal Amount (₹)">
                 <button class="btn btn-primary" onclick="calculateAeps()">Calculate Charges</button>
@@ -331,7 +331,7 @@
         <div class="container">
             <div class="text-center fade-in mb-5">
                 <h2><i class="fas fa-list-alt text-gold"></i> सर्व सेवांचे दरपत्रक (Service Charges)</h2>
-                <p class="text-muted fw-bold">खालील दरपत्रक अंदाजित आहे, शासनाच्या नियमांनुसार यात बदल होऊ शकतो.</p>
+                <p class="text-muted fw-bold">खालील चार्जेस अंदाजित आहे, शासनाच्या नियमांनुसार यात बदल होऊ शकतो.</p>
             </div>
 
             <div class="services-grid" id="servicesGrid">
@@ -403,7 +403,7 @@
             <h2>Need Help? / काही अडचण आहे का?</h2>
             <p>कोणत्याही सेवेबद्दल माहिती हवी असल्यास त्वरित संपर्क करा.</p>
             <div class="cta-buttons">
-                <a href="tel:+910000000000" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="tel:+917719984464" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Now</a>
                 <a href="https://wa.me/917719984464" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
                 <a href="#" class="btn btn-primary" style="background: var(--gold); color: var(--royal-blue);"><i class="fas fa-map-marker-alt"></i> Visit Center</a>
             </div>
@@ -468,11 +468,11 @@
     text = "Please Enter Valid Amount.";
     color = "red";
 
-} else if (amount >= 1 && amount <= 500) {
+} else if (amount >= 1 && amount <= 499) {
     text = "तुमच्या साठी Free(₹0)";
     color = "green";
 
-} else if (amount >= 501 && amount <= 1000) {
+} else if (amount >= 500 && amount <= 1000) {
     text = "Charge: फक्त ₹10";
 
 } else if (amount >= 1001 && amount <= 2000) {
@@ -507,7 +507,7 @@
         // Services Array Definition & Rendering
         document.addEventListener('DOMContentLoaded', () => {
             const services = [
-                { name: "AEPS Withdrawal", price: "See Calc", icon: "fa-fingerprint", remark: "Based on amount" },
+                { name: "AEPS Withdrawal", price: "calculator बघा", icon: "fa-fingerprint", remark: "Based on amount" },
                 { name: "Balance Check", price: "Free", icon: "fa-rupee-sign", remark: "No hidden charge" },
                 { name: "Mini Statement", price: "₹10", icon: "fa-receipt", remark: "Printed statement" },
                 { name: "Money Transfer", price: "1%", icon: "fa-exchange-alt", remark: "Of total amount transferred" },
