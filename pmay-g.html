@@ -36,95 +36,33 @@
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
-        .page-title {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 24px;
-            border-bottom: 2px solid #eef2f5;
-            padding-bottom: 15px;
-        }
-        .step-card {
-            background: #f8fafd;
-            border-left: 6px solid #28a745;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-        .step-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .step-card.step-two {
-            border-left-color: #007bff;
-        }
-        .step-card h2 {
-            margin-top: 0;
-            color: #333;
-            font-size: 20px;
-        }
-        .step-card p {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .instruction-box {
-            background-color: #e9ecef;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #495057;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-green {
-            background-color: #28a745;
-        }
-        .btn-green:hover { background-color: #218838; }
-        .btn-blue {
-            background-color: #007bff;
-        }
-        .btn-blue:hover { background-color: #0069d9; }
-        .disclaimer {
-            margin-top: 20px;
-            padding: 18px;
-            background-color: #fff8e1;
-            border-left: 5px solid #ffc107;
-            color: #856404;
-            font-size: 14px;
-            border-radius: 6px;
-        }
         
-        /* Table and Search Box Styles */
-        .data-section {
-            margin-top: 40px;
+        /* Search Box Styles */
+        .search-section {
+            margin-bottom: 25px;
         }
         .search-box {
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
+            padding: 15px 20px;
             border: 2px solid #007bff;
-            border-radius: 6px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
             box-sizing: border-box;
             outline: none;
+            transition: box-shadow 0.3s;
         }
         .search-box:focus {
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
         }
+        .search-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        /* Table Styles */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -140,27 +78,70 @@
             color: white;
             position: sticky;
             top: 0;
+            z-index: 10;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fbfd;
         }
         tr:hover {
-            background-color: #f1f1f1;
+            background-color: #e2eaf3;
         }
         .table-container {
-            max-height: 400px; /* Adds a scrollbar if the list is too long */
+            max-height: 450px;
             overflow-y: auto;
             border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styles */
+        .action-section {
+            background: #f8fafd;
+            border-left: 6px solid #007bff;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .action-section h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            color: #ffffff;
+            text-decoration: none;
             border-radius: 6px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+            background-color: #007bff;
+        }
+        .btn:hover {
+            background-color: #0069d9;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            padding: 18px;
+            background-color: #fff8e1;
+            border-left: 5px solid #ffc107;
+            color: #856404;
+            font-size: 14px;
+            border-radius: 6px;
+            line-height: 1.6;
         }
         
         @media (max-width: 600px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
-            .btn {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
+            .container { margin: 15px; padding: 20px; }
+            .btn { display: block; width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -168,90 +149,313 @@
 
     <div class="header">
         <h1>Pratap Online Centre</h1>
-        <p>PMAY-G Sahayata Portal</p>
+        <p>PMAY-G (Pradhan Mantri Awas Yojana) Status Portal</p>
     </div>
 
     <div class="container">
-        <h2 class="page-title">PMAY-G Status Check Karein</h2>
-
-        <!-- Step 1 -->
-        <div class="step-card">
-            <h2>Step 1: Apna Registration Number Khojein</h2>
-            <div class="instruction-box">
-                <strong>Kaise Khojein?</strong><br>
-                1. Niche diye button par click karke official website kholiye.<br>
-                2. Upar menu mein <strong>"Stakeholders"</strong> par click karein.<br>
-                3. Phir <strong>"IAY/PMAYG Beneficiary"</strong> par click karein.<br>
-                4. Naye page par <strong>"Advanced Search"</strong> par click karke apna naam dhundhein.
-            </div>
-            <a href="https://pmayg.nic.in/" target="_blank" class="btn btn-green">PMAY Website Open Karein</a>
+        
+        <!-- Search Section -->
+        <div class="search-section">
+            <label class="search-label" for="searchInput">🔍 Apna Naam ya Registration Number Khojein:</label>
+            <input type="text" id="searchInput" onkeyup="searchTable()" class="search-box" placeholder="Udaharan: AKASH ya MH129904433">
+        </div>
+        
+        <!-- Table Section -->
+        <div class="table-container">
+            <table id="beneficiaryTable">
+                <thead>
+                    <tr>
+                        <th width="10%">S.No</th>
+                        <th width="50%">लाभार्थी का नाम (Beneficiary Name)</th>
+                        <th width="40%">रजिस्ट्रेशन नंबर (Reg. No.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>AKASH KANBA NIRPASE</td><td>MH129904433</td></tr>
+                    <tr><td>2</td><td>ANIL CHARAN RATHOD</td><td>MH129907557</td></tr>
+                    <tr><td>3</td><td>ANIL LAXMAN KHANDWE</td><td>MH130289317</td></tr>
+                    <tr><td>4</td><td>ARVIND SESHRAO CHAVHAN</td><td>MH139046894</td></tr>
+                    <tr><td>5</td><td>AVINASH AWADHUT RAUT</td><td>MH129902517</td></tr>
+                    <tr><td>6</td><td>BABITA VILASH RATHOD</td><td>MH124207544</td></tr>
+                    <tr><td>7</td><td>BABUSING MANIRAM CHAVHAN</td><td>MH124182181</td></tr>
+                    <tr><td>8</td><td>BHARAT SAILANI MAHANAR</td><td>MH130288658</td></tr>
+                    <tr><td>9</td><td>BHUDEO BHAURAO CHAVHAN</td><td>MH137884225</td></tr>
+                    <tr><td>10</td><td>DAATTA KIASAN JADHAV</td><td>MH129908043</td></tr>
+                    <tr><td>11</td><td>DASHRATH KISHAN JADHAV</td><td>MH130289670</td></tr>
+                    <tr><td>12</td><td>DATTA GHASHIRAM RATHOD</td><td>MH137884523</td></tr>
+                    <tr><td>13</td><td>DEVIDAS BABUSING PAWAR</td><td>MH124182748</td></tr>
+                    <tr><td>14</td><td>DHANRAJ BALU MAHANAR</td><td>MH130288640</td></tr>
+                    <tr><td>15</td><td>DHANSHING PRASHRAM CHAVHAN</td><td>MH132176037</td></tr>
+                    <tr><td>16</td><td>DILIP KALU RATHOD</td><td>MH134579524</td></tr>
+                    <tr><td>17</td><td>DURGASHING RAJUSHING CHAVHAN</td><td>MH132033338</td></tr>
+                    <tr><td>18</td><td>DVARAKABAI BALAJI DEVKATE</td><td>MH130287273</td></tr>
+                    <tr><td>19</td><td>GAJANAN RAMDHAN CHAVHAN</td><td>MH139047382</td></tr>
+                    <tr><td>20</td><td>GANESH NARAYAN JADHAV</td><td>MH123786871</td></tr>
+                    <tr><td>21</td><td>GANESH RAMKISHOR YADAV</td><td>MH132517963</td></tr>
+                    <tr><td>22</td><td>GANESH TUKARAM RATHOD</td><td>MH137884634</td></tr>
+                    <tr><td>23</td><td>HIMMAT BABUSING PAWAR</td><td>MH131810120</td></tr>
+                    <tr><td>24</td><td>JITESH DIGAMMBAR CHAVHAN</td><td>MH137735713</td></tr>
+                    <tr><td>25</td><td>KAMINA RAMSHING CHAVHAN</td><td>MH137887892</td></tr>
+                    <tr><td>26</td><td>KARNSHING KESHAV CHAVHAN</td><td>MH137884291</td></tr>
+                    <tr><td>27</td><td>KHUSHAL MAROTRAV PANDITKAR</td><td>MH130287444</td></tr>
+                    <tr><td>28</td><td>KIRAN MADHAV CHAVHAN</td><td>MH139047160</td></tr>
+                    <tr><td>29</td><td>KISHOR SITARAM RATHOD</td><td>MH132175958</td></tr>
+                    <tr><td>30</td><td>LATABAI TARACHAND RATHOD</td><td>MH131810001</td></tr>
+                    <tr><td>31</td><td>MAHEDH SAHIJAPRASAD MISHRA</td><td>MH131812474</td></tr>
+                    <tr><td>32</td><td>MAHESH MADAN JADHAV</td><td>MH123785983</td></tr>
+                    <tr><td>33</td><td>MANOHAR FLUSHING CHAVHAN</td><td>MH137835536</td></tr>
+                    <tr><td>34</td><td>MITHUN FLUSHING CHAVHAN</td><td>MH139047244</td></tr>
+                    <tr><td>35</td><td>NIKESH RAJU RATHOD</td><td>MH139047197</td></tr>
+                    <tr><td>36</td><td>NIKESH SAVAIRAM RATHOD</td><td>MH134577258</td></tr>
+                    <tr><td>37</td><td>NILESH PRAKASH CHAVHAN</td><td>MH139046826</td></tr>
+                    <tr><td>38</td><td>NITESH NURSHING RATHOD</td><td>MH137884557</td></tr>
+                    <tr><td>39</td><td>PRASHRAM PANDU RATHOD</td><td>MH132175574</td></tr>
+                    <tr><td>40</td><td>PRAVIN SAVAIRAM RATHOD</td><td>MH132175759</td></tr>
+                    <tr><td>41</td><td>PRUTHVIRAJ SITARAM RATHOD</td><td>MH139047308</td></tr>
+                    <tr><td>42</td><td>PUNIBAAI SESHRAO CHAVHAN</td><td>MH139047289</td></tr>
+                    <tr><td>43</td><td>PURNA SAWAI CHAVHAN</td><td>MH132669425</td></tr>
+                    <tr><td>44</td><td>RAJARAM MERSHING PAWAR</td><td>MH132669556</td></tr>
+                    <tr><td>45</td><td>RAJESH PRASHRAM RATHOD</td><td>MH139047029</td></tr>
+                    <tr><td>46</td><td>RAMESH TARASHING JADHAO</td><td>MH132426069</td></tr>
+                    <tr><td>47</td><td>RANJIT HARICHAND JADHAO</td><td>MH132176488</td></tr>
+                    <tr><td>48</td><td>SACHIN RAMSHING CHAVHAN</td><td>MH139047263</td></tr>
+                    <tr><td>49</td><td>SANDIP MADHAVRAV KHANDWE</td><td>MH130287926</td></tr>
+                    <tr><td>50</td><td>SANJAY DHUMA RATHOD</td><td>MH132176250</td></tr>
+                    <tr><td>51</td><td>SANJAY KHIMRAM RATHOD</td><td>MH124178561</td></tr>
+                    <tr><td>52</td><td>SANTOSH NAMDEV RATHOD</td><td>MH124175804</td></tr>
+                    <tr><td>53</td><td>SANTOSH MOHAN JADHAV</td><td>MH123524091</td></tr>
+                    <tr><td>54</td><td>SANTOSH RAMKRISHNA MAHANAR</td><td>MH130289713</td></tr>
+                    <tr><td>55</td><td>SATISH NAGORAV TIWASKAR</td><td>MH130287485</td></tr>
+                    <tr><td>56</td><td>SESHRAO PANDURANG CHAVHAN</td><td>MH139046918</td></tr>
+                    <tr><td>57</td><td>SHALIK HARSHING RATHOD</td><td>MH132176090</td></tr>
+                    <tr><td>58</td><td>SHALU BABUSING RATHOD</td><td>MH123785029</td></tr>
+                    <tr><td>59</td><td>SHANKAR TUKARAM MATRE</td><td>MH130288480</td></tr>
+                    <tr><td>60</td><td>SHREECHAND KHIMRAM RATHOD</td><td>MH132175905</td></tr>
+                    <tr><td>61</td><td>SHRICHAND BHISHU RATHOD</td><td>MH123526462</td></tr>
+                    <tr><td>62</td><td>SHRIKRUSHNA TULSHIRAM DOLAS</td><td>MH130288573</td></tr>
+                    <tr><td>63</td><td>SITARAM PANDU RATHOD</td><td>MH124181552</td></tr>
+                    <tr><td>64</td><td>TUKARAM BHAU RATHOD</td><td>MH132175877</td></tr>
+                    <tr><td>65</td><td>TULSIRAM BABUSING JADHAV</td><td>MH124210016</td></tr>
+                    <tr><td>66</td><td>UTTAM KANIRAM JADHAV</td><td>MH123786443</td></tr>
+                    <tr><td>67</td><td>VAMAN GOBRA RATHOD</td><td>MH132176118</td></tr>
+                    <tr><td>68</td><td>VIKRAM RAJUSHING RATHOD</td><td>MH139047080</td></tr>
+                    <tr><td>69</td><td>VINES PANDU RATHOD</td><td>MH139047138</td></tr>
+                    <tr><td>70</td><td>VINOD ASHOKRAO GADKAR</td><td>MH130319899</td></tr>
+                    <tr><td>71</td><td>VINOD MOHAN JADHAV</td><td>MH123524381</td></tr>
+                    <tr><td>72</td><td>VITHTHL MOHAN RATHOD</td><td>MH129908108</td></tr>
+                    <tr><td>73</td><td>YOGESH LALSHING RATHOD</td><td>MH137735565</td></tr>
+                    <tr><td>74</td><td>ARJUN RAMRAO RATHOD</td><td>MH132041056</td></tr>
+                    <tr><td>75</td><td>ASHOK MAHADEV DEVKATE</td><td>MH131812587</td></tr>
+                    <tr><td>76</td><td>DNYANESHWAR BHAGWAN MATRE</td><td>MH130287628</td></tr>
+                    <tr><td>77</td><td>DYNANESHWAR VASANTA CHANDRE</td><td>MH131812545</td></tr>
+                    <tr><td>78</td><td>GAJANAN NAGORAO TIWASKAR</td><td>MH130287417</td></tr>
+                    <tr><td>79</td><td>GAJANAN LAXMAN PAWAR</td><td>MH124216514</td></tr>
+                    <tr><td>80</td><td>KASHIRAM KHIMRAM RATHOD</td><td>MH132036899</td></tr>
+                    <tr><td>81</td><td>MAROTI RAMRAO RATHOD</td><td>MH139047044</td></tr>
+                    <tr><td>82</td><td>MILIND ASHOK DEVKATE</td><td>MH137588820</td></tr>
+                    <tr><td>83</td><td>NAGORAV RAMCHANDRA TIWASKAR</td><td>MH130287468</td></tr>
+                    <tr><td>84</td><td>RAJESH MADHUKAR DOLAS</td><td>MH129904352</td></tr>
+                    <tr><td>85</td><td>RAMDAS RAMJI KHODKE</td><td>MH130289335</td></tr>
+                    <tr><td>86</td><td>RAMRAO KHIMA CHAVHAN</td><td>MH124174274</td></tr>
+                    <tr><td>87</td><td>RAVINDRA ASHOK DEOKATE</td><td>MH130286984</td></tr>
+                    <tr><td>88</td><td>SURESH PANDU PAWAR</td><td>MH137588958</td></tr>
+                    <tr><td>89</td><td>VIDHNU DHUMA PAWAR</td><td>MH129906365</td></tr>
+                    <tr><td>90</td><td>AMOL PRAKASH CHAVHAN</td><td>MH137884027</td></tr>
+                    <tr><td>91</td><td>AKASH AWADHUT RAUT</td><td>MH129902468</td></tr>
+                    <tr><td>92</td><td>AMBADAS KONDBAJI JARANDE</td><td>MH131812301</td></tr>
+                    <tr><td>93</td><td>ASHWIN JIVAN KHANDWE</td><td>MH129910432</td></tr>
+                    <tr><td>94</td><td>BABU KESHAV RATHOD</td><td>MH134578070</td></tr>
+                    <tr><td>95</td><td>DADARAO ISHRAM CHAVHAN</td><td>MH137862236</td></tr>
+                    <tr><td>96</td><td>DATTRAM KALU CHAVHAN</td><td>MH137888011</td></tr>
+                    <tr><td>97</td><td>DEVIDAS BHIKARI PAWAR</td><td>MH131812443</td></tr>
+                    <tr><td>98</td><td>DIPAK KESHAV CHAVHAN</td><td>MH139046936</td></tr>
+                    <tr><td>99</td><td>GOVIND TARA CHAVHAN</td><td>MH132042980</td></tr>
+                    <tr><td>100</td><td>JYOTIBAI PRABHAKAR RATHOD</td><td>MH124211280</td></tr>
+                    <tr><td>101</td><td>LATABAI KANBARAO RAUT</td><td>MH130289982</td></tr>
+                    <tr><td>102</td><td>LAXMAN PIRU RATNE</td><td>MH130288620</td></tr>
+                    <tr><td>103</td><td>PRABHAKAR JAGANNATH GADKAR</td><td>MH130287868</td></tr>
+                    <tr><td>104</td><td>RAJU RAMESH CHAVHAN</td><td>MH139046991</td></tr>
+                    <tr><td>105</td><td>RANJIT BALIRAM RATHOD</td><td>MH139047343</td></tr>
+                    <tr><td>106</td><td>RUPESH RAJU RATHOD</td><td>MH139047221</td></tr>
+                    <tr><td>107</td><td>SHURESH DEORAO RATHOD</td><td>MH132032885</td></tr>
+                    <tr><td>108</td><td>SUDHAMA PREMSING RATHOD</td><td>MH129904154</td></tr>
+                    <tr><td>109</td><td>SUMATRA BALIRAM RATHOD</td><td>MH132825584</td></tr>
+                    <tr><td>110</td><td>AJIT ASHOK KHANDWE</td><td>MH130287677</td></tr>
+                    <tr><td>111</td><td>AMOL SHANKAR JARANDE</td><td>MH131811804</td></tr>
+                    <tr><td>112</td><td>AMOL SURESH PRASAD MISHRA</td><td>MH130287764</td></tr>
+                    <tr><td>113</td><td>BEBIBAI UTTAM RATHOD</td><td>MH132669568</td></tr>
+                    <tr><td>114</td><td>BEBICHAND NAMDEV RATHOD</td><td>MH124174701</td></tr>
+                    <tr><td>115</td><td>BHAGVAT NAGORAV MASKE</td><td>MH129910609</td></tr>
+                    <tr><td>116</td><td>BHANUDAS BANDUJI DHORE</td><td>MH131812358</td></tr>
+                    <tr><td>117</td><td>BHOJRAJ MAHADEVRAO DEVKATE</td><td>MH130287289</td></tr>
+                    <tr><td>118</td><td>CHARAN JIVALA RATHOD</td><td>MH130289120</td></tr>
+                    <tr><td>119</td><td>DADARAO BABUSING JADHAV</td><td>MH123787693</td></tr>
+                    <tr><td>120</td><td>DURGADAS NAMADEV JADHAV</td><td>MH131812280</td></tr>
+                    <tr><td>121</td><td>GAJANAN YASHAVANT PANDITKAR</td><td>MH137589005</td></tr>
+                    <tr><td>122</td><td>GOPAL SHRIRAM KHOND</td><td>MH130287090</td></tr>
+                    <tr><td>123</td><td>HARIOM RAMRATAN TIWARI</td><td>MH130289883</td></tr>
+                    <tr><td>124</td><td>JAYAVANT KHONDBAJI DHORE</td><td>MH130287812</td></tr>
+                    <tr><td>125</td><td>KASHIRAM JESA RATHOD</td><td>MH132854291</td></tr>
+                    <tr><td>126</td><td>KIRAN KANBARAV NIRPASE</td><td>MH130287582</td></tr>
+                    <tr><td>127</td><td>KIRAN KHIMRAO RATHOD</td><td>MH124177949</td></tr>
+                    <tr><td>128</td><td>KISHOR PRAKASH RATHOD</td><td>MH124175245</td></tr>
+                    <tr><td>129</td><td>MADAN PRAKASH SARODE</td><td>MH129904043</td></tr>
+                    <tr><td>130</td><td>MUKESH MOHAN RATHOD</td><td>MH124180945</td></tr>
+                    <tr><td>131</td><td>NANDABAI RAMESH PAWAR</td><td>MH129906598</td></tr>
+                    <tr><td>132</td><td>NITIN VITHAL SARODE</td><td>MH130287154</td></tr>
+                    <tr><td>133</td><td>PARVATI KALU JADHAV</td><td>MH129906053</td></tr>
+                    <tr><td>134</td><td>PRAKASH NAMDEV RATHOD</td><td>MH134577324</td></tr>
+                    <tr><td>135</td><td>PRAKASH NARAYAN RAUT</td><td>MH130289247</td></tr>
+                    <tr><td>136</td><td>PRATAP RAMDAS RATHOD</td><td>MH137887683</td></tr>
+                    <tr><td>137</td><td>PURUSHOTTAM SAHEBRAV KHANDWE</td><td>MH129910698</td></tr>
+                    <tr><td>138</td><td>RAHUL NURSHING JADHAV</td><td>MH123787286</td></tr>
+                    <tr><td>139</td><td>RAJU VISHWANATH KHODKE</td><td>MH130289604</td></tr>
+                    <tr><td>140</td><td>RAVI KALU PAWAR</td><td>MH135215116</td></tr>
+                    <tr><td>141</td><td>SANDIP KALU JADHAV</td><td>MH129906100</td></tr>
+                    <tr><td>142</td><td>SANKAR DHUMA RATHOD</td><td>MH139047065</td></tr>
+                    <tr><td>143</td><td>SESHRAO PRASHRAM CHAVHAN</td><td>MH139046978</td></tr>
+                    <tr><td>144</td><td>SHALIKRAM DATTARAM INGALE</td><td>MH130288218</td></tr>
+                    <tr><td>145</td><td>SHANKAR MOHAN RATHOD</td><td>MH124180309</td></tr>
+                    <tr><td>146</td><td>SHOBHA NILAKANTH NIRPASE</td><td>MH131812526</td></tr>
+                    <tr><td>147</td><td>SHOBHABAI DEVIDAS RATHOD</td><td>MH124216082</td></tr>
+                    <tr><td>148</td><td>SHRAVAN RAJU AMBURE</td><td>MH130289973</td></tr>
+                    <tr><td>149</td><td>SUMAN RAJU AMBURE</td><td>MH131812042</td></tr>
+                    <tr><td>150</td><td>SURAJ SAHEBARAV KHANDAVE</td><td>MH130289923</td></tr>
+                    <tr><td>151</td><td>SURESH KALU JADHAV</td><td>MH123620778</td></tr>
+                    <tr><td>152</td><td>TUKARAM PANDU RATHOD</td><td>MH139047111</td></tr>
+                    <tr><td>153</td><td>TULSHIRAM HAJU RATHOD</td><td>MH137884785</td></tr>
+                    <tr><td>154</td><td>UMESH RAMKISHOR YADAV</td><td>MH132517956</td></tr>
+                    <tr><td>155</td><td>VAISHALI PRABHAKAR GADKAR</td><td>MH130287886</td></tr>
+                    <tr><td>156</td><td>VASANTA TATTYA JAWAKE</td><td>MH130288204</td></tr>
+                    <tr><td>157</td><td>VEDIKA GANESH RATHOD</td><td>MH139047368</td></tr>
+                    <tr><td>158</td><td>VISHAL RAMESH RAHANE</td><td>MH131812507</td></tr>
+                    <tr><td>159</td><td>DASHARATH KISANRAO SATPUTE</td><td>MH129902585</td></tr>
+                    <tr><td>160</td><td>ULHAS NAMDEV RATHOD</td><td>MH129908607</td></tr>
+                    <tr><td>161</td><td>RAVINDRA MAHADEV JADHAV</td><td>MH131810052</td></tr>
+                    <tr><td>162</td><td>KAMLABAI GAJANAN AGALAWE</td><td>MH130290103</td></tr>
+                    <tr><td>163</td><td>RAMSHANKAR GAJANAN AGLAWE</td><td>MH129905881</td></tr>
+                    <tr><td>164</td><td>CHANDRABHAN SATATU SATAPUTE</td><td>MH131809830</td></tr>
+                    <tr><td>165</td><td>KHUSHAL SHIWARAM DHARE</td><td>MH130290032</td></tr>
+                    <tr><td>166</td><td>VIJAY DNYANESHWAR BIRNGANE</td><td>MH130567326</td></tr>
+                    <tr><td>167</td><td>KANHA SONBA MANWAR</td><td>MH130321930</td></tr>
+                    <tr><td>168</td><td>LAWU PANDURANG TALKUTE</td><td>MH135207087</td></tr>
+                    <tr><td>169</td><td>BABAN ARJUN MANWAR</td><td>MH130567357</td></tr>
+                    <tr><td>170</td><td>NARENDRA PRALHAD BHAGAT</td><td>MH130567384</td></tr>
+                    <tr><td>171</td><td>SAYATRA DHARMA MANWAR</td><td>MH129902902</td></tr>
+                    <tr><td>172</td><td>RAJU DYANESHWAR BIRANGNE</td><td>MH135207118</td></tr>
+                    <tr><td>173</td><td>ISHVANAT PRALAD BHAGAT</td><td>MH137691380</td></tr>
+                    <tr><td>174</td><td>KAILAS TULASHIRAM MANAWAR</td><td>MH135207071</td></tr>
+                    <tr><td>175</td><td>AJAY SHANKAR TAYADE</td><td>MH129902785</td></tr>
+                    <tr><td>176</td><td>ASHOK BHAGWAN MANWAR</td><td>MH130567311</td></tr>
+                    <tr><td>177</td><td>GOPAL PANDURANG NAJARDHANE</td><td>MH135179648</td></tr>
+                    <tr><td>178</td><td>VICKY RAMESH MANWAR</td><td>MH130567334</td></tr>
+                    <tr><td>179</td><td>SANGITA SHRIRAM MANGE</td><td>MH135179610</td></tr>
+                    <tr><td>180</td><td>GANESH NAMADEV SATPUTE</td><td>MH131809794</td></tr>
+                    <tr><td>181</td><td>KOKILA KESHAV INGOLE</td><td>MH135182342</td></tr>
+                    <tr><td>182</td><td>SUMED SHRIRAM KHADSE</td><td>MH129902560</td></tr>
+                    <tr><td>183</td><td>KACHARU BANDU BHUSARE</td><td>MH131809741</td></tr>
+                    <tr><td>184</td><td>AMOL PUNDLIK WAGHAMARE</td><td>MH129902613</td></tr>
+                    <tr><td>185</td><td>ARJUN KISAN MANWAR</td><td>MH135207162</td></tr>
+                    <tr><td>186</td><td>SANTOSH LAXMAN INGOLE</td><td>MH130567366</td></tr>
+                    <tr><td>187</td><td>JAYAVANT DHARMA KAMBLE</td><td>MH130567345</td></tr>
+                    <tr><td>188</td><td>MANKARNA ANNARAO KHANDWE</td><td>MH130287237</td></tr>
+                    <tr><td>189</td><td>KUMESH DEVIDAS RATHOD</td><td>MH124172095</td></tr>
+                    <tr><td>190</td><td>SUSHILA DADARAO RAUT</td><td>MH130289831</td></tr>
+                    <tr><td>191</td><td>SUNITA VINOD CHAVHAN</td><td>MH132177227</td></tr>
+                    <tr><td>192</td><td>VITHTHL SHRIRAM SARODE</td><td>MH130287112</td></tr>
+                    <tr><td>193</td><td>SURESH ANNA KHANDWE</td><td>MH131812607</td></tr>
+                    <tr><td>194</td><td>RAMDAS BHASU RATHOD</td><td>MH137735553</td></tr>
+                    <tr><td>195</td><td>TARASHING KANIRAM JADHAV</td><td>MH137883999</td></tr>
+                    <tr><td>196</td><td>RAVINDRA VIJAY JADHAO</td><td>MH137884014</td></tr>
+                    <tr><td>197</td><td>DHANRAJ KHIMRAM RATHOD</td><td>MH132175718</td></tr>
+                    <tr><td>198</td><td>AVADHUT SHRIRAM KHODKE</td><td>MH130288494</td></tr>
+                    <tr><td>199</td><td>PRAKASH SURYABHAN RATHOD</td><td>MH131810287</td></tr>
+                    <tr><td>200</td><td>KASANDAS MOHAN RATHOD</td><td>MH124211942</td></tr>
+                    <tr><td>201</td><td>GULAB TEJU RATHOD</td><td>MH123788904</td></tr>
+                    <tr><td>202</td><td>BABUSING GOBARA RATHOD</td><td>MH124208122</td></tr>
+                    <tr><td>203</td><td>BABARAO GULAB RATHOD</td><td>MH129906430</td></tr>
+                    <tr><td>204</td><td>SANJAY JIVAN KHANDWE</td><td>MH129910548</td></tr>
+                    <tr><td>205</td><td>SANTOSH FULSING CHAVHAN</td><td>MH130287615</td></tr>
+                    <tr><td>206</td><td>KAILAS NAMDEV RATHOD</td><td>MH124176316</td></tr>
+                    <tr><td>207</td><td>GAJANAN NARAYAN KHOND</td><td>MH130288675</td></tr>
+                    <tr><td>208</td><td>KAMLABAI RAMESHWAR AAHER</td><td>MH130287838</td></tr>
+                    <tr><td>209</td><td>VASANTA RAMKRUSHN RAUT</td><td>MH130289173</td></tr>
+                    <tr><td>210</td><td>MAINABAI KONDABAJI DHORE</td><td>MH130288587</td></tr>
+                    <tr><td>211</td><td>RAVI KALU JADHAV</td><td>MH124168087</td></tr>
+                    <tr><td>212</td><td>HANJARI MOTIRAM RATHOD</td><td>MH124209399</td></tr>
+                    <tr><td>213</td><td>DYANESHVAR KALU JADHAV</td><td>MH123542486</td></tr>
+                    <tr><td>214</td><td>SUNDARDAS HARSING RATHOD</td><td>MH124169994</td></tr>
+                    <tr><td>215</td><td>SUKADEV BASHIRAM RATHOD</td><td>MH124122182</td></tr>
+                    <tr><td>216</td><td>SURESH RAMDAS RATHOD</td><td>MH124169419</td></tr>
+                    <tr><td>217</td><td>DHANRAJ BALAJI DEVKATE</td><td>MH137588853</td></tr>
+                    <tr><td>218</td><td>VIJAY KHIMRAM RATHOD</td><td>MH124168539</td></tr>
+                    <tr><td>219</td><td>RUKHAMINA PANJABRAO KHANDVE</td><td>MH130288187</td></tr>
+                    <tr><td>220</td><td>RAMSING DEVSING RATHOD</td><td>MH124173172</td></tr>
+                    <tr><td>221</td><td>RAMKISHOR RAMSVARUP YADAV</td><td>MH130567414</td></tr>
+                    <tr><td>222</td><td>DADARAV NARAYAN WHAGHAMODE</td><td>MH129902403</td></tr>
+                    <tr><td>223</td><td>SHAMRAO CHUDARAM RATHOD</td><td>MH124171553</td></tr>
+                    <tr><td>224</td><td>RAMRATAN RAMESHVAR TIWARI</td><td>MH131811993</td></tr>
+                    <tr><td>225</td><td>JIVAN CHANDRAKANT RATHOD</td><td>MH123788343</td></tr>
+                    <tr><td>226</td><td>GAJANAN BANDUJI DHORE</td><td>MH137691470</td></tr>
+                    <tr><td>227</td><td>SANTOSH DHUMA RATHOD</td><td>MH124179149</td></tr>
+                    <tr><td>228</td><td>TUKARAM BHAGVAN MATRE</td><td>MH129902371</td></tr>
+                    <tr><td>229</td><td>ANIL RAMKRUSHN RAUT</td><td>MH130289195</td></tr>
+                    <tr><td>230</td><td>SUNDARBAI BALLU RATHOD</td><td>MH124213906</td></tr>
+                    <tr><td>231</td><td>BALAJI PANJABRAO KHANDWE</td><td>MH130287233</td></tr>
+                    <tr><td>232</td><td>DALLU NARAYAN RATHOD</td><td>MH126354695</td></tr>
+                    <tr><td>233</td><td>MIRABAI NARAYAN PAWAR</td><td>MH130289961</td></tr>
+                    <tr><td>234</td><td>PARMESHWAR NAGORAV MASKE</td><td>MH129910489</td></tr>
+                    <tr><td>235</td><td>ASHOK BALLU RATHOD</td><td>MH124213277</td></tr>
+                    <tr><td>236</td><td>BALU CHUDARAM RATHOD</td><td>MH124171061</td></tr>
+                    <tr><td>237</td><td>NAVNAT BANSHIRAM RATHOD</td><td>MH123537167</td></tr>
+                    <tr><td>238</td><td>GANESH PRALHAD KHOND</td><td>MH129908321</td></tr>
+                    <tr><td>239</td><td>MADHUKAR PUNJAJI DOLAS</td><td>MH130288526</td></tr>
+                    <tr><td>240</td><td>PANCHIBAI VAKIL PAWAR</td><td>MH131810702</td></tr>
+                    <tr><td>241</td><td>KAMLABAI VISHVANATH KHODAKE</td><td>MH130289584</td></tr>
+                    <tr><td>242</td><td>TAIBAI VASANTA CHANDRE</td><td>MH129904397</td></tr>
+                    <tr><td>243</td><td>GANESH GANPAT PAWAR</td><td>MH135090114</td></tr>
+                    <tr><td>244</td><td>CHADRAKANT SHRIRAM KHOND</td><td>MH130289732</td></tr>
+                    <tr><td>245</td><td>RUPESH KANBA DEVAKATE</td><td>MH131811849</td></tr>
+                    <tr><td>246</td><td>RAJU VISHWANATH KHODKE</td><td>MH130289604</td></tr>
+                    <tr><td>247</td><td>SHANKAR DATTA THORAT</td><td>MH130287175</td></tr>
+                    <tr><td>248</td><td>MANOHAR KONDBAJI DHORE</td><td>MH130289274</td></tr>
+                    <tr><td>249</td><td>GAJANAN DADARAV WAGHAMODE</td><td>MH130289565</td></tr>
+                    <tr><td>250</td><td>CHANDAN CHUNILAL RATHOD</td><td>MH124170536</td></tr>
+                    <tr><td>251</td><td>NARESH RAMSING RATHOD</td><td>MH124173703</td></tr>
+                    <tr><td>252</td><td>VINOD DALLU RATHOD</td><td>MH126065607</td></tr>
+                    <tr><td>253</td><td>RAJU DADARAV WAGHAMODE</td><td>MH130287163</td></tr>
+                    <tr><td>254</td><td>SHANKAR APPARAV KHANDWE</td><td>MH130289934</td></tr>
+                    <tr><td>255</td><td>RAMJI KISAN PAWAR</td><td>MH131810632</td></tr>
+                    <tr><td>256</td><td>SAVAI GOBARA RATHOD</td><td>MH124208793</td></tr>
+                    <tr><td>257</td><td>MOHAN JIVALA RATHOD</td><td>MH131810673</td></tr>
+                    <tr><td>258</td><td>DASHRATH KISHORI CHAUDHARI</td><td>MH129902436</td></tr>
+                    <tr><td>259</td><td>KHIMRAM BHAVSHING RATHOD</td><td>MH132175981</td></tr>
+                    <tr><td>260</td><td>NANDA DATTA THORATH</td><td>MH131812155</td></tr>
+                    <tr><td>261</td><td>RATANBAI VITTALARAO KHANDVE</td><td>MH130287262</td></tr>
+                    <tr><td>262</td><td>KAMALA DOMA PAWAR</td><td>MH124215649</td></tr>
+                    <tr><td>263</td><td>ANIL SUBHASH PAWAR</td><td>MH130289701</td></tr>
+                    <tr><td>264</td><td>HEMALATA SANJAY KHANDWE</td><td>MH130287053</td></tr>
+                    <tr><td>265</td><td>RUPESH CHANDRASHEKHAR INGALE</td><td>MH130288604</td></tr>
+                    <tr><td>266</td><td>ASHA DILIP JADHAV</td><td>MH124212643</td></tr>
+                    <tr><td>267</td><td>BHAGWAN RAMNATH MASKE</td><td>MH131812635</td></tr>
+                    <tr><td>268</td><td>RAMESH DADARAO RAUT</td><td>MH131811958</td></tr>
+                    <tr><td>269</td><td>DURGABAI MADU RATHOD</td><td>MH124176836</td></tr>
+                    <tr><td>270</td><td>MANOJ PRABHAKAR GADKAR</td><td>MH130287857</td></tr>
+                    <tr><td>271</td><td>JUBEDABI SHEKH PAPA BHATNASE</td><td>MH132426301</td></tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Step 2 -->
-        <div class="step-card step-two">
-            <h2>Step 2: PMAY-G Status Check Karein</h2>
-            <p>Jab aapko apna Registration Number mil jaye, toh niche button par click karein. Ek naya official page khulega jahan apna number daal kar 'Submit' par click karein.</p>
-            <a href="https://rhreporting.nic.in/netiay/Benificiary.aspx" target="_blank" class="btn btn-blue">PMAY Status Dekhein</a>
+        <!-- Action Button Section -->
+        <div class="action-section">
+            <h2>PMAY-G Status Check Karein</h2>
+            <p style="color: #555; margin-bottom: 20px;">Apna Registration Number copy karein aur niche diye button par click karke apna PMAY Status check karein.</p>
+            <a href="https://rhreporting.nic.in/netiay/Benificiary.aspx" target="_blank" class="btn">Click Here to Check Status</a>
         </div>
 
         <!-- Disclaimer -->
         <div class="disclaimer">
-            <strong>⚠️ Zaroori Suchna (Disclaimer):</strong> Ye website sirf aapki suvidha aur jankari ke liye banayi gayi hai. Upar diye gaye sabhi buttons aapko seedhe Bharat Sarkar ki official website par le jate hain.
-        </div>
-
-        <!-- Searchable Data Table Section -->
-        <div class="data-section">
-            <h2>Labharthi Suchi (Beneficiary List)</h2>
-            <p>Apna naam ya Registration Number niche type karke search karein:</p>
-            
-            <!-- Search Input -->
-            <input type="text" id="searchInput" onkeyup="searchTable()" class="search-box" placeholder="Naam ya Registration Number likhein...">
-            
-            <div class="table-container">
-                <table id="beneficiaryTable">
-                    <thead>
-                        <tr>
-                            <th>S.No</th>
-                            <th>लाभार्थी का नाम (Beneficiary Name)</th>
-                            <th>रजिस्ट्रेशन नंबर (Reg. No.)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Maine yahan kuch rows example ke liye add kiye hain. Aapko baaki rows isi format me paste karni hongi -->
-                        <tr>
-                            <td>1</td>
-                            <td>AKASH KANBA NIRPASE</td>
-                            <td>MH129904433</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>ANIL CHARAN RATHOD</td>
-                            <td>MH129907557</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>ANIL LAXMAN KHANDWE</td>
-                            <td>MH130289317</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>ARVIND SESHRAO CHAVHAN</td>
-                            <td>MH139046894</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>AVINASH AWADHUT RAUT</td>
-                            <td>MH129902517</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>BABITA VILASH RATHOD</td>
-                            <td>MH124207544</td>
-                        </tr>
-                        <!-- Aapki baaki list isi tarah <tr> aur <td> tags ke andar yahan aayegi -->
-                    </tbody>
-                </table>
-            </div>
+            <strong>⚠️ Zaroori Suchna (Disclaimer):</strong> Ye website sirf aapki suvidha aur jankari ke liye banayi gayi hai. Upar diya gaya button aapko seedhe Bharat Sarkar ki official PMAY-G website par le jata hai. Hum aapka koi personal data save nahi karte.
         </div>
     </div>
 
@@ -264,9 +468,7 @@
             table = document.getElementById("beneficiaryTable");
             tr = table.getElementsByTagName("tr");
 
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 1; i < tr.length; i++) { // i=1 kyunki 0 index par table header hai
-                // Kolumn 1 (Name) aur Kolumn 2 (Reg No) dono me check karega
+            for (i = 1; i < tr.length; i++) { 
                 var tdName = tr[i].getElementsByTagName("td")[1];
                 var tdReg = tr[i].getElementsByTagName("td")[2];
                 
