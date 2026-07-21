@@ -39,11 +39,11 @@
         
         /* Search Box Styles */
         .search-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .search-box {
             width: 100%;
-            padding: 15px 20px;
+            padding: 16px 20px;
             border: 2px solid #007bff;
             border-radius: 8px;
             font-size: 18px;
@@ -56,10 +56,31 @@
         }
         .search-label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 600;
             color: #2c3e50;
             font-size: 18px;
+        }
+
+        /* Status Messages */
+        .status-box {
+            display: none;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
         }
 
         /* Table Styles */
@@ -69,7 +90,7 @@
             background-color: #fff;
         }
         th, td {
-            padding: 12px 15px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
@@ -87,11 +108,34 @@
             background-color: #e2eaf3;
         }
         .table-container {
-            max-height: 450px;
+            display: none; /* Hidden by default */
+            max-height: 400px;
             overflow-y: auto;
             border: 1px solid #ddd;
             border-radius: 8px;
             margin-bottom: 30px;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-left: 15px;
+            transition: 0.2s;
+        }
+        .copy-btn:hover {
+            background-color: #d3d9df;
+        }
+        .copy-btn.copied {
+            background-color: #28a745;
+            color: white;
+            border-color: #28a745;
         }
 
         /* Button Styles */
@@ -101,6 +145,7 @@
             padding: 25px;
             border-radius: 8px;
             text-align: center;
+            margin-top: 20px;
         }
         .action-section h2 {
             margin-top: 0;
@@ -159,9 +204,12 @@
             <label class="search-label" for="searchInput">🔍 Apna Naam ya Registration Number Khojein:</label>
             <input type="text" id="searchInput" onkeyup="searchTable()" class="search-box" placeholder="Udaharan: AKASH ya MH129904433">
         </div>
+
+        <!-- Status Message Box -->
+        <div id="statusMessage" class="status-box"></div>
         
         <!-- Table Section -->
-        <div class="table-container">
+        <div class="table-container" id="tableContainer">
             <table id="beneficiaryTable">
                 <thead>
                     <tr>
@@ -449,8 +497,8 @@
         <!-- Action Button Section -->
         <div class="action-section">
             <h2>PMAY-G Status Check Karein</h2>
-            <p style="color: #555; margin-bottom: 20px;">Apna Registration Number copy karein aur niche diye button par click karke apna PMAY Status check karein.</p>
-            <a href="https://awaassoft.pmayg.dord.gov.in/netiay/Benificiary.aspx" target="_blank" class="btn">Click Here to Check Status</a>
+            <p style="color: #555; margin-bottom: 20px;">Upar se apna Registration Number <b>Copy</b> karein aur niche diye gaye button par click karke wahan <b>Paste</b> karein.</p>
+            <a href="https://rhreporting.nic.in/netiay/Benificiary.aspx" target="_blank" class="btn">Click Here to Check Status</a>
         </div>
 
         <!-- Disclaimer -->
@@ -459,30 +507,92 @@
         </div>
     </div>
 
-    <!-- JavaScript for Live Search -->
+    <!-- JavaScript for Live Search and Copy Button -->
     <script>
-        function searchTable() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("beneficiaryTable");
-            tr = table.getElementsByTagName("tr");
+        // Jab page load ho tab list aur button chupane aur banane ke liye
+        window.onload = function() {
+            var table = document.getElementById("beneficiaryTable");
+            var tr = table.getElementsByTagName("tr");
 
-            for (i = 1; i < tr.length; i++) { 
+            // Har row me 'Copy' button dynamically add karo
+            for (var i = 1; i < tr.length; i++) {
+                tr[i].style.display = "none"; // Hide all rows initially
+                
+                var tdReg = tr[i].getElementsByTagName("td")[2];
+                if(tdReg) {
+                    var regNo = tdReg.innerText.trim();
+                    // Copy button add kiya
+                    tdReg.innerHTML = regNo + ' <button class="copy-btn" onclick="copyText(this, \'' + regNo + '\')">Copy</button>';
+                }
+            }
+        };
+
+        // Search ka function
+        function searchTable() {
+            var input = document.getElementById("searchInput");
+            var filter = input.value.toUpperCase().trim();
+            var table = document.getElementById("beneficiaryTable");
+            var tr = table.getElementsByTagName("tr");
+            var statusBox = document.getElementById("statusMessage");
+            var tableContainer = document.getElementById("tableContainer");
+            var matchCount = 0;
+
+            // Agar search bar khali hai toh sab kuch chupa do
+            if (filter === "") {
+                for (var i = 1; i < tr.length; i++) {
+                    tr[i].style.display = "none";
+                }
+                statusBox.style.display = "none";
+                tableContainer.style.display = "none";
+                return;
+            }
+
+            tableContainer.style.display = "block"; // Table frame dikhao
+
+            for (var i = 1; i < tr.length; i++) { 
                 var tdName = tr[i].getElementsByTagName("td")[1];
                 var tdReg = tr[i].getElementsByTagName("td")[2];
                 
                 if (tdName || tdReg) {
+                    // Registration number ke td se sirft text lena hai, button ka text nahi
                     var nameValue = tdName.textContent || tdName.innerText;
-                    var regValue = tdReg.textContent || tdReg.innerText;
+                    var regValue = tdReg.childNodes[0].nodeValue.trim(); 
                     
                     if (nameValue.toUpperCase().indexOf(filter) > -1 || regValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
+                        tr[i].style.display = ""; // Row dikhao
+                        matchCount++;
                     } else {
-                        tr[i].style.display = "none";
+                        tr[i].style.display = "none"; // Row chupao
                     }
                 }
             }
+
+            // Green/Red Message Update karna
+            statusBox.style.display = "block";
+            if (matchCount > 0) {
+                statusBox.innerHTML = "✅ Record mil gaya! Apna Registration Number aage diye gaye button se <b>Copy</b> karein.";
+                statusBox.className = "status-box status-success";
+            } else {
+                statusBox.innerHTML = "❌ Sorry! Is naam ya number se koi record nahi mila.";
+                statusBox.className = "status-box status-error";
+                tableContainer.style.display = "none"; // Table frame chupao
+            }
+        }
+
+        // Copy button ka function
+        function copyText(buttonElement, textToCopy) {
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                // Button ka style temporarily change karein
+                var originalText = buttonElement.innerHTML;
+                buttonElement.innerHTML = "Copied! ✔";
+                buttonElement.classList.add("copied");
+
+                // 2 second baad wapas normal ho jayega
+                setTimeout(function() {
+                    buttonElement.innerHTML = "Copy";
+                    buttonElement.classList.remove("copied");
+                }, 2000);
+            });
         }
     </script>
 </body>
