@@ -29,7 +29,7 @@
             color: #cddcf6;
         }
         .container {
-            max-width: 750px;
+            max-width: 850px;
             margin: 40px auto;
             background: #ffffff;
             padding: 35px;
@@ -63,8 +63,6 @@
             margin-top: 0;
             color: #333;
             font-size: 20px;
-            display: flex;
-            align-items: center;
         }
         .step-card p {
             color: #555;
@@ -78,9 +76,6 @@
             margin-bottom: 20px;
             font-size: 14px;
             color: #495057;
-        }
-        .instruction-box strong {
-            color: #212529;
         }
         .btn {
             display: inline-block;
@@ -97,37 +92,65 @@
         }
         .btn-green {
             background-color: #28a745;
-            box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
         }
-        .btn-green:hover {
-            background-color: #218838;
-            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
-        }
+        .btn-green:hover { background-color: #218838; }
         .btn-blue {
             background-color: #007bff;
-            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
         }
-        .btn-blue:hover {
-            background-color: #0069d9;
-            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-        }
+        .btn-blue:hover { background-color: #0069d9; }
         .disclaimer {
-            margin-top: 40px;
+            margin-top: 20px;
             padding: 18px;
             background-color: #fff8e1;
             border-left: 5px solid #ffc107;
             color: #856404;
             font-size: 14px;
             border-radius: 6px;
-            line-height: 1.6;
         }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #888;
-            font-size: 14px;
+        
+        /* Table and Search Box Styles */
+        .data-section {
+            margin-top: 40px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px 15px;
             margin-bottom: 20px;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
         }
+        .search-box:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #0f4c81;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .table-container {
+            max-height: 400px; /* Adds a scrollbar if the list is too long */
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        
         @media (max-width: 600px) {
             .container {
                 margin: 20px;
@@ -145,17 +168,15 @@
 
     <div class="header">
         <h1>Pratap Online Centre</h1>
-        <p>PMAY-G (Pradhan Mantri Awas Yojana - Gramin) Sahayata Portal</p>
+        <p>PMAY-G Sahayata Portal</p>
     </div>
 
     <div class="container">
-        <h2 class="page-title">PMAY-G Status Check Karein<br><span style="font-size: 16px; color: #28a745;">(100% Workable & Direct Official Links)</span></h2>
+        <h2 class="page-title">PMAY-G Status Check Karein</h2>
 
         <!-- Step 1 -->
         <div class="step-card">
             <h2>Step 1: Apna Registration Number Khojein</h2>
-            <p>Government server ki security ke karan direct search link load nahi hota. Isliye, niche diye button par click karein aur in aasan steps ko follow karein:</p>
-            
             <div class="instruction-box">
                 <strong>Kaise Khojein?</strong><br>
                 1. Niche diye button par click karke official website kholiye.<br>
@@ -163,26 +184,104 @@
                 3. Phir <strong>"IAY/PMAYG Beneficiary"</strong> par click karein.<br>
                 4. Naye page par <strong>"Advanced Search"</strong> par click karke apna naam dhundhein.
             </div>
-
             <a href="https://pmayg.nic.in/" target="_blank" class="btn btn-green">PMAY Website Open Karein</a>
         </div>
 
         <!-- Step 2 -->
         <div class="step-card step-two">
             <h2>Step 2: PMAY-G Status Check Karein</h2>
-            <p>Jab aapko apna Registration Number mil jaye (Udaharan: MP1234567), toh niche button par click karein. Ek naya official page khulega jahan apna number daal kar 'Submit' par click karein.</p>
+            <p>Jab aapko apna Registration Number mil jaye, toh niche button par click karein. Ek naya official page khulega jahan apna number daal kar 'Submit' par click karein.</p>
             <a href="https://rhreporting.nic.in/netiay/Benificiary.aspx" target="_blank" class="btn btn-blue">PMAY Status Dekhein</a>
         </div>
 
         <!-- Disclaimer -->
         <div class="disclaimer">
-            <strong>⚠️ Zaroori Suchna (Disclaimer):</strong> Ye website sirf aapki suvidha aur jankari ke liye banayi gayi hai. Ye Pradhan Mantri Awas Yojana (PMAY) ki official website nahi hai. <strong>Pratap Online Centre</strong> aapka koi bhi data apne paas save nahi karta hai. Upar diye gaye sabhi buttons aapko seedhe Bharat Sarkar ki official PMAY-G website (nic.in) par le jate hain.
+            <strong>⚠️ Zaroori Suchna (Disclaimer):</strong> Ye website sirf aapki suvidha aur jankari ke liye banayi gayi hai. Upar diye gaye sabhi buttons aapko seedhe Bharat Sarkar ki official website par le jate hain.
+        </div>
+
+        <!-- Searchable Data Table Section -->
+        <div class="data-section">
+            <h2>Labharthi Suchi (Beneficiary List)</h2>
+            <p>Apna naam ya Registration Number niche type karke search karein:</p>
+            
+            <!-- Search Input -->
+            <input type="text" id="searchInput" onkeyup="searchTable()" class="search-box" placeholder="Naam ya Registration Number likhein...">
+            
+            <div class="table-container">
+                <table id="beneficiaryTable">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>लाभार्थी का नाम (Beneficiary Name)</th>
+                            <th>रजिस्ट्रेशन नंबर (Reg. No.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Maine yahan kuch rows example ke liye add kiye hain. Aapko baaki rows isi format me paste karni hongi -->
+                        <tr>
+                            <td>1</td>
+                            <td>AKASH KANBA NIRPASE</td>
+                            <td>MH129904433</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>ANIL CHARAN RATHOD</td>
+                            <td>MH129907557</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ANIL LAXMAN KHANDWE</td>
+                            <td>MH130289317</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>ARVIND SESHRAO CHAVHAN</td>
+                            <td>MH139046894</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>AVINASH AWADHUT RAUT</td>
+                            <td>MH129902517</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>BABITA VILASH RATHOD</td>
+                            <td>MH124207544</td>
+                        </tr>
+                        <!-- Aapki baaki list isi tarah <tr> aur <td> tags ke andar yahan aayegi -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <div class="footer">
-        &copy; 2026 Pratap Online Centre. All Rights Reserved.
-    </div>
+    <!-- JavaScript for Live Search -->
+    <script>
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("beneficiaryTable");
+            tr = table.getElementsByTagName("tr");
 
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 1; i < tr.length; i++) { // i=1 kyunki 0 index par table header hai
+                // Kolumn 1 (Name) aur Kolumn 2 (Reg No) dono me check karega
+                var tdName = tr[i].getElementsByTagName("td")[1];
+                var tdReg = tr[i].getElementsByTagName("td")[2];
+                
+                if (tdName || tdReg) {
+                    var nameValue = tdName.textContent || tdName.innerText;
+                    var regValue = tdReg.textContent || tdReg.innerText;
+                    
+                    if (nameValue.toUpperCase().indexOf(filter) > -1 || regValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
