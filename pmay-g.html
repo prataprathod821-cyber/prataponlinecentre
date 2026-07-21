@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PMAY-G Status Check - Pratap Online Centre</title>
+    <title>PMAY-G Status Check - प्रताप ऑनलाईन सेंटर</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -194,15 +194,15 @@
 
     <div class="header">
         <h1>Pratap Online Centre</h1>
-        <p>PMAY-G (Pradhan Mantri Awas Yojana) Status Portal</p>
+        <p>PMAY-G (Pradhan Mantri Awas Yojana) फक्त आमला खुर्द साठी</p>
     </div>
 
     <div class="container">
         
         <!-- Search Section -->
         <div class="search-section">
-            <label class="search-label" for="searchInput">🔍 Apna Naam ya Registration Number Khojein:</label>
-            <input type="text" id="searchInput" onkeyup="searchTable()" class="search-box" placeholder="Udaharan: AKASH ya MH129904433">
+            <label class="search-label" for="searchInput">🔍 आपले नाव किंवा नोंदणी क्रमांक शोधा:</label>
+            <input type="text" id="searchInput" onkeyup="searchTable()" class="search-box" placeholder="आपले नाव टाका.">
         </div>
 
         <!-- Status Message Box -->
@@ -496,14 +496,15 @@
 
         <!-- Action Button Section -->
         <div class="action-section">
-            <h2>PMAY-G Status Check Karein</h2>
-            <p style="color: #555; margin-bottom: 20px;">Upar se apna Registration Number <b>Copy</b> karein aur niche diye gaye button par click karke wahan <b>Paste</b> karein.</p>
+            <h2>PMAY-G अर्जाची स्थिती तपासा</h2>
+            <p style="color: #555; margin-bottom: 20px;">वरील नोंदणी क्रमांक <b>कॉपी<b> करा आणि खालील बटणावर क्लिक करून भारत सरकारच्या अधिकृत संकेतस्थळावर तो क्रमांक <b>पेस्ट<b> करून आपल्या अर्जाची स्थिती तपासा.</p>
             <a href="https://rhreporting.nic.in/netiay/Benificiary.aspx" target="_blank" class="btn">Click Here to Check Status</a>
         </div>
 
         <!-- Disclaimer -->
         <div class="disclaimer">
-            <strong>⚠️ Zaroori Suchna (Disclaimer):</strong> Ye website sirf aapki suvidha aur jankari ke liye banayi gayi hai. Upar diya gaya button aapko seedhe Bharat Sarkar ki official PMAY-G website par le jata hai. Hum aapka koi personal data save nahi karte.
+            <strong>⚠️ महत्त्वाची सूचना (Disclaimer):</strong> ही वेबसाइट प्रताप ऑनलाइन सेंटर यांनी नागरिकांच्या माहितीसाठी व सोयीसाठी तयार केलेली आहे. या वेबसाइटचा भारत सरकार किंवा प्रधानमंत्री आवास योजना (PMAY-G) विभागाशी कोणताही अधिकृत संबंध नाही.
+अधिकृत माहिती व अर्जाची स्थिती पाहण्यासाठी कृपया भारत सरकारच्या अधिकृत PMAY-G पोर्टलचाच वापर करा.
         </div>
     </div>
 
@@ -570,10 +571,11 @@
             // Green/Red Message Update karna
             statusBox.style.display = "block";
             if (matchCount > 0) {
-                statusBox.innerHTML = "✅ Record mil gaya! Apna Registration Number aage diye gaye button se <b>Copy</b> karein.";
+                statusBox.innerHTML = "✅ अभिनंदन! आपली नोंद उपलब्ध आहे.
+खालील 'कॉपी' बटणावर क्लिक करून आपला नोंदणी क्रमांक कॉपी करा.";
                 statusBox.className = "status-box status-success";
             } else {
-                statusBox.innerHTML = "❌ Sorry! Is naam ya number se koi record nahi mila.";
+                statusBox.innerHTML = ❌ क्षमस्व! दिलेल्या नाव किंवा नोंदणी क्रमांकाशी संबंधित कोणतीही नोंद उपलब्ध नाही. कृपया योग्य माहिती टाकून पुन्हा शोधा.";
                 statusBox.className = "status-box status-error";
                 tableContainer.style.display = "none"; // Table frame chupao
             }
