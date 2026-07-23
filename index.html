@@ -29,14 +29,14 @@
 
         body {
             font-family: 'Poppins', 'Mukta', sans-serif;
-            background-color: #f4f7f9; /* Softer premium background */
+            background-color: #f8fafc; /* Premium subtle background */
         }
         
         /* Navbar Styling */
         .navbar {
             backdrop-filter: blur(15px);
-            background-color: rgba(255, 255, 255, 0.95) !important;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
         .navbar-brand h5 {
@@ -47,17 +47,20 @@
             position: relative;
             transition: color 0.3s ease;
             font-weight: 500;
+            padding: 0.5rem 1rem !important;
         }
         .nav-link::after {
             content: '';
             position: absolute;
-            width: 0; height: 2px;
-            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            bottom: 0; left: 50%;
             background-color: #0d6efd;
-            transition: width 0.3s ease;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 3px 3px 0 0;
         }
         .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
+            width: 80%;
         }
 
         /* Hero Section Styling - Animated Gradient */
@@ -66,7 +69,7 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: white;
-            padding: 120px 0 40px 0;
+            padding: 100px 0 120px 0; /* Extra padding at bottom for overlapping updates */
             text-align: center;
             position: relative;
         }
@@ -87,6 +90,22 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
+        /* Update Live Pulse Dot */
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #dc3545;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+            animation: pulse-red-dot 1.5s infinite;
+        }
+        @keyframes pulse-red-dot {
+            0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+        }
+
         /* Highlight Badge Animation */
         .pulse-badge {
             animation: pulse-red 2s infinite;
@@ -100,9 +119,9 @@
         /* Premium Card Hover Effects */
         .service-card, .scheme-card, .why-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.03);
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             background: #ffffff;
             overflow: hidden;
             position: relative;
@@ -123,12 +142,27 @@
         }
         .service-card:hover, .scheme-card:hover, .why-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(13, 110, 253, 0.1);
+            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.12);
         }
         
         /* Premium Scheme Card specific */
         .scheme-card {
             background: linear-gradient(145deg, #ffffff, #fdfdfd);
+        }
+
+        /* Updates Highlight Cards */
+        .update-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            background: #fff;
+            border-left: 4px solid #0d6efd;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            cursor: pointer;
+        }
+        .update-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-left: 4px solid #dc3545;
         }
 
         /* Map styling */
@@ -221,10 +255,6 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="schemes.html">Schemes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="updates.html">Updates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
                 <div class="d-flex gap-2 ms-lg-3 mt-2 mt-lg-0">
                     <a href="tel:+917719984464" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="fas fa-phone"></i> Call</a>
@@ -236,7 +266,7 @@
 
     <!-- 3. Hero Section -->
     <section class="hero-section" id="home">
-        <div class="container pb-5" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container" data-aos="fade-up" data-aos-duration="1000">
             <h1 class="display-4 fw-bold mb-3">आमच्या वेबसाइटवर आपले मनःपूर्वक स्वागत!</h1>
             <p class="lead mb-4 fw-light">आमला खुर्द व परिसरातील सर्वात विश्वासार्ह डिजिटल सेवा केंद्र</p>
             <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
@@ -247,22 +277,57 @@
                 </a>
             </div>
         </div>
+    </section>
 
-        <!-- 12. Latest Updates Ribbon -->
-        <div class="bg-danger text-white py-2 shadow-sm mt-4 w-100 overflow-hidden">
-            <div class="container d-flex align-items-center">
-                <strong class="me-3 flex-shrink-0"><i class="fas fa-bell"></i> आजचे अपडेट्स:</strong>
-                <marquee class="mb-0 fw-medium" onmouseover="this.stop();" onmouseout="this.start();">
-                    <a href="updates.html" class="text-white text-decoration-none me-4">👉 Maharashtra GR: ऊसतोड कामगार योजना फॉर्म भरणे चालू आहे...</a>
-                    <a href="updates.html" class="text-white text-decoration-none me-4">👉 बांधकाम कामगार योजनेची नोंदणी चालू आहे...</a>
-                    <a href="updates.html" class="text-white text-decoration-none">👉 UIDAI: मोफत आधार मध्ये इमेल अपडेट...</a>
-                </marquee>
+    <!-- 12. New Premium Daily Updates Highlights -->
+    <section style="margin-top: -60px; position: relative; z-index: 10;">
+        <div class="container" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white rounded-4 shadow-lg p-4 border-top border-5 border-danger">
+                <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                    <div class="pulse-dot me-3"></div>
+                    <h4 class="fw-bold mb-0 text-dark">आजचे ठळक अपडेट्स</h4>
+                    <span class="badge bg-danger ms-3 rounded-pill">Live Updates</span>
+                </div>
+                <div class="row g-4">
+                    <!-- Update 1 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="update-card p-3 h-100" style="border-left-color: #0d6efd;">
+                            <span class="badge bg-primary mb-2">Registration Open</span>
+                            <h6 class="fw-bold text-dark mb-1">ऊसतोड कामगार योजना</h6>
+                            <p class="text-muted small mb-0">महाराष्ट्र GR नुसार फॉर्म भरणे चालू आहे. त्वरित संपर्क करा.</p>
+                        </div>
+                    </div>
+                    <!-- Update 2 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="update-card p-3 h-100" style="border-left-color: #198754;">
+                            <span class="badge bg-success mb-2">New Scheme</span>
+                            <h6 class="fw-bold text-dark mb-1">बांधकाम कामगार नोंदणी</h6>
+                            <p class="text-muted small mb-0">नवीन नोंदणी व नूतनीकरण प्रकिया आमच्याकडे उपलब्ध आहे.</p>
+                        </div>
+                    </div>
+                    <!-- Update 3 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="update-card p-3 h-100" style="border-left-color: #ffc107;">
+                            <span class="badge bg-warning text-dark mb-2">Important Deadline</span>
+                            <h6 class="fw-bold text-dark mb-1">UIDAI आधार अपडेट</h6>
+                            <p class="text-muted small mb-0">मोफत आधार मध्ये डॉक्युमेंट आणि इमेल अपडेट करून घ्या.</p>
+                        </div>
+                    </div>
+                    <!-- Update 4 -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="update-card p-3 h-100" style="border-left-color: #dc3545;">
+                            <span class="badge bg-danger mb-2">Trending</span>
+                            <h6 class="fw-bold text-dark mb-1">मुख्यमंत्री लाडकी बहीण योजना</h6>
+                            <p class="text-muted small mb-0">लाभार्थी महिलांसाठी ई-केवायसी (eKYC) व फॉर्म भरणे सुरू.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 4. Welcome Section -->
-    <section class="py-5 bg-white">
+    <section class="py-5 mt-4 bg-transparent">
         <div class="container text-center" data-aos="zoom-in" data-aos-duration="800">
             <h2 class="fw-bold mb-3 text-primary">जय सेवालाल!</h2>
             <p class="text-muted col-lg-8 mx-auto fs-5">आमचे ध्येय आमला खुर्द व परिसरातील प्रत्येक नागरिकाला शासकीय, बँकिंग आणि डिजिटल सेवा सुरक्षित, पारदर्शक, जलद आणि योग्य मार्गदर्शनासह उपलब्ध करून देणे आहे.</p>
@@ -270,25 +335,25 @@
     </section>
 
     <!-- 5. About Preview -->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-white">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center bg-light p-4 rounded-5 shadow-sm">
                 <div class="col-md-4 text-center mb-4 mb-md-0" data-aos="fade-right">
-                    <img src="onwer.png" alt="Owner" class="img-fluid rounded-circle shadow-sm mb-3 border border-4 border-white" style="width:250px; height:250px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="onwer.png" alt="Owner" class="img-fluid rounded-circle shadow mb-3 border border-5 border-white" style="width:220px; height:220px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     <h4 class="fw-bold text-dark">प्रताप राठोड</h4>
                     <span class="badge bg-primary px-3 py-2 rounded-pill shadow-sm">Operator</span>
                 </div>
-                <div class="col-md-8" data-aos="fade-left">
+                <div class="col-md-8 ps-md-5" data-aos="fade-left">
                     <h3 class="fw-bold mb-3 text-dark">आमच्याबद्दल थोडक्यात</h3>
                     <p class="fs-5 text-muted lh-lg">प्रत्येक काम योग्य मार्गदर्शन, वाजवी शुल्क, सुरक्षित प्रक्रिया आणि वेळेवर पूर्ण करण्यासाठी आम्ही कटिबद्ध आहोत. ग्राहकांचा विश्वास आणि समाधान हीच आमची खरी ओळख आहे.</p>
-                    <a href="about.html" class="btn btn-outline-primary rounded-pill px-4 mt-3 fw-semibold">अधिक वाचा <i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="about.html" class="btn btn-outline-primary rounded-pill px-4 mt-3 fw-semibold shadow-sm">अधिक वाचा <i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 6. Why Choose Us -->
-    <section class="py-5 bg-white">
+    <section class="py-5 bg-transparent">
         <div class="container text-center">
             <h2 class="fw-bold mb-5 text-dark" data-aos="fade-up">आम्हालाच का निवडावे?</h2>
             <div class="row g-4">
@@ -316,18 +381,18 @@
                 </div>
                 <div class="col-md-4">
                     <i class="fas fa-calendar-check fs-1 mb-3"></i>
-                    <h5 class="fw-bold lh-base">दिव्यांग नागरिकाठी </h5>
+                    <h5 class="fw-bold lh-base">दिव्यांग नागरिकांसाठी विशेष सुविधा</h5>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 9. Top Services -->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-white">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" data-aos="fade-down">
                 <h2 class="fw-bold mb-0 text-dark">आमच्या प्रमुख सेवा</h2>
-                <a href="services.html" class="btn btn-outline-primary rounded-pill px-4 mt-2 mt-sm-0 fw-semibold">सर्व सेवा पहा <i class="fas fa-arrow-right ms-1"></i></a>
+                <a href="services.html" class="btn btn-outline-primary rounded-pill px-4 mt-2 mt-sm-0 fw-semibold shadow-sm">सर्व सेवा पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100"><div class="card service-card h-100 text-center p-4"><i class="fas fa-id-card fs-1 text-primary mb-3"></i><h6 class="fw-bold text-dark">Aadhaar Services</h6></div></div>
@@ -343,23 +408,27 @@
     </section>
 
     <!-- 10. Government Schemes (UPDATED with PMAY-G Card) -->
-    <section class="py-5 bg-white">
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" data-aos="fade-down">
                 <h2 class="fw-bold mb-0 text-dark">शासकीय योजना</h2>
-                <a href="schemes.html" class="btn btn-outline-success rounded-pill px-4 mt-2 mt-sm-0 fw-semibold">सर्व योजना पहा <i class="fas fa-arrow-right ms-1"></i></a>
+                <a href="schemes.html" class="btn btn-outline-success rounded-pill px-4 mt-2 mt-sm-0 fw-semibold shadow-sm">सर्व योजना पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="row g-4">
                 
-                <!-- NEW PMAY-G Status Check Feature Card -->
+                <!-- NEW PMAY-G Status Check Feature Card (Fixed Badge) -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
                     <div class="card scheme-card h-100" style="background: linear-gradient(145deg, #f0f8ff, #ffffff); border-left: 5px solid #0d6efd !important;">
                         <div class="card-body p-4 text-center position-relative">
-                            <span class="badge bg-danger rounded-pill pulse-badge mb-3 position-absolute" style="top: -10px; right: 20px;">नवीन सुविधा</span>
-                            <i class="fas fa-home fs-1 text-primary mb-3"></i>
-                            <h5 class="card-title text-primary fw-bold">PMAY-G (घरकुल योजना)</h5>
-                            <p class="card-text text-muted small">तुमचा घरकुल योजनेचा रजिस्ट्रेशन नंबर आणि स्टेटस त्वरित चेक करा. 100% सुरक्षित.</p>
-                            <a href="pmay-g.html" class="btn btn-primary rounded-pill px-4 mt-2 shadow-sm w-100 fw-semibold">स्टेटस चेक करा <i class="fas fa-check-circle ms-1"></i></a>
+                            <!-- Badge properly positioned inside to avoid cutoff -->
+                            <span class="badge bg-danger rounded-pill pulse-badge mb-3 position-absolute" style="top: 15px; right: 15px;">नवीन सुविधा</span>
+                            
+                            <div class="mt-3">
+                                <i class="fas fa-home fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title text-primary fw-bold">PMAY-G (घरकुल योजना)</h5>
+                                <p class="card-text text-muted small">तुमचा घरकुल योजनेचा रजिस्ट्रेशन नंबर आणि स्टेटस त्वरित चेक करा. 100% सुरक्षित.</p>
+                                <a href="pmay-g.html" class="btn btn-primary rounded-pill px-4 mt-2 shadow-sm w-100 fw-semibold">स्टेटस चेक करा <i class="fas fa-check-circle ms-1"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -378,7 +447,7 @@
     <section class="py-5 text-center" style="background: url('https://www.transparenttextures.com/patterns/cubes.png'), #f8f9fa; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
         <div class="container" data-aos="fade-up">
             <h3 class="mb-4 fw-bold text-dark">आमचे सेवा शुल्क पूर्णपणे पारदर्शक व वाजवी आहेत</h3>
-            <a href="charges.html" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow-sm btn-pulse text-dark"><i class="fas fa-file-invoice-dollar me-2"></i> सर्व्हिस चार्जेस पहा</a>
+            <a href="charges.html" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow-lg btn-pulse text-dark"><i class="fas fa-file-invoice-dollar me-2"></i> सर्व्हिस चार्जेस पहा</a>
         </div>
     </section>
 
@@ -395,15 +464,13 @@
         </div>
     </section>
 
-    <!-- 15. FAQ -->
+    <!-- 15. FAQ (Kept in content but removed from nav as requested) -->
     <section class="py-5 bg-light">
         <div class="container" data-aos="fade-up">
             <div class="text-center mb-5">
                 <h2 class="fw-bold text-dark">वारंवार विचारले जाणारे प्रश्न (FAQ)</h2>
-                <a href="faq.html" class="text-primary text-decoration-none fw-semibold">सर्व प्रश्न पहा <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
-            <!-- Fixed w-lg-75 issue here by using col-lg-8 mx-auto for responsive safety -->
-            <div class="accordion col-lg-8 mx-auto shadow-sm bg-white rounded-4 p-2" id="faqAccordion">
+            <div class="accordion col-lg-8 mx-auto shadow-sm bg-white rounded-4 p-3" id="faqAccordion">
                 <div class="accordion-item border-0 border-bottom">
                     <h2 class="accordion-header">
                         <button class="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">केंद्र किती वाजता उघडते?</button>
@@ -438,11 +505,11 @@
                     </div>
                     <div class="mt-4 d-flex gap-3 flex-wrap">
                         <a href="https://wa.me/917719984464" class="btn btn-success rounded-pill px-4 py-2 fw-bold shadow-sm"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
-                        <a href="contact.html" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm"><i class="fas fa-directions me-2"></i> Get Directions</a>
+                        <a href="tel:+917719984464" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm"><i class="fas fa-phone-alt me-2"></i> Call Now</a>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
-                    <div class="map-container rounded-4 overflow-hidden shadow-sm border border-4 border-white">
+                    <div class="map-container rounded-4 overflow-hidden shadow-sm border border-4 border-light">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12793.311795917589!2d77.80051829160237!3d20.15878779666808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd1650045f41ecf%3A0x3e60ad44cd3228e7!2sPratap%20Online%20centre!5e0!3m2!1sen!2sin!4v1784566165814!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -463,7 +530,6 @@
                     <h5 class="fw-bold mb-3 text-white">Quick Links</h5>
                     <ul class="list-unstyled lh-lg">
                         <li><a href="about.html" class="text-secondary text-decoration-none"><i class="fas fa-angle-right me-2 text-primary"></i> About Us</a></li>
-                        <li><a href="gallery.html" class="text-secondary text-decoration-none"><i class="fas fa-angle-right me-2 text-primary"></i> Gallery</a></li>
                         <li><a href="privacy-policy.html" class="text-secondary text-decoration-none"><i class="fas fa-angle-right me-2 text-primary"></i> Privacy Policy</a></li>
                         <li><a href="terms-and-conditions.html" class="text-secondary text-decoration-none"><i class="fas fa-angle-right me-2 text-primary"></i> Terms & Conditions</a></li>
                         <li><a href="disclaimer.html" class="text-secondary text-decoration-none"><i class="fas fa-angle-right me-2 text-primary"></i> Disclaimer</a></li>
