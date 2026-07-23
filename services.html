@@ -342,7 +342,7 @@
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
                     <input type="text" id="serviceSearch" placeholder="शोधा (उदा. PAN, Aadhaar, Income, 7/12)..." aria-label="Search Services">
-                    <button class="btn btn-primary" onclick="searchServices()">सर्च करा</button>
+                    <button class="btn btn-primary" onclick="searchServices(true)">सर्च करा</button>
                 </div>
                 <div class="search-results-info" id="searchResultText"></div>
             </div>
@@ -700,7 +700,7 @@
 
     <!-- Script for Dynamic Search & UI Updates -->
     <script>
-        function searchServices() {
+        function searchServices(doScroll = false) {
             const input = document.getElementById('serviceSearch').value.toLowerCase().trim();
             const cards = document.querySelectorAll('.service-card');
             const extraSections = document.getElementById('extraSections');
@@ -725,7 +725,6 @@
                 
                 if (title.includes(input) || tags.includes(input)) {
                     card.style.display = 'flex';
-                    // Re-trigger animation by removing and adding class
                     card.classList.remove('highlight-card');
                     void card.offsetWidth; // trigger reflow
                     card.classList.add('highlight-card');
@@ -742,8 +741,19 @@
             // Show result text
             if(foundCount > 0) {
                 resultText.innerHTML = `<span style="color:var(--success);"><i class="fas fa-check-circle"></i> "${input}" साठी ${foundCount} सेवा उपलब्ध आहेत. लगेच कॉल करा!</span>`;
-                // Scroll to grid
-                document.getElementById('servicesGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // फक्त सर्च बटन किंवा Enter दाबल्यावरच स्क्रोल होईल
+                if (doScroll) {
+                    const grid = document.getElementById('servicesGrid');
+                    const headerOffset = 180; // सर्च बार आणि मेनू वरती दिसावा यासाठी
+                    const elementPosition = grid.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                         top: offsetPosition,
+                         behavior: "smooth"
+                    });
+                }
             } else {
                 resultText.innerHTML = `<span style="color:#ef4444;"><i class="fas fa-exclamation-circle"></i> "${input}" साठी कोणतीही सेवा सापडली नाही. कृपया कॉल करून चौकशी करा.</span>`;
             }
@@ -751,7 +761,11 @@
 
         // Live Search on typing
         document.getElementById('serviceSearch').addEventListener('keyup', function(e) {
-            searchServices();
+            if(e.key === 'Enter') {
+                searchServices(true); // Enter दाबल्यावर स्क्रोल होईल 
+            } else {
+                searchServices(false); // टाईप करताना फक्त फिल्टर होईल, पेज उडी मारणार नाही
+            }
         });
     </script>
 </body>
