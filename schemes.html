@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>सरकारी योजना - प्रताप ऑनलाईन सेंटर | Government Schemes</title>
+    <title>सर्व सेवा - प्रताप ऑनलाईन सेंटर, आमला खुर्द | Services</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="प्रताप ऑनलाईन सेंटर, आमला खुर्द. लाडकी बहीण योजना, पीएम किसान, रमाई घरकुल, शेतकरी योजना आणि सर्व सरकारी योजनांची माहिती व ऑनलाईन फॉर्म.">
-    <meta name="keywords" content="Ladki Bahin Yojana, PM Kisan, Gharkul Yojana, Maharashtra Schemes, CSC center Digras, Pratap Online Center">
+    <meta name="description" content="प्रताप ऑनलाईन सेंटर, आमला खुर्द येथे आधार कार्ड, पॅन कार्ड, पीएम किसान, महाडीबीटी, पीक विमा आणि सर्व ३०+ शासकीय सेवा एकाच ठिकाणी. आजच भेट द्या.">
+    <meta name="keywords" content="Aadhaar, PAN Card, CSC center Digras, Maha-e-Seva Amla Khurd, PM Kisan, Crop Insurance, Online forms Yavatmal, Pratap Online Center">
     <meta name="author" content="Pratap Rathod">
     <meta name="robots" content="index, follow">
 
@@ -24,11 +24,12 @@
         :root {
             --primary-color: #1e3a8a; /* Deep Blue */
             --secondary-color: #f59e0b; /* Premium Gold/Orange */
-            --accent-color: #10b981; /* Green for Schemes/Agriculture */
+            --accent-color: #2563eb; /* Bright Blue */
             --bg-light: #f3f4f6;
             --text-dark: #1f2937;
             --text-muted: #6b7280;
             --white: #ffffff;
+            --success: #10b981;
             --whatsapp: #25D366;
             --transition: all 0.3s ease;
         }
@@ -51,7 +52,6 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .text-center { text-align: center; }
         .text-primary { color: var(--primary-color); }
-        .text-accent { color: var(--accent-color); }
 
         /* HEADER & NAV */
         .main-header {
@@ -105,7 +105,7 @@
         /* HERO SECTION */
         .page-hero {
             position: relative;
-            background: linear-gradient(135deg, #0f766e 0%, var(--primary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
             color: var(--white);
             padding: 80px 0;
             text-align: center;
@@ -165,19 +165,19 @@
             color: #d1d5db;
         }
 
-        /* SCHEMES GRID */
-        .all-schemes-section { padding: 60px 0; }
+        /* SERVICES GRID */
+        .all-services-section { padding: 60px 0; }
         .section-title { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; font-family: 'Mukta', sans-serif; }
         .section-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; }
         
-        .scheme-grid {
+        .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
         }
         
         /* PREMIUM CARDS */
-        .scheme-card {
+        .service-card {
             background: var(--white);
             border-radius: 16px;
             padding: 30px 25px;
@@ -189,34 +189,34 @@
             position: relative;
             overflow: hidden;
         }
-        .scheme-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             transform: scaleX(0);
             transition: var(--transition);
             transform-origin: left;
         }
-        .scheme-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-        .scheme-card:hover::before { transform: scaleX(1); }
+        .service-card:hover::before { transform: scaleX(1); }
         
         .card-icon {
             width: 60px; height: 60px;
-            background: #ecfdf5; /* Light green */
+            background: #eff6ff;
             border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
             font-size: 28px;
             margin-bottom: 20px;
-            color: var(--accent-color);
             transition: var(--transition);
         }
-        .scheme-card:hover .card-icon { background: var(--accent-color); color: var(--white); }
+        .service-card:hover .card-icon { background: var(--primary-color); color: var(--white); }
+        .service-card:hover .card-icon i { color: var(--white) !important; }
         
-        .category-badge {
+        .processing-badge {
             position: absolute;
             top: 25px; right: 25px;
             background: #fef3c7; color: #d97706;
@@ -224,14 +224,12 @@
             border-radius: 20px;
             font-size: 0.8rem; font-weight: 600;
         }
-        .card-title { font-size: 1.3rem; color: var(--text-dark); margin-bottom: 10px; font-weight: 700; line-height: 1.4; }
-        .card-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; flex-grow: 1; }
-        
-        .card-features { background: var(--bg-light); padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 0.9rem; }
-        .card-features p { margin-bottom: 5px; font-weight: 600; color: var(--primary-color); }
-        .card-features ul { padding-left: 5px; }
-        .card-features li { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; color: #4b5563; }
-        .card-features li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--accent-color); font-size: 14px; margin-top: 3px; }
+        .card-title { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 10px; font-weight: 700; }
+        .card-desc { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+        .card-features { background: var(--bg-light); padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 0.95rem; }
+        .card-features ul { margin-top: 8px; padding-left: 5px; }
+        .card-features li { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: #4b5563; }
+        .card-features li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--success); font-size: 12px; }
 
         /* ACTION BUTTONS (CALL & WHATSAPP) */
         .card-buttons {
@@ -244,8 +242,7 @@
             background: var(--primary-color);
             color: var(--white);
             justify-content: center;
-            padding: 10px;
-            font-size: 14px;
+            padding: 12px 10px;
         }
         .btn-call-action:hover { background: #1e40af; box-shadow: 0 4px 10px rgba(30, 58, 138, 0.3); }
         .btn-wa-action {
@@ -253,8 +250,7 @@
             color: var(--whatsapp);
             border: 2px solid var(--whatsapp);
             justify-content: center;
-            padding: 10px;
-            font-size: 14px;
+            padding: 12px 10px;
         }
         .btn-wa-action:hover { background: var(--whatsapp); color: var(--white); }
 
@@ -271,16 +267,22 @@
         .float-call { background: var(--primary-color); }
         .float-btn:hover { transform: scale(1.1); }
 
-        /* FOOTER */
-        .main-footer { background: #111827; color: #9ca3af; padding: 60px 0 20px; margin-top: 40px;}
+        /* OTHER SECTIONS (Minimized for focus) */
+        .why-us-section, .process-section, .faq-section { padding: 60px 0; background: var(--white); }
+        .bg-light { background: var(--bg-light); }
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .why-card { padding: 30px; background: var(--bg-light); border-radius: 12px; text-align: center; }
+        .why-card i { font-size: 40px; color: var(--secondary-color); margin-bottom: 20px; }
+        
+        .main-footer { background: #111827; color: #9ca3af; padding: 60px 0 20px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
         .footer-col h3 { color: var(--white); margin-bottom: 20px; }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a:hover { color: var(--secondary-color); }
 
         @media (max-width: 768px) {
-            .nav-actions { display: none; }
-            .page-title { font-size: 2rem; }
+            .nav-actions { display: none; } /* Hide on mobile for space */
+            .page-title { font-size: 2.2rem; }
             .search-box { flex-direction: column; border-radius: 15px; padding: 15px; gap: 10px; }
             .search-box button { position: static; width: 100%; padding: 15px; border-radius: 10px; }
             .search-box input { width: 100%; padding: 10px; text-align: center; }
@@ -320,7 +322,7 @@
                     </div>
                 </a>
                 <div class="nav-actions">
-                    <a href="services.html" class="btn btn-outline" style="border-color: #e5e7eb; color: var(--text-dark);"><i class="fas fa-file-alt"></i> सर्व सेवा</a>
+                    <a href="https://chat.whatsapp.com/Bs4FpjwGMJm9PBVcxY9R01?s=cl&p=a&ilr=4" target="_blank" class="btn btn-outline" style="border-color: #e5e7eb; color: var(--text-dark);"><i class="fas fa-users"></i> Join Group</a>
                     <a href="tel:+917719984464" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
                     <a href="https://wa.me/917719984464" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
@@ -329,265 +331,310 @@
     </header>
 
     <!-- ================= HERO SECTION (WITH SEARCH) ================= -->
-    <section class="page-hero hero-schemes">
+    <section class="page-hero hero-services">
         <div class="hero-overlay"></div>
         <div class="container hero-content text-center">
-            <h1 class="page-title">सरकारी व निमसरकारी योजना</h1>
-            <p class="page-subtitle">शेतकरी, महिला, विद्यार्थी आणि नागरिकांसाठी उपलब्ध सर्व महत्त्वाच्या योजना एकाच ठिकाणी.</p>
+            <h1 class="page-title">आमच्या सर्व सेवा</h1>
+            <p class="page-subtitle">डॉक्युमेंट्स शोधा आणि एका क्लिकवर कॉल किंवा व्हाट्सअँप करा.</p>
             
             <!-- Live Search Bar -->
             <div class="search-container">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" id="schemeSearch" placeholder="योजना शोधा (उदा. लाडकी बहीण, शेतकरी, घरकुल, पेन्शन)..." aria-label="Search Schemes">
-                    <button class="btn btn-primary" onclick="searchSchemes()">सर्च करा</button>
+                    <input type="text" id="serviceSearch" placeholder="शोधा (उदा. PAN, Aadhaar, Income, 7/12)..." aria-label="Search Services">
+                    <button class="btn btn-primary" onclick="searchServices(true)">सर्च करा</button>
                 </div>
                 <div class="search-results-info" id="searchResultText"></div>
             </div>
         </div>
     </section>
 
-    <!-- ================= SCHEMES CATEGORIES ================= -->
-    <section class="all-schemes-section bg-light">
+    <!-- ================= SERVICE CATEGORIES ================= -->
+    <section class="all-services-section bg-light">
         <div class="container">
-            <div class="scheme-grid" id="schemesGrid">
+            <div class="service-grid" id="servicesGrid">
                 
-                <!-- 1. Ladki Bahin Yojana -->
-                <article class="scheme-card" data-tags="ladki bahin yojana women mahila 1500 rs लाडकी बहीण महिला">
-                    <div class="card-icon"><i class="fas fa-female"></i></div>
-                    <span class="category-badge">महिलांसाठी</span>
-                    <h3 class="card-title">मुख्यमंत्री माझी लाडकी बहीण योजना</h3>
-                    <p class="card-desc">पात्र महिलांना राज्य शासनाकडून दरमहा ₹१५००/- आर्थिक मदत.</p>
+                <!-- 1. Aadhaar Services -->
+                <article class="service-card" data-tags="aadhaar aadhar card update mobile link uidai fingerprint आधार">
+                    <div class="card-icon"><i class="fas fa-fingerprint"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> २-५ दिवस</span>
+                    <h3 class="card-title">1. Aadhaar Services</h3>
+                    <p class="card-desc">आधार कार्ड काढणे, दुरुस्ती करणे आणि मोबाईल नंबर लिंक करणे.</p>
                     <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
                         <ul>
-                            <li>आधार कार्ड (मोबाईल लिंक)</li>
-                            <li>बँक पासबुक (आधार लिंक / DBT)</li>
-                            <li>रेशन कार्ड व रहिवासी दाखला</li>
-                            <li>उत्पन्न दाखला (२.५ लाखांच्या आत)</li>
+                            <li>जुने आधार कार्ड</li>
+                            <li>शाळा सोडल्याचा दाखला / जन्म प्रमाणपत्र</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20लाडकी%20बहीण%20योजनेचा%20फॉर्म%20भरायचा%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://wa.me/917719984464?text=I%20need%20Aadhaar%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
                     </div>
                 </article>
 
-                <!-- 2. PM Kisan Samman Nidhi -->
-                <article class="scheme-card" data-tags="pm kisan farmer shetkari 6000 agriculture ekyc पीएम किसान शेतकरी">
-                    <div class="card-icon"><i class="fas fa-tractor"></i></div>
-                    <span class="category-badge">शेतकऱ्यांसाठी</span>
-                    <h3 class="card-title">पीएम किसान सन्मान निधी योजना</h3>
-                    <p class="card-desc">शेतकरी कुटुंबांना दरवर्षी ₹६,०००/- ची आर्थिक मदत (केंद्राकडून).</p>
+                <!-- 2. PAN Card -->
+                <article class="service-card" data-tags="pan card nsdl utiit tax income document ready पॅन">
+                    <div class="card-icon"><i class="fas fa-id-card"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> ३-७ दिवस</span>
+                    <h3 class="card-title">2. PAN Card</h3>
+                    <p class="card-desc">नवीन पॅन कार्ड काढणे किंवा जुन्या पॅन मध्ये दुरुस्ती करणे.</p>
                     <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
                         <ul>
                             <li>आधार कार्ड</li>
+                            <li>२ पासपोर्ट साईज फोटो</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=I%20need%20PAN%20Card%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 3. Passport -->
+                <article class="service-card" data-tags="passport visa travel foreign पासपोर्ट">
+                    <div class="card-icon"><i class="fas fa-passport"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> १५-३० दिवस</span>
+                    <h3 class="card-title">3. Passport</h3>
+                    <p class="card-desc">नवीन पासपोर्ट अर्ज आणि रिन्यूअल प्रक्रिया.</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>आधार, पॅन, बँक पासबुक</li>
+                            <li>१०वी/१२वी मार्कशीट</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=I%20need%20Passport%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 4. Driving Licence -->
+                <article class="service-card" data-tags="driving licence rto vehicle license dl ll ड्रायव्हिंग लायसन्स">
+                    <div class="card-icon"><i class="fas fa-car"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> ३०-४५ दिवस</span>
+                    <h3 class="card-title">4. Driving Licence</h3>
+                    <p class="card-desc">लर्निंग आणि पक्के ड्रायव्हिंग लायसन्स (२/४ व्हिलर).</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>आधार कार्ड, पॅन कार्ड</li>
+                            <li>रक्तगट रिपोर्ट (Blood Group)</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=I%20need%20Driving%20Licence" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 5. Voter ID -->
+                <article class="service-card" data-tags="voter id election card epic voting मतदान">
+                    <div class="card-icon"><i class="fas fa-vote-yea"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> ३० दिवस</span>
+                    <h3 class="card-title">5. Voter ID</h3>
+                    <p class="card-desc">नवीन मतदान कार्ड काढणे आणि पत्ता/नाव बदलणे.</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>आधार कार्ड</li>
+                            <li>रहिवासी पुरावा, फोटो</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=I%20need%20Voter%20ID%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 6. PM Kisan -->
+                <article class="service-card" data-tags="pm kisan farmer yojana shetkari 6000 ekyc शेतकरी किसान">
+                    <div class="card-icon"><i class="fas fa-tractor"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> तत्काळ</span>
+                    <h3 class="card-title">6. PM Kisan</h3>
+                    <p class="card-desc">पीएम किसान सन्मान निधी नवीन नोंदणी व eKYC.</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>आधार, बँक पासबुक</li>
                             <li>७/१२ आणि ८-अ उतारा</li>
-                            <li>बँक पासबुक</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20PM%20Kisan%20योजनेची%20माहिती%20हवी%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://wa.me/917719984464?text=PM%20Kisan%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
                     </div>
                 </article>
 
-                <!-- 3. Namo Shetkari Yojana -->
-                <article class="scheme-card" data-tags="namo shetkari maha samman nidhi 6000 maharashtra नमो शेतकरी महासन्मान">
-                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                    <span class="category-badge">शेतकऱ्यांसाठी</span>
-                    <h3 class="card-title">नमो शेतकरी महासन्मान निधी</h3>
-                    <p class="card-desc">पीएम किसान योजनेच्या लाभार्थ्यांना राज्य शासनाकडून अतिरिक्त ₹६,०००/-.</p>
+                <!-- 7. MahaDBT -->
+                <article class="service-card" data-tags="mahadbt scholarship students education महाडीबीटी">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> १-२ दिवस</span>
+                    <h3 class="card-title">7. MahaDBT</h3>
+                    <p class="card-desc">विद्यार्थ्यांसाठी महाडीबीटी शिष्यवृत्ती फॉर्म भरणे.</p>
                     <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
                         <ul>
-                            <li>पीएम किसान योजनेत नोंदणी आवश्यक</li>
-                            <li>eKYC पूर्ण असणे गरजेचे</li>
-                            <li>आधार लिंक बँक खाते</li>
+                            <li>उत्पन्न व जातीचा दाखला</li>
+                            <li>मार्कशीट, बँक खाते</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20नमो%20शेतकरी%20योजनेची%20माहिती%20हवी%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://wa.me/917719984464?text=MahaDBT%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
                     </div>
                 </article>
 
-                <!-- 4. Gharkul Yojana -->
-                <article class="scheme-card" data-tags="gharkul pm awas yojana pradhan mantri ramai shabari housing घरकुल रमाई शबरी">
-                    <div class="card-icon"><i class="fas fa-home"></i></div>
-                    <span class="category-badge">सर्वांसाठी</span>
-                    <h3 class="card-title">घरकुल योजना (रमाई/शबरी/पीएम आवास)</h3>
-                    <p class="card-desc">स्वतःच्या जागेवर पक्के घर बांधण्यासाठी शासनाकडून अनुदान.</p>
+                <!-- 8. Ayushman Bharat -->
+                <article class="service-card" data-tags="ayushman bharat health card hospital medical 5 lakh आयुष्यमान">
+                    <div class="card-icon"><i class="fas fa-notes-medical"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> १५ मिनिटे</span>
+                    <h3 class="card-title">8. Ayushman Bharat</h3>
+                    <p class="card-desc">५ लाखांपर्यंत मोफत उपचारासाठी हेल्थ कार्ड काढणे.</p>
                     <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
-                        <ul>
-                            <li>आधार कार्ड, रेशन कार्ड</li>
-                            <li>जागेचा पुरावा (८-अ / ग्रामपंचायत उतारा)</li>
-                            <li>जातीचा दाखला (रमाई/शबरी साठी)</li>
-                        </ul>
-                    </div>
-                    <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20घरकुल%20योजनेचा%20फॉर्म%20भरायचा%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    </div>
-                </article>
-
-                <!-- 5. Mahatma Jyotirao Phule Jan Arogya -->
-                <article class="scheme-card" data-tags="jan arogya health insurance hospital mahatma phule medical mjpjay आरोग्य">
-                    <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
-                    <span class="category-badge">आरोग्य</span>
-                    <h3 class="card-title">महात्मा जोतीराव फुले जन आरोग्य योजना</h3>
-                    <p class="card-desc">पिवळ्या किंवा केशरी रेशन कार्ड धारकांना ५ लाखांपर्यंत मोफत उपचार.</p>
-                    <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
                         <ul>
                             <li>रेशन कार्ड (केशरी/पिवळे)</li>
                             <li>आधार कार्ड</li>
-                            <li>उत्पन्नाचा दाखला (काही आजारांसाठी)</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20आरोग्य%20योजनेची%20माहिती%20हवी%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://wa.me/917719984464?text=Ayushman%20Bharat%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
                     </div>
                 </article>
 
-                <!-- 6. Crop Insurance (PMFBY) -->
-                <article class="scheme-card" data-tags="crop insurance pik vima pmfby sheti agriculture पीक विमा">
-                    <div class="card-icon"><i class="fas fa-cloud-sun-rain"></i></div>
-                    <span class="category-badge">शेतकऱ्यांसाठी</span>
-                    <h3 class="card-title">प्रधानमंत्री पीक विमा योजना (PMFBY)</h3>
-                    <p class="card-desc">नैसर्गिक आपत्तीमुळे पिकांचे नुकसान झाल्यास नुकसान भरपाई (फक्त १ रुपयात नोंदणी).</p>
+                <!-- 9. Govt Schemes -->
+                <article class="service-card" data-tags="government schemes ladki bahin yojana gr लाडकी बहीण योजना">
+                    <div class="card-icon"><i class="fas fa-landmark"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> योजनेनुसार</span>
+                    <h3 class="card-title">9. Govt Schemes</h3>
+                    <p class="card-desc">लाडकी बहीण योजना आणि इतर सर्व सरकारी योजनांचे फॉर्म.</p>
                     <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
                         <ul>
-                            <li>७/१२, ८-अ, पीक पेरा (ग्रामसेवक)</li>
+                            <li>आधार, बँक पासबुक</li>
+                            <li>योजनेनुसार इतर कागदपत्रे</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=Govt%20Schemes%20Info" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 10. Banking & AEPS -->
+                <article class="service-card" data-tags="banking account opening savings csp aeps cash withdrawal atm बँक पैसे">
+                    <div class="card-icon"><i class="fas fa-university"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> तत्काळ</span>
+                    <h3 class="card-title">10. Banking & AEPS</h3>
+                    <p class="card-desc">नवीन बँक खाते उघडणे व आधारवरून पैसे काढणे (Cash Withdrawal).</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>आधार कार्ड / पॅन कार्ड</li>
+                            <li>बँकेचे नाव</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=Banking%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 11. Income Certificate -->
+                <article class="service-card" data-tags="income certificate utpanna dakhla tehsil revenue उत्पन्न दाखला">
+                    <div class="card-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> ८-१५ दिवस</span>
+                    <h3 class="card-title">11. Income Certificate</h3>
+                    <p class="card-desc">तहसीलदार उत्पन्न प्रमाणपत्र (१ किंवा ३ वर्षांचे).</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>तलाठी अहवाल, रेशन कार्ड</li>
+                            <li>आधार कार्ड, फोटो</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=Income%20Certificate" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 12. Caste Certificate -->
+                <article class="service-card" data-tags="caste certificate jati dakhla obc sc st vjnt जातीचा दाखला">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> १५-३० दिवस</span>
+                    <h3 class="card-title">12. Caste Certificate</h3>
+                    <p class="card-desc">जातीचा दाखला (Caste Certificate) ऑनलाईन अर्ज.</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>वडिलांचा/आजोबांचा टीसी (TC)</li>
+                            <li>वंशावळ, शपथपत्र, आधार</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=Caste%20Certificate" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+
+                <!-- 13. Domicile Certificate -->
+                <article class="service-card" data-tags="domicile nationality certificate rahivasi dakhla age रहिवासी">
+                    <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> १५ दिवस</span>
+                    <h3 class="card-title">13. Domicile & Age</h3>
+                    <p class="card-desc">वय, राष्ट्रीयत्व आणि अधिवास प्रमाणपत्र (Nationality/Domicile).</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>१५ वर्षांचा रहिवासी पुरावा</li>
+                            <li>आधार, टीसी (TC)</li>
+                        </ul>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://wa.me/917719984464?text=Domicile%20Certificate" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    </div>
+                </article>
+                
+                <!-- 14. Crop Insurance -->
+                <article class="service-card" data-tags="crop insurance pik vima pmfby sheti farmer agriculture पीक विमा">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> तत्काळ</span>
+                    <h3 class="card-title">14. Crop Insurance</h3>
+                    <p class="card-desc">प्रधानमंत्री पीक विमा योजना (PMFBY) नोंदणी.</p>
+                    <div class="card-features">
+                        <strong><i class="fas fa-file-alt text-primary"></i> आवश्यक कागदपत्रे:</strong>
+                        <ul>
+                            <li>७/१२, ८-अ, पीक पेरा</li>
                             <li>बँक पासबुक, आधार कार्ड</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20पीक%20विमा%20भरायचा%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    </div>
-                </article>
-
-                <!-- 7. Sanjay Gandhi Niradhar Yojana -->
-                <article class="scheme-card" data-tags="sanjay gandhi niradhar pension widow old age shravanbal संजय गांधी निराधार पेन्शन">
-                    <div class="card-icon"><i class="fas fa-blind"></i></div>
-                    <span class="category-badge">पेन्शन</span>
-                    <h3 class="card-title">संजय गांधी निराधार / श्रावणबाळ योजना</h3>
-                    <p class="card-desc">ज्येष्ठ नागरिक, विधवा, आणि अपंगांना शासनाकडून दरमहा पेन्शन.</p>
-                    <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
-                        <ul>
-                            <li>वयाचा पुरावा / अपंगत्व प्रमाणपत्र</li>
-                            <li>उत्पन्नाचा दाखला (२१ हजारांच्या आत)</li>
-                            <li>बँक पासबुक, आधार, रेशन कार्ड</li>
-                        </ul>
-                    </div>
-                    <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20निराधार%20पेन्शन%20योजनेचा%20फॉर्म%20भरायचा%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    </div>
-                </article>
-
-                <!-- 8. MahaDBT Scholarships -->
-                <article class="scheme-card" data-tags="mahadbt scholarship students education caste minority महाडीबीटी शिष्यवृत्ती">
-                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
-                    <span class="category-badge">विद्यार्थ्यांसाठी</span>
-                    <h3 class="card-title">महाडीबीटी शिष्यवृत्ती (MahaDBT)</h3>
-                    <p class="card-desc">SC, ST, OBC, VJNT, EBC आणि अल्पसंख्याक विद्यार्थ्यांसाठी शैक्षणिक शिष्यवृत्ती.</p>
-                    <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
-                        <ul>
-                            <li>उत्पन्न व जातीचा दाखला</li>
-                            <li>मागील वर्षाची मार्कशीट, बोनाफाईड</li>
-                            <li>आधार लिंक बँक खाते</li>
-                        </ul>
-                    </div>
-                    <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20MahaDBT%20शिष्यवृत्तीचा%20फॉर्म%20भरायचा%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    </div>
-                </article>
-
-                <!-- 9. Magel Tyala Shet Tale -->
-                <article class="scheme-card" data-tags="shet tale magel tyala krishi agriculture pond मागेल त्याला शेततळे">
-                    <div class="card-icon"><i class="fas fa-water"></i></div>
-                    <span class="category-badge">शेतकऱ्यांसाठी</span>
-                    <h3 class="card-title">मागेल त्याला शेततळे योजना</h3>
-                    <p class="card-desc">पावसाचे पाणी साठवण्यासाठी शेतामध्ये शेततळे खोदण्यासाठी शासनाचे अनुदान.</p>
-                    <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
-                        <ul>
-                            <li>७/१२ (किमान ०.६० हेक्टर जमीन)</li>
-                            <li>८-अ उतारा</li>
-                            <li>आधार कार्ड, बँक पासबुक</li>
-                        </ul>
-                    </div>
-                    <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20शेततळे%20योजनेची%20माहिती%20हवी%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://wa.me/917719984464?text=Crop%20Insurance" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
                     </div>
                 </article>
                 
-                <!-- 10. Gopinath Munde Apghat Vima -->
-                <article class="scheme-card" data-tags="gopinath munde apghat vima shetkari insurance accident अपघात विमा">
-                    <div class="card-icon"><i class="fas fa-user-injured"></i></div>
-                    <span class="category-badge">शेतकऱ्यांसाठी</span>
-                    <h3 class="card-title">गोपीनाथ मुंडे शेतकरी अपघात सुरक्षा सानुग्रह अनुदान</h3>
-                    <p class="card-desc">शेतकऱ्याचा अपघाती मृत्यू किंवा कायमचे अपंगत्व आल्यास कुटुंबाला २ लाखांपर्यंत मदत.</p>
+                <!-- 15. Print & Xerox -->
+                <article class="service-card" data-tags="xerox photocopy document copy colour print scan lamination प्रिंट झेरॉक्स">
+                    <div class="card-icon"><i class="fas fa-print"></i></div>
+                    <span class="processing-badge"><i class="fas fa-clock"></i> तत्काळ</span>
+                    <h3 class="card-title">15. Print & Xerox</h3>
+                    <p class="card-desc">HD कलर/ब्लॅक प्रिंट, झेरॉक्स, लॅमिनेशन आणि डॉक्युमेंट स्कॅनिंग.</p>
                     <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
+                        <strong><i class="fas fa-file-alt text-primary"></i> सेवा:</strong>
                         <ul>
-                            <li>FIR / पोस्टमार्टम रिपोर्ट (मृत्यू असल्यास)</li>
-                            <li>७/१२, ८-अ, वारस नोंद</li>
-                            <li>आधार कार्ड व बँक पासबुक</li>
+                            <li>WhatsApp Print / PDF Print</li>
+                            <li>ID Card Lamination</li>
                         </ul>
                     </div>
                     <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20शेतकरी%20अपघात%20विमा%20योजनेची%20माहिती%20हवी%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    </div>
-                </article>
-
-                <!-- 11. Labour Registration (BOCW) -->
-                <article class="scheme-card" data-tags="labour registration mahabocw bandhkam kamgar rojgar बांधकाम कामगार">
-                    <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
-                    <span class="category-badge">कामगारांसाठी</span>
-                    <h3 class="card-title">बांधकाम कामगार नोंदणी (MAHABOCW)</h3>
-                    <p class="card-desc">नोंदणीकृत बांधकाम कामगारांना भांडी, पेटी, शिष्यवृत्ती व इतर लाभ.</p>
-                    <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
-                        <ul>
-                            <li>९० दिवस काम केल्याचे प्रमाणपत्र (ठेकेदार/ग्रामसेवक)</li>
-                            <li>आधार कार्ड, रेशन कार्ड</li>
-                            <li>बँक पासबुक</li>
-                        </ul>
-                    </div>
-                    <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20बांधकाम%20कामगार%20नोंदणी%20करायची%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    </div>
-                </article>
-
-                <!-- 12. Sukanya Samriddhi Yojana -->
-                <article class="scheme-card" data-tags="sukanya samriddhi yojana girl post office kanya सुकन्या समृद्धी">
-                    <div class="card-icon"><i class="fas fa-child"></i></div>
-                    <span class="category-badge">मुलींसाठी</span>
-                    <h3 class="card-title">सुकन्या समृद्धी योजना</h3>
-                    <p class="card-desc">१० वर्षांखालील मुलींच्या उच्च शिक्षण व लग्नासाठी पोस्ट ऑफिस/बँकेत खाते (जास्त व्याजदर).</p>
-                    <div class="card-features">
-                        <p><i class="fas fa-file-alt"></i> आवश्यक कागदपत्रे:</p>
-                        <ul>
-                            <li>मुलीचा जन्म दाखला</li>
-                            <li>पालकांचे आधार कार्ड व पॅन कार्ड</li>
-                            <li>२ पासपोर्ट फोटो</li>
-                        </ul>
-                    </div>
-                    <div class="card-buttons">
-                        <a href="https://wa.me/917719984464?text=मला%20सुकन्या%20समृद्धी%20योजनेची%20माहिती%20हवी%20आहे" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://wa.me/917719984464?text=I%20need%20Printing%20Service" class="btn btn-wa-action"><i class="fab fa-whatsapp"></i> Send PDF</a>
                         <a href="tel:+917719984464" class="btn btn-call-action"><i class="fas fa-phone-alt"></i> Call Now</a>
                     </div>
                 </article>
@@ -595,6 +642,33 @@
             </div>
         </div>
     </section>
+
+    <!-- OTHER SECTIONS (Hidden initially during active search) -->
+    <div id="extraSections">
+        <!-- ================= WHY CHOOSE US ================= -->
+        <section class="why-us-section">
+            <div class="container text-center">
+                <h2 class="section-title">आमचे केंद्रच का?</h2>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <i class="fas fa-rupee-sign"></i>
+                        <h4>Transparent Charges</h4>
+                        <p>सर्व सेवांचे दरपत्रक स्पष्ट असून कोणतेही छुपे शुल्क नाही.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Secure Data</h4>
+                        <p>तुमची कागदपत्रे आणि वैयक्तिक माहिती आमच्याकडे पूर्णपणे सुरक्षित आहे.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Fast Processing</h4>
+                        <p>शक्य तितक्या लवकर तुमचे काम पूर्ण करण्याची हमी.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- ================= FOOTER ================= -->
     <footer class="main-footer">
@@ -609,7 +683,6 @@
                     <ul class="footer-links">
                         <li><i class="fas fa-phone"></i> +91 7719984464</li>
                         <li><i class="fab fa-whatsapp"></i> +91 7719984464</li>
-                        <li><a href="services.html" style="text-decoration: underline; color: var(--secondary-color);">आमच्या सर्व सेवा पाहा</a></li>
                     </ul>
                 </div>
             </div>
@@ -625,11 +698,12 @@
         <a href="tel:+917719984464" class="float-btn float-call" aria-label="Call"><i class="fas fa-phone-alt"></i></a>
     </div>
 
-    <!-- Script for Dynamic Search -->
+    <!-- Script for Dynamic Search & UI Updates -->
     <script>
-        function searchSchemes() {
-            const input = document.getElementById('schemeSearch').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.scheme-card');
+        function searchServices(doScroll = false) {
+            const input = document.getElementById('serviceSearch').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.service-card');
+            const extraSections = document.getElementById('extraSections');
             const resultText = document.getElementById('searchResultText');
             let foundCount = 0;
 
@@ -639,6 +713,7 @@
                     card.style.display = 'flex';
                     card.classList.remove('highlight-card');
                 });
+                extraSections.style.display = 'block';
                 resultText.innerHTML = '';
                 return;
             }
@@ -647,13 +722,11 @@
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').innerText.toLowerCase();
                 const tags = card.getAttribute('data-tags').toLowerCase();
-                const badge = card.querySelector('.category-badge').innerText.toLowerCase();
                 
-                if (title.includes(input) || tags.includes(input) || badge.includes(input)) {
+                if (title.includes(input) || tags.includes(input)) {
                     card.style.display = 'flex';
-                    // Re-trigger animation
                     card.classList.remove('highlight-card');
-                    void card.offsetWidth; 
+                    void card.offsetWidth; // trigger reflow
                     card.classList.add('highlight-card');
                     foundCount++;
                 } else {
@@ -662,18 +735,37 @@
                 }
             });
 
+            // Hide other sections to focus on results
+            extraSections.style.display = 'none';
+
             // Show result text
             if(foundCount > 0) {
-                resultText.innerHTML = `<span style="color:var(--white); background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;"><i class="fas fa-check-circle"></i> "${input}" साठी ${foundCount} योजना उपलब्ध आहेत.</span>`;
-                document.getElementById('schemesGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                resultText.innerHTML = `<span style="color:var(--success);"><i class="fas fa-check-circle"></i> "${input}" साठी ${foundCount} सेवा उपलब्ध आहेत. लगेच कॉल करा!</span>`;
+                
+                // फक्त सर्च बटन किंवा Enter दाबल्यावरच स्क्रोल होईल
+                if (doScroll) {
+                    const grid = document.getElementById('servicesGrid');
+                    const headerOffset = 180; // सर्च बार आणि मेनू वरती दिसावा यासाठी
+                    const elementPosition = grid.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                         top: offsetPosition,
+                         behavior: "smooth"
+                    });
+                }
             } else {
-                resultText.innerHTML = `<span style="color:#fca5a5; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;"><i class="fas fa-exclamation-circle"></i> "${input}" शी संबंधित कोणतीही योजना सापडली नाही. कॉल करून चौकशी करा.</span>`;
+                resultText.innerHTML = `<span style="color:#ef4444;"><i class="fas fa-exclamation-circle"></i> "${input}" साठी कोणतीही सेवा सापडली नाही. कृपया कॉल करून चौकशी करा.</span>`;
             }
         }
 
         // Live Search on typing
-        document.getElementById('schemeSearch').addEventListener('keyup', function(e) {
-            searchSchemes();
+        document.getElementById('serviceSearch').addEventListener('keyup', function(e) {
+            if(e.key === 'Enter') {
+                searchServices(true); // Enter दाबल्यावर स्क्रोल होईल 
+            } else {
+                searchServices(false); // टाईप करताना फक्त फिल्टर होईल, पेज उडी मारणार नाही
+            }
         });
     </script>
 </body>
